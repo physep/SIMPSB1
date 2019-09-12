@@ -5,12 +5,45 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <title>TODO supply a title</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+     <h:head>
+        <title>Crear Horario</title>
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+         <!-- ESTILOS BOOSTRAP -->
+         <link href="../../resources/css/Horarios/crearHorario.css" rel="stylesheet" type="text/css"/>
+         <link href="../../../resources/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    </h:head>
+    <h:body >
+          <!-- CONTENEDOR -->
+        <div class="container">
+             <!-- fONDO DE FORMULARIO -->
+            <div class="formulario modal-body">
+                <div class="titulo">
+                    <h1 class="text-center">CREAR HORARIO</h1>
+                    <!-- Formulario -->
+                    <h:form>
+                        <!-- Horario del empleado -->
+			<!-- Hora inicial -->
+                        <div>
+                            <h:outputLabel for="horaIn" value="HORA INICIAL"/>
+                            <h:inputText styleClass="form-group col-md-12" id="horaInicial" ></h:inputText>
+                            <h:message for="horaInicial"/>
+                        </div>
+                        <!-- Hora final -->
+                        <div>
+                            <h:outputLabel for="horaFn" value="HORA FINAL"/>
+                            <h:inputText styleClass=" form-group col-md-12" id="horaFinal" ></h:inputText>
+                            <h:message for="horaFinal"/>
+                        </div>
+                         <h:commandButton styleClass="btn boton d-block mx-auto" value="CREAR"/>
+                    </h:form>
+                </div>
+            </div>
+        </div>
+    </h:body>
 </html>

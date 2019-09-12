@@ -10,29 +10,49 @@ and open the template in the editor.
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
     <h:head>
-        <title>Agendar Cita</title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
-        <link href="../../resources/css/Citas/agendarCita.css" rel="stylesheet" type="text/css"/>
+        <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Agendar Cita</title>
+        <link href="../../../resources/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../../resources/css/Citas/agendarCita.css" rel="stylesheet" type="text/css"/>
     </h:head>
-    <h:body>
+    <h:body styleClass="fondo">
         <f:view locale="es">           
             <h:messages globalOnly="true" showDetail="true"/>
             <!--Migas de Pan-->
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item active" aria-current="page"></li>
+                    <li class="breadcrumb-item active" aria-current="page">#{agcitaEti.current_agendarCita}</li>
                 </ol>
             </nav> 
             <!-- Area de Trabajo -->
             <div class="container">
                 <div class="formulario d-block mx-auto">
+                    <div class="titulo">
                         <h1 class="text-center">#{agcitaEti.titulo_agendarCita}</h1>
+                    </div>
+
                     <h:form>
-                        <h:outputLabel for="fecha" value="#{agcitaEti.fecha}"/>
-                        <h:inputText id="fecha" styleClass="form form-control" value="#{citasController.citas.fecha}"/>
-                        <h:message for="fecha"/>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <h:outputLabel for="fecha" value="#{agcitaEti.fecha}"/>
+                                <h:inputText id="fecha" styleClass="form form-control" a:type="date" value="#{citasController.citas.fecha}" required=""/>
+                                <h:message for="fecha"/>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <h:outputLabel for="hora" value="#{agcitaEti.hora}"/>
+                                <h:inputText id="hora" styleClass="form form-control"  a:type="time" value="#{citasController.citas.hora}" required=""/>
+                                <h:message for="hora"/>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group col-md-12">
+                            <h:selectOneMenu id="servicio" value="#{serviciosController.servicios.idServicio}"/>
+                            <f:selectItem itemLabel="#{agcitaEti.seleccionar}" itemValue=""/>
+                            <f:selectItems value="#{serviciosController.listarServicios}"/>
+                        </div>
+
                     </h:form>
                 </div>
             </div>

@@ -16,7 +16,7 @@ public class ServiciosController {
     @EJB
     private ServiciosFacadeLocal serviciosFacadeLocal;
     private Servicios servicios;
-    
+
     @PostConstruct
     public void init(){
         servicios = new Servicios();

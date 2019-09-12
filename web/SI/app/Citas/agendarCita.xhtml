@@ -46,13 +46,25 @@ and open the template in the editor.
                                 <h:message for="hora"/>
                             </div>
                         </div>
-                        
+
                         <div class="form-group col-md-12">
-                            <h:selectOneMenu id="servicio" value="#{serviciosController.servicios.idServicio}"/>
-                            <f:selectItem itemLabel="#{agcitaEti.seleccionar}" itemValue=""/>
-                            <f:selectItems value="#{serviciosController.listarServicios}"/>
+                            <h:outputLabel for="servicio" value="#{agcitaEti.servicio}"/>
+                            <h:selectOneMenu id="servicio" value="#{serviciosController.servicios.idServicio}" styleClass="form form-control">
+                                <f:selectItem itemLabel="#{agcitaEti.seleccionar}" itemValue="0"/>
+                                <f:selectItems value="#{serviciosController.listServicios}" var="servicio" itemValue="#{servicio.setIdServicio(idServicio)}" itemLabel="#{servicio.nombre}"/>
+                            </h:selectOneMenu>
                         </div>
 
+                        <div class="form-group col-md-12">
+                            <h:outputLabel for="empleado" value="#{agcitaEti.empleado}"/>
+                            <h:selectOneMenu id="empleado" value="#{empleadoController.empleado.idEmpleado}" styleClass="form form-control">
+                                <f:selectItem itemLabel="#{agcitaEti.seleccionar}" itemValue="0"/>
+                                <f:selectItems value="#{empleadoController.listarEmpleados}"/>
+                            </h:selectOneMenu>
+                        </div>
+                    </h:form>
+                    <h:form>
+                        <h:commandButton styleClass="btn boton d-block mx-auto" action="#{citasController.generarCita()}" onclick="" value="#{agcitaEti.btn_agendar}"/>
                     </h:form>
                 </div>
             </div>

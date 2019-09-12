@@ -5,10 +5,13 @@
  */
 package simpsb.DAO;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
+import javax.faces.model.SelectItem;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import simpsb.entidades.Servicios;
 
 /**
@@ -28,7 +31,7 @@ public class ServiciosFacade extends AbstractFacade<Servicios> implements Servic
     public ServiciosFacade() {
         super(Servicios.class);
     }
-
+    
     @Override
     public void create(Servicios servicios) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -63,5 +66,5 @@ public class ServiciosFacade extends AbstractFacade<Servicios> implements Servic
     public int count() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
 }

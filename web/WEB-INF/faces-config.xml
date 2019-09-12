@@ -17,6 +17,11 @@
             <base-name>simpsb.languages.Citas.agendarCita</base-name>
             <var>agcitaEti</var>
         </resource-bundle>
+        
+        <resource-bundle>
+            <base-name>simpsb.languages.Citas.consultarCita</base-name>
+            <var>concitaEti</var>
+        </resource-bundle>
 
     </application>
 </faces-config>

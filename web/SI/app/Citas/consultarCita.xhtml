@@ -5,12 +5,77 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <title>TODO supply a title</title>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+        <title>Consultar Cita</title>
+        <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
+        <link href="../../../resources/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../../resources/css/Citas/consultarCita.css" rel="stylesheet" type="text/css"/>
+    </h:head>
+
+    <h:body styleClass="fondo">
+        <f:view locale="es">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item  text-right"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item  active" aria-current="page">#{concitaEti.current_consultarCita}</li>
+                </ol>
+            </nav>
+            <div class="container">
+                <div class="tabla d-block mx-auto">
+                    <div class="titulo">
+                        <h1 class="text-center">#{concitaEti.titulo_consultarCita}</h1>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <h:form>
+                                <h:dataTable value="#{citasController.listarCitas()}" var="cita" styleClass="table table-striped table-bordered dt-responsive nowrap">
+                                    <h:column>
+                                        <f:facet name="header">ID</f:facet>
+                                        <h:outputText id="id" value="#{cita.idCita}"/>
+                                    </h:column>
+
+                                    <h:column>
+                                        <f:facet name="header">#{concitaEti.enc_nombre}</f:facet>
+                                        <h:outputText id="cliente" value="#{cita.idCliente}"/>
+                                    </h:column>
+
+                                    <h:column>
+                                        <f:facet name="header">#{concitaEti.enc_servicio}</f:facet>
+                                        <h:outputText id="servicio" value="#{cita.idServicio}"/>
+                                    </h:column>
+
+                                    <h:column>
+                                        <f:facet name="header">#{concitaEti.enc_fecha}</f:facet>
+                                        <h:outputText id="fecha" value="#{cita.fecha}"/>
+                                    </h:column>
+
+                                    <h:column>
+                                        <f:facet name="header">#{concitaEti.enc_hora}</f:facet>
+                                        <h:outputText id="hora" value="#{cita.hora}"/>
+                                    </h:column>
+
+                                    <h:column>
+                                        <f:facet name="header">#{concitaEti.enc_empleado}</f:facet>
+                                        <h:outputText id="empleado" value="#{cita.idEmpleado}"/>
+                                    </h:column>
+
+                                    <h:column>
+                                        <f:facet name="header">#{concitaEti.enc_acciones}</f:facet>
+
+                                    </h:column>
+
+
+                                </h:dataTable>
+                            </h:form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </f:view>
+    </h:body>
 </html>

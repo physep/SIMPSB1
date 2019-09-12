@@ -42,9 +42,14 @@
     color: rgb(210, 210, 210);	
     background-color: rgba(0,0,0,.9);
 }
-.boton:hover{
-    color: #000;
+.boton{
     background-color: #D4AF37;
+}
+.boton:hover{
+    color: #D4AF37;
+    background: rgb(0,0,0);
+    border-bottom: 1px solid #D4AF37;
+
 }
 /* TABLA */
 p{
@@ -69,12 +74,12 @@ p img{
     padding: 0;
 }
 
-input:valid, select:valid{
+/*input:valid, select:valid{
     border: 2px solid green; 
 }
 input:invalid, select:invalid{
     border: 2px solid #D4AF37; 
-}
+}*/
 .swal-button{
     background-color: #D4AF37;
 }

@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Raleway', sans-serif;	
+
+}
+/* COLORES */
+
+/* AMARILLO #D4AF37*/
+/* GRIS LETRA rgb(210, 210, 210)*/
+.fondo{
+    background-color: rgb(203,203,210);
+}
+/*MIGAS*/
+.breadcrumb{
+    border-radius: 0;
+    background: rgba(42, 43, 42, 1);	
+}
+.breadcrumb a{
+    color: #D4AF37;
+}
+.breadcrumb a:hover{
+    border-bottom: 2px solid #D4AF37;
+    color: #D4AF37;
+}
+.titulo h1{
+    padding-bottom: 10px;
+    border-bottom: 3px solid #D4AF37;
+}
+.row{
+    margin-top: 30px;
+}
+.tabla{
+    border-radius: 5px;
+    color: rgb(210, 210, 210);
+    padding: 50px;
+    background-color: rgba(0,0,0,.9);
+}
+/* TABLA */
+p{
+    font-size: 18px;
+}
+p img{
+    height: 30px;
+    width: 30px;
+    margin-right: 50px;
+}
+.table{
+    background:  rgb(210, 210, 210);
+}
+.dataTables_wrapper .dataTables_length, 
+.dataTables_wrapper .dataTables_filter, 
+.dataTables_wrapper .dataTables_info, 
+.dataTables_wrapper .dataTables_processing, 
+.dataTables_wrapper .dataTables_paginate{
+    color: rgb(210, 210, 210);
+}
+td a img{
+    width: 30px;
+    height: 30px;
+}
+@media screen and (max-width: 576px) {
+    .titulo h1{
+        font-size: 28px;
+    }
+}
+btn-color{
+    background: rgba(42, 43, 42, 1);
+}

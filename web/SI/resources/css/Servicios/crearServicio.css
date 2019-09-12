@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Raleway', sans-serif;	
+
+}
+/* COLORES */
+
+/* AMARILLO #D4AF37*/
+/* GRIS LETRA rgb(210, 210, 210)*/
+.fondo{
+    background-color: rgba(203,203,210);
+}
+/*MIGAS*/
+.breadcrumb{
+    border-radius: 0;
+    background: rgba(42, 43, 42, 1);	
+}
+.breadcrumb a{
+    color: #D4AF37;
+}
+.breadcrumb a:hover{
+    border-bottom: 2px solid #D4AF37;
+    color: #D4AF37;
+}
+.titulo h1{
+    padding-bottom: 10px;
+    border-bottom: 3px solid #D4AF37;
+}
+.row{
+    margin-top: 30px;
+}
+.formulario{
+    border-radius: 5px;
+    color: rgb(210, 210, 210);
+    padding: 50px;
+    width: 100%;
+    background-color: rgba(0,0,0,.9);
+}
+.form{
+    border: 0;
+    background: rgba(0,0,0, 0.8); 
+    border-bottom: 3px solid #D4AF37;
+}
+form input{
+    width: 100%;
+}
+form button{
+    color: rgb(210, 210, 210);
+}
+label{
+    margin-top: 10px;
+}
+.boton:hover{
+    color: #000;
+    background-color: #D4AF37;
+}
+/* TABLA */
+.table{
+    background:  rgb(210, 210, 210);
+}
+.dataTables_wrapper .dataTables_length, 
+.dataTables_wrapper .dataTables_filter, 
+.dataTables_wrapper .dataTables_info, 
+.dataTables_wrapper .dataTables_processing, 
+.dataTables_wrapper .dataTables_paginate{
+    color: rgb(210, 210, 210);
+}
+@media screen and (max-width: 576px) {
+    .titulo h1{
+        font-size: 28px;
+    }
+}
+
+
+/* VALIDACIÓN */
+.formulario input:valid{
+    border: 2px solid green; 
+}
+.formulario input:invalid{
+    border: 2px solid #D4AF37; 
+}

@@ -6,6 +6,7 @@
 package simpsb.entidades;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,6 +17,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -38,6 +40,8 @@ public class Cliente implements Serializable {
     @JoinColumn(name = "idUsuario", referencedColumnName = "idUsuario")
     @ManyToOne
     private Usuario idUsuario;
+    @OneToMany(mappedBy = "idCliente")
+    private List<Citas> citasList;
 
     public Cliente() {
     }
@@ -60,6 +64,14 @@ public class Cliente implements Serializable {
 
     public void setIdUsuario(Usuario idUsuario) {
         this.idUsuario = idUsuario;
+    }
+
+    public List<Citas> getCitasList() {
+        return citasList;
+    }
+
+    public void setCitasList(List<Citas> citasList) {
+        this.citasList = citasList;
     }
 
     @Override

@@ -7,26 +7,26 @@ package simpsb.dao;
 
 import java.util.List;
 import javax.ejb.Local;
-import simpsb.entidades.Empleado;
+import simpsb.entidades.Cargos;
 
 /**
  *
  * @author SebastianParra
  */
 @Local
-public interface EmpleadoFacadeLocal {
+public interface CargosFacadeLocal {
 
-    void create(Empleado empleado);
+    void create(Cargos cargos);
 
-    void edit(Empleado empleado);
+    void edit(Cargos cargos);
 
-    void remove(Empleado empleado);
+    void remove(Cargos cargos);
 
-    Empleado find(Object id);
+    Cargos find(Object id);
 
-    List<Empleado> findAll();
+    List<Cargos> findAll();
 
-    List<Empleado> findRange(int[] range);
+    List<Cargos> findRange(int[] range);
 
     int count();
     

@@ -32,6 +32,7 @@ and open the template in the editor.
                     </div>
                     <div class="row">
                         <div class="col-12">
+                            <p class="text-uppercase"> <img src="../../resources/img/iconos/icono_citas.png" alt="Icono citas"/>#{concitaEti.subtitulo_citas}</p>
                             <h:form>
                                 <h:dataTable value="#{citasController.listarCitas()}" var="cita" styleClass="table table-striped table-bordered dt-responsive nowrap">
                                     <h:column>
@@ -41,12 +42,12 @@ and open the template in the editor.
 
                                     <h:column>
                                         <f:facet name="header">#{concitaEti.enc_nombre}</f:facet>
-                                        <h:outputText id="cliente" value="#{cita.idCliente}"/>
+                                        <h:outputText id="cliente" value="#{cita.idCliente.idUsuario.nombre}"/>
                                     </h:column>
 
                                     <h:column>
                                         <f:facet name="header">#{concitaEti.enc_servicio}</f:facet>
-                                        <h:outputText id="servicio" value="#{cita.idServicio}"/>
+                                        <h:outputText id="servicio" value="#{cita.idServicio.nombre}"/>
                                     </h:column>
 
                                     <h:column>
@@ -61,12 +62,13 @@ and open the template in the editor.
 
                                     <h:column>
                                         <f:facet name="header">#{concitaEti.enc_empleado}</f:facet>
-                                        <h:outputText id="empleado" value="#{cita.idEmpleado}"/>
+                                        <h:outputText id="empleado" value="#{cita.idEmpleado.idUsuario.nombre}"/>
                                     </h:column>
 
-                                    <h:column>
+                                    <h:column a:colspan="2">
                                         <f:facet name="header">#{concitaEti.enc_acciones}</f:facet>
-
+                                        <h:commandLink onclick="" action="modificarCita"><img src="../../resources/img/iconos/editar.png" alt="Modificar"/></h:commandLink>
+                                        <h:commandLink onclick="" action="#{citasController.eliminarCita()}"><img src="../../resources/img/iconos/eliminar.png" alt="Eliminar"/></h:commandLink>
                                     </h:column>
 
 

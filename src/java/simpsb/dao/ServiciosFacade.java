@@ -3,15 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package simpsb.DAO;
+package simpsb.dao;
 
-import java.util.ArrayList;
-import java.util.List;
 import javax.ejb.Stateless;
-import javax.faces.model.SelectItem;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
 import simpsb.entidades.Servicios;
 
 /**
@@ -24,6 +20,7 @@ public class ServiciosFacade extends AbstractFacade<Servicios> implements Servic
     @PersistenceContext(unitName = "SIMPSB1PU")
     private EntityManager em;
 
+    @Override
     protected EntityManager getEntityManager() {
         return em;
     }
@@ -32,39 +29,4 @@ public class ServiciosFacade extends AbstractFacade<Servicios> implements Servic
         super(Servicios.class);
     }
     
-    @Override
-    public void create(Servicios servicios) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void edit(Servicios servicios) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void remove(Servicios servicios) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public Servicios find(Object id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public List<Servicios> findAll() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public List<Servicios> findRange(int[] range) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public int count() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
 }

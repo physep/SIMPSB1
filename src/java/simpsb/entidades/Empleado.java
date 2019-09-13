@@ -6,6 +6,7 @@
 package simpsb.entidades;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,6 +17,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -35,6 +37,8 @@ public class Empleado implements Serializable {
     @Basic(optional = false)
     @Column(name = "idEmpleado")
     private Integer idEmpleado;
+    @OneToMany(mappedBy = "idEmpleado")
+    private List<Citas> citasList;
     @JoinColumn(name = "idHorarioTrabajo", referencedColumnName = "idHorarioTrabajo")
     @ManyToOne
     private Horariotrabajo idHorarioTrabajo;
@@ -61,6 +65,14 @@ public class Empleado implements Serializable {
 
     public void setIdEmpleado(Integer idEmpleado) {
         this.idEmpleado = idEmpleado;
+    }
+
+    public List<Citas> getCitasList() {
+        return citasList;
+    }
+
+    public void setCitasList(List<Citas> citasList) {
+        this.citasList = citasList;
     }
 
     public Horariotrabajo getIdHorarioTrabajo() {

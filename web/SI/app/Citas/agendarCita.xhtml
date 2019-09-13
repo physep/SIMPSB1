@@ -49,17 +49,17 @@ and open the template in the editor.
 
                         <div class="form-group col-md-12">
                             <h:outputLabel for="servicio" value="#{agcitaEti.servicio}"/>
-                            <h:selectOneMenu id="servicio" value="#{serviciosController.servicios.idServicio}" styleClass="form form-control">
+                            <h:selectOneMenu id="servicio" value="#{citasController.citas.idServicio}" styleClass="form form-control">
                                 <f:selectItem itemLabel="#{agcitaEti.seleccionar}" itemValue="0"/>
-                                <f:selectItems value="#{serviciosController.listServicios}" var="servicio" itemValue="#{servicio.setIdServicio(idServicio)}" itemLabel="#{servicio.nombre}"/>
+                                <f:selectItems value="#{citasController.listServicios}" var="servicio" itemValue="#{servicio.idServicio}" itemLabel="#{servicio.nombre}"/>
                             </h:selectOneMenu>
                         </div>
 
                         <div class="form-group col-md-12">
                             <h:outputLabel for="empleado" value="#{agcitaEti.empleado}"/>
-                            <h:selectOneMenu id="empleado" value="#{empleadoController.empleado.idEmpleado}" styleClass="form form-control">
+                            <h:selectOneMenu id="empleado" value="#{citasController.citas.idEmpleado}" styleClass="form form-control">
                                 <f:selectItem itemLabel="#{agcitaEti.seleccionar}" itemValue="0"/>
-                                <f:selectItems value="#{empleadoController.listarEmpleados}"/>
+                                <f:selectItems value="#{citasController.listEmpleados}" var="empleado" itemValue="#{empleado.idEmpleado}" itemLabel="#{empleado.idUsuario.nombre} #{empleado.idUsuario.apellido}" />
                             </h:selectOneMenu>
                         </div>
                     </h:form>

@@ -10,40 +10,42 @@ and open the template in the editor.
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
       xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
-     <h:head>
+    <h:head>
         <title>Crear Horario</title>
-        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-         <!-- ESTILOS BOOSTRAP -->
-         <link href="../../resources/css/Horarios/crearHorario.css" rel="stylesheet" type="text/css"/>
-         <link href="../../../resources/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/> <link href="../../../resources/css/bootstrap.min.css" rel="stylesheet" type="text/css"/><link href="../../resources/css/Horarios/crearHorario.css" rel="stylesheet" type="text/css"/>
     </h:head>
     <h:body >
-          <!-- CONTENEDOR -->
+        <h:messages globalOnly="true" showDetail="true"/>
+        <!-- CONTENEDOR -->
         <div class="container">
-             <!-- fONDO DE FORMULARIO -->
+            <!-- fONDO DE FORMULARIO -->
             <div class="formulario modal-body">
                 <div class="titulo">
                     <h1 class="text-center">CREAR HORARIO</h1>
                     <!-- Formulario -->
                     <h:form>
                         <!-- Horario del empleado -->
-			<!-- Hora inicial -->
+                        <!-- Hora inicial -->
                         <div>
                             <h:outputLabel for="horaIn" value="HORA INICIAL"/>
-                            <h:inputText styleClass="form-group col-md-12" id="horaInicial" value="#{}"></h:inputText>
-                            <h:message for="horaInicial"/>
+                            <h:inputText styleClass="form-group col-md-12" id="horaIn" value="#{horariosController.horariotrabajo.horaInicio}" a:type="time">
+                                <f:convertDateTime id="horaIn" />
+                            </h:inputText>
+                            <h:message for="horaIn"/>
                         </div>
                         <!-- Hora final -->
                         <div>
                             <h:outputLabel for="horaFn" value="HORA FINAL"/>
-                            <h:inputText styleClass=" form-group col-md-12" id="horaFinal" ></h:inputText>
-                            <h:message for="horaFinal"/>
+                            <h:inputText styleClass=" form-group col-md-12" id="horaFn" value="#{horariosController.horariotrabajo.horaFin}" a:type="time" >
+                                <f:convertDateTime />
+                            </h:inputText>
+                            <h:message for="horaFn"/>
                         </div>
-                         <h:commandButton styleClass="btn boton d-block mx-auto" value="CREAR"/>
+                        <h:commandButton styleClass="btn boton d-block mx-auto" value="CREAR"  action="#{horariosController.registrarHorario()}"/>
                     </h:form>
                 </div>
             </div>
         </div>
     </h:body>
+    <script src="../../../resources/js/bootstrap.min.js" type="text/javascript"></script>
 </html>

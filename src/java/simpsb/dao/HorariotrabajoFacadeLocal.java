@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package simpsb.DAO;
+package simpsb.dao;
 
 import java.util.List;
 import javax.ejb.Local;
@@ -11,7 +11,7 @@ import simpsb.entidades.Horariotrabajo;
 
 /**
  *
- * @author SebastianParra
+ * @author APRENDIZ
  */
 @Local
 public interface HorariotrabajoFacadeLocal {

@@ -8,14 +8,14 @@ package simpsb.dao;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import simpsb.entidades.Cliente;
+import simpsb.entidades.Cargos;
 
 /**
  *
  * @author APRENDIZ
  */
 @Stateless
-public class ClienteFacade extends AbstractFacade<Cliente> implements ClienteFacadeLocal {
+public class CargosFacade extends AbstractFacade<Cargos> implements CargosFacadeLocal {
 
     @PersistenceContext(unitName = "SIMPSB1PU")
     private EntityManager em;
@@ -25,8 +25,8 @@ public class ClienteFacade extends AbstractFacade<Cliente> implements ClienteFac
         return em;
     }
 
-    public ClienteFacade() {
-        super(Cliente.class);
+    public CargosFacade() {
+        super(Cargos.class);
     }
     
 }

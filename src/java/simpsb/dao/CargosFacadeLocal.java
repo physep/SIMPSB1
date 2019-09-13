@@ -7,26 +7,26 @@ package simpsb.dao;
 
 import java.util.List;
 import javax.ejb.Local;
-import simpsb.entidades.Diadescanso;
+import simpsb.entidades.Cargos;
 
 /**
  *
  * @author APRENDIZ
  */
 @Local
-public interface DiadescansoFacadeLocal {
+public interface CargosFacadeLocal {
 
-    void create(Diadescanso diadescanso);
+    void create(Cargos cargos);
 
-    void edit(Diadescanso diadescanso);
+    void edit(Cargos cargos);
 
-    void remove(Diadescanso diadescanso);
+    void remove(Cargos cargos);
 
-    Diadescanso find(Object id);
+    Cargos find(Object id);
 
-    List<Diadescanso> findAll();
+    List<Cargos> findAll();
 
-    List<Diadescanso> findRange(int[] range);
+    List<Cargos> findRange(int[] range);
 
     int count();
     

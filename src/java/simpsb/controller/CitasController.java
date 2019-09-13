@@ -7,8 +7,6 @@ import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Named;
-import simpsb.DAO.EmpleadoFacadeLocal;
-import simpsb.DAO.ServiciosFacadeLocal;
 import simpsb.dao.*;
 import simpsb.entidades.*;
 

@@ -6,9 +6,11 @@
 package simpsb.entidades;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -16,11 +18,12 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
  *
- * @author SebastianParra
+ * @author APRENDIZ
  */
 @Entity
 @Table(name = "cliente")
@@ -36,8 +39,10 @@ public class Cliente implements Serializable {
     @Column(name = "idCliente")
     private Integer idCliente;
     @JoinColumn(name = "idUsuario", referencedColumnName = "idUsuario")
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Usuario idUsuario;
+    @OneToMany(mappedBy = "idCliente", fetch = FetchType.LAZY)
+    private List<Citas> citasList;
 
     public Cliente() {
     }
@@ -60,6 +65,14 @@ public class Cliente implements Serializable {
 
     public void setIdUsuario(Usuario idUsuario) {
         this.idUsuario = idUsuario;
+    }
+
+    public List<Citas> getCitasList() {
+        return citasList;
+    }
+
+    public void setCitasList(List<Citas> citasList) {
+        this.citasList = citasList;
     }
 
     @Override

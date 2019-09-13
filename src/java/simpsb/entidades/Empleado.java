@@ -6,9 +6,11 @@
 package simpsb.entidades;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -16,11 +18,12 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
  *
- * @author SebastianParra
+ * @author APRENDIZ
  */
 @Entity
 @Table(name = "empleado")
@@ -35,17 +38,19 @@ public class Empleado implements Serializable {
     @Basic(optional = false)
     @Column(name = "idEmpleado")
     private Integer idEmpleado;
+    @OneToMany(mappedBy = "idEmpleado", fetch = FetchType.LAZY)
+    private List<Citas> citasList;
     @JoinColumn(name = "idHorarioTrabajo", referencedColumnName = "idHorarioTrabajo")
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Horariotrabajo idHorarioTrabajo;
     @JoinColumn(name = "idUsuario", referencedColumnName = "idUsuario")
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Usuario idUsuario;
     @JoinColumn(name = "idDiaDescanso", referencedColumnName = "idDiaDescanso")
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Diadescanso idDiaDescanso;
     @JoinColumn(name = "idCargo", referencedColumnName = "idCargo")
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Cargos idCargo;
 
     public Empleado() {
@@ -61,6 +66,14 @@ public class Empleado implements Serializable {
 
     public void setIdEmpleado(Integer idEmpleado) {
         this.idEmpleado = idEmpleado;
+    }
+
+    public List<Citas> getCitasList() {
+        return citasList;
+    }
+
+    public void setCitasList(List<Citas> citasList) {
+        this.citasList = citasList;
     }
 
     public Horariotrabajo getIdHorarioTrabajo() {

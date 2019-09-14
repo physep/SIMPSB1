@@ -34,7 +34,7 @@ and open the template in the editor.
                         <div class="col-12">
                             <p class="text-uppercase"> <img src="../../resources/img/iconos/icono_citas.png" alt="Icono citas"/>#{concitaEti.subtitulo_citas}</p>
                             <h:form>
-                                <h:dataTable value="#{citasController.listarCitas()}" var="cita" styleClass="table table-striped table-bordered dt-responsive nowrap text-center">
+                                <h:dataTable value="#{citasController.listarCitas()}" var="cita" styleClass="table table-striped table-bordered dt-responsive nowrap">
                                     <h:column>
                                         <f:facet name="header">ID</f:facet>
                                         <h:outputText id="id" value="#{cita.idCita}"/>
@@ -74,8 +74,6 @@ and open the template in the editor.
                                         <h:commandButton class="btn btn-primary" action="#{citasController.consultarCita(ct)}" value="Modificar"/>
                                         <h:commandButton class="btn btn-danger" action="#{citasController.eliminarCita(cita)}" value="Eliminar"/>
                                     </h:column>
-
-
                                 </h:dataTable>
                             </h:form>
                         </div>

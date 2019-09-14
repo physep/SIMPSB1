@@ -12,7 +12,7 @@ import simpsb.entidades.Usuario;
 
 /**
  *
- * @author SebastianParra
+ * @author APRENDIZ
  */
 @Stateless
 public class UsuarioFacade extends AbstractFacade<Usuario> implements UsuarioFacadeLocal {

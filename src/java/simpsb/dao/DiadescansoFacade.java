@@ -12,7 +12,7 @@ import simpsb.entidades.Diadescanso;
 
 /**
  *
- * @author SebastianParra
+ * @author APRENDIZ
  */
 @Stateless
 public class DiadescansoFacade extends AbstractFacade<Diadescanso> implements DiadescansoFacadeLocal {

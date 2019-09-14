@@ -11,27 +11,10 @@ and open the template in the editor.
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <h:head>
-
-        <!-- TAMAÑOS BOOTSTRAP -->
-        <!-- // Extra small devices (portrait phones, less than 576px)
-        // No media query for `xs` since this is the default in Bootstrap
-        
-        // Small devices (landscape phones, 576px and up)
-        @media (min-width: 576px) { ... }
-        
-        // Medium devices (tablets, 768px and up)
-        @media (min-width: 768px) { ... }
-        
-        // Large devices (desktops, 992px and up)
-        @media (min-width: 992px) { ... }
-        
-        // Extra large devices (large desktops, 1200px and up)
-        @media (min-width: 1200px) { ... } -->
-
         <title>Crear Servicio</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <link rel="stylesheet" href="../../../resources/css/bootstrap.min.css"/>
-        <link rel="stylesheet" href="../../resources/css/Servicios/crearServicio.css"/>
+        <link href="../../resources/css/Servicios/crearServicio.css" rel="stylesheet" type="text/css"/>
+        <link href="../../../resources/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
     </h:head>
     <h:body class="fondo">
         <nav aria-label="breadcrumb">
@@ -45,17 +28,19 @@ and open the template in the editor.
                 <div class="titulo">
                     <h1 class="text-center">CREAR SERVICIO</h1>
                 </div>
+                <h:form>
                 <div class="form-group">
-                    <label class="text-uppercase" for="nombServicio">Nombre del servicio</label>
-                    <h:inputText class="" a:type="text"></h:inputText>
-                    <input type="text" class="form-control form" id="nombServicio" placeholder="Ingrese el nombre del servicio" pattern=[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð,.-]{2,48} required/>
-                    <label class="text-uppercase" for="tmEstimado">Tiempo estimado</label>
-                    <input type="text" class="form-control form" id="tmEstimado" placeholder="Ingrese el tiempo estimado" pattern=[a-zA-Z0-9]{2,48} required/>
-                    <label class="text-uppercase" for="precio">Precio</label>
-                    <input type="number" class="form-control form" id="precio" placeholder="Ingrese el precio" pattern=[0-9]{4,10} required/>
+                    <h:outputLabel for="nombreServicio" value="Nombre Servicio :"/>
+                    <h:inputText id="nombreServicio" value="#{serviciosController.servicios.nombre}" a:placeholder="Ingrese el nombre :" styleClass="form-control"/>
+                    <h:outputLabel for="nombreServicio" value="Estado :"/>
+                    <h:inputText id="estado" value="#{serviciosController.servicios.estado}" a:placeholder="Ingrese el estado :" styleClass="form-control"/>
+                    <h:outputLabel for="nombreServicio" value="Valor :"/>
+                    <h:inputText id="valor" value="#{serviciosController.servicios.valor}" a:placeholder="Ingrese el valor :" styleClass="form-control" />
+                    <h:outputLabel for="nombreServicio" value="Tiepo estimado :"/>
+                    <h:inputText id="tiempoEstimado" value="#{serviciosController.servicios.tiempoEstimado}" a:placeholder="Ingrese el tiempo :" styleClass="form-control"/>
                 </div>
-                <button id="enviar" type="button" class="btn boton d-block mx-auto" onclick="crearServicio();">Enviar</button>
-                </form>
+                    <h:commandButton value="Registar" action="#{serviciosController.registrarServicios()}" styleClass="btn btn-primary"/>
+                </h:form>
             </div>
         </div>
 

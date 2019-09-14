@@ -16,17 +16,34 @@ public class CitasController {
 
     @EJB
     private CitasFacadeLocal citasFacadeLocal;
-    private Citas citas;
-
     @EJB
     private ServiciosFacadeLocal serviciosFacadeLocal;
-    private Servicios servicios;
-    private List<Servicios> listServicios;
-
     @EJB
     private EmpleadoFacadeLocal empleadoFacadeLocal;
+    
+    private Citas citas;
     private Empleado empleado;
+    private Servicios servicios;
+
+    private List<Servicios> listServicios;
     private List<Empleado> listEmpleados;
+
+    @PostConstruct
+    public void init(){
+        citas = new Citas();
+        servicios = new Servicios();
+        empleado = new Empleado();
+        listServicios = serviciosFacadeLocal.findAll();
+        listEmpleados = empleadoFacadeLocal.findAll();
+    }
+    
+    public Citas getCitas() {
+        return citas;
+    }
+
+    public void setCitas(Citas citas) {
+        this.citas = citas;
+    }
 
     public Servicios getServicios() {
         return servicios;
@@ -60,22 +77,7 @@ public class CitasController {
         this.listEmpleados = listEmpleados;
     }
 
-    @PostConstruct
-    public void init() {
-        citas = new Citas();
-        servicios = new Servicios();
-        listServicios = serviciosFacadeLocal.findAll();
-        empleado = new Empleado();
-        listEmpleados = empleadoFacadeLocal.findAll();
-    }
-
-    public Citas getCitas() {
-        return citas;
-    }
-
-    public void setCitas(Citas citas) {
-        this.citas = citas;
-    }
+    
 
     public void generarCita() {
         try {
@@ -84,9 +86,6 @@ public class CitasController {
             citasFacadeLocal.create(citas);
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Se ha generado exitosamente su cita"));
         } catch (Exception e) {
-            citas.setIdServicio(servicios);
-            citas.setIdEmpleado(empleado);
-            citasFacadeLocal.create(citas);
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Error", "Ha ocurrido un error al generar su cita"));
         }
     }

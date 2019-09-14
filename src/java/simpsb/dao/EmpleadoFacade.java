@@ -12,7 +12,7 @@ import simpsb.entidades.Empleado;
 
 /**
  *
- * @author SebastianParra
+ * @author APRENDIZ
  */
 @Stateless
 public class EmpleadoFacade extends AbstractFacade<Empleado> implements EmpleadoFacadeLocal {

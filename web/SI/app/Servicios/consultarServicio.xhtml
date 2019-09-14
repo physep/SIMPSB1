@@ -12,27 +12,11 @@ and open the template in the editor.
       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <h:head>
 
-        <!-- TAMAÑOS BOOTSTRAP -->
-        <!-- // Extra small devices (portrait phones, less than 576px)
-        // No media query for `xs` since this is the default in Bootstrap
-        
-        // Small devices (landscape phones, 576px and up)
-        @media (min-width: 576px) { ... }
-        
-        // Medium devices (tablets, 768px and up)
-        @media (min-width: 768px) { ... }
-        
-        // Large devices (desktops, 992px and up)
-        @media (min-width: 992px) { ... }
-        
-        // Extra large devices (large desktops, 1200px and up)
-        @media (min-width: 1200px) { ... } -->
-
         <title>Consultar Servicios</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <link rel="stylesheet" href="../../../resources/css/bootstrap.min.css"/>
         <link rel="stylesheet" href="../../resources/css/Servicios/consultarServicio.css"/>
     </h:head>
+    <h:messages globalOnly="true" showDetail="true"/>
     <h:body class="fondo">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
@@ -45,33 +29,41 @@ and open the template in the editor.
                 <div class="titulo">
                     <h1 class="text-center">CONSULTAR SERVICIOS</h1>
                 </div>
-                <div class="row">
-                    <!-- TABLA  -->
-                    <div class="col-12">
-                        <table id="grid" class="table table-striped table-bordered dt-responsive nowrap">
-                            <!-- FILA 1 -->
-                            <thead>
-                                <tr>
-                                    <th>SERVICIO</th>
-                                    <th>DURACION</th>
-                                    <th>PRECIO</th>
-                                    <th>ESTADO</th>
-                                    <th>ÚLTIMA MODIFICACION</th>
-                                    <th>EDITAR</th>
-                                </tr>
-                            </thead>
-                            <!-- FILA 2 -->
-                            <tbody>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+                <h:form>
+                    <h:dataTable value="#{serviciosController.listarServicios()}" var="servicio" styleClass="table table-striped table-bordered dt-responsive nowrap col-md-12">
+                        <h:column>
+                            <f:facet name="header">Id Servicio</f:facet>
+                            <h:outputText id="idServicio" value="#{servicio.idServicio}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Nombre </f:facet>
+                            <h:outputText id="nombre" value="#{servicio.nombre}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Estado </f:facet>
+                            <h:outputText id="estado" value="#{servicio.estado}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Valor </f:facet>
+                            <h:outputText id="valor" value="#{servicio.valor}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Tiempo Estimado </f:facet>
+                            <h:outputText id="tiempoEstimado" value="#{servicio.tiempoEstimado}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Acciones</f:facet>
+                            <h:commandButton style="border: 0; margin: 10px;"  styleClass="btn btn-success"  value="Actulizar" action="#{serviciosController.consultarServicio(servicio)}"/>
+                            <h:commandButton style="border: 0; margin: 10px;" styleClass="btn btn-danger" value="Eliminar" action="#{serviciosController.eliminarServicios(servicio)}" />
+                        </h:column>
+                    </h:dataTable>
+                </h:form>
             </div>
         </div>
 
-        <!-- SCRIPTS -->
-        <script src="../../../resources/js/jquery-3.3.1.slim.min.js"></script>
-        <script src="../../../resources/js/popper.min.js"></script>
-        <script src="../../../resources/js/bootstrap.min.js"></script>
+            <!-- SCRIPTS -->
+            <script src="../../../resources/js/jquery-3.3.1.slim.min.js"></script>
+            <script src="../../../resources/js/popper.min.js"></script>
+            <script src="../../../resources/js/bootstrap.min.js"></script>
     </h:body>
 </html>

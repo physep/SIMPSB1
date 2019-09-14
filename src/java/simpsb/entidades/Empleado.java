@@ -10,6 +10,7 @@ import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -22,7 +23,7 @@ import javax.persistence.Table;
 
 /**
  *
- * @author SebastianParra
+ * @author APRENDIZ
  */
 @Entity
 @Table(name = "empleado")
@@ -37,19 +38,21 @@ public class Empleado implements Serializable {
     @Basic(optional = false)
     @Column(name = "idEmpleado")
     private Integer idEmpleado;
-    @OneToMany(mappedBy = "idEmpleado")
+    
+    @OneToMany(mappedBy = "idEmpleado", fetch = FetchType.LAZY)
     private List<Citas> citasList;
+    
     @JoinColumn(name = "idHorarioTrabajo", referencedColumnName = "idHorarioTrabajo")
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Horariotrabajo idHorarioTrabajo;
     @JoinColumn(name = "idUsuario", referencedColumnName = "idUsuario")
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Usuario idUsuario;
     @JoinColumn(name = "idDiaDescanso", referencedColumnName = "idDiaDescanso")
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Diadescanso idDiaDescanso;
     @JoinColumn(name = "idCargo", referencedColumnName = "idCargo")
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Cargos idCargo;
 
     public Empleado() {

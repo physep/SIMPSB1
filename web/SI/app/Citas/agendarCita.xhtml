@@ -36,7 +36,7 @@
                             </div>
                             <div class="form-group col-md-6">
                                 <h:outputLabel for="hora" value="#{agcitaEti.hora}"/>
-                                <h:inputText id="hora" styleClass="form form-control"  a:type="time" 
+                                <h:inputText id="hora" styleClass="form form-control" a:type="time" 
                                              value="#{citasController.citas.hora}"/>
                                 <h:message for="hora"/>
                             </div>
@@ -64,8 +64,7 @@
                             <h:message for="empleado"/>
                         </div>
                         
-                  
-                        <h:commandButton styleClass="btn boton d-block mx-auto" actionListener="#{citasController.generarCita()}" value="#{agcitaEti.btn_agendar}"/>
+                        <h:commandButton styleClass="btn boton d-block mx-auto" action="#{citasController.generarCita()}" value="#{agcitaEti.btn_agendar}"/>
                     </h:form>
                 </div>
             </div>

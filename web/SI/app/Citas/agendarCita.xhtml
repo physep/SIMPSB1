@@ -10,8 +10,6 @@ and open the template in the editor.
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
     <h:head>
-        <meta charset="UTF-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <title>Agendar Cita</title>
         <link href="../../../resources/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="../../resources/css/Citas/agendarCita.css" rel="stylesheet" type="text/css"/>
@@ -49,18 +47,24 @@ and open the template in the editor.
 
                         <div class="form-group col-md-12">
                             <h:outputLabel for="servicio" value="#{agcitaEti.servicio}"/>
-                            <h:selectOneMenu id="servicio" value="#{citasController.citas.idServicio}" styleClass="form form-control">
+                            <h:selectOneMenu id="servicio" value="#{citasController.citas.idServicio.idServicio}" styleClass="form form-control">
                                 <f:selectItem itemLabel="#{agcitaEti.seleccionar}" itemValue="0"/>
-                                <f:selectItems value="#{citasController.listServicios}" var="servicio" itemValue="#{servicio.idServicio}" itemLabel="#{servicio.nombre}"/>
+                                <f:selectItems value="#{citasController.listServicios}" var="servicio" 
+                                               itemValue="#{servicio.idServicio}" 
+                                               itemLabel="#{servicio.nombre}"/>
                             </h:selectOneMenu>
+                            <h:message for="servicio"/>
                         </div>
 
                         <div class="form-group col-md-12">
                             <h:outputLabel for="empleado" value="#{agcitaEti.empleado}"/>
-                            <h:selectOneMenu id="empleado" value="#{citasController.citas.idEmpleado}" styleClass="form form-control">
+                            <h:selectOneMenu id="empleado" value="#{citasController.citas.idEmpleado.idEmpleado}" styleClass="form form-control">
                                 <f:selectItem itemLabel="#{agcitaEti.seleccionar}" itemValue="0"/>
-                                <f:selectItems value="#{citasController.listEmpleados}" var="empleado" itemValue="#{empleado.idEmpleado}" itemLabel="#{empleado.idUsuario.nombre}"/>
+                                <f:selectItems value="#{citasController.listEmpleados}" var="emp" 
+                                               itemValue="#{emp.idEmpleado}" 
+                                               itemLabel="#{emp.idUsuario.nombre}"/>
                             </h:selectOneMenu>
+                            <h:message for="empleado"/>
                         </div>
                     </h:form>
                     <h:form>

@@ -46,12 +46,15 @@ public class Citas implements Serializable {
     @Column(name = "hora")
     @Temporal(TemporalType.TIME)
     private Date hora;
+    
     @JoinColumn(name = "idServicio", referencedColumnName = "idServicio")
     @ManyToOne
     private Servicios idServicio;
+    
     @JoinColumn(name = "idCliente", referencedColumnName = "idCliente")
     @ManyToOne
     private Cliente idCliente;
+    
     @JoinColumn(name = "idEmpleado", referencedColumnName = "idEmpleado")
     @ManyToOne
     private Empleado idEmpleado;

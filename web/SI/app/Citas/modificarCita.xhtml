@@ -10,8 +10,6 @@ and open the template in the editor.
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
     <h:head>
-        <meta charset="UTF-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <title>Modificar Cita</title>
         <link href="../../../resources/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="../../resources/css/Citas/modificarCita.css" rel="stylesheet" type="text/css"/>
@@ -64,7 +62,7 @@ and open the template in the editor.
                         </div>
                     </h:form>
                     <h:form>
-                        <h:commandButton styleClass="btn boton d-block mx-auto" action="#{citasController.generarCita()}" onclick="" value="#{agcitaEti.btn_agendar}"/>
+                        <h:commandButton styleClass="btn boton d-block mx-auto" action="#{citasController.modificarCita()}" onclick="" value="#{agcitaEti.btn_agendar}"/>
                     </h:form>
                 </div>
             </div>

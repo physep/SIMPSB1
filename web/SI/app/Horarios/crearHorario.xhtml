@@ -13,6 +13,8 @@ and open the template in the editor.
     <h:head>
         <title>Crear Horario</title>
         <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/> <link href="../../../resources/css/bootstrap.min.css" rel="stylesheet" type="text/css"/><link href="../../resources/css/Horarios/crearHorario.css" rel="stylesheet" type="text/css"/>
+        <link href="../../resources/css/Horarios/crearHorario.css" rel="stylesheet" type="text/css"/>
+        <link href="../../../resources/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
     </h:head>
     <h:body >
         <h:messages globalOnly="true" showDetail="true"/>
@@ -29,7 +31,7 @@ and open the template in the editor.
                         <div>
                             <h:outputLabel for="horaIn" value="HORA INICIAL"/>
                             <h:inputText styleClass="form-group col-md-12" id="horaIn" value="#{horariosController.horariotrabajo.horaInicio}" a:type="time">
-                                <f:convertDateTime id="horaIn" />
+                                <f:convertDateTime pattern="dd/MM/yyyy HH:mm:ss"/>
                             </h:inputText>
                             <h:message for="horaIn"/>
                         </div>
@@ -37,7 +39,7 @@ and open the template in the editor.
                         <div>
                             <h:outputLabel for="horaFn" value="HORA FINAL"/>
                             <h:inputText styleClass=" form-group col-md-12" id="horaFn" value="#{horariosController.horariotrabajo.horaFin}" a:type="time" >
-                                <f:convertDateTime />
+                                <f:convertDateTime pattern="dd/MM/yyyy HH:mm:ss"/>
                             </h:inputText>
                             <h:message for="horaFn"/>
                         </div>

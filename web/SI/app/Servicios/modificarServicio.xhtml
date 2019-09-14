@@ -5,12 +5,51 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <title>TODO supply a title</title>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Crear Servicio</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
+        <link href="../../resources/css/Servicios/crearServicio.css" rel="stylesheet" type="text/css"/>
+        <link href="../../../resources/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    </h:head>
+    <h:messages globalOnly="true" showDetail="true"/>
+    <h:body class="fondo">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item  text-right"><a href="#">Home</a></li>
+                <li class="breadcrumb-item  active" aria-current="page">Modificar Servicio</li>
+            </ol>
+        </nav>
+        <div class="container">
+            <div class="formulario d-block mx-auto">
+                <div class="titulo">
+                    <h1 class="text-center">MODIFICAR SERVICIO</h1>
+                </div>
+                <h:form>
+                    <div class="form-group">
+                        <h:inputHidden class="form-control" id="idServicio" value="#{serviciosController.servicios.idServicio}"/>
+                        <h:message for="idServicio"/>
+                        <h:outputLabel for="nombreServicio" value="Nombre Servicio :"/>
+                        <h:inputText id="nombreServicio" value="#{serviciosController.servicios.nombre}" a:placeholder="Ingrese el nombre :" styleClass="form-control"/>
+                        <h:outputLabel for="nombreServicio" value="Estado :"/>
+                        <h:inputText id="estado" value="#{serviciosController.servicios.estado}" a:placeholder="Ingrese el estado :" styleClass="form-control"/>
+                        <h:outputLabel for="nombreServicio" value="Valor :"/>
+                        <h:inputText id="valor" value="#{serviciosController.servicios.valor}" a:placeholder="Ingrese el valor :" styleClass="form-control" />
+                        <h:outputLabel for="nombreServicio" value="Tiepo estimado :"/>
+                        <h:inputText id="tiempoEstimado" value="#{serviciosController.servicios.tiempoEstimado}" a:placeholder="Ingrese el tiempo :" styleClass="form-control"/>
+                    </div>
+                    <h:commandButton value="Actualizar" action="#{serviciosController.actualizarServicios()}" styleClass="btn btn-primary"/>
+                </h:form>
+            </div>
+        </div>
+
+        <!-- SCRIPTS -->
+        <script src="../../../resources/js/jquery-3.3.1.slim.min.js"></script>
+        <script src="../../../resources/js/popper.min.js"></script>
+        <script src="../../../resources/js/bootstrap.min.js"></script>
+    </h:body>
 </html>

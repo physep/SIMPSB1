@@ -5,6 +5,7 @@
  */
 package simpsb.controller;
 
+import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
@@ -52,5 +53,15 @@ public class HorariosController {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Error: ", "No se registro"));
             e.printStackTrace();
         }
+    }
+    
+    public List<Horariotrabajo> listarHorariotrabajo() {
+        List<Horariotrabajo> listHorariotrabajo = null;
+        try {
+            listHorariotrabajo = HorariotrabajoFacadeLocal.findAll();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return listHorariotrabajo;
     }
 }

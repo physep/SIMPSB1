@@ -13,18 +13,40 @@ and open the template in the editor.
     <h:head>
         <title>Crear Horario</title>
         <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
         <link href="../../../resources/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
     </h:head>
     <h:body>
         <div class="container">
-		<div class="formulario modal-body" >
-			<div class="titulo">
-				<h1 class="text-center">ACTUALIZAR HORARIO</h1>
-                        </div>
-                    
-                    
+            <div class="formulario modal-body" >
+                <div class="titulo">
+                    <h1 class="text-center">CONSULTAR HORARIO</h1>
                 </div>
+                <h:form>
+                    <h:dataTable value="#{horariosController.listarHorariotrabajo()}" var="horario" styleClass="table table-bordered">
+                        <h:column>
+                            <f:facet name="header">Id Horario</f:facet>
+                            <h:outputText id="idHorario" value="#{horario.idHorarioTrabajo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Hora Inicial</f:facet>
+                            <h:outputText id="HoraIn" value="#{horario.horaInicio}">
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Hora Final</f:facet>
+                            <h:outputText id="HoraFn" value="#{horario.horaFin}">
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Acciones</f:facet>
+                            <h:commandButton style="border: 0; margin: 10px;"  styleClass="btn btn-success"  value="Actulizar"/>
+                            <h:commandButton style="border: 0; margin: 10px;" styleClass="btn btn-danger"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:form>
+
+            </div>
         </div>
     </h:body>
 </html>

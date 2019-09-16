@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
 *{
     margin: 0;
@@ -28,17 +29,28 @@
     padding-bottom: 10px;
     border-bottom: 3px solid #D4AF37;
 }
-.titulo .text-center{
-    padding-left: 50px;
-}
 .row{
     margin-top: 30px;
 }
-.tabla{
+.form{
+    border: 0;
+    background: rgba(0,0,0, 0.8); 
+    border-bottom: 3px solid #D4AF37;
+}
+.formulario{
     border-radius: 5px;
-    color: rgb(210, 210, 210);
     padding: 50px;
+    color: rgb(210, 210, 210);	
     background-color: rgba(0,0,0,.9);
+}
+.boton{
+    background-color: #D4AF37;
+}
+.boton:hover{
+    color: #D4AF37;
+    background: rgb(0,0,0);
+    border-bottom: 1px solid #D4AF37;
+
 }
 /* TABLA */
 p{
@@ -59,13 +71,16 @@ p img{
 .dataTables_wrapper .dataTables_paginate{
     color: rgb(210, 210, 210);
 }
-td a img{
-    width: 30px;
-    height: 30px;
+.form-group{
+    padding: 0;
 }
-.btn{
-    margin-right: 10px;
+
+/*input:valid, select:valid{
+    border: 2px solid green; 
 }
+input:invalid, select:invalid{
+    border: 2px solid #D4AF37; 
+}*/
 .swal-button{
     background-color: #D4AF37;
 }

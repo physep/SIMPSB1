@@ -32,8 +32,9 @@ and open the template in the editor.
                     </div>
                     <div class="row">
                         <div class="col-12">
+                            <p class="text-uppercase"> <img src="../../resources/img/iconos/icono_citas.png" alt="Icono citas"/>#{concitaEti.subtitulo_citas}</p>
                             <h:form>
-                                <h:dataTable value="#{citasController.listarCitas()}" styleClass="table table-striped table-bordered dt-responsive nowrap">
+                                <h:dataTable value="#{citasController.listarCitas()}" var="cita" styleClass="table table-striped table-bordered dt-responsive nowrap">
                                     <h:column>
                                         <f:facet name="header">ID</f:facet>
                                         <h:outputText id="id" value="#{cita.idCita}"/>
@@ -46,27 +47,32 @@ and open the template in the editor.
 
                                     <h:column>
                                         <f:facet name="header">#{concitaEti.enc_servicio}</f:facet>
-                                        <h:outputText id="servicio" value="#{cita.idServicio}"/>
+                                        <h:outputText id="servicio" value="#{cita.idServicio.nombre}"/>
                                     </h:column>
 
                                     <h:column>
                                         <f:facet name="header">#{concitaEti.enc_fecha}</f:facet>
-                                        <h:outputText id="fecha" value="#{cita.fecha}"/>
+                                        <h:outputText id="fecha" value="#{cita.fecha}">
+                                            <f:convertDateTime for="fecha" type="date" dateStyle="full"></f:convertDateTime>
+                                        </h:outputText>
                                     </h:column>
 
                                     <h:column>
                                         <f:facet name="header">#{concitaEti.enc_hora}</f:facet>
-                                        <h:outputText id="hora" value="#{cita.hora}"/>
+                                        <h:outputText id="hora" value="#{cita.hora}">
+                                            <f:convertDateTime dateStyle="full" pattern="h:mm a"></f:convertDateTime>
+                                        </h:outputText>
                                     </h:column>
 
                                     <h:column>
                                         <f:facet name="header">#{concitaEti.enc_empleado}</f:facet>
-                                        <h:outputText id="empleado" value="#{cita.idEmpleado}"/>
+                                        <h:outputText id="empleado" value="#{cita.idEmpleado.idUsuario.nombre}"/>
                                     </h:column>
 
                                     <h:column>
                                         <f:facet name="header">#{concitaEti.enc_acciones}</f:facet>
-
+                                        <h:commandButton class="btn btn-primary" action="#{citasController.consultarCita(ct)}" value="Modificar"/>
+                                        <h:commandButton class="btn btn-danger" action="#{citasController.eliminarCita(cita)}" value="Eliminar"/>
                                     </h:column>
                                 </h:dataTable>
                             </h:form>

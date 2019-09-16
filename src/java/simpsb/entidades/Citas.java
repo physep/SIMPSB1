@@ -41,18 +41,23 @@ public class Citas implements Serializable {
     @Basic(optional = false)
     @Column(name = "idCita")
     private Integer idCita;
+    
     @Column(name = "fecha")
     @Temporal(TemporalType.DATE)
     private Date fecha;
+    
     @Column(name = "hora")
     @Temporal(TemporalType.TIME)
     private Date hora;
+    
     @JoinColumn(name = "idServicio", referencedColumnName = "idServicio")
     @ManyToOne(fetch = FetchType.LAZY)
     private Servicios idServicio;
+    
     @JoinColumn(name = "idCliente", referencedColumnName = "idCliente")
     @ManyToOne(fetch = FetchType.LAZY)
     private Cliente idCliente;
+    
     @JoinColumn(name = "idEmpleado", referencedColumnName = "idEmpleado")
     @ManyToOne(fetch = FetchType.LAZY)
     private Empleado idEmpleado;

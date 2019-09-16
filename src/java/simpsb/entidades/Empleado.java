@@ -38,8 +38,10 @@ public class Empleado implements Serializable {
     @Basic(optional = false)
     @Column(name = "idEmpleado")
     private Integer idEmpleado;
+    
     @OneToMany(mappedBy = "idEmpleado", fetch = FetchType.LAZY)
     private List<Citas> citasList;
+    
     @JoinColumn(name = "idHorarioTrabajo", referencedColumnName = "idHorarioTrabajo")
     @ManyToOne(fetch = FetchType.LAZY)
     private Horariotrabajo idHorarioTrabajo;

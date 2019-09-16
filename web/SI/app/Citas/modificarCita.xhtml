@@ -5,12 +5,67 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <title>TODO supply a title</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+        <title>Modificar Cita</title>
+        <link href="../../../resources/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../../resources/css/Citas/modificarCita.css" rel="stylesheet" type="text/css"/>
+    </h:head>
+    <h:body styleClass="fondo">
+        <f:view locale="es">           
+            <h:messages globalOnly="true" showDetail="true"/>
+            <!--Migas de Pan-->
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page"></li>
+                </ol>
+            </nav> 
+            <!-- Area de Trabajo -->
+            <div class="container">
+                <div class="formulario d-block mx-auto">
+                    <div class="titulo">
+                        <h1 class="text-center">MODIFICAR CITA</h1>
+                    </div>
+
+                    <h:form>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <h:outputLabel for="fecha" value="#{agcitaEti.fecha}"/>
+                                <h:inputText id="fecha" styleClass="form form-control" a:type="date" value="#{citasController.citas.fecha}"/>
+                                <h:message for="fecha"/>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <h:outputLabel for="hora" value="#{agcitaEti.hora}"/>
+                                <h:inputText id="hora" styleClass="form form-control"  a:type="time" value="#{citasController.citas.hora}"/>
+                                <h:message for="hora"/>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-12">
+                            <h:outputLabel for="servicio" value="#{agcitaEti.servicio}"/>
+                            <h:selectOneMenu id="servicio" value="#{citasController.citas.idServicio}" styleClass="form form-control">
+                                <f:selectItem itemLabel="#{agcitaEti.seleccionar}" itemValue="0"/>
+                                <f:selectItems value="#{citasController.listServicios}" var="servicio" itemValue="#{servicio.idServicio}" itemLabel="#{servicio.nombre}"/>
+                            </h:selectOneMenu>
+                        </div>
+
+                        <div class="form-group col-md-12">
+                            <h:outputLabel for="empleado" value="#{agcitaEti.empleado}"/>
+                            <h:selectOneMenu id="empleado" value="#{citasController.citas.idEmpleado}" styleClass="form form-control">
+                                <f:selectItem itemLabel="#{agcitaEti.seleccionar}" itemValue="0"/>
+                                <f:selectItems value="#{citasController.listEmpleados}" var="empleado" itemValue="#{empleado.idEmpleado}" itemLabel="#{empleado.idUsuario.nombre}"/>
+                            </h:selectOneMenu>
+                        </div>
+                    </h:form>
+                    <h:form>
+                        <h:commandButton styleClass="btn boton d-block mx-auto" action="#{citasController.modificarCita()}" onclick="" value="#{agcitaEti.btn_agendar}"/>
+                    </h:form>
+                </div>
+            </div>
+        </f:view>
+    </h:body>
 </html>

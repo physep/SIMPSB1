@@ -20,26 +20,26 @@ and open the template in the editor.
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item  text-right"><a href="#">Home</a></li>
-                <li class="breadcrumb-item  active" aria-current="page">Crear Servicio</li>
+                <li class="breadcrumb-item  active" aria-current="page">#{servisEti.crearServicioMi}</li>
             </ol>
         </nav>
         <div class="container">
             <div class="formulario d-block mx-auto">
                 <div class="titulo">
-                    <h1 class="text-center">CREAR SERVICIO</h1>
+                    <h1 class="text-center">#{servisEti.crearServicio}</h1>
                 </div>
                 <h:form>
                 <div class="form-group">
-                    <h:outputLabel for="nombreServicio" value="Nombre Servicio :"/>
-                    <h:inputText id="nombreServicio" value="#{serviciosController.servicios.nombre}" a:placeholder="Ingrese el nombre :" styleClass="form-control"/>
-                    <h:outputLabel for="nombreServicio" value="Estado :"/>
-                    <h:inputText id="estado" value="#{serviciosController.servicios.estado}" a:placeholder="Ingrese el estado :" styleClass="form-control"/>
-                    <h:outputLabel for="nombreServicio" value="Valor :"/>
-                    <h:inputText id="valor" value="#{serviciosController.servicios.valor}" a:placeholder="Ingrese el valor :" styleClass="form-control" />
-                    <h:outputLabel for="nombreServicio" value="Tiepo estimado :"/>
-                    <h:inputText id="tiempoEstimado" value="#{serviciosController.servicios.tiempoEstimado}" a:placeholder="Ingrese el tiempo :" styleClass="form-control"/>
+                    <h:outputLabel for="nombreServicio" value="#{servisEti.nombreServicio}"/>
+                    <h:inputText id="nombreServicio" value="#{serviciosController.servicios.nombre}" a:placeholder="#{servisEti.placeNombre}" styleClass="form-control"/>
+                    <h:outputLabel for="estado" value="#{servisEti.estadoServicio}"/>
+                    <h:inputText id="estado" value="#{serviciosController.servicios.estado}" a:placeholder="#{servisEti.placeEstado}" styleClass="form-control"/>
+                    <h:outputLabel for="valor" value="#{servisEti.valorServicio}"/>
+                    <h:inputText id="valor" value="#{serviciosController.servicios.valor}" a:placeholder="#{servisEti.placeValor}" styleClass="form-control" />
+                    <h:outputLabel for="tiempoEstimado" value="#{servisEti.tiempoServicio}"/>
+                    <h:inputText id="tiempoEstimado" value="#{serviciosController.servicios.tiempoEstimado}" a:placeholder="#{servisEti.placeTiempo}" styleClass="form-control"/>
                 </div>
-                    <h:commandButton value="Registar" action="#{serviciosController.registrarServicios()}" styleClass="btn btn-primary"/>
+                    <h:commandButton value="#{universEti.Registrar}" action="#{serviciosController.registrarServicios()}" styleClass="btn btn-primary"/>
                 </h:form>
             </div>
         </div>

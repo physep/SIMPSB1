@@ -31,7 +31,7 @@ and open the template in the editor.
                         <div>
                             <h:outputLabel for="horaIn" value="HORA INICIAL"/>
                             <h:inputText styleClass="form-group col-md-12" id="horaIn" value="#{horariosController.horariotrabajo.horaInicio}" a:type="time">
-                                <f:convertDateTime pattern="dd/MM/yyyy HH:mm:ss"/>
+                                <f:convertDateTime pattern="HH:mm:ss"/>
                             </h:inputText>
                             <h:message for="horaIn"/>
                         </div>
@@ -39,7 +39,7 @@ and open the template in the editor.
                         <div>
                             <h:outputLabel for="horaFn" value="HORA FINAL"/>
                             <h:inputText styleClass=" form-group col-md-12" id="horaFn" value="#{horariosController.horariotrabajo.horaFin}" a:type="time" >
-                                <f:convertDateTime pattern="dd/MM/yyyy HH:mm:ss"/>
+                                <f:convertDateTime pattern="HH:mm:ss"/>
                             </h:inputText>
                             <h:message for="horaFn"/>
                         </div>

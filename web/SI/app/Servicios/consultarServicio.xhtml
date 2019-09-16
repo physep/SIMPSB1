@@ -21,40 +21,40 @@ and open the template in the editor.
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item  text-right"><a href="#">Home</a></li>
-                <li class="breadcrumb-item  active" aria-current="page">Consultar Servicios</li>
+                <li class="breadcrumb-item  active" aria-current="page">#{servisEti.consultarServicioMi}</li>
             </ol>
         </nav>
         <div class="container">
             <div class="tabla d-block mx-auto">
                 <div class="titulo">
-                    <h1 class="text-center">CONSULTAR SERVICIOS</h1>
+                    <h1 class="text-center">#{servisEti.consultarServicio}</h1>
                 </div>
                 <h:form>
                     <h:dataTable value="#{serviciosController.listarServicios()}" var="servicio" styleClass="table table-striped table-bordered dt-responsive nowrap col-md-12">
                         <h:column>
-                            <f:facet name="header">Id Servicio</f:facet>
+                            <f:facet name="header">#{servisEti.IdServicio}</f:facet>
                             <h:outputText id="idServicio" value="#{servicio.idServicio}"/>
                         </h:column>
                         <h:column>
-                            <f:facet name="header">Nombre </f:facet>
+                            <f:facet name="header">#{servisEti.nombre} </f:facet>
                             <h:outputText id="nombre" value="#{servicio.nombre}"/>
                         </h:column>
                         <h:column>
-                            <f:facet name="header">Estado </f:facet>
+                            <f:facet name="header">#{servisEti.estado} </f:facet>
                             <h:outputText id="estado" value="#{servicio.estado}"/>
                         </h:column>
                         <h:column>
-                            <f:facet name="header">Valor </f:facet>
+                            <f:facet name="header">#{servisEti.valor} </f:facet>
                             <h:outputText id="valor" value="#{servicio.valor}"/>
                         </h:column>
                         <h:column>
-                            <f:facet name="header">Tiempo Estimado </f:facet>
+                            <f:facet name="header">#{servisEti.tiempoServicio} </f:facet>
                             <h:outputText id="tiempoEstimado" value="#{servicio.tiempoEstimado}"/>
                         </h:column>
                         <h:column>
-                            <f:facet name="header">Acciones</f:facet>
-                            <h:commandButton style="border: 0; margin: 10px;"  styleClass="btn btn-success"  value="Actulizar" action="#{serviciosController.consultarServicio(servicio)}"/>
-                            <h:commandButton style="border: 0; margin: 10px;" styleClass="btn btn-danger" value="Eliminar" action="#{serviciosController.eliminarServicios(servicio)}" />
+                            <f:facet name="header">#{servisEti.acciones}</f:facet>
+                            <h:commandButton style="border: 0; margin: 10px;"  styleClass="btn btn-success"  value="#{universEti.Actualizar}" action="#{serviciosController.consultarServicio(servicio)}"/>
+                            <h:commandButton style="border: 0; margin: 10px;" styleClass="btn btn-danger" value="#{universEti.Eliminar}" action="#{serviciosController.eliminarServicios(servicio)}" />
                         </h:column>
                     </h:dataTable>
                 </h:form>

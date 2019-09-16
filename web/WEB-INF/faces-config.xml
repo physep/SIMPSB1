@@ -9,7 +9,7 @@
         
     <application>
         <locale-config>
-            <default-locale>es</default-locale>
+            <default-locale>en</default-locale>
             <support-locale>es</support-locale>
             <support-locale>en</support-locale>
         </locale-config>
@@ -22,6 +22,15 @@
             <base-name>simpsb.languages.Citas.consultarCita</base-name>
             <var>concitaEti</var>
         </resource-bundle>
-
+ 
+        <resource-bundle>
+            <base-name>simpsb.Language.Servicio.servicios</base-name>
+            <var>servisEti</var>
+        </resource-bundle>
+        <resource-bundle>
+            <base-name>simpsb.languages.universal.pagesU</base-name>
+            <var>universEti</var>
+        </resource-bundle>
     </application>
+    
 </faces-config>

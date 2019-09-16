@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
+*{
+	margin: 0;
+	padding: 0;
+	font-family: 'Raleway', sans-serif;	
+
+}
+/* COLORES */
+
+/* AMARILLO #D4AF37*/
+/* GRIS LETRA rgb(210, 210, 210)*/
+.fondo{
+	background-color: rgba(203,203,210);
+}
+/*MIGAS*/
+.breadcrumb{
+	border-radius: 0;
+	background: rgba(42, 43, 42, 1);	
+}
+.breadcrumb a{
+	color: #D4AF37;
+}
+.breadcrumb a:hover{
+	border-bottom: 2px solid #D4AF37;
+	color: #D4AF37;
+}
+.titulo h1{
+	padding-bottom: 10px;
+	border-bottom: 3px solid #D4AF37;
+}
+.row{
+	margin-top: 30px;
+}
+.btn:hover{
+	background-color: #D4AF37;
+	color: #000;
+}
+.formulario{
+	border-radius: 5px;
+	color: rgb(210, 210, 210);
+	padding: 50px;
+	width: 100%;
+	background-color: rgba(0,0,0,.9);
+}
+.form{
+	background-color: rgba(0,0,0,.9);
+	border-bottom: 3px solid #D4AF37;
+}
+label{
+	margin-top: 15px;
+}
+
+.valid>input:focus:valid{
+	border-color: green;
+}
+
+.valid>input:focus:invalid{
+	border-color: red;
+}
+
+.valid>input:valid{
+	border-color: green;
+}
+
+.valid>input:invalid{
+	border-color: red;
+}

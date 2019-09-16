@@ -5,12 +5,39 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <title>TODO supply a title</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Consultar Pagos</title>
+        <link href="../../resources/css/Pagos/estilos-consultar-pagos.css" rel="stylesheet" type="text/css"/>
+    </h:head>
+    <h:body>
+        <div class="container">
+            <h:dataTable value="#{pagosController.listarPagos}" var="comisiones" styleClass="table table-striped table-bordered dt-responsive nowrap col-md-12">
+                <h:column>
+                    <f:facet name="header">Id</f:facet>
+                    <h:outputText value="#{pagosController.comisiones.idComisiones}" id="idComision"/>
+                </h:column>  
+                <h:column>
+                    <f:facet name="header">Id</f:facet>
+                    <h:outputText value="#{pagosController.comisiones.valor}" id="valor"/>
+                </h:column>    
+                <h:column>
+                    <f:facet name="header">Id</f:facet>
+                    <h:outputText value="#{pagosController.comisiones.idEmpleado}" id="idEmpleado"/>
+                </h:column>    
+                <h:column>
+                    <f:facet name="header">Id</f:facet>
+                    <h:outputText value="#{pagosController.comisiones.idFactura}" id="idFactura"/>
+                </h:column>    
+                <h:column>
+                    <f:facet name="header">Id</f:facet>
+                    <h:commandButton style="border: 0; margin: 10px;" styleClass="btn btn-danger" value="#{universEti.Eliminar}" action="#{pagosController.eliminarPagos(comisiones)}" />
+                </h:column>    
+            </h:dataTable>
+        </div>
+    </h:body>
 </html>

@@ -5,12 +5,48 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <head>
-        <title>TODO supply a title</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Generar Pagos</title>
+        <link href="../../resources/css/Pagos/estilos-generar-pagos.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-        <div>TODO write content</div>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item  text-right"><a href="#">Home</a></li>
+                <li class="breadcrumb-item  active" aria-current="page">Generar Pago</li>
+            </ol>
+        </nav>
+        <div class="container">
+            <div class="formulario d-block mx-auto">
+                <div class="titulo">
+                    <h1 class="text-center">GENERAR PAGO</h1>
+                </div>
+            </div>
+            <h:form>
+                <div class="form-group">
+                    <h:outputLabel value="Valor" for="valor"/>
+                    <h:inputText id="valor" value="#{pagosController.comisiones.valor}" styleClass="form-control"/>
+                    <h:outputLabel value="idEmpleado" for="idEmpleado"/>
+                    <h:inputText id="idEmpleado" value="#{pagosController.comisiones.idEmpleado}" styleClass="form-control"/>
+                    <h:outputLabel value="idFactura" for="idFactura"/>
+                    <h:inputText id="idFactura" value="#{pagosController.comisiones.idFactura}" styleClass="form-control"/>
+                </div>
+                <h:commandButton value="#{universEti.Registrar}" action="#{pagosController.registrarPagos()}" styleClass="btn btn-primary"/>
+            </h:form>
+        </div>
+        <!-- SCRIPTS -->
+        <script src="../../../js/jquery-3.3.1.slim.min.js"></script>
+        <script src="../../../js/popper.min.js"></script>
+        <script src="../../../js/bootstrap.min.js"></script>
+        <script src="../../../js/mdb.min.js"></script>
+        <script src="../../../js/datatables.min.js"></script>
+
+        <script src="../../js/validaciongelmer.js"></script>
+
     </body>
 </html>

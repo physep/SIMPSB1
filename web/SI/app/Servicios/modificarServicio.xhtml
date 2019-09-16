@@ -24,8 +24,20 @@ and open the template in the editor.
                 <li class="breadcrumb-item  active" aria-current="page">#{servisEti.modificarServicioMi}</li>
             </ol>
         </nav>
-        <f:view locale="en">    
+        <f:view locale="#{languageServicios.idiomaSeleccionado}">    
             <div class="container">
+                <h:form id="form-logout" prependId="false">
+                    <div class="dropdown">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-hashpopup="true" aria-expanded="false">
+                            #{pagesEti[LanguageServicios.idiomasSoportados]}
+                        </button>
+                        <div class="dropdown-menu" aria-labelledly="dropdownMenuButton">
+                            <c:forEach items="#{languageServicios.idiomasSoportados}">
+                                <h:commandLink class="dropdown-item" actionListener="#{languageServicios.cambiarIdioma(idioma)}" value="#{pagesEti[idioma.language]}"/>
+                            </c:forEach>
+                        </div>
+                    </div>
+                </h:form>
                 <div class="formulario d-block mx-auto">
                     <div class="titulo">
                         <h1 class="text-center">#{servisEti.modificarServicio}</h1>
@@ -45,8 +57,8 @@ and open the template in the editor.
                         </div>
                         <h:commandButton value="#{universEti.Actualizar}" action="#{serviciosController.actualizarServicios()}" styleClass="btn btn-primary"/>
                     </h:form>
-                </div>
-            </div>
+                </div>                
+            </div>                
         </f:view>
         <!-- SCRIPTS -->
         <script src="../../../resources/js/jquery-3.3.1.slim.min.js"></script>

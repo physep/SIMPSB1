@@ -9,7 +9,7 @@
         
     <application>
         <locale-config>
-            <default-locale>en</default-locale>
+            <default-locale>es</default-locale>
             <support-locale>es</support-locale>
             <support-locale>en</support-locale>
         </locale-config>
@@ -30,6 +30,10 @@
         <resource-bundle>
             <base-name>simpsb.languages.universal.pagesU</base-name>
             <var>universEti</var>
+        </resource-bundle>
+        <resource-bundle>
+            <base-name>simpsb.Language.Servicio.pages</base-name>
+            <var>pagesEti</var>
         </resource-bundle>
     </application>
     

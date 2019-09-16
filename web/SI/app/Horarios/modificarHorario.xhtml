@@ -5,12 +5,57 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <title>TODO supply a title</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+        <title>Modificar Horario</title>
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/> <link href="../../../resources/css/bootstrap.min.css" rel="stylesheet" type="text/css"/><link href="../../resources/css/Horarios/crearHorario.css" rel="stylesheet" type="text/css"/>
+        <link href="../../resources/css/Horarios/crearHorario.css" rel="stylesheet" type="text/css"/>
+        <link href="../../../resources/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    </h:head>
+    <h:body class="fondo" >
+        <!-- Migas de pan -->
+	<nav aria-label="breadcrumb">
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item text-right"><a href="#">Home</a></li>
+			<li class="breadcrumb-item active" aria-current="page">Crear Horario</li>
+		</ol>
+	</nav>
+        <h:messages globalOnly="true" showDetail="true"/>
+        <!-- CONTENEDOR -->
+        <div class="container">
+            <!-- fONDO DE FORMULARIO -->
+            <div class="formulario d-block mx-auto">
+                <div class="titulo">
+                    <h1 class="text-center">MODIFICAR HORARIO</h1>
+                    <!-- Formulario -->
+                    <h:form>
+                        <!-- Horario del empleado -->
+                        <!-- Hora inicial -->
+                        <div>
+                            <h:outputLabel for="horaIn" value="HORA INICIAL"/>
+                            <h:inputText styleClass="form-control col-md-12" id="horaIn" value="#{horariosController.horariotrabajo.horaInicio}" a:type="time"  >
+                                <f:convertDateTime pattern="HH:mm:ss"/>
+                            </h:inputText>
+                            <h:message for="horaIn"/>
+                        </div>
+                        <!-- Hora final -->
+                        <div>
+                            <h:outputLabel for="horaFn" value="HORA FINAL"/>
+                            <h:inputText styleClass="form-control col-md-12" id="horaFn" value="#{horariosController.horariotrabajo.horaFin}" a:type="time" >
+                                <f:convertDateTime pattern="HH:mm:ss"/>
+                            </h:inputText>
+                            <h:message for="horaFn"/>
+                        </div>
+                        <br></br>
+                        <h:commandButton styleClass="btn boton d-block mx-auto" value="CREAR"  action="#{horariosController.registrarHorario()}"/>
+                    </h:form>
+                </div>
+            </div>
+        </div>
+    </h:body>
+    <script src="../../../resources/js/bootstrap.min.js" type="text/javascript"></script>
 </html>

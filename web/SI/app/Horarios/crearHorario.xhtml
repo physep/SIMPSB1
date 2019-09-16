@@ -16,12 +16,19 @@ and open the template in the editor.
         <link href="../../resources/css/Horarios/crearHorario.css" rel="stylesheet" type="text/css"/>
         <link href="../../../resources/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
     </h:head>
-    <h:body >
+    <h:body class="fondo" >
+        <!-- Migas de pan -->
+	<nav aria-label="breadcrumb">
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item"><a href="#">Home</a></li>
+			<li class="breadcrumb-item active" aria-current="page">Crear Horario</li>
+		</ol>
+	</nav>
         <h:messages globalOnly="true" showDetail="true"/>
         <!-- CONTENEDOR -->
         <div class="container">
             <!-- fONDO DE FORMULARIO -->
-            <div class="formulario modal-body">
+            <div class="formulario d-block mx-auto">
                 <div class="titulo">
                     <h1 class="text-center">CREAR HORARIO</h1>
                     <!-- Formulario -->
@@ -30,7 +37,7 @@ and open the template in the editor.
                         <!-- Hora inicial -->
                         <div>
                             <h:outputLabel for="horaIn" value="HORA INICIAL"/>
-                            <h:inputText styleClass="form-group col-md-12" id="horaIn" value="#{horariosController.horariotrabajo.horaInicio}" a:type="time">
+                            <h:inputText styleClass="form-control col-md-12" id="horaIn" value="#{horariosController.horariotrabajo.horaInicio}" a:type="time"  >
                                 <f:convertDateTime pattern="HH:mm:ss"/>
                             </h:inputText>
                             <h:message for="horaIn"/>
@@ -38,11 +45,12 @@ and open the template in the editor.
                         <!-- Hora final -->
                         <div>
                             <h:outputLabel for="horaFn" value="HORA FINAL"/>
-                            <h:inputText styleClass=" form-group col-md-12" id="horaFn" value="#{horariosController.horariotrabajo.horaFin}" a:type="time" >
+                            <h:inputText styleClass="form-control col-md-12" id="horaFn" value="#{horariosController.horariotrabajo.horaFin}" a:type="time" >
                                 <f:convertDateTime pattern="HH:mm:ss"/>
                             </h:inputText>
                             <h:message for="horaFn"/>
                         </div>
+                        <br></br>
                         <h:commandButton styleClass="btn boton d-block mx-auto" value="CREAR"  action="#{horariosController.registrarHorario()}"/>
                     </h:form>
                 </div>

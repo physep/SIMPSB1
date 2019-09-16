@@ -12,18 +12,29 @@ and open the template in the editor.
       xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
     <h:head>
         <title>Crear Horario</title>
-        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+
         <link href="../../../resources/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../../resources/css/Horarios/estilos-consultar-horarios.css" rel="stylesheet" type="text/css"/>
     </h:head>
-    <h:body>
+    <h:body class="fondo">
+        <!-- Migas de pan -->
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Consultar Horario</li>
+            </ol>
+        </nav>
         <div class="container">
-            <div class="formulario modal-body" >
+            <div class="formulario d-block mx-auto">
                 <div class="titulo">
                     <h1 class="text-center">CONSULTAR HORARIO</h1>
-                </div>
+                </div>  
+                <p class="text-uppercase">
+                    <img src="../../resources/img/icono_horarios.png" alt=""/>
+                    HORARIOS
+                </p>
                 <h:form>
-                    <h:dataTable value="#{horariosController.listarHorariotrabajo()}" var="horario" styleClass="table table-bordered">
+                    <h:dataTable value="#{horariosController.listarHorariotrabajo()}" var="horario" styleClass="table table-striped table-bordered dt-responsive nowrap col-md-12">
                         <h:column>
                             <f:facet name="header">Id Horario</f:facet>
                             <h:outputText id="idHorario" value="#{horario.idHorarioTrabajo}"/>
@@ -40,13 +51,17 @@ and open the template in the editor.
                         </h:column>
                         <h:column>
                             <f:facet name="header">Acciones</f:facet>
-                            <h:commandButton style="border: 0; margin: 10px;"  styleClass="btn btn-success"  value="Actulizar"/>
-                            <h:commandButton style="border: 0; margin: 10px;" styleClass="btn btn-danger"/>
+                            <h:commandButton style="border: 0; margin: 5px;"  styleClass="btn btn-success"  value="Actualizar"/>
+                            <h:commandButton style="border: 0; margin: 5px;" styleClass="btn btn-danger" value="Eliminar"/>
                         </h:column>
                     </h:dataTable>
                 </h:form>
 
             </div>
         </div>
+        <!-- SCRIPTS -->
+        <script src="../../../resources/js/jquery-3.3.1.slim.min.js"></script>
+        <script src="../../../resources/js/popper.min.js"></script>
+        <script src="../../../resources/js/bootstrap.min.js"></script>
     </h:body>
 </html>

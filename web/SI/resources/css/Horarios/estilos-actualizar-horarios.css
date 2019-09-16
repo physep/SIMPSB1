@@ -1,0 +1,153 @@
+/*fuente de letra*/
+@import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
+/*Cosas especiales*/
+*{
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	font-family: 'Raleway', sans-serif;	
+
+}
+/*Contenedot*/
+.contenedor{
+	width: 100%;
+	max-width: 1000px;
+	margin: auto;
+	border: 1px solid grey;
+}
+/*Titulo*/
+h1{
+	text-align: center;
+	margin-top: 20px;
+	padding-top: 15px;
+	margin-bottom: 20px;
+	color: rgba(42, 43, 42, 1);
+}
+/*Migas de pan*/
+.mimiga{
+	background-color: rgba(0,0,0,0.8);
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+	padding: 0.75rem 1rem;
+	margin-bottom: 1rem;
+	list-style: none;
+	border-radius: 0.01rem;
+}
+/*Formulario*/
+.formulario{
+	text-align:  center;
+	border-radius: 5px;
+	background-color: rgba(0,0,0,0.8);
+	color: white; 
+	margin-top: 30px;
+	padding-top: 5px;
+	margin: 0 auto;
+	width: 60%;
+	font-size: 20px;
+	box-sizing: border-box;
+}
+.for{
+	background-color: rgba(010, 010, 010, 1);
+}
+.formulario input{
+	background-color: rgba(010, 010, 010, 1);
+	outline: none;
+	color: white;
+}
+.formulario select{
+	background-color: rgba(010, 010, 010, 1);
+	color: white;
+	outline: none;
+}
+
+	/*div > label > div{
+    padding: 20px 0;
+    border-bottom: 1px solid #ccc;
+    }*/
+    /*bordes amarillos*/
+    .formulario .field{
+    	border-bottom: 1.5px solid #D4AF37;
+    	padding: 10px;
+    }
+    .formulario .field:focus{
+    	border-bottom: 5px solid #D4AF37;
+    	padding: 5px;
+    }
+    /*boton enviar*/
+    .boton{
+    	background: #D4AF37;
+    	color: #fff;
+    	background-color: #D4AF37;
+    	border-color: #D4AF37;
+    	text-align: center;
+    	margin-top: 10px;
+    }
+
+/*	.boton_enviar{
+		color: #fff;
+		background-color: #D4AF37;
+		border-color: #D4AF37;
+		text-align: center;
+		margin-top: 10px;
+	}
+	.boton_enviar:hover{
+		margin-top: 10px;
+		color: #ffffff;
+		background-color: rgb(171, 115, 205);
+		}*/
+		/*Los radios de los dias*/
+		.formulario input[type="checkbox"]{
+			display: none;
+		}
+
+		.formulario .checkbox label{
+			color: white;
+			background-color: rgba(212,175,55,0.2);
+			padding: 0.2px 15px 0.1px 51px;
+			display: inline-block;
+			position: relative;
+			/*font-size: 5em;*/
+			border-radius: 3px;
+			cursor: pointer;
+			-webkit-transition:all 0.3s ease; 
+			-o-transition:all 0.3s ease;
+			transition: all 0.3s ease;
+		}
+		.formulario .checkbox label:hover{
+			background: rgba(255,255,255,0.5);
+		}
+		.formulario .checkbox label:before{
+			content: "";
+			width: 22px;
+			height: 22px;
+			left: 22px;
+			top: 4px;
+			display: inline-block;
+			background: none;
+			border: 3px solid #D4AF37;
+			border-radius: 50%;
+			position: absolute;
+
+
+		}
+		
+
+		.formulario .checkbox label:before{
+			border-radius: 3px;
+		}
+
+		.formulario input[type="checkbox"]:checked + label{
+			padding: 5px 15px;
+			background: #D4AF37;
+			border-radius: 2px
+			color=#fff:;
+		}
+		.formulario input[type="checkbox"]:checked + label:before{
+			display: none;
+		}
+
+
+
+		

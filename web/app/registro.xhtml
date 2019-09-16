@@ -1,16 +1,160 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <title>TODO supply a title</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
-</html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+        <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+                <title>VIP Peluqueria's</title>
+                <link href="../resources/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+                <link href="../resources/css/files/estilosRegistro.css" rel="stylesheet" type="text/css"/>
+                <link rel="stylesheet" href="../css/sweetalert2.min.css">
+                    <link rel="stylesheet" href="../css/mdb.min.css">
+                        <link rel="shortcut icon" href="../img/shortcut-logo.png">
+                            </h:head>
+
+                            <h:body class="fondo">
+                                <!-- BARRA DE NAVEGACIÓN -->
+                                <nav id="nav" class="navbar fixed-top navbar-expand-lg scrolling-navbar color-nav">
+                                    <div class="container">
+                                        <!-- LOGO -->  
+                                        <div class="col-6 logo">
+                                            <img class="" src="../img/logo.png" alt="">
+                                        </div>
+                                        <!-- BOTONES -->
+                                        <div class="botones col-6">
+                                            <input class="float-right" type="checkbox">
+                                                <span></span>
+                                                <span></span>
+                                                <ul class="navbar-nav mr-auto">
+                                                    <li class="nav-item">
+                                                        <a href="../index.html#header" class="text-center nav-link text-uppercase">Inicio</a> 
+                                                        <a href="../index.html#servicios" class="text-center nav-link text-uppercase">servicios</a> 
+                                                        <a href="../index.html#citas" class="text-center nav-link text-uppercase">citas</a> 
+                                                        <a href="../index.html#quienes-somos" class="text-center nav-link text-uppercase">quiénes somos</a> 
+                                                        <a href="../index.html#equipo" class="text-center nav-link text-uppercase">equipo</a> 
+                                                        <a href="../index.html#ubicacion" class="text-center nav-link text-uppercase">ubicación</a> 
+                                                        <a  class="text-center nav-link text-uppercase" id="ingreso">ingreso</a>
+                                                        <ul id="login" class="ingreso"> 
+                                                            <li class="nav-item">
+                                                                <a href="ingreso.html" class="text-center nav-link text-uppercase mostrar">Iniciar sesión</a> 
+                                                            </li>
+                                                            <li class="nav-item">
+                                                                <a href="registro.html" class="text-center nav-link text-uppercase">Registrarse</a> 
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                        </div>
+                                    </div>
+                                </nav>
+
+                                <!-- AREA DE TRABAJO -->
+                                <div class="area-trabajo">
+                                    <div class="container">
+
+                                        <h:form styleClass="d-block mx-auto">
+                                            <h1>#{regUsuEti.titulo_registrarse}</h1>
+                                            <div class="form-row">
+                                                <div class="form-group col-md-6">
+                                                    <h:outputLabel for="nombre" value#{regUsuEti.nombre}="#"/>
+                                                    <h:inputText id="nombre" styleClass="form-control" a:placeholder="#{regUsuEti.placeNom}" a:pattern="[A-Za-z0-9]{4,8}" required/>
+                                                    <h:message for="nombre"/>
+                                                </div>
+
+                                                <div class="form-group col-md-6">
+                                                    <h:outputLabel for="apellido" value="#{regUsuEti.apellido}"/>
+                                                    <h:inputText id="apellido" styleClass="form-control" a:placeholder="#{regUsuEti.placeApe}" a:pattern="[A-Za-z0-9]{4,8}" required/>
+                                                    <h:message for="apellido"/>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-row">
+                                                <div class="form-group  col-md-6">
+                                                    <h:outputLabel for="correo" value="#{regUsuEti.correo}"/>
+                                                    <h:inputText id="correo" styleClass="form-control" a:placeholder="#{regUsuEti.placeCorr}" a:pattern="^[\w._%-]+@[\w.-]+\.[a-zA-Z]{2,4}$" required/>
+                                                    <h:message for="correo"/>
+                                                </div>
+                                                <div class="form-group  col-md-6">
+                                                    <h:outputLabel for="documento" value="#{regUsuEti.documento}"/>
+                                                    <h:inputText id="documento" styleClass="form-control" a:placeholder="#{regUsuEti.placeDoc}" a:pattern="[0-9]{10}" required/>
+                                                    <h:message for="documento"/>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-md-6">
+                                                    <h:outputLabel for="nacimiento" value="#{regUsuEti.nacimiento}"/>
+                                                    <h:inputText id="correo" a:type="date" styleClass="form-control"/>
+                                                    <h:message for="correo"/>
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <h:outputLabel for="genero" value="#{regUsuEti.genero}"/>
+                                                    <h:selectOneRadio value="#{usuarioController.usuario.genero}">
+                                                        <f:selectItem itemValue="Femenino" itemLabel="#{regUsuEti.feme}"/>
+                                                        <f:selectItem itemValue="Masculino" itemLabel="#{regUsuEti.mascu}"/>
+                                                    </h:selectOneRadio>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <h:outputLabel for="contra" value="#{regUsuEti.contra}"/>
+                                                <h:inputText id="contra" a:type="password" styleClass="form-control" a:placeholder="#{regUsuEti.placeCont}" a:pattern="[A-Za-z0-9]{5,15}" required/>
+                                                <h:message for="contra"/>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <h:outputLabel for="conf_contra" value="#{regUsuEti.conf_contra}"/>
+                                                <h:inputText id="conf_contra" a:type="password" styleClass="form-control" a:placeholder="#{regUsuEti.placeConf}" a:pattern="[A-Za-z0-9]{5,15}" required/>
+                                                <h:message for="conf_contra"/>
+                                            </div>
+
+                                            <h:commandButton action="#{usuarioController.registrarUsuario()}" styleClass="btn boton d-block mx-auto" value="#{regUsuEti.btn_registrar}"/>
+                                        </h:form>
+
+
+                                    </div>
+                                </div>
+                                <!-- PRODUCTOS -->
+                                <div class="row productos">
+                                    <div class="container text-center">
+                                        <img class="" src="img/marcelfrance.png" alt="">
+                                            <img class="" src="img/tecitaly.jpg" alt="">
+                                                </div>
+                                                </div>
+                                                <!-- INFORMACION -->
+                                                <div class="row informacion">
+                                                    <div class="container">
+                                                        <div class="row">
+                                                            <div class="col-md-4 col-xs-12">
+                                                                <h3 class="text-center"> HORARIOS DE APERTURA </h3>
+                                                                <p class="text-center">Lunes a Viernes 9 am - 9 pm </p>
+                                                            </div>
+                                                            <div class="col-md-4 col-xs-12">
+                                                                <h3 class="text-center"> SIGUENOS EN </h3> 
+                                                                <p class="text-center">
+                                                                    <a href="https://www.instagram.com/pelitos_vip/?hl=es-la"><img src="../img/icono-instagram.png" target="_blank" alt="Ig" title="Instagram"></a>          
+                                                                </p>     
+                                                            </div>
+                                                            <div class="col-md-4 col-xs-12">
+                                                                <h3 class="text-center"> TRABAJA CON NOSOTROS </h3>   
+                                                                <p class="text-center">314-241-19-17</p>        
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- PIE DE PÁGINA -->
+                                                <div class="footer">
+                                                    <div class="container">
+                                                        <div class="row">
+                                                            <div class="col">
+                                                                <p class="text-right">
+                                                                    Desarrollado por GAES 6 &copy;Copyright 2019  
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                </body>
+                                                </html>

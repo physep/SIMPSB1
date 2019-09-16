@@ -22,6 +22,11 @@
             <base-name>simpsb.languages.Citas.consultarCita</base-name>
             <var>concitaEti</var>
         </resource-bundle>
+        
+        <resource-bundle>
+            <base-name>simpsb.languages.Usuario.registrarUsuario</base-name>
+            <var>regUsuEti</var>
+        </resource-bundle>
  
         <resource-bundle>
             <base-name>simpsb.Language.Servicio.servicios</base-name>

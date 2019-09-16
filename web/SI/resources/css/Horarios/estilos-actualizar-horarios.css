@@ -142,7 +142,7 @@ h1{
 			padding: 5px 15px;
 			background: #D4AF37;
 			border-radius: 2px
-			color=#fff:;
+			color= #fff;
 		}
 		.formulario input[type="checkbox"]:checked + label:before{
 			display: none;

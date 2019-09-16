@@ -37,7 +37,8 @@ and open the template in the editor.
                     <h:dataTable value="#{horariosController.listarHorariotrabajo()}" var="horario" styleClass="table table-striped table-bordered dt-responsive nowrap col-md-12">
                         <h:column>
                             <f:facet name="header">Id Horario</f:facet>
-                            <h:outputText id="idHorario" value="#{horario.idHorarioTrabajo}"/>
+                            <h:outputText id="idHorario" value="#{horario.idHorarioTrabajo}">
+                                </h:outputText>
                         </h:column>
                         <h:column>
                             <f:facet name="header">Hora Inicial</f:facet>
@@ -53,8 +54,8 @@ and open the template in the editor.
                         </h:column>
                         <h:column>
                             <f:facet name="header">Acciones</f:facet>
-                            <h:commandButton style="border: 0; margin: 5px;"  styleClass="btn btn-success"  value="Actualizar"/>
-                            <h:commandButton style="border: 0; margin: 5px;" styleClass="btn btn-danger" value="Eliminar"/>
+                            <h:commandButton style="border: 0; margin: 5px;"  styleClass="btn btn-success" action="#{horariosController.consultarHorariotrabajo(horario)}" value="Actualizar"/>
+                            <h:commandButton style="border: 0; margin: 5px;" styleClass="btn btn-danger" action="#{horariosController.eliminarHorariotrabajo(horariotrabajo)}" value="Eliminar"/>
                         </h:column>
                     </h:dataTable>
                 </h:form>

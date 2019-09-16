@@ -11,7 +11,7 @@ import simpsb.entidades.Citas;
 
 /**
  *
- * @author APRENDIZ
+ * @author usuario
  */
 @Local
 public interface CitasFacadeLocal {

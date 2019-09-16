@@ -11,11 +11,7 @@ import simpsb.entidades.Cargos;
 
 /**
  *
-<<<<<<< HEAD
- * @author SebastianParra
-=======
- * @author APRENDIZ
->>>>>>> origin/master
+ * @author usuario
  */
 @Local
 public interface CargosFacadeLocal {

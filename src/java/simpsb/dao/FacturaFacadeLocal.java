@@ -7,26 +7,26 @@ package simpsb.dao;
 
 import java.util.List;
 import javax.ejb.Local;
-import simpsb.entidades.Usuario;
+import simpsb.entidades.Factura;
 
 /**
  *
  * @author usuario
  */
 @Local
-public interface UsuarioFacadeLocal {
+public interface FacturaFacadeLocal {
 
-    void create(Usuario usuario);
+    void create(Factura factura);
 
-    void edit(Usuario usuario);
+    void edit(Factura factura);
 
-    void remove(Usuario usuario);
+    void remove(Factura factura);
 
-    Usuario find(Object id);
+    Factura find(Object id);
 
-    List<Usuario> findAll();
+    List<Factura> findAll();
 
-    List<Usuario> findRange(int[] range);
+    List<Factura> findRange(int[] range);
 
     int count();
     

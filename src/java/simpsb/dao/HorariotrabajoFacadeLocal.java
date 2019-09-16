@@ -11,7 +11,7 @@ import simpsb.entidades.Horariotrabajo;
 
 /**
  *
- * @author APRENDIZ
+ * @author usuario
  */
 @Local
 public interface HorariotrabajoFacadeLocal {

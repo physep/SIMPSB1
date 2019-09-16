@@ -1,3 +1,12 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
+*{
+	margin: 0;
+	padding: 0;
+	font-family: 'Raleway', sans-serif;	
+
+}
+/* COLORES */
+
 /* AMARILLO #D4AF37*/
 /* GRIS LETRA rgb(210, 210, 210)*/
 .fondo{
@@ -29,7 +38,7 @@
 	width: 100%;
 	background-color: rgba(0,0,0,.9);
 }
-.form{
+.forms{
 	border: 0;
 	background: rgba(0,0,0, 0.8); 
 	border-bottom: 3px solid #D4AF37;
@@ -132,22 +141,4 @@ p img{
 
 .modal form input:invalid{
 	border-color: red;
-}
-
-input:valid, select:valid{
-border: 2px solid green; 
-}
-input:invalid, select:invalid{
-border: 2px solid #D4AF37; 
-}
-.swal-button{
-background-color: #D4AF37;
-}
-.swal-button:not([disabled]):hover {
-background-color: #000;
-color: #fff;
-transition: .3s;
-}
-.swal-overlay{
-background-color: rgba(0,0,0,.8);
 }

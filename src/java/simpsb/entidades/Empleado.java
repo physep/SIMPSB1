@@ -32,6 +32,9 @@ import javax.persistence.Table;
     , @NamedQuery(name = "Empleado.findByIdEmpleado", query = "SELECT e FROM Empleado e WHERE e.idEmpleado = :idEmpleado")})
 public class Empleado implements Serializable {
 
+    @OneToMany(mappedBy = "idEmpleado", fetch = FetchType.LAZY)
+    private List<Comisiones> comisionesList;
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -133,6 +136,14 @@ public class Empleado implements Serializable {
     @Override
     public String toString() {
         return "simpsb.entidades.Empleado[ idEmpleado=" + idEmpleado + " ]";
+    }
+
+    public List<Comisiones> getComisionesList() {
+        return comisionesList;
+    }
+
+    public void setComisionesList(List<Comisiones> comisionesList) {
+        this.comisionesList = comisionesList;
     }
     
 }

@@ -8,14 +8,14 @@ package simpsb.dao;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import simpsb.entidades.Empleado;
+import simpsb.entidades.Comisiones;
 
 /**
  *
  * @author usuario
  */
 @Stateless
-public class EmpleadoFacade extends AbstractFacade<Empleado> implements EmpleadoFacadeLocal {
+public class ComisionesFacade extends AbstractFacade<Comisiones> implements ComisionesFacadeLocal {
 
     @PersistenceContext(unitName = "SIMPSB1PU")
     private EntityManager em;
@@ -25,8 +25,8 @@ public class EmpleadoFacade extends AbstractFacade<Empleado> implements Empleado
         return em;
     }
 
-    public EmpleadoFacade() {
-        super(Empleado.class);
+    public ComisionesFacade() {
+        super(Comisiones.class);
     }
     
 }

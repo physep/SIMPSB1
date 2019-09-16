@@ -19,6 +19,7 @@ and open the template in the editor.
     <h:body class="fondo" >
         <!-- Migas de pan -->
 	<nav aria-label="breadcrumb">
+            
 		<ol class="breadcrumb">
 			<li class="breadcrumb-item"><a href="#">Home</a></li>
 			<li class="breadcrumb-item active" aria-current="page">Crear Horario</li>
@@ -35,18 +36,18 @@ and open the template in the editor.
                     <h:form>
                         <!-- Horario del empleado -->
                         <!-- Hora inicial -->
-                        <div>
+                        <div class="form-group col-md-12">
                             <h:outputLabel for="horaIn" value="HORA INICIAL"/>
-                            <h:inputText styleClass="form-control col-md-12" id="horaIn" value="#{horariosController.horariotrabajo.horaInicio}" a:type="time"  >
-                                <f:convertDateTime pattern="HH:mm:ss"/>
+                            <h:inputText styleClass="form-control forms" id="horaIn" value="#{horariosController.horariotrabajo.horaInicio}" a:type="time" a:min="7:00" a:max="22:00"  >
+                                <f:convertDateTime dateStyle="full" pattern="h:mm a"></f:convertDateTime>
                             </h:inputText>
                             <h:message for="horaIn"/>
                         </div>
                         <!-- Hora final -->
-                        <div>
-                            <h:outputLabel for="horaFn" value="HORA FINAL"/>
-                            <h:inputText styleClass="form-control col-md-12" id="horaFn" value="#{horariosController.horariotrabajo.horaFin}" a:type="time" >
-                                <f:convertDateTime pattern="HH:mm:ss"/>
+                        <div class="form-group col-md-12">
+                            <h:outputLabel for="horaFn" value="HORA FINAL" styleClass=""/>
+                            <h:inputText styleClass="forms form-control" id="horaFn" value="#{horariosController.horariotrabajo.horaFin}" a:type="time" a:min="7:00" a:max="22:00" >
+                               <f:convertDateTime dateStyle="full" pattern="h:mm a"></f:convertDateTime>
                             </h:inputText>
                             <h:message for="horaFn"/>
                         </div>

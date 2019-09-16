@@ -7,26 +7,26 @@ package simpsb.dao;
 
 import java.util.List;
 import javax.ejb.Local;
-import simpsb.entidades.Usuario;
+import simpsb.entidades.Calificacion;
 
 /**
  *
  * @author usuario
  */
 @Local
-public interface UsuarioFacadeLocal {
+public interface CalificacionFacadeLocal {
 
-    void create(Usuario usuario);
+    void create(Calificacion calificacion);
 
-    void edit(Usuario usuario);
+    void edit(Calificacion calificacion);
 
-    void remove(Usuario usuario);
+    void remove(Calificacion calificacion);
 
-    Usuario find(Object id);
+    Calificacion find(Object id);
 
-    List<Usuario> findAll();
+    List<Calificacion> findAll();
 
-    List<Usuario> findRange(int[] range);
+    List<Calificacion> findRange(int[] range);
 
     int count();
     

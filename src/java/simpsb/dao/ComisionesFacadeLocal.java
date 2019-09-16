@@ -7,26 +7,26 @@ package simpsb.dao;
 
 import java.util.List;
 import javax.ejb.Local;
-import simpsb.entidades.Usuario;
+import simpsb.entidades.Comisiones;
 
 /**
  *
  * @author usuario
  */
 @Local
-public interface UsuarioFacadeLocal {
+public interface ComisionesFacadeLocal {
 
-    void create(Usuario usuario);
+    void create(Comisiones comisiones);
 
-    void edit(Usuario usuario);
+    void edit(Comisiones comisiones);
 
-    void remove(Usuario usuario);
+    void remove(Comisiones comisiones);
 
-    Usuario find(Object id);
+    Comisiones find(Object id);
 
-    List<Usuario> findAll();
+    List<Comisiones> findAll();
 
-    List<Usuario> findRange(int[] range);
+    List<Comisiones> findRange(int[] range);
 
     int count();
     

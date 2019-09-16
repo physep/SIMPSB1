@@ -54,6 +54,39 @@ public class HorariosController {
             e.printStackTrace();
         }
     }
+     public void eliminarHorariotrabajo(Horariotrabajo horariotrabajo) {
+        try {
+           HorariotrabajoFacadeLocal.remove(horariotrabajo);
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso: ", "Eliminacion exitosa"));
+        } catch (Exception e) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Error: ", "No conexion"));
+            e.printStackTrace();
+        }
+    }
+      public void actualizarHorario() {
+
+        try {
+            HorariotrabajoFacadeLocal.edit(Horariotrabajo);
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso: ", "Actulizacion exitosa"));
+
+        } catch (Exception e) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Error: ", "No conexion"));
+            e.printStackTrace();
+        }
+
+    }
+
+    public String consultarHorariotrabajo(Horariotrabajo hor) {
+        try {
+           Horariotrabajo= HorariotrabajoFacadeLocal.find(hor.getIdHorarioTrabajo());
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso: ", "Consulta exitosa"));
+        } catch (Exception e) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Error: ", "No conexion"));
+            e.printStackTrace();
+        }
+        return "modificarHorario";
+
+    }
     
     public List<Horariotrabajo> listarHorariotrabajo() {
         List<Horariotrabajo> listHorariotrabajo = null;

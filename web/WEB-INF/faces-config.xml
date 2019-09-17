@@ -40,6 +40,10 @@
             <base-name>simpsb.Language.Servicio.pages</base-name>
             <var>pagesEti</var>
         </resource-bundle>
+        <resource-bundle>
+             <base-name>simpsb.Language.Perfiles.perfiles</base-name>
+            <var>perfilEti</var>
+        </resource-bundle>
     </application>
     
 </faces-config>

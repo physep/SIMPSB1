@@ -6,6 +6,7 @@
 package simpsb.entidades;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,11 +15,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
  *
- * @author usuario
+ * @author SebastianParra
  */
 @Entity
 @Table(name = "detallefactura")
@@ -42,6 +44,8 @@ public class Detallefactura implements Serializable {
     private Integer iva;
     @Column(name = "valorTotal")
     private Integer valorTotal;
+    @OneToMany(mappedBy = "idDetalleFactura")
+    private List<Factura> facturaList;
 
     public Detallefactura() {
     }
@@ -80,6 +84,14 @@ public class Detallefactura implements Serializable {
 
     public void setValorTotal(Integer valorTotal) {
         this.valorTotal = valorTotal;
+    }
+
+    public List<Factura> getFacturaList() {
+        return facturaList;
+    }
+
+    public void setFacturaList(List<Factura> facturaList) {
+        this.facturaList = facturaList;
     }
 
     @Override

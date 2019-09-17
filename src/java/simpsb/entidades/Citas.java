@@ -7,10 +7,10 @@ package simpsb.entidades;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -18,13 +18,14 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 /**
  *
- * @author APRENDIZ
+ * @author SebastianParra
  */
 @Entity
 @Table(name = "citas")
@@ -41,26 +42,23 @@ public class Citas implements Serializable {
     @Basic(optional = false)
     @Column(name = "idCita")
     private Integer idCita;
-    
     @Column(name = "fecha")
     @Temporal(TemporalType.DATE)
     private Date fecha;
-    
     @Column(name = "hora")
     @Temporal(TemporalType.TIME)
     private Date hora;
-    
     @JoinColumn(name = "idServicio", referencedColumnName = "idServicio")
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     private Servicios idServicio;
-    
     @JoinColumn(name = "idCliente", referencedColumnName = "idCliente")
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     private Cliente idCliente;
-    
     @JoinColumn(name = "idEmpleado", referencedColumnName = "idEmpleado")
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     private Empleado idEmpleado;
+    @OneToMany(mappedBy = "idCita")
+    private List<Factura> facturaList;
 
     public Citas() {
     }
@@ -115,6 +113,14 @@ public class Citas implements Serializable {
 
     public void setIdEmpleado(Empleado idEmpleado) {
         this.idEmpleado = idEmpleado;
+    }
+
+    public List<Factura> getFacturaList() {
+        return facturaList;
+    }
+
+    public void setFacturaList(List<Factura> facturaList) {
+        this.facturaList = facturaList;
     }
 
     @Override

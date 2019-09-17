@@ -10,7 +10,6 @@ import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -23,7 +22,7 @@ import javax.persistence.Table;
 
 /**
  *
- * @author APRENDIZ
+ * @author SebastianParra
  */
 @Entity
 @Table(name = "empleado")
@@ -32,30 +31,27 @@ import javax.persistence.Table;
     , @NamedQuery(name = "Empleado.findByIdEmpleado", query = "SELECT e FROM Empleado e WHERE e.idEmpleado = :idEmpleado")})
 public class Empleado implements Serializable {
 
-    @OneToMany(mappedBy = "idEmpleado", fetch = FetchType.LAZY)
-    private List<Comisiones> comisionesList;
-
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "idEmpleado")
     private Integer idEmpleado;
-    
-    @OneToMany(mappedBy = "idEmpleado", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "idEmpleado")
     private List<Citas> citasList;
-    
+    @OneToMany(mappedBy = "idEmpleado")
+    private List<Comisiones> comisionesList;
     @JoinColumn(name = "idHorarioTrabajo", referencedColumnName = "idHorarioTrabajo")
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     private Horariotrabajo idHorarioTrabajo;
     @JoinColumn(name = "idUsuario", referencedColumnName = "idUsuario")
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     private Usuario idUsuario;
     @JoinColumn(name = "idDiaDescanso", referencedColumnName = "idDiaDescanso")
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     private Diadescanso idDiaDescanso;
     @JoinColumn(name = "idCargo", referencedColumnName = "idCargo")
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     private Cargos idCargo;
 
     public Empleado() {
@@ -79,6 +75,14 @@ public class Empleado implements Serializable {
 
     public void setCitasList(List<Citas> citasList) {
         this.citasList = citasList;
+    }
+
+    public List<Comisiones> getComisionesList() {
+        return comisionesList;
+    }
+
+    public void setComisionesList(List<Comisiones> comisionesList) {
+        this.comisionesList = comisionesList;
     }
 
     public Horariotrabajo getIdHorarioTrabajo() {
@@ -136,14 +140,6 @@ public class Empleado implements Serializable {
     @Override
     public String toString() {
         return "simpsb.entidades.Empleado[ idEmpleado=" + idEmpleado + " ]";
-    }
-
-    public List<Comisiones> getComisionesList() {
-        return comisionesList;
-    }
-
-    public void setComisionesList(List<Comisiones> comisionesList) {
-        this.comisionesList = comisionesList;
     }
     
 }

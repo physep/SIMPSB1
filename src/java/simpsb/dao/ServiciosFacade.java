@@ -12,7 +12,7 @@ import simpsb.entidades.Servicios;
 
 /**
  *
- * @author usuario
+ * @author SebastianParra
  */
 @Stateless
 public class ServiciosFacade extends AbstractFacade<Servicios> implements ServiciosFacadeLocal {

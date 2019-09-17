@@ -11,7 +11,7 @@ import simpsb.entidades.Usuario;
 
 /**
  *
- * @author usuario
+ * @author SebastianParra
  */
 @Local
 public interface UsuarioFacadeLocal {
@@ -29,5 +29,7 @@ public interface UsuarioFacadeLocal {
     List<Usuario> findRange(int[] range);
 
     int count();
+    
+    Usuario login(Usuario user);
     
 }

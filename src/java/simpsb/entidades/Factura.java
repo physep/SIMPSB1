@@ -11,10 +11,11 @@ import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
@@ -24,7 +25,7 @@ import javax.persistence.TemporalType;
 
 /**
  *
- * @author usuario
+ * @author SebastianParra
  */
 @Entity
 @Table(name = "factura")
@@ -32,9 +33,7 @@ import javax.persistence.TemporalType;
     @NamedQuery(name = "Factura.findAll", query = "SELECT f FROM Factura f")
     , @NamedQuery(name = "Factura.findByIdFactura", query = "SELECT f FROM Factura f WHERE f.idFactura = :idFactura")
     , @NamedQuery(name = "Factura.findByFecha", query = "SELECT f FROM Factura f WHERE f.fecha = :fecha")
-    , @NamedQuery(name = "Factura.findByHora", query = "SELECT f FROM Factura f WHERE f.hora = :hora")
-    , @NamedQuery(name = "Factura.findByIdCita", query = "SELECT f FROM Factura f WHERE f.idCita = :idCita")
-    , @NamedQuery(name = "Factura.findByIdDetalleFactura", query = "SELECT f FROM Factura f WHERE f.idDetalleFactura = :idDetalleFactura")})
+    , @NamedQuery(name = "Factura.findByHora", query = "SELECT f FROM Factura f WHERE f.hora = :hora")})
 public class Factura implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -49,14 +48,16 @@ public class Factura implements Serializable {
     @Column(name = "hora")
     @Temporal(TemporalType.TIME)
     private Date hora;
-    @Column(name = "idCita")
-    private Integer idCita;
-    @Column(name = "idDetalleFactura")
-    private Integer idDetalleFactura;
-    @OneToMany(mappedBy = "idFactura", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "idFactura")
     private List<Calificacion> calificacionList;
-    @OneToMany(mappedBy = "idFactura", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "idFactura")
     private List<Comisiones> comisionesList;
+    @JoinColumn(name = "idCita", referencedColumnName = "idCita")
+    @ManyToOne
+    private Citas idCita;
+    @JoinColumn(name = "idDetalleFactura", referencedColumnName = "idDetalleFactura")
+    @ManyToOne
+    private Detallefactura idDetalleFactura;
 
     public Factura() {
     }
@@ -89,22 +90,6 @@ public class Factura implements Serializable {
         this.hora = hora;
     }
 
-    public Integer getIdCita() {
-        return idCita;
-    }
-
-    public void setIdCita(Integer idCita) {
-        this.idCita = idCita;
-    }
-
-    public Integer getIdDetalleFactura() {
-        return idDetalleFactura;
-    }
-
-    public void setIdDetalleFactura(Integer idDetalleFactura) {
-        this.idDetalleFactura = idDetalleFactura;
-    }
-
     public List<Calificacion> getCalificacionList() {
         return calificacionList;
     }
@@ -119,6 +104,22 @@ public class Factura implements Serializable {
 
     public void setComisionesList(List<Comisiones> comisionesList) {
         this.comisionesList = comisionesList;
+    }
+
+    public Citas getIdCita() {
+        return idCita;
+    }
+
+    public void setIdCita(Citas idCita) {
+        this.idCita = idCita;
+    }
+
+    public Detallefactura getIdDetalleFactura() {
+        return idDetalleFactura;
+    }
+
+    public void setIdDetalleFactura(Detallefactura idDetalleFactura) {
+        this.idDetalleFactura = idDetalleFactura;
     }
 
     @Override

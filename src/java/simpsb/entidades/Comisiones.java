@@ -9,7 +9,6 @@ import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -21,7 +20,7 @@ import javax.persistence.Table;
 
 /**
  *
- * @author usuario
+ * @author SebastianParra
  */
 @Entity
 @Table(name = "comisiones")
@@ -40,10 +39,10 @@ public class Comisiones implements Serializable {
     @Column(name = "valor")
     private Integer valor;
     @JoinColumn(name = "idEmpleado", referencedColumnName = "idEmpleado")
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     private Empleado idEmpleado;
     @JoinColumn(name = "idFactura", referencedColumnName = "idFactura")
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     private Factura idFactura;
 
     public Comisiones() {

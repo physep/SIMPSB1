@@ -11,7 +11,7 @@ import simpsb.entidades.Servicios;
 
 /**
  *
- * @author usuario
+ * @author SebastianParra
  */
 @Local
 public interface ServiciosFacadeLocal {

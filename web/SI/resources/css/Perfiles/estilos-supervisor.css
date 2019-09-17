@@ -31,8 +31,8 @@
     height: 340px;
     background-color: #D4AF37;
 }
-.perfil img{
-    margin: 20px;
+.perfil>img{
+    margin: 20px;   
     width: 150px;
     height: 150px;
 }
@@ -146,7 +146,7 @@ nav{
     height: 80px;
     margin-left: 0;
 }
-.titulo img{
+.titulo>img{
     margin-top: 15px;
     width: 180px;
     height: 50px;

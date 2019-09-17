@@ -126,6 +126,8 @@ public class CitasController {
     //METODO PARA MODIFICAR LA CITA
     public void modificarCita() {
         try {
+            citas.setIdEmpleado(empleado);
+            citas.setIdServicio(servicios);
             citasFacadeLocal.edit(citas);
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Se ha generado exitosamente su cita"));
         } catch (Exception e) {

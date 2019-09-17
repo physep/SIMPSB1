@@ -79,8 +79,8 @@ public class CitasController {
 
     public void generarCita() {
         try {
-            citas.setIdServicio(servicios);
             citas.setIdEmpleado(empleado);
+            citas.setIdServicio(servicios);
             citasFacadeLocal.create(citas);
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Se ha generado exitosamente su cita"));
         } catch (Exception e) {
@@ -111,9 +111,9 @@ public class CitasController {
     //METODO PARA CONSULTAR LA CITA
     public String consultarCita(Citas ct) {
         try {
-            citas = citasFacadeLocal.find(ct.getIdCita());
             servicios = citas.getIdServicio();
             empleado = citas.getIdEmpleado();
+            citas = citasFacadeLocal.find(ct.getIdCita());
 
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Correcto"));
         } catch (Exception e) {

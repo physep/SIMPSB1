@@ -29,16 +29,18 @@
         </resource-bundle>
  
         <resource-bundle>
-            <base-name>simpsb.Language.Servicio.servicios</base-name>
+            <base-name>simpsb.languages.Servicio.servicios</base-name>
             <var>servisEti</var>
         </resource-bundle>
+        
         <resource-bundle>
             <base-name>simpsb.languages.universal.pagesU</base-name>
             <var>universEti</var>
         </resource-bundle>
+        
         <resource-bundle>
-            <base-name>simpsb.Language.Servicio.pages</base-name>
-            <var>pagesEti</var>
+            <base-name>simpsb.languages.Index.index</base-name>
+            <var>indexEti</var>
         </resource-bundle>
     </application>
     

@@ -60,8 +60,6 @@ and open the template in the editor.
                                 <f:selectItems value="#{citasController.listEmpleados}" var="empleado" itemValue="#{empleado.idEmpleado}" itemLabel="#{empleado.idUsuario.nombre}"/>
                             </h:selectOneMenu>
                         </div>
-                    </h:form>
-                    <h:form>
                         <h:commandButton styleClass="btn boton d-block mx-auto" action="#{citasController.modificarCita()}" onclick="" value="#{agcitaEti.btn_agendar}"/>
                     </h:form>
                 </div>

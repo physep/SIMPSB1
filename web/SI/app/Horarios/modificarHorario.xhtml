@@ -30,28 +30,30 @@ and open the template in the editor.
             <!-- fONDO DE FORMULARIO -->
             <div class="formulario d-block mx-auto">
                 <div class="titulo">
-                    <h1 class="text-center">MODIFICAR HORARIO</h1>
+                    <h1 class="text-center">#{horarioEti.modificarhorario}</h1>
                     <!-- Formulario -->
                     <h:form>
                         <!-- Horario del empleado -->
                         <!-- Hora inicial -->
                         <div>
-                            <h:outputLabel for="horaIn" value="HORA INICIAL"/>
-                            <h:inputText a:type="time" styleClass="form-control col-md-12" id="horaIn" value="#{horariosController.horariotrabajo.horaInicio}"   >
-                                <f:convertDateTime dateStyle="full" pattern="h:mm a"></f:convertDateTime>
+                            <h:outputLabel for="horaIn" value="#{horarioEti.horaIn}"/>
+                            <h:inputText a:type="time" styleClass="form-control col-md-12" id="horaIn" value="#{horariosController.horariotrabajo.horaInicio}">
+              <f:convertDateTime  pattern="HH:mm"/>
                             </h:inputText>
                             <h:message for="horaIn"/>
                         </div>
                         <!-- Hora final -->
                         <div>
-                            <h:outputLabel for="horaFn" value="HORA FINAL"/>
+                            <h:inputHidden class="form-control" id="idHorario" value="#{horariosController.horariotrabajo.idHorarioTrabajo}"/>
+                            <h:message for="idHorario"/>
+                            <h:outputLabel for="horaFn" value="#{horarioEti.horaFn}"/>
                             <h:inputText a:type="time" styleClass="form-control col-md-12" id="horaFn" value="#{horariosController.horariotrabajo.horaFin}">
-                                <f:convertDateTime dateStyle="full" pattern="h:mm a"></f:convertDateTime>
+                             <f:convertDateTime  pattern="HH:mm"/>
                             </h:inputText>
                             <h:message for="horaFn"/>
                         </div>
                         <br></br>
-                        <h:commandButton styleClass="btn boton d-block mx-auto" value="MODIFICAR"  action="#{horariosController.registrarHorario()}"/>
+                        <h:commandButton styleClass="btn boton d-block mx-auto" value="#{universEti.Actualizar}"  action="#{horariosController.actualizarHorario()}"/>
                     </h:form>
                 </div>
             </div>

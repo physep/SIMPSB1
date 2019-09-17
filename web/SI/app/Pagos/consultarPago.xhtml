@@ -16,7 +16,7 @@ and open the template in the editor.
     </h:head>
     <h:body>
         <div class="container">
-            <h:dataTable value="#{pagosController.listarPagos}" var="comisiones" styleClass="table table-striped table-bordered dt-responsive nowrap col-md-12">
+            <h:dataTable value="#{pagosController.listarPagos()}" var="comisiones" styleClass="table table-striped table-bordered dt-responsive nowrap col-md-12">
                 <h:column>
                     <f:facet name="header">Id</f:facet>
                     <h:outputText value="#{pagosController.comisiones.idComisiones}" id="idComision"/>

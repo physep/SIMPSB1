@@ -14,7 +14,7 @@
     </h:head>
     <f:view locale="#{languageServicios.idiomaSeleccionado}">    
         <h:messages globalOnly="true" showDetail="true"/>
-        <h:body class="fondo">
+        <h:body styleClass="fondo">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item  text-right"><a href="#">Home</a></li>
@@ -55,11 +55,12 @@
                         <h:commandButton value="#{universEti.Actualizar}" action="#{serviciosController.actualizarServicios()}" styleClass="btn btn-primary"/>
                     </h:form>
                 </div>                
-            </div>                
+            </div> 
+            </h:body>
     </f:view>
     <!-- SCRIPTS -->
     <script src="../../../resources/js/jquery-3.3.1.slim.min.js"></script>
     <script src="../../../resources/js/popper.min.js"></script>
     <script src="../../../resources/js/bootstrap.min.js"></script>
-</h:body>
+
 </html>

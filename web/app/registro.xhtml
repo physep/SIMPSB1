@@ -4,14 +4,14 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
     <h:head>
-        <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta charset="UTF-8"/>
+            <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
                 <title>VIP Peluqueria's</title>
                 <link href="../resources/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
                 <link href="../resources/css/files/estilosRegistro.css" rel="stylesheet" type="text/css"/>
-                <link rel="stylesheet" href="../css/sweetalert2.min.css">
-                    <link rel="stylesheet" href="../css/mdb.min.css">
-                        <link rel="shortcut icon" href="../img/shortcut-logo.png">
+                <link rel="stylesheet" href="../css/sweetalert2.min.css"/>
+                    <link rel="stylesheet" href="../css/mdb.min.css"/>
+                        <link rel="shortcut icon" href="../img/shortcut-logo.png"/>
                             </h:head>
 
                             <h:body class="fondo">
@@ -20,11 +20,11 @@
                                     <div class="container">
                                         <!-- LOGO -->  
                                         <div class="col-6 logo">
-                                            <img class="" src="../img/logo.png" alt="">
+                                            <img class="" src="../img/logo.png" alt=""/>
                                         </div>
                                         <!-- BOTONES -->
                                         <div class="botones col-6">
-                                            <input class="float-right" type="checkbox">
+                                            <input class="float-right" type="checkbox"/>
                                                 <span></span>
                                                 <span></span>
                                                 <ul class="navbar-nav mr-auto">
@@ -58,14 +58,14 @@
                                             <h1>#{regUsuEti.titulo_registrarse}</h1>
                                             <div class="form-row">
                                                 <div class="form-group col-md-6">
-                                                    <h:outputLabel for="nombre" value#{regUsuEti.nombre}="#"/>
-                                                    <h:inputText id="nombre" styleClass="form-control" a:placeholder="#{regUsuEti.placeNom}" a:pattern="[A-Za-z0-9]{4,8}" required/>
+                                                    <h:outputLabel for="nombre" value="#{regUsuEti.nombre}"/>
+                                                    <h:inputText id="nombre" styleClass="form-control" a:placeholder="#{regUsuEti.placeNom}" a:pattern="[A-Za-z0-9]{4,8}"/>
                                                     <h:message for="nombre"/>
                                                 </div>
 
                                                 <div class="form-group col-md-6">
                                                     <h:outputLabel for="apellido" value="#{regUsuEti.apellido}"/>
-                                                    <h:inputText id="apellido" styleClass="form-control" a:placeholder="#{regUsuEti.placeApe}" a:pattern="[A-Za-z0-9]{4,8}" required/>
+                                                    <h:inputText id="apellido" styleClass="form-control" a:placeholder="#{regUsuEti.placeApe}" a:pattern="[A-Za-z0-9]{4,8}"/>
                                                     <h:message for="apellido"/>
                                                 </div>
                                             </div>
@@ -73,20 +73,20 @@
                                             <div class="form-row">
                                                 <div class="form-group  col-md-6">
                                                     <h:outputLabel for="correo" value="#{regUsuEti.correo}"/>
-                                                    <h:inputText id="correo" styleClass="form-control" a:placeholder="#{regUsuEti.placeCorr}" a:pattern="^[\w._%-]+@[\w.-]+\.[a-zA-Z]{2,4}$" required/>
+                                                    <h:inputText id="correo" styleClass="form-control" a:placeholder="#{regUsuEti.placeCorr}" a:pattern="^[\w._%-]+@[\w.-]+\.[a-zA-Z]{2,4}$"/>
                                                     <h:message for="correo"/>
                                                 </div>
                                                 <div class="form-group  col-md-6">
                                                     <h:outputLabel for="documento" value="#{regUsuEti.documento}"/>
-                                                    <h:inputText id="documento" styleClass="form-control" a:placeholder="#{regUsuEti.placeDoc}" a:pattern="[0-9]{10}" required/>
+                                                    <h:inputText id="documento" styleClass="form-control" a:placeholder="#{regUsuEti.placeDoc}" a:pattern="[0-9]{10}"/>
                                                     <h:message for="documento"/>
                                                 </div>
                                             </div>
                                             <div class="form-row">
                                                 <div class="form-group col-md-6">
                                                     <h:outputLabel for="nacimiento" value="#{regUsuEti.nacimiento}"/>
-                                                    <h:inputText id="correo" a:type="date" styleClass="form-control"/>
-                                                    <h:message for="correo"/>
+                                                    <h:inputText id="nacimiento" a:type="date" styleClass="form-control"/>
+                                                    <h:message for="nacimiento"/>
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <h:outputLabel for="genero" value="#{regUsuEti.genero}"/>
@@ -99,13 +99,13 @@
 
                                             <div class="form-group">
                                                 <h:outputLabel for="contra" value="#{regUsuEti.contra}"/>
-                                                <h:inputText id="contra" a:type="password" styleClass="form-control" a:placeholder="#{regUsuEti.placeCont}" a:pattern="[A-Za-z0-9]{5,15}" required/>
+                                                <h:inputText id="contra" a:type="password" styleClass="form-control" a:placeholder="#{regUsuEti.placeCont}" a:pattern="[A-Za-z0-9]{5,15}"/>
                                                 <h:message for="contra"/>
                                             </div>
 
                                             <div class="form-group">
                                                 <h:outputLabel for="conf_contra" value="#{regUsuEti.conf_contra}"/>
-                                                <h:inputText id="conf_contra" a:type="password" styleClass="form-control" a:placeholder="#{regUsuEti.placeConf}" a:pattern="[A-Za-z0-9]{5,15}" required/>
+                                                <h:inputText id="conf_contra" a:type="password" styleClass="form-control" a:placeholder="#{regUsuEti.placeConf}" a:pattern="[A-Za-z0-9]{5,15}"/>
                                                 <h:message for="conf_contra"/>
                                             </div>
 
@@ -118,8 +118,8 @@
                                 <!-- PRODUCTOS -->
                                 <div class="row productos">
                                     <div class="container text-center">
-                                        <img class="" src="img/marcelfrance.png" alt="">
-                                            <img class="" src="img/tecitaly.jpg" alt="">
+                                        <img class="" src="img/marcelfrance.png" alt=""/>
+                                            <img class="" src="img/tecitaly.jpg" alt=""/>
                                                 </div>
                                                 </div>
                                                 <!-- INFORMACION -->
@@ -133,7 +133,7 @@
                                                             <div class="col-md-4 col-xs-12">
                                                                 <h3 class="text-center"> SIGUENOS EN </h3> 
                                                                 <p class="text-center">
-                                                                    <a href="https://www.instagram.com/pelitos_vip/?hl=es-la"><img src="../img/icono-instagram.png" target="_blank" alt="Ig" title="Instagram"></a>          
+                                                                    <a href="https://www.instagram.com/pelitos_vip/?hl=es-la"><img src="../img/icono-instagram.png" target="_blank" alt="Ig" title="Instagram"/></a>          
                                                                 </p>     
                                                             </div>
                                                             <div class="col-md-4 col-xs-12">
@@ -149,12 +149,12 @@
                                                         <div class="row">
                                                             <div class="col">
                                                                 <p class="text-right">
-                                                                    Desarrollado por GAES 6 &copy;Copyright 2019  
+                                                                    Desarrollado por GAES 6 Copyright 2019  
                                                                 </p>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
 
-                                                </body>
+                                                </h:body>
                                                 </html>

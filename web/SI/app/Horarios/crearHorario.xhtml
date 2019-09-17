@@ -16,6 +16,7 @@ and open the template in the editor.
         <link href="../../resources/css/Horarios/crearHorario.css" rel="stylesheet" type="text/css"/>
         <link href="../../../resources/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
     </h:head>
+    <f:view locale="#{languageServicios.idiomaSeleccionado}">
     <h:body class="fondo" >
         <!-- Migas de pan -->
 	<nav aria-label="breadcrumb">
@@ -25,38 +26,53 @@ and open the template in the editor.
 			<li class="breadcrumb-item active" aria-current="page">Crear Horario</li>
 		</ol>
 	</nav>
+        <h:form>
+                      <div class="dropdown">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-hashpopup="true" aria-expanded="false">
+                        #{pagesEti[languageServicios.idiomasSoportados]}
+                    </button>
+                    <div class="dropdown-menu" aria-labelledly="dropdownMenuButton">
+                        <c:forEach items="#{languageServicios.idiomasSoportados}" var="idioma">
+                            <h:commandLink class="dropdown-item" actionListener="#{languageServlet.cambiarIdioma(idioma)}" value="#{pagesEti[idioma.language]}"/>
+                        </c:forEach> 
+                    </div>
+                </div>
+                  </h:form>
         <h:messages globalOnly="true" showDetail="true"/>
         <!-- CONTENEDOR -->
         <div class="container">
             <!-- fONDO DE FORMULARIO -->
             <div class="formulario d-block mx-auto">
                 <div class="titulo">
-                    <h1 class="text-center">CREAR HORARIO</h1>
+                    <h1 class="text-center">#{horarioEti.crearhorario}</h1>
                     <!-- Formulario -->
-                    <h:form>
+                    <h:form onsubmit="return enviar()">
                         <!-- Horario del empleado -->
+                        
                         <!-- Hora inicial -->
                         <div class="form-group col-md-12">
-                            <h:outputLabel for="horaIn" value="HORA INICIAL"/>
-                            <h:inputText styleClass="form-control forms" id="horaIn" value="#{horariosController.horariotrabajo.horaInicio}" a:type="time" a:min="7:00" a:max="22:00"  >
-                                <f:convertDateTime dateStyle="full" pattern="h:mm a"></f:convertDateTime>
+                            <h:outputLabel for="horaIn" value="#{horarioEti.horaIn}"/>
+                            <h:inputText styleClass="form-control form" id="horaIn" value="#{horariosController.horariotrabajo.horaInicio}" a:type="time"   >
+                                <f:convertDateTime pattern="HH:mm"/>
                             </h:inputText>
                             <h:message for="horaIn"/>
                         </div>
                         <!-- Hora final -->
-                        <div class="form-group col-md-12">
-                            <h:outputLabel for="horaFn" value="HORA FINAL" styleClass=""/>
-                            <h:inputText styleClass="forms form-control" id="horaFn" value="#{horariosController.horariotrabajo.horaFin}" a:type="time" a:min="7:00" a:max="22:00" >
-                               <f:convertDateTime dateStyle="full" pattern="h:mm a"></f:convertDateTime>
+                        <div class="form-group cold-md-12">
+                            <h:outputLabel for="horaFn" value="#{horarioEti.horaFn}"/>
+                            <h:inputText a:type="time" styleClass="form-control form" id="horaFn" value="#{horariosController.horariotrabajo.horaFin}">
+                                <f:convertDateTime  pattern="HH:mm"/>
                             </h:inputText>
                             <h:message for="horaFn"/>
                         </div>
                         <br></br>
-                        <h:commandButton styleClass="btn boton d-block mx-auto" value="CREAR"  action="#{horariosController.registrarHorario()}"/>
+                        <h:commandButton styleClass="btn boton d-block mx-auto" value="#{universEti.Registrar}"  action="#{horariosController.registrarHorario()}" onclick="agregar()"/>
                     </h:form>
                 </div>
             </div>
         </div>
     </h:body>
+    <script src="../../../resources/js/validacion.js" type="text/javascript"></script>
     <script src="../../../resources/js/bootstrap.min.js" type="text/javascript"></script>
+    </f:view>
 </html>

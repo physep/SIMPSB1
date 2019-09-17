@@ -42,6 +42,16 @@
             <base-name>simpsb.languages.Index.index</base-name>
             <var>indexEti</var>
         </resource-bundle>
+        
+        <resource-bundle>
+             <base-name>simpsb.Language.Perfiles.perfiles</base-name>
+            <var>perfilEti</var>
+        </resource-bundle>
+        
+        <resource-bundle>
+             <base-name>simpsb.languages.Horarios.horarios</base-name>
+            <var>horarioEti</var>
+        </resource-bundle>
     </application>
     
 </faces-config>

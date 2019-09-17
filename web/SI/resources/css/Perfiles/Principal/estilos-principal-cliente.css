@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
+*{
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	font-family: 'Raleway', sans-serif;
+}
+/* CLASE ESPECIAL A*/
+a{
+	text-decoration: none;
+}
+.margen{
+	margin: 20px;
+}
+/* MIGAS DE PAN */
+
+.breadcrumb{
+	border-radius: 0;
+	background: rgba(42, 43, 42, 1);	
+}
+.breadcrumb a{
+	color: #D4AF37;
+}
+.breadcrumb a:hover{
+	border-bottom: 2px solid #D4AF37;
+	color: #D4AF37;
+}
+
+.espacio{
+	width: 100%;
+	height: 40px;
+}
+
+.agenda{
+	margin: 40px;
+	color: rgb(120, 120, 120);
+	background-color: #fff;
+	width:50%;
+	height: 350px;
+	float: left;
+
+}
+.agenda>h1>img{
+	margin-top: 20px;	
+	margin-left: 20px;
+	margin-right: 20px;	
+	float: left;
+	width: 20px;
+	height: 20px;
+}
+.agenda>h2>img{
+	margin-top: 20px;	
+	margin-left: 20px;
+	margin-right: 20px;	
+	float: right;
+	width: 20px;
+	height: 20px;
+}
+.agenda h3{
+	margin-top: 20px;
+	margin-left: 20px;
+	padding-bottom: 20px;
+}
+/*ESTILOS TABLA */
+.agenda table{
+	margin: auto;
+	width: 95%;
+	border-collapse: collapse;
+}
+.agenda th, td{
+	border: 1px solid grey;
+	padding: 3px;
+	color: rgb(0,0,0);
+	text-align: center;
+	vertical-align: center;
+	width: 10px;
+}
+.agenda thead{
+	background-color: #D4AF37;
+	border-bottom: 5px solid #8E6C00;
+}
+.horas{
+	background-color: #D4AF37;
+	border-right: 5px solid #8E6C00;
+}
+/* OFERTA */
+.oferta{
+	margin-left: 0;
+	color: rgb(120, 120, 120);
+	background-color: #fff;
+	width: 40%;
+	height: 380px;
+	float: right;
+}
+.estilo>h3{
+	text-align: center;
+}
+.estilo>h1>img{
+	margin-left: 100px	;
+	margin-right: 10px;
+	float: left;
+	width: 20px;
+	height: 20px;
+}
+.oferta h3{
+	margin-top: 20px;
+	margin-left: 20px;
+	padding-bottom: 20px;
+}
+/* FRECUENCIA */
+.frecuencia{	
+	margin: 40px;
+	margin-bottom: 30px;
+	color: rgb(120, 120, 120);
+	background-color: #fff;
+	float: left;
+}
+.frecuencia>img{
+	border: 1px solid grey;
+	width: 30PX;
+	height: 30PX;
+	border-radius:30%; 
+	margin-left: 30px;
+	margin-right: 20px;
+}
+.frecuencia>h1>img{
+	margin-top: 20px;	
+	margin-left: 20px;
+	margin-right: 20px;	
+	float: left;
+	width: 20px;
+	height: 20px;
+}
+
+.frecuencia h3{
+	margin-top: 15px;
+	margin-left: 15px;
+	padding-bottom: 20px;
+}
+.frecuencia h3>img{
+	margin-top: 20px;
+	margin-left: 20px;
+	padding-bottom: 20px;
+}
+
+/* CALIFICACIÓN */
+.calificacion{
+	margin: 20px;
+	margin-top: 0;
+	margin-right: 0;
+	color: rgb(120, 120, 120);
+	background-color: #fff;
+	float: left;
+}
+.calificacion img{
+	width: 8%;
+	height:8%;
+	margin-top: 20px;
+	float: left;
+}
+
+.calificacion>h1>img{
+
+	float: left;
+	width: 15px;
+	height: 15px;
+}
+.calificacion>h2>img{
+	margin-top: 20px;	
+	margin-left: 20px;
+	margin-right: 20px;	
+	float: right;
+	width: 20px;
+	height: 20px;
+}
+.calificacion h3{
+	margin-top: 20px;
+	margin-left: 20px;
+	padding-bottom: 20px;
+}
+
+.vip2{
+	color: rgb(120, 120, 120);
+	background-color: #fff;
+	width: 100%;
+	height:100%;
+	float: left;
+}
+.vip2 a{
+	text-decoration: none;
+	display: inline-block;
+	/* Volver a dar tamaño al texto */
+	font-size: 32px;
+	font-size: 4rem;
+	color: #FFFF00;
+	margin: 0 auto;
+	margin: 10px 0px 0px 80px;
+}
+.vip2:hover a {
+	color:#FFFF00;
+}
+/*
+ * El selector de hijo, es necesario para aumentar la especifidad
+ */
+.vip2 > a:hover ~ a {
+	color: #888;
+}

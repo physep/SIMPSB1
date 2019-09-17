@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<faces-config version="2.2"
+              xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+
+    
+    
+        
+    <application>
+        <locale-config>
+            <default-locale>es</default-locale>
+            <support-locale>es</support-locale>
+            <support-locale>en</support-locale>
+        </locale-config>
+        <resource-bundle>
+            <base-name>simpsb.languages.Citas.agendarCita</base-name>
+            <var>agcitaEti</var>
+        </resource-bundle>
+        
+        <resource-bundle>
+            <base-name>simpsb.languages.Citas.consultarCita</base-name>
+            <var>concitaEti</var>
+        </resource-bundle>
+        
+        <resource-bundle>
+            <base-name>simpsb.languages.Usuario.registrarUsuario</base-name>
+            <var>regUsuEti</var>
+        </resource-bundle>
+ 
+        <resource-bundle>
+            <base-name>simpsb.Language.Servicio.servicios</base-name>
+            <var>servisEti</var>
+        </resource-bundle>
+        <resource-bundle>
+            <base-name>simpsb.languages.universal.pagesU</base-name>
+            <var>universEti</var>
+        </resource-bundle>
+        <resource-bundle>
+            <base-name>simpsb.Language.Servicio.pages</base-name>
+            <var>pagesEti</var>
+        </resource-bundle>
+        <resource-bundle>
+             <base-name>simpsb.Language.Perfiles.perfiles</base-name>
+            <var>perfilEti</var>
+        </resource-bundle>
+        <resource-bundle>
+             <base-name>simpsb.Language.Horarios</base-name>
+            <var>horarioEti</var>
+        </resource-bundle>
+    </application>
+    
+</faces-config>

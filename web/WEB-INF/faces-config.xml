@@ -49,7 +49,6 @@
         </resource-bundle>
         
         <resource-bundle>
-
              <base-name>simpsb.languages.Horarios.horarios</base-name>
             <var>horarioEti</var>
         </resource-bundle>

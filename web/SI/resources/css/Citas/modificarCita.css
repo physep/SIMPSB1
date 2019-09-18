@@ -50,7 +50,9 @@
     color: #D4AF37;
     background: rgb(0,0,0);
     border-bottom: 1px solid #D4AF37;
-
+}
+.btn{
+    margin-right: 10px;
 }
 /* TABLA */
 p{

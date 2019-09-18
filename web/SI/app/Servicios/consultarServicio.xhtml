@@ -7,7 +7,7 @@ and open the template in the editor.
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"                                                                                                                                                        
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <h:head>
@@ -34,9 +34,9 @@ and open the template in the editor.
                     <!-- TABLA  -->
                     <div class="col-12 float-right">
                         <p class="text-uppercase"><img src="../../resources/img/icono_servicios.png" alt=""/>Servicios </p>
-                        
+
                         <h:form>
-                            <h:dataTable value="#{serviciosController.listarServicios()}" var="servicio" styleClass="table table-striped table-bordered dt-responsive nowrap col-md-12">
+                            <h:dataTable value="#{serviciosController.listarServicios()}" var="servicio" styleClass="text-center table table-striped table-bordered dt-responsive nowrap col-md-12">
                                 <h:column>
                                     <f:facet name="header">#{servisEti.IdServicio}</f:facet>
                                     <h:outputText id="idServicio" value="#{servicio.idServicio}"/>
@@ -59,7 +59,7 @@ and open the template in the editor.
                                 </h:column>
                                 <h:column>
                                     <f:facet name="header">#{servisEti.acciones}</f:facet>
-                                    <h:commandButton style="border: 0; margin: 10px;"  styleClass="btn btn-success"  value="#{universEti.Actualizar}" action="#{serviciosController.consultarServicio(servicio)}"/>
+                                    <h:commandButton style="border: 0; margin: 10px;"  styleClass="btn btn-warning"  value="Modificar" action="#{serviciosController.consultarServicio(servicio)}"/>
                                     <h:commandButton style="border: 0; margin: 10px;" styleClass="btn btn-danger" value="#{universEti.Eliminar}" action="#{serviciosController.eliminarServicios(servicio)}" />
                                 </h:column>
                             </h:dataTable>

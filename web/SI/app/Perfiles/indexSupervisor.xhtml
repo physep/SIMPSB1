@@ -11,199 +11,201 @@
         <title>Supervisor</title>
         <link href="../../../resources/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="../../../resources/css/mdb.min.css" rel="stylesheet" type="text/css"/>
-        <link href="../../resources/css/Perfiles/estilos-empleado.css" rel="stylesheet" type="text/css"/>
+        <link href="../../resources/css/Perfiles/estilos-supervisor.css" rel="stylesheet" type="text/css"/>
     </h:head>
 
     <h:body>
+        <f:view locale="en">
 
-        <div class="barra-lateral float-left">
-            <div class="perfil">
-                <p class="text-center text-uppercase">Supervisor</p>
-                  <img src="../../resources/img/perfil.png" alt=""/>
-                <p class="text-center text-uppercase">Juan Sebastián Parra Martínez</p>
-                <p class="text-center">
-                    <a class="text-center color" href="#" id="documentacion">#{perfilEti.documentacion}</a>
-                    <ul class="text-center d-none" id="ul">
-                        <li>
-                            <a href="#" id="diagramas">#{perfilEti.diagramas}</a>
-                            <ul class="text-left submenu d-none" id="submenu">
-                                <li>
-                                    <a href="">#{perfilEti.casodeUso}</a>
-                                </li>
-                                <li>
-                                    <a href="">#{perfilEti.fichasUso}</a>
-                                </li>
-                                <li>
-                                    <a href="">#{perfilEti.clases}</a>
-                                </li>
-                                <li>
-                                    <a href="">#{perfilEti.actividades}</a>
-                                </li>
-                                <li>
-                                    <a href="">#{perfilEti.paquetes}</a>
-                                </li>
-                                <li>
-                                    <a href="">#{perfilEti.secuencia}</a>
-                                </li>
-                                <li>
-                                    <a href="">#{perfilEti.estados}</a>
-                                </li>
-                                <li>
-                                    <a href="">#{perfilEti.dfd}</a>
-                                </li>
-                                <li>
-                                    <a href="">#{perfilEti.comunicacion}</a>
-                                </li>
-
-                            </ul>
-                        </li>
-                        <li>	
-                            <a href="#" id="formatos">Formatos</a>
-                            <ul class="text-left submenu d-none" id="submenu1">
-                                <li>
-                                    <a href="">IEEE</a>
-                                </li>
-                                <li>
-                                    <a href="">IEEE 830</a>
-                                </li>
-                                <li>
-                                    <a href="">Formulacion de Proyectos</a>
-                                </li>
-                                <li>
-                                    <a href="">Informe de Analisis</a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </p>
-            </div>
-            <div class="modulos">
-                <!-- HOME -->
-                <div class="modulo d-block mx-auto">
-                    <img class="float-left" src="../../resources/img/modulos/icono_home.png" alt=""/>
-                    <h4>
-                        <a href="" target="area-trabajo">HOME</a>
-                    </h4>
-                </div>
-                <!-- FACTURACIÓN -->
-                <div class="modulo d-block mx-auto">
-                    <img class="float-left" src="../../resources/img/modulos/icono_facturacion.png" alt=""/>
-                    <h4>
-                        <a href="../Facturacion/facturacion.html" target="area-trabajo">#{perfilEti.Facturacion}</a>
-                    </h4>
-                </div>
-                <!-- REPORTES -->
-                <div class="modulo d-block mx-auto">
-                    <img class="float-left" src="../../resources/img/modulos/icono_reportes.png" alt=""/>
-                    <h4>
-                        <a href="../Reportes/reportes-supervisor.html" target="area-trabajo">#{perfilEti.Reportes}</a>
-                    </h4>
-                </div>
-                <!-- SERVICIOS -->
-                <div class="modulo d-block mx-auto">
-                    <img class="float-left" src="../../resources/img/modulos/icono_servicios.png" alt=""/>
-                    <h5>
-                        <a href="#">#{perfilEti.Servicios}</a>
-                    </h5>
-                    <p>
-                        <a href="../Servicios/crearServicio.xhtml" target="area-trabajo">#{perfilEti.crearServicios}</a>
-                    </p>
-                    <p>
-                        <a href="../Servicios/consultarServicio.xhtml" target="area-trabajo">#{perfilEti.consultarServicios}</a>
-                    </p>
-                </div>
-                <!-- CITAS -->
-                <div class="modulo d-block mx-auto">
-                    <img class="float-left" src="../../resources/img/modulos/icono_citas.png" alt=""/>
-                    <h5>
-                        <a href="#">#{perfilEti.Citas}</a>
-                    </h5>
-                    <p>
-                        <a href="../Citas/agendarCita.xhtml" target="area-trabajo">#{perfilEti.agendarCita}</a>
-                    </p>
-                    <p>
-                        <a href="../Citas/consultarCita.xhtml" target="area-trabajo">#{perfilEti.consultarCita}</a>
-                    </p>
-                </div>
-                <!-- HORARIOS -->
-                <div class="modulo d-block mx-auto">
-                    <img class="float-left" src="../../resources/img/modulos/icono_horarios.png" alt=""/>
-                    <h5>
-                        <a href="#">#{perfilEti.Horarios}</a>
-                    </h5>
-                    <p>
-                        <a href="../Pagos/generarPago.xhtml" target="area-trabajo">#{perfilEti.crearHorarios}</a>
-                    </p>
-                    <p>
-                        <a href="../Pagos/consultarPago.xhtml" target="area-trabajo">#{perfilEti.consultarHorarios}</a>
-                    </p>
-                </div>
-                <!-- PAGOS -->
-                <div class="modulo d-block mx-auto">
-                    <img class="float-left" src="../../resources/img/modulos/icono_pagos.png" alt=""/>
-                    <h5><a href="#">#{perfilEti.Pagos}</a></h5>
-                    <p><a href="../Pagos/generar-pago.html" target="area-trabajo">#{perfilEti.generarPagos}</a></p>
-                    <p><a href="../Pagos/consultar-pagos.html" target="area-trabajo">#{perfilEti.consultarPagos}</a></p>
-                </div>
-                <!-- USUARIOS -->
-                <div class="modulo d-block mx-auto">
-                    <img class="float-left" src="../../resources/img/modulos/icono-usuarios.png" alt=""/>
-                    <h5><a href="#">#{perfilEti.usuarios}</a></h5>
-                    <p><a href="../Usuarios/consultar-usuarios.html" target="area-trabajo">#{perfilEti.consultarUsuarios}</a></p>
-                    <p><a href="../Usuarios/asignar-rol.html" target="area-trabajo">#{perfilEti.asignarRol}</a></p>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="panel-derecho float-right">
-            <!-- NAVEGADOR -->
-            <nav>
-                <div class="row">
-                    <div class="col-6">
-                        <div class="row izq">
-                            <div class="col-1 menu float-left">
-                                <input class="" id="menu" type="checkbox"/>
-                                    <span></span>
-                                    <span></span>
-                            </div>
-                            <div class="col-9 titulo float-right">
-                                
-                                <p><img src="../../resources/img/logo.png" alt=""/></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6 config">
-                        <ul>
+            <div class="barra-lateral float-left">
+                <div class="perfil">
+                    <p class="text-center text-uppercase">Supervisor</p>
+                    <img src="../../resources/img/perfil.png" alt=""/>
+                    <p class="text-center text-uppercase">Juan Sebastián Parra Martínez</p>
+                    <p class="text-center">
+                        <a class="text-center color" href="#" id="documentacion">#{perfilEti.documentacion}</a>
+                        <ul class="text-center d-none" id="ul">
                             <li>
-                                <a href="#"><img src="../../img/config.png" alt=""/></a>
-                                <ul>
+                                <a href="#" id="diagramas">#{perfilEti.diagramas}</a>
+                                <ul class="text-left submenu d-none" id="submenu">
                                     <li>
-                                        <img src="../../resources/img/editar-perfil.png" alt=""/><a class="text-left" href="../Config/editarPerfil.xhtml" target="area-trabajo">#{perfilEti.editarPerfil}</a>
-                                    </li>
-                                    <li>	
-                                        <img src="../../resources/img/ajustes.png" alt=""/><a class="text-left" href="">#{perfilEti.configuracion}</a>
+                                        <a href="">#{perfilEti.casodeUso}</a>
                                     </li>
                                     <li>
-                                        <img src="../../resources/img/alarma.png" alt=""/><a class="text-left" href="" target="area-trabajo">#{perfilEti.notificaciones}</a>
+                                        <a href="">#{perfilEti.fichasUso}</a>
                                     </li>
-                                    <li>	
-                                        <img src="../../resources/img/logout.png" alt=""/><a class="text-left" href="">#{perfilEti.cerrarSesion}</a>
+                                    <li>
+                                        <a href="">#{perfilEti.clases}</a>
+                                    </li>
+                                    <li>
+                                        <a href="">#{perfilEti.actividades}</a>
+                                    </li>
+                                    <li>
+                                        <a href="">#{perfilEti.paquetes}</a>
+                                    </li>
+                                    <li>
+                                        <a href="">#{perfilEti.secuencia}</a>
+                                    </li>
+                                    <li>
+                                        <a href="">#{perfilEti.estados}</a>
+                                    </li>
+                                    <li>
+                                        <a href="">#{perfilEti.dfd}</a>
+                                    </li>
+                                    <li>
+                                        <a href="">#{perfilEti.comunicacion}</a>
+                                    </li>
+
+                                </ul>
+                            </li>
+                            <li>	
+                                <a href="#" id="formatos">Formatos</a>
+                                <ul class="text-left submenu d-none" id="submenu1">
+                                    <li>
+                                        <a href="">IEEE</a>
+                                    </li>
+                                    <li>
+                                        <a href="">IEEE 830</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Formulacion de Proyectos</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Informe de Analisis</a>
                                     </li>
                                 </ul>
                             </li>
                         </ul>
+                    </p>
+                </div>
+                <div class="modulos">
+                    <!-- HOME -->
+                    <div class="modulo d-block mx-auto">
+                        <img class="float-left" src="../../resources/img/modulos/icono_home.png" alt=""/>
+                        <h4>
+                            <a href="" target="area-trabajo">HOME</a>
+                        </h4>
+                    </div>
+                    <!-- FACTURACIÓN -->
+                    <div class="modulo d-block mx-auto">
+                        <img class="float-left" src="../../resources/img/modulos/icono_facturacion.png" alt=""/>
+                        <h4>
+                            <a href="../Facturacion/facturacion.html" target="area-trabajo">#{perfilEti.Facturacion}</a>
+                        </h4>
+                    </div>
+                    <!-- REPORTES -->
+                    <div class="modulo d-block mx-auto">
+                        <img class="float-left" src="../../resources/img/modulos/icono_reportes.png" alt=""/>
+                        <h4>
+                            <a href="../Reportes/reportes-supervisor.html" target="area-trabajo">#{perfilEti.Reportes}</a>
+                        </h4>
+                    </div>
+                    <!-- SERVICIOS -->
+                    <div class="modulo d-block mx-auto">
+                        <img class="float-left" src="../../resources/img/modulos/icono_servicios.png" alt=""/>
+                        <h5>
+                            <a href="#">#{perfilEti.Servicios}</a>
+                        </h5>
+                        <p>
+                            <a href="../Servicios/crearServicio.xhtml" target="area-trabajo">#{perfilEti.crearServicios}</a>
+                        </p>
+                        <p>
+                            <a href="../Servicios/consultarServicio.xhtml" target="area-trabajo">#{perfilEti.consultarServicios}</a>
+                        </p>
+                    </div>
+                    <!-- CITAS -->
+                    <div class="modulo d-block mx-auto">
+                        <img class="float-left" src="../../resources/img/modulos/icono_citas.png" alt=""/>
+                        <h5>
+                            <a href="#">#{perfilEti.Citas}</a>
+                        </h5>
+                        <p>
+                            <a href="../Citas/agendarCita.xhtml" target="area-trabajo">#{perfilEti.agendarCita}</a>
+                        </p>
+                        <p>
+                            <a href="../Citas/consultarCita.xhtml" target="area-trabajo">#{perfilEti.consultarCita}</a>
+                        </p>
+                    </div>
+                    <!-- HORARIOS -->
+                    <div class="modulo d-block mx-auto">
+                        <img class="float-left" src="../../resources/img/modulos/icono_horarios.png" alt=""/>
+                        <h5>
+                            <a href="#">#{perfilEti.Horarios}</a>
+                        </h5>
+                        <p>
+                            <a href="../Horarios/crearHorario.xhtml" target="area-trabajo">#{perfilEti.crearHorarios}</a>
+                        </p>
+                        <p>
+                            <a href="../Horarios/consultarHorario.xhtml" target="area-trabajo">#{perfilEti.consultarHorarios}</a>
+                        </p>
+                    </div>
+                    <!-- PAGOS -->
+                    <div class="modulo d-block mx-auto">
+                        <img class="float-left" src="../../resources/img/modulos/icono_pagos.png" alt=""/>
+                        <h5><a href="#">#{perfilEti.Pagos}</a></h5>
+                        <p><a href="../Pagos/generar-pago.html" target="area-trabajo">#{perfilEti.generarPagos}</a></p>
+                        <p><a href="../Pagos/consultar-pagos.html" target="area-trabajo">#{perfilEti.consultarPagos}</a></p>
+                    </div>
+                    <!-- USUARIOS -->
+                    <div class="modulo d-block mx-auto">
+                        <img class="float-left" src="../../resources/img/modulos/icono-usuarios.png" alt=""/>
+                        <h5><a href="#">#{perfilEti.usuarios}</a></h5>
+                        <p><a href="../Usuarios/consultar-usuarios.html" target="area-trabajo">#{perfilEti.consultarUsuarios}</a></p>
+                        <p><a href="../Usuarios/asignar-rol.html" target="area-trabajo">#{perfilEti.asignarRol}</a></p>
                     </div>
                 </div>
-            </nav>
-            <!-- MODAL CONFIGURACIONES -->
-
-            <!-- AREA DE TRABAJO -->
-            <div class="area-trabajo">
-                <iframe name="area-trabajo" src="Principal/principal-supervisor.html" frameborder="0"></iframe>
             </div>
 
-        </div>
+
+            <div class="panel-derecho float-right">
+                <!-- NAVEGADOR -->
+                <nav>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="row izq">
+                                <div class="col-1 menu float-left">
+                                    <input class="" id="menu" type="checkbox">
+                                        <span></span>
+                                        <span></span>
+                                    </input>
+                                </div>
+                                <div class="col-9 titulo float-right">
+                                    <p><img src="../../resources/img/logo.png" alt=""/></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 config">
+                            <ul>
+                                <li>
+                                    <a href="#"><img src="../../img/config.png" alt=""/></a>
+                                    <ul>
+                                        <li>
+                                            <img src="../../resources/img/editar-perfil.png" alt=""><a class="text-left" href="../Config/editarPerfil.xhtml" target="area-trabajo">#{perfilEti.editarPerfil}</a></img>
+                                        </li>
+                                        <li>	
+                                            <img src="../../resources/img/ajustes.png" alt=""/><a class="text-left" href="">#{perfilEti.configuracion}</a>
+                                        </li>
+                                        <li>
+                                            <img src="../../resources/img/alarma.png" alt=""/><a class="text-left" href="" target="area-trabajo">#{perfilEti.notificaciones}</a>
+                                        </li>
+                                        <li>	
+                                            <img src="../../resources/img/logout.png" alt=""/><a class="text-left" href="">#{perfilEti.cerrarSesion}</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <!-- MODAL CONFIGURACIONES -->
+
+                <!-- AREA DE TRABAJO -->
+                <div class="area-trabajo">
+                    <iframe name="area-trabajo"> </iframe>
+                </div>
+
+            </div>
+        </f:view>
     </h:body>
     <!-- FOOTER -->
 

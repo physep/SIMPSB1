@@ -9,8 +9,8 @@
     <h:head>
         <title>Crear Servicio</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <link href="../../resources/css/Servicios/crearServicio.css" rel="stylesheet" type="text/css"/>
         <link href="../../../resources/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../../resources/css/Servicios/crearServicio.css" rel="stylesheet" type="text/css"/>
     </h:head>
     <f:view locale="#{languageServicios.idiomaSeleccionado}">    
         <h:messages globalOnly="true" showDetail="true"/>
@@ -41,22 +41,30 @@
                     </div>
                     <h:form>
                         <div class="form-group">
-                            <h:inputHidden class="form-control" id="idServicio" value="#{serviciosController.servicios.idServicio}"/>
-                            <h:message for="idServicio"/>
                             <h:outputLabel for="nombreServicio" value="#{servisEti.nombreServicio}"/>
-                            <h:inputText id="nombreServicio" value="#{serviciosController.servicios.nombre}" a:placeholder="#{servisEti.placeNombre}" styleClass="form-control"/>
+                            <h:inputText id="nombreServicio" value="#{serviciosController.servicios.nombre}" a:placeholder="#{servisEti.placeNombre}" styleClass="form form-control"/>
+
                             <h:outputLabel for="estado" value="#{servisEti.estadoServicio}"/>
-                            <h:inputText id="estado" value="#{serviciosController.servicios.estado}" a:placeholder="#{servisEti.placeEstado}" styleClass="form-control"/>
+                            <h:selectOneMenu value="#{serviciosController.servicios.estado}" styleClass="form form-control">
+                                <f:selectItem itemLabel="Activo" itemValue="Activo"/>
+                                <f:selectItem itemLabel="Inactivo" itemValue="Inactivo"/>
+                                <f:selectItem itemLabel="-- Seleccionar --" itemValue="0"/>
+                            </h:selectOneMenu>
+
                             <h:outputLabel for="valor" value="#{servisEti.valorServicio}"/>
-                            <h:inputText id="valor" value="#{serviciosController.servicios.valor}" a:placeholder="#{servisEti.placeValor}" styleClass="form-control" />
+                            <h:inputText id="valor" value="#{serviciosController.servicios.valor}" a:placeholder="#{servisEti.placeValor}" styleClass="form form-control" />
+
                             <h:outputLabel for="tiempoEstimado" value="#{servisEti.tiempoServicio}"/>
-                            <h:inputText id="tiempoEstimado" value="#{serviciosController.servicios.tiempoEstimado}" a:placeholder="#{servisEti.placeTiempo}" styleClass="form-control"/>
+                            <h:inputText id="tiempoEstimado" value="#{serviciosController.servicios.tiempoEstimado}" a:placeholder="#{servisEti.placeTiempo}" styleClass="form form-control"/>
                         </div>
-                        <h:commandButton value="#{universEti.Actualizar}" action="#{serviciosController.actualizarServicios()}" styleClass="btn btn-primary"/>
+                        <div class="text-center">
+                            <h:commandButton value="Modificar" action="#{serviciosController.actualizarServicios()}" styleClass="btn boton"/>
+                           <h:commandButton styleClass="btn boton" value="#{universEti.Regresar}"  action="consultarServicio"/>
+                        </div>
                     </h:form>
                 </div>                
             </div> 
-            </h:body>
+        </h:body>
     </f:view>
     <!-- SCRIPTS -->
     <script src="../../../resources/js/jquery-3.3.1.slim.min.js"></script>

@@ -44,7 +44,7 @@
         </resource-bundle>
         
         <resource-bundle>
-             <base-name>simpsb.Language.Perfiles.perfiles</base-name>
+             <base-name>simpsb.languages.Perfiles.perfiles</base-name>
             <var>perfilEti</var>
         </resource-bundle>
         

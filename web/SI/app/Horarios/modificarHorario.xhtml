@@ -13,17 +13,17 @@ and open the template in the editor.
     <h:head>
         <title>Modificar Horario</title>
         <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/> <link href="../../../resources/css/bootstrap.min.css" rel="stylesheet" type="text/css"/><link href="../../resources/css/Horarios/crearHorario.css" rel="stylesheet" type="text/css"/>
-        <link href="../../resources/css/Horarios/estilos-actualizar-horarios.css" rel="stylesheet" type="text/css"/>
         <link href="../../../resources/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../../resources/css/Horarios/modificarHorario.css" rel="stylesheet" type="text/css"/>
     </h:head>
-    <h:body class="fondo" >
+    <h:body styleClass="fondo" >
         <!-- Migas de pan -->
-	<nav aria-label="breadcrumb">
-		<ol class="breadcrumb">
-			<li class="breadcrumb-item text-right"><a href="#">Home</a></li>
-			<li class="breadcrumb-item active" aria-current="page">Crear Horario</li>
-		</ol>
-	</nav>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Modificar Horario</li>
+            </ol>
+        </nav>
         <h:messages globalOnly="true" showDetail="true"/>
         <!-- CONTENEDOR -->
         <div class="container">
@@ -37,8 +37,8 @@ and open the template in the editor.
                         <!-- Hora inicial -->
                         <div>
                             <h:outputLabel for="horaIn" value="#{horarioEti.horaIn}"/>
-                            <h:inputText a:type="time" styleClass="form-control  form" id="horaIn" value="#{horariosController.horariotrabajo.horaInicio}">
-              <f:convertDateTime  pattern="HH:mm"/>
+                            <h:inputText a:type="time" styleClass="form-control form" id="horaIn" value="#{horariosController.horariotrabajo.horaInicio}">
+                                <f:convertDateTime  pattern="HH:mm"/>
                             </h:inputText>
                             <h:message for="horaIn"/>
                         </div>
@@ -46,14 +46,18 @@ and open the template in the editor.
                         <div>
                             <h:inputHidden class="form-control" id="idHorario" value="#{horariosController.horariotrabajo.idHorarioTrabajo}"/>
                             <h:message for="idHorario"/>
-                            <h:outputLabel for="horaFn" value="#{horarioEti.horaFn}"/>
+                            <h:outputLabel for="h   oraFn" value="#{horarioEti.horaFn}"/>
                             <h:inputText a:type="time" styleClass="form-control form" id="horaFn" value="#{horariosController.horariotrabajo.horaFin}">
-                             <f:convertDateTime  pattern="HH:mm"/>
+                                <f:convertDateTime  pattern="HH:mm"/>
                             </h:inputText>
                             <h:message for="horaFn"/>
                         </div>
+                        
                         <br></br>
-                        <h:commandButton styleClass="btn boton d-block mx-auto" value="#{universEti.Actualizar}"  action="#{horariosController.actualizarHorario()}"/>
+                        <div class="text-center">
+                        <h:commandButton styleClass="btn boton" value="Modificar" action="#{horariosController.actualizarHorario()}"/>
+                        <h:commandButton styleClass="btn boton" value="#{universEti.Regresar}"  action="consultarHorario"/>
+                        </div>
                     </h:form>
                 </div>
             </div>

@@ -70,7 +70,7 @@ public class HorariosController {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso: ", "Actulizacion exitosa"));
 
         } catch (Exception e) {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Error: ", "No conexion"));
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Error: ", "Parra Hijueputa"));
             e.printStackTrace();
         }
 
@@ -81,7 +81,7 @@ public class HorariosController {
            Horariotrabajo= HorariotrabajoFacadeLocal.find(hor.getIdHorarioTrabajo());
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso: ", "Consulta exitosa"));
         } catch (Exception e) {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Error: ", "No conexion"));
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Error: ", "Parra Hijueputa"));
             e.printStackTrace();
         }
         return "modificarHorario";

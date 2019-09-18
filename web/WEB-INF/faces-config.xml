@@ -45,7 +45,7 @@
             <var>perfilEti</var>
         </resource-bundle>
         <resource-bundle>
-             <base-name>simpsb.Language.Horarios</base-name>
+             <base-name>simpsb.Language.Horarios.horarios</base-name>
             <var>horarioEti</var>
         </resource-bundle>
     </application>

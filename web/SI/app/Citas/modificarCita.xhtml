@@ -33,36 +33,50 @@ and open the template in the editor.
 
                     <h:form>
                         <div class="form-row">
+                            <h:inputHidden value="#{citasController.citas.idCita}"/>
+                            <h:inputHidden value="#{citasController.servicios.idServicio}"/>
+                            <h:inputHidden value="#{citasController.empleado.idEmpleado}"/>
                             <div class="form-group col-md-6">
                                 <h:outputLabel for="fecha" value="#{agcitaEti.fecha}"/>
-                                <h:inputText id="fecha" styleClass="form form-control" a:type="date" value="#{citasController.citas.fecha}"/>
+                                <h:inputText id="fecha" styleClass="form form-control" a:type="date" value="#{citasController.citas.fecha}">
+                                    <f:convertDateTime for="fecha" type="date" pattern="yyyy-MM-dd"></f:convertDateTime>
+                                </h:inputText>
                                 <h:message for="fecha"/>
                             </div>
                             <div class="form-group col-md-6">
                                 <h:outputLabel for="hora" value="#{agcitaEti.hora}"/>
-                                <h:inputText id="hora" styleClass="form form-control"  a:type="time" value="#{citasController.citas.hora}"/>
+                                <h:inputText id="hora" styleClass="form form-control"  a:type="time" value="#{citasController.citas.hora}">
+                                    <f:convertDateTime dateStyle="full" pattern="HH:mm"></f:convertDateTime>
+                                </h:inputText>
                                 <h:message for="hora"/>
                             </div>
                         </div>
 
                         <div class="form-group col-md-12">
                             <h:outputLabel for="servicio" value="#{agcitaEti.servicio}"/>
-                            <h:selectOneMenu id="servicio" value="#{citasController.citas.idServicio}" styleClass="form form-control">
+                            <h:selectOneMenu id="servicio" value="#{citasController.servicios.idServicio}" styleClass="form form-control">
                                 <f:selectItem itemLabel="#{agcitaEti.seleccionar}" itemValue="0"/>
-                                <f:selectItems value="#{citasController.listServicios}" var="servicio" itemValue="#{servicio.idServicio}" itemLabel="#{servicio.nombre}"/>
+                                <f:selectItems value="#{citasController.listServicios}" var="servicio" 
+                                               itemValue="#{servicio.idServicio}" 
+                                               itemLabel="#{servicio.nombre}"/>
                             </h:selectOneMenu>
+                            <h:message for="servicio"/>
                         </div>
 
                         <div class="form-group col-md-12">
                             <h:outputLabel for="empleado" value="#{agcitaEti.empleado}"/>
-                            <h:selectOneMenu id="empleado" value="#{citasController.citas.idEmpleado}" styleClass="form form-control">
+                            <h:selectOneMenu id="empleado" value="#{citasController.empleado.idEmpleado}" styleClass="form form-control">
                                 <f:selectItem itemLabel="#{agcitaEti.seleccionar}" itemValue="0"/>
-                                <f:selectItems value="#{citasController.listEmpleados}" var="empleado" itemValue="#{empleado.idEmpleado}" itemLabel="#{empleado.idUsuario.nombre}"/>
+                                <f:selectItems value="#{citasController.listEmpleados}" var="emp" 
+                                               itemValue="#{emp.idEmpleado}" 
+                                               itemLabel="#{emp.idUsuario.nombre}"/>
                             </h:selectOneMenu>
+                            <h:message for="empleado"/>
                         </div>
-                    </h:form>
-                    <h:form>
-                        <h:commandButton styleClass="btn boton d-block mx-auto" action="#{citasController.modificarCita()}" onclick="" value="#{agcitaEti.btn_agendar}"/>
+                        <div class="text-center">
+                        <h:commandButton styleClass="btn boton" action="#{citasController.modificarCita()}" value="Modificar"/>
+                        <h:commandButton styleClass="btn boton" action="consultarCita" value="Volver"/>
+                        </div>
                     </h:form>
                 </div>
             </div>

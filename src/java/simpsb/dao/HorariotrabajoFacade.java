@@ -12,7 +12,7 @@ import simpsb.entidades.Horariotrabajo;
 
 /**
  *
- * @author usuario
+ * @author SebastianParra
  */
 @Stateless
 public class HorariotrabajoFacade extends AbstractFacade<Horariotrabajo> implements HorariotrabajoFacadeLocal {

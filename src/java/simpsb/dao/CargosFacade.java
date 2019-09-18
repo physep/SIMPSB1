@@ -12,7 +12,7 @@ import simpsb.entidades.Cargos;
 
 /**
  *
- * @author usuario
+ * @author SebastianParra
  */
 @Stateless
 public class CargosFacade extends AbstractFacade<Cargos> implements CargosFacadeLocal {

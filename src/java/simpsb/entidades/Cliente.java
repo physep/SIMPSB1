@@ -10,7 +10,6 @@ import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -23,7 +22,7 @@ import javax.persistence.Table;
 
 /**
  *
- * @author APRENDIZ
+ * @author SebastianParra
  */
 @Entity
 @Table(name = "cliente")
@@ -38,11 +37,11 @@ public class Cliente implements Serializable {
     @Basic(optional = false)
     @Column(name = "idCliente")
     private Integer idCliente;
-    @JoinColumn(name = "idUsuario", referencedColumnName = "idUsuario")
-    @ManyToOne(fetch = FetchType.LAZY)
-    private Usuario idUsuario;
-    @OneToMany(mappedBy = "idCliente", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "idCliente")
     private List<Citas> citasList;
+    @JoinColumn(name = "idUsuario", referencedColumnName = "idUsuario")
+    @ManyToOne
+    private Usuario idUsuario;
 
     public Cliente() {
     }
@@ -59,20 +58,20 @@ public class Cliente implements Serializable {
         this.idCliente = idCliente;
     }
 
-    public Usuario getIdUsuario() {
-        return idUsuario;
-    }
-
-    public void setIdUsuario(Usuario idUsuario) {
-        this.idUsuario = idUsuario;
-    }
-
     public List<Citas> getCitasList() {
         return citasList;
     }
 
     public void setCitasList(List<Citas> citasList) {
         this.citasList = citasList;
+    }
+
+    public Usuario getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(Usuario idUsuario) {
+        this.idUsuario = idUsuario;
     }
 
     @Override

@@ -11,7 +11,7 @@ import simpsb.entidades.Empleado;
 
 /**
  *
- * @author usuario
+ * @author SebastianParra
  */
 @Local
 public interface EmpleadoFacadeLocal {

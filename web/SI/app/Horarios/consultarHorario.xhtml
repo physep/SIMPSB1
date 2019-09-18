@@ -29,27 +29,27 @@ and open the template in the editor.
         <div class="container">
             <div class="formulario d-block mx-auto">
                 <div class="titulo">
-                    <h1 class="text-center">#{horarioEti.consultarhorario}</h1>
+                    <h1 class="text-center">Consultar Horario</h1>
                 </div>  
                 <p class="text-uppercase">
                     <img src="../../resources/img/icono_horarios.png" alt=""/>
                     HORARIOS
                 </p>
                 <h:form>
-                    <h:dataTable value="#{horariosController.listarHorariotrabajo()}" var="horariotrabajo" styleClass="table table-striped table-bordered dt-responsive nowrap col-md-12">
+                    <h:dataTable value="#{horariosController.listarHorariotrabajo()}" var="horario" styleClass="table table-striped table-bordered dt-responsive nowrap col-md-12">
                         <h:column>
                             <f:facet name="header">Id Horario</f:facet>
                             <h:outputText id="idHorario" value="#{horario.idHorarioTrabajo}">
                                 </h:outputText>
                         </h:column>
                         <h:column>
-                            <f:facet name="header">#{horarioEti.horaIn}</f:facet>
+                            <f:facet name="header">Hora Inicio</f:facet>
                             <h:outputText id="HoraIn" value="#{horario.horaInicio}">
                                 <f:convertDateTime dateStyle="full" pattern="HH:mm"></f:convertDateTime>
                             </h:outputText>
                         </h:column>
                         <h:column>
-                            <f:facet name="header">#{horarioEti.horaFn}</f:facet>
+                            <f:facet name="header">Hora Final</f:facet>
                             <h:outputText id="HoraFn" value="#{horario.horaFin}">
                                 <f:convertDateTime dateStyle="full" pattern="HH:mm"></f:convertDateTime>
                             </h:outputText>

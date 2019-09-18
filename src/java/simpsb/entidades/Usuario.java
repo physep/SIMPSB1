@@ -10,7 +10,6 @@ import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -20,11 +19,12 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 /**
  *
- * @author APRENDIZ
+ * @author SebastianParra
  */
 @Entity
 @Table(name = "usuario")
@@ -35,7 +35,8 @@ import javax.validation.constraints.Size;
     , @NamedQuery(name = "Usuario.findByApellido", query = "SELECT u FROM Usuario u WHERE u.apellido = :apellido")
     , @NamedQuery(name = "Usuario.findByGenero", query = "SELECT u FROM Usuario u WHERE u.genero = :genero")
     , @NamedQuery(name = "Usuario.findByNumDocumento", query = "SELECT u FROM Usuario u WHERE u.numDocumento = :numDocumento")
-    , @NamedQuery(name = "Usuario.findByCorreo", query = "SELECT u FROM Usuario u WHERE u.correo = :correo")})
+    , @NamedQuery(name = "Usuario.findByCorreo", query = "SELECT u FROM Usuario u WHERE u.correo = :correo")
+    , @NamedQuery(name = "Usuario.findByPass", query = "SELECT u FROM Usuario u WHERE u.pass = :pass")})
 public class Usuario implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -44,26 +45,26 @@ public class Usuario implements Serializable {
     @Basic(optional = false)
     @Column(name = "idUsuario")
     private Integer idUsuario;
-    @Size(max = 45)
     @Column(name = "nombre")
     private String nombre;
-    @Size(max = 45)
     @Column(name = "apellido")
     private String apellido;
-    @Size(max = 45)
     @Column(name = "genero")
     private String genero;
     @Column(name = "numDocumento")
     private Integer numDocumento;
-    @Size(max = 120)
     @Column(name = "correo")
     private String correo;
-    @OneToMany(mappedBy = "idUsuario", fetch = FetchType.LAZY)
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "pass")
+    private String pass;
+    @OneToMany(mappedBy = "idUsuario")
     private List<Cliente> clienteList;
-    @OneToMany(mappedBy = "idUsuario", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "idUsuario")
     private List<Empleado> empleadoList;
     @JoinColumn(name = "idRol", referencedColumnName = "idRol")
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     private Roles idRol;
 
     public Usuario() {
@@ -71,6 +72,11 @@ public class Usuario implements Serializable {
 
     public Usuario(Integer idUsuario) {
         this.idUsuario = idUsuario;
+    }
+
+    public Usuario(Integer idUsuario, String pass) {
+        this.idUsuario = idUsuario;
+        this.pass = pass;
     }
 
     public Integer getIdUsuario() {
@@ -119,6 +125,14 @@ public class Usuario implements Serializable {
 
     public void setCorreo(String correo) {
         this.correo = correo;
+    }
+
+    public String getPass() {
+        return pass;
+    }
+
+    public void setPass(String pass) {
+        this.pass = pass;
     }
 
     public List<Cliente> getClienteList() {

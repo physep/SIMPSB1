@@ -10,7 +10,6 @@ import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -22,7 +21,7 @@ import javax.validation.constraints.Size;
 
 /**
  *
- * @author APRENDIZ
+ * @author SebastianParra
  */
 @Entity
 @Table(name = "servicios")
@@ -49,7 +48,7 @@ public class Servicios implements Serializable {
     private Integer valor;
     @Column(name = "tiempoEstimado")
     private String tiempoEstimado;
-    @OneToMany(mappedBy = "idServicio", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "idServicio")
     private List<Citas> citasList;
 
     public Servicios() {

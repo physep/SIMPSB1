@@ -10,7 +10,6 @@ import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -25,7 +24,7 @@ import javax.validation.constraints.Size;
 
 /**
  *
- * @author usuario
+ * @author SebastianParra
  */
 @Entity
 @Table(name = "calificacion")
@@ -56,7 +55,7 @@ public class Calificacion implements Serializable {
     @Column(name = "comentario")
     private String comentario;
     @JoinColumn(name = "idFactura", referencedColumnName = "idFactura")
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     private Factura idFactura;
 
     public Calificacion() {

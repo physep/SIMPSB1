@@ -12,7 +12,7 @@ import simpsb.entidades.Comisiones;
 
 /**
  *
- * @author usuario
+ * @author SebastianParra
  */
 @Stateless
 public class ComisionesFacade extends AbstractFacade<Comisiones> implements ComisionesFacadeLocal {

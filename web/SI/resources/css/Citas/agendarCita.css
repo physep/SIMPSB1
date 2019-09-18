@@ -42,14 +42,13 @@
     color: rgb(210, 210, 210);	
     background-color: rgba(0,0,0,.9);
 }
-.boton{
-    background-color: #D4AF37;
-}
 .boton:hover{
     color: #D4AF37;
     background: rgb(0,0,0);
     border-bottom: 1px solid #D4AF37;
-
+}
+.boton{
+    background-color: #D4AF37;
 }
 /* TABLA */
 p{

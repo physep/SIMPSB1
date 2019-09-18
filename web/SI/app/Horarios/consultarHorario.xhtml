@@ -36,7 +36,7 @@ and open the template in the editor.
                     HORARIOS
                 </p>
                 <h:form>
-                    <h:dataTable value="#{horariosController.listarHorariotrabajo()}" var="horario" styleClass="table table-striped table-bordered dt-responsive nowrap col-md-12">
+                    <h:dataTable value="#{horariosController.listarHorariotrabajo()}" var="horariotrabajo" styleClass="table table-striped table-bordered dt-responsive nowrap col-md-12">
                         <h:column>
                             <f:facet name="header">Id Horario</f:facet>
                             <h:outputText id="idHorario" value="#{horario.idHorarioTrabajo}">

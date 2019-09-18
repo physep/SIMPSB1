@@ -40,18 +40,14 @@
 }
 .form{
 	border: 0;
+        width: 100%;
 	background: rgba(0,0,0, 0.8); 
 	border-bottom: 3px solid #D4AF37;
 }
 .btn{
     margin-right: 10px;
 }
-form input{
-	width: 100%;
-}
-form button{
-	color: rgb(210, 210, 210);
-}
+
 label{
 	margin-top: 10px;
 }

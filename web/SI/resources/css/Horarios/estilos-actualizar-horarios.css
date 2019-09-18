@@ -1,153 +1,108 @@
-/*fuente de letra*/
 @import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
-/*Cosas especiales*/
 *{
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
-	font-family: 'Raleway', sans-serif;	
+    margin: 0;
+    padding: 0;
+    font-family: 'Raleway', sans-serif;	
 
+}/* COLORES */
+
+/* AMARILLO #D4AF37*/
+/* GRIS LETRA rgb(210, 210, 210)*/
+.fondo{
+    background-color: rgb(203,203,210);
 }
-/*Contenedot*/
-.contenedor{
-	width: 100%;
-	max-width: 1000px;
-	margin: auto;
-	border: 1px solid grey;
+/*MIGAS*/
+.breadcrumb{
+    border-radius: 0;
+    background: rgba(42, 43, 42, 1);	
 }
-/*Titulo*/
-h1{
-	text-align: center;
-	margin-top: 20px;
-	padding-top: 15px;
-	margin-bottom: 20px;
-	color: rgba(42, 43, 42, 1);
+.breadcrumb a{
+    color: #D4AF37;
 }
-/*Migas de pan*/
-.mimiga{
-	background-color: rgba(0,0,0,0.8);
-	display: -ms-flexbox;
-	display: flex;
-	-ms-flex-wrap: wrap;
-	flex-wrap: wrap;
-	padding: 0.75rem 1rem;
-	margin-bottom: 1rem;
-	list-style: none;
-	border-radius: 0.01rem;
+.breadcrumb a:hover{
+    border-bottom: 2px solid #D4AF37;
+    color: #D4AF37;
 }
-/*Formulario*/
+
+.row{
+    margin-top: 30px;
+}
+.titulo h1{
+    padding-bottom: 10px;
+    border-bottom: 3px solid #D4AF37;
+}
+
 .formulario{
-	text-align:  center;
-	border-radius: 5px;
-	background-color: rgba(0,0,0,0.8);
-	color: white; 
-	margin-top: 30px;
-	padding-top: 5px;
-	margin: 0 auto;
-	width: 60%;
-	font-size: 20px;
-	box-sizing: border-box;
+    border-radius: 5px;
+    color: rgb(210, 210, 210);
+    padding: 50px;
+    width: 100%;
+    background-color: rgba(0,0,0,.9);
+}
+
+.form-fondo{
+    border: 0;
+    background: rgba(0,0,0, 0.8); 
+    border-bottom: 3px solid #D4AF37;
 }
 .form{
-	background-color: rgba(010, 010, 010, 1);
-}
-.formulario input{
-	background-color: rgba(010, 010, 010, 1);
-	outline: none;
-	color: white;
-}
-.formulario select{
-	background-color: rgba(010, 010, 010, 1);
-	color: white;
-	outline: none;
+    background-color: rgba(010, 010, 010, 1);
+    outline: none;
+    color: white;
 }
 
-	/*div > label > div{
-    padding: 20px 0;
-    border-bottom: 1px solid #ccc;
-    }*/
-    /*bordes amarillos*/
-    .formulario .field{
-    	border-bottom: 1.5px solid #D4AF37;
-    	padding: 10px;
-    }
-    .formulario .field:focus{
-    	border-bottom: 5px solid #D4AF37;
-    	padding: 5px;
-    }
-    /*boton enviar*/
-    .boton{
-    	background: #D4AF37;
-    	color: #fff;
-    	background-color: #D4AF37;
-    	border-color: #D4AF37;
-    	text-align: center;
-    	margin-top: 10px;
-    }
+form input{
+    width: 100%;
+}
+form button{
+    color: rgb(210, 210, 210);
+}
 
-/*	.boton_enviar{
-		color: #fff;
-		background-color: #D4AF37;
-		border-color: #D4AF37;
-		text-align: center;
-		margin-top: 10px;
-	}
-	.boton_enviar:hover{
-		margin-top: 10px;
-		color: #ffffff;
-		background-color: rgb(171, 115, 205);
-		}*/
-		/*Los radios de los dias*/
-		.formulario input[type="checkbox"]{
-			display: none;
-		}
+label{
+    margin-top: 10px;
+}
+.boton{
+    width: 100px;
+    margin-right: 10px;
+    background-color: #D4AF37;
+}
+.boton:hover{
+    color: #D4AF37;
+    background: rgb(0,0,0);
+    border-bottom: 1px solid #D4AF37;
 
-		.formulario .checkbox label{
-			color: white;
-			background-color: rgba(212,175,55,0.2);
-			padding: 0.2px 15px 0.1px 51px;
-			display: inline-block;
-			position: relative;
-			/*font-size: 5em;*/
-			border-radius: 3px;
-			cursor: pointer;
-			-webkit-transition:all 0.3s ease; 
-			-o-transition:all 0.3s ease;
-			transition: all 0.3s ease;
-		}
-		.formulario .checkbox label:hover{
-			background: rgba(255,255,255,0.5);
-		}
-		.formulario .checkbox label:before{
-			content: "";
-			width: 22px;
-			height: 22px;
-			left: 22px;
-			top: 4px;
-			display: inline-block;
-			background: none;
-			border: 3px solid #D4AF37;
-			border-radius: 50%;
-			position: absolute;
+}
 
 
-		}
-		
+/*Indicaciones*/
+.modal form input:focus:valid{
+    border-color: green;
+    background: #fff url(../img/invalid.png) no-repeat 98% center;
+}
 
-		.formulario .checkbox label:before{
-			border-radius: 3px;
-		}
+.modal form input:focus:invalid{
+    border-color: red;
+}
 
-		.formulario input[type="checkbox"]:checked + label{
-			padding: 5px 15px;
-			background: #D4AF37;
-			border-radius: 2px;
-			color: #fff;
-		}
-		.formulario input[type="checkbox"]:checked + label:before{
-			display: none;
-		}
+.modal form input:valid{
+    border-color: green;
+}
+
+.modal form input:invalid{
+    border-color: red;
+}
 
 
+.swal-button{
+    background-color: #D4AF37;
+}
+.swal-button:not([disabled]):hover {
+    background-color: #000;
+    color: #fff;
+    transition: .3s;
+}
+.swal-overlay{
+    background-color: rgba(0,0,0,.8);
+}
 
-		
+

@@ -11,7 +11,22 @@
 .fondo{
 	background-color: rgb(203,203,210);
 }
+/*MIGAS*/
+.breadcrumb{
+    border-radius: 0;
+    background: rgba(42, 43, 42, 1);	
+}
+.breadcrumb a{
+    color: #D4AF37;
+}
+.breadcrumb a:hover{
+    border-bottom: 2px solid #D4AF37;
+    color: #D4AF37;
+}
 
+.row{
+    margin-top: 30px;
+}
 .titulo h1{
 	padding-bottom: 10px;
 	border-bottom: 3px solid #D4AF37;
@@ -30,7 +45,7 @@
 	background: rgba(0,0,0, 0.8); 
 	border-bottom: 3px solid #D4AF37;
 }
-.formulario input{
+.form{
 	background-color: rgba(010, 010, 010, 1);
 	outline: none;
 	color: white;
@@ -46,9 +61,16 @@ form button{
 label{
 	margin-top: 10px;
 }
+.boton{
+    width: 100px;
+    margin-right: 10px;
+    background-color: #D4AF37;
+}
 .boton:hover{
-	color: #000;
-	background-color: #D4AF37;
+    color: #D4AF37;
+    background: rgb(0,0,0);
+    border-bottom: 1px solid #D4AF37;
+
 }
 
 

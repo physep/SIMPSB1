@@ -36,23 +36,23 @@ and open the template in the editor.
                     HORARIOS
                 </p>
                 <h:form>
-                    <h:dataTable value="#{horariosController.listarHorariotrabajo()}" var="horario" styleClass="table table-striped table-bordered dt-responsive nowrap text-center">
+                    <h:dataTable value="#{horariosController.listarHorariotrabajo()}" var="horariotrabajo" styleClass="table table-striped table-bordered dt-responsive nowrap text-center">
                         <h:column>
                             <f:facet name="header">Id Horario</f:facet>
-                            <h:outputText id="idHorario" value="#{horario.idHorarioTrabajo}">
+                            <h:outputText id="idHorario" value="#{horariotrabajo.idHorarioTrabajo}">
                             </h:outputText>
                         </h:column>
                         
                         <h:column>
                             <f:facet name="header">Hora Inicio</f:facet>
-                            <h:outputText id="HoraIn" value="#{horario.horaInicio}">
+                            <h:outputText id="HoraIn" value="#{horariotrabajo.horaInicio}">
                                 <f:convertDateTime dateStyle="full" pattern="HH:mm"></f:convertDateTime>
                             </h:outputText>
                         </h:column>
                         
                         <h:column>
                             <f:facet name="header">Hora Final</f:facet>
-                            <h:outputText id="HoraFn" value="#{horario.horaFin}">
+                            <h:outputText id="HoraFn" value="#{horariotrabajo.horaFin}">
                                 <f:convertDateTime dateStyle="full" pattern="HH:mm"></f:convertDateTime>
                             </h:outputText>
                         </h:column>

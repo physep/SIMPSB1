@@ -183,5 +183,6 @@ public class Usuario implements Serializable {
     public String toString() {
         return "simpsb.entidades.Usuario[ idUsuario=" + idUsuario + " ]";
     }
+
     
 }

@@ -52,9 +52,16 @@ form button{
 label{
     margin-top: 10px;
 }
-.boton:hover{
-    color: #000;
+.boton{
+    width: 100px;
+    margin-right: 10px;
     background-color: #D4AF37;
+}
+.boton:hover{
+    color: #D4AF37;
+    background: rgb(0,0,0);
+    border-bottom: 1px solid #D4AF37;
+
 }
 /* TABLA */
 .table{
@@ -71,13 +78,4 @@ label{
     .titulo h1{
         font-size: 28px;
     }
-}
-
-
-/* VALIDACIÓN */
-.formulario input:valid{
-    border: 2px solid green; 
-}
-.formulario input:invalid{
-    border: 2px solid #D4AF37; 
 }

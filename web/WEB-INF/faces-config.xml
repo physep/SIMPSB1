@@ -52,6 +52,10 @@
              <base-name>simpsb.languages.Horarios.horarios</base-name>
             <var>horarioEti</var>
         </resource-bundle>
+        <resource-bundle>
+             <base-name>simpsb.languages.Servicio.pages</base-name>
+            <var>pagesEti</var>
+        </resource-bundle>
     </application>
     
 </faces-config>

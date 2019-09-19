@@ -18,9 +18,7 @@ public class UsuarioController {
     private UsuarioFacadeLocal usuarioFacadeLocal;
     private Usuario usuario;
 
-    @EJB
-    private RolesFacadeLocal rolesFacadeLocal;
-    private Roles roles;
+ 
 
     @PostConstruct
     public void init() {
@@ -67,7 +65,7 @@ public class UsuarioController {
     public String consultarUsuario(Usuario usuario) {
         try {
             usuario = usuarioFacadeLocal.find(usuario.getIdUsuario());
-            roles = usuario.getIdRol();
+           
 
         } catch (Exception e) {
             e.printStackTrace();

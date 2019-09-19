@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
 *{
-	margin: 0;
-	padding: 0;
-	font-family: 'Raleway', sans-serif;	
+    margin: 0;
+    padding: 0;
+    font-family: 'Raleway', sans-serif;	
 
 }
 /* COLORES */
@@ -10,58 +10,72 @@
 /* AMARILLO #D4AF37*/
 /* GRIS LETRA rgb(210, 210, 210)*/
 .fondo{
-	background-color: rgba(203,203,210);
+    background-color: rgb(203,203,210);
 }
 /*MIGAS*/
 .breadcrumb{
-	border-radius: 0;
-	background: rgba(42, 43, 42, 1);	
+    border-radius: 0;
+    background: rgba(42, 43, 42, 1);	
 }
 .breadcrumb a{
-	color: #D4AF37;
+    color: #D4AF37;
 }
 .breadcrumb a:hover{
-	border-bottom: 2px solid #D4AF37;
-	color: #D4AF37;
+    border-bottom: 2px solid #D4AF37;
+    color: #D4AF37;
 }
 .titulo h1{
-	padding-bottom: 10px;
-	border-bottom: 3px solid #D4AF37;
+    padding-bottom: 10px;
+    border-bottom: 3px solid #D4AF37;
 }
 .row{
-	margin-top: 30px;
-}
-.btn:hover{
-	background-color: #D4AF37;
-	color: #000;
+    margin-top: 30px;
 }
 .formulario{
-	border-radius: 5px;
-	color: rgb(210, 210, 210);
-	padding: 50px;
-	width: 100%;
-	background-color: rgba(0,0,0,.9);
+    border-radius: 5px;
+    color: rgb(210, 210, 210);
+    padding: 50px;
+    width: 100%;
+    background-color: rgba(0,0,0,.9);
 }
 .form{
-	background-color: rgba(0,0,0,.9);
-	border-bottom: 3px solid #D4AF37;
+    border: 0;
+    background: rgba(0,0,0, 0.8); 
+    border-bottom: 3px solid #D4AF37;
+}
+form input{
+    width: 100%;
+}
+form button{
+    color: rgb(210, 210, 210);
 }
 label{
-	margin-top: 15px;
+    margin-top: 10px;
 }
-
-.valid>input:focus:valid{
-	border-color: green;
+.boton{
+    width: 100px;
+    margin-right: 10px;
+    background-color: #D4AF37;
 }
+.boton:hover{
+    color: #D4AF37;
+    background: rgb(0,0,0);
+    border-bottom: 1px solid #D4AF37;
 
-.valid>input:focus:invalid{
-	border-color: red;
 }
-
-.valid>input:valid{
-	border-color: green;
+/* TABLA */
+.table{
+    background:  rgb(210, 210, 210);
 }
-
-.valid>input:invalid{
-	border-color: red;
+.dataTables_wrapper .dataTables_length, 
+.dataTables_wrapper .dataTables_filter, 
+.dataTables_wrapper .dataTables_info, 
+.dataTables_wrapper .dataTables_processing, 
+.dataTables_wrapper .dataTables_paginate{
+    color: rgb(210, 210, 210);
+}
+@media screen and (max-width: 576px) {
+    .titulo h1{
+        font-size: 28px;
+    }
 }

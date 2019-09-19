@@ -12,32 +12,72 @@ and open the template in the editor.
       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <h:head>
         <title>Consultar Pagos</title>
+        <link href="../../../resources/css/mdb.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../../../resources/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="../../resources/css/Pagos/estilos-consultar-pagos.css" rel="stylesheet" type="text/css"/>
     </h:head>
-    <h:body>
+    <div class="container">
+
+    </div>
+    <h:body class="fondo">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item  text-right"><a href="#">Home</a></li>
+                <li class="breadcrumb-item  active" aria-current="page">Consultar Pagos</li>
+            </ol>
+        </nav>
         <div class="container">
-            <h:dataTable value="#{pagosController.listarPagos()}" var="comisiones" styleClass="table table-striped table-bordered dt-responsive nowrap col-md-12">
-                <h:column>
-                    <f:facet name="header">Id</f:facet>
-                    <h:outputText value="#{pagosController.comisiones.idComisiones}" id="idComision"/>
-                </h:column>  
-                <h:column>
-                    <f:facet name="header">Id</f:facet>
-                    <h:outputText value="#{pagosController.comisiones.valor}" id="valor"/>
-                </h:column>    
-                <h:column>
-                    <f:facet name="header">Id</f:facet>
-                    <h:outputText value="#{pagosController.comisiones.idEmpleado}" id="idEmpleado"/>
-                </h:column>    
-                <h:column>
-                    <f:facet name="header">Id</f:facet>
-                    <h:outputText value="#{pagosController.comisiones.idFactura}" id="idFactura"/>
-                </h:column>    
-                <h:column>
-                    <f:facet name="header">Id</f:facet>
-                    <h:commandButton style="border: 0; margin: 10px;" styleClass="btn btn-danger" value="#{universEti.Eliminar}" action="#{pagosController.eliminarPagos(comisiones)}" />
-                </h:column>    
-            </h:dataTable>
+            <div class="tabla d-block mx-auto">
+                <div class="titulo">
+                    <h1 class="text-center">CONSULTAR PAGOS</h1>
+                </div>
+                <div class="row">
+                    <!-- TABLA  -->
+                    <div class="col-12">
+                        <p class="text-uppercase"> <img src="../../resources/img/icono_pagos.png" alt=""/>pagos</p>
+                        <h:dataTable value="#{pagosController.listarPagos()}" var="comisiones" styleClass="text-center table table-striped table-bordered dt-responsive nowrap col-md-12">
+                            <h:column>
+                                <f:facet name="header">Id</f:facet>
+                                <h:outputText value="#{pagosController.comisiones.idComisiones}" id="idComision"/>
+                            </h:column>  
+                            <h:column>
+                                <f:facet name="header">Valor</f:facet>
+                                <h:outputText value="#{pagosController.comisiones.valor}" id="valor"/>
+                            </h:column>    
+                            <h:column>
+                                <f:facet name="header">Empleado</f:facet>
+                                <h:outputText value="#{pagosController.empleado.idUsuario.nombre}" id="idEmpleado"/>
+                            </h:column>    
+                            <h:column>
+                                <f:facet name="header">Factura</f:facet>
+                                <h:outputText value="#{pagosController.comisiones.idFactura}" id="idFactura"/>
+                            </h:column>    
+                            <h:column>
+                                <h:form>
+                                    <f:facet name="header">Acciones</f:facet>
+                                    <h:commandButton style="border: 0; margin: 10px;" styleClass="btn btn-danger" value="#{universEti.Eliminar}" action="#{pagosController.eliminarPagos(comisiones)}" />
+                                </h:form>
+                            </h:column>    
+                        </h:dataTable>
+                    </div>
+                </div>
+            </div>
         </div>
+        <!-- SCRIPTS -->
+        <script src="../../../js/jquery-3.3.1.slim.min.js"></script>
+        <script src="../../../js/popper.min.js"></script>
+        <script src="../../../js/bootstrap.min.js"></script>
+        <script src="../../../js/mdb.min.js"></script>
+        <script src="../../../js/datatables.min.js"></script>
+        <script src="../../../js/dataTables.responsive.min.js"></script>
+        <script src="../../js/borrarusuario2.js"></script>
+        <script>
+            $(document).ready(function () {
+                $('#grid').DataTable();
+                responsive: true
+            });
+        </script>
+
+
     </h:body>
 </html>

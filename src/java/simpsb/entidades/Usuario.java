@@ -19,12 +19,11 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 /**
  *
- * @author SebastianParra
+ * @author APRENDIZ
  */
 @Entity
 @Table(name = "usuario")
@@ -45,18 +44,21 @@ public class Usuario implements Serializable {
     @Basic(optional = false)
     @Column(name = "idUsuario")
     private Integer idUsuario;
+    @Size(max = 45)
     @Column(name = "nombre")
     private String nombre;
+    @Size(max = 45)
     @Column(name = "apellido")
     private String apellido;
+    @Size(max = 45)
     @Column(name = "genero")
     private String genero;
     @Column(name = "numDocumento")
     private Integer numDocumento;
+    @Size(max = 120)
     @Column(name = "correo")
     private String correo;
-    @Basic(optional = false)
-    @NotNull
+    @Size(max = 45)
     @Column(name = "pass")
     private String pass;
     @OneToMany(mappedBy = "idUsuario")
@@ -72,11 +74,6 @@ public class Usuario implements Serializable {
 
     public Usuario(Integer idUsuario) {
         this.idUsuario = idUsuario;
-    }
-
-    public Usuario(Integer idUsuario, String pass) {
-        this.idUsuario = idUsuario;
-        this.pass = pass;
     }
 
     public Integer getIdUsuario() {
@@ -183,6 +180,5 @@ public class Usuario implements Serializable {
     public String toString() {
         return "simpsb.entidades.Usuario[ idUsuario=" + idUsuario + " ]";
     }
-
     
 }

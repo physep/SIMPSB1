@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+        <title>Registrar Usuario</title>
+        <link href="../../../resources/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../../resources/css/Usuarios/crearUsuario.css" rel="stylesheet" type="text/css"/>
+    </h:head>
+    <h:body styleClass="fondo">
+        <f:view locale="es">           
+            <h:messages globalOnly="true" showDetail="true" class="text-info h4"/>
+            <!--Migas de Pan-->
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Registrar Usuario</li>
+                </ol>
+            </nav> 
+
+            <!-- Area de Trabajo -->
+            <div class="container">
+                <div class="formulario d-block mx-auto">
+                    <div class="titulo">
+                        <h1 class="text-center">REGISTRAR USUARIO</h1>
+                    </div>
+
+                    <h:form>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <h:outputLabel for="nombre" value="#{regUsuEti.nombre}"/>
+                                <h:inputText value="#{usuarioController.usuario.nombre}" id="nombre" styleClass="form-control form" a:placeholder="#{regUsuEti.placeNom}"/>
+                                <h:message for="nombre"/>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <h:outputLabel for="apellido" value="#{regUsuEti.apellido}"/>
+                                <h:inputText  value="#{usuarioController.usuario.apellido}" id="apellido" styleClass="form-control form" a:placeholder="#{regUsuEti.placeApe}"/>
+                                <h:message for="apellido"/>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <h:outputLabel for="correo" value="#{regUsuEti.correo}"/>
+                            <h:inputText value="#{usuarioController.usuario.correo}" id="correo" styleClass="form-control form" a:placeholder="#{regUsuEti.placeCorr}"/>
+                            <h:message for="correo"/>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group  col-md-6">
+                                <h:outputLabel for="documento" value="#{regUsuEti.documento}"/>
+                                <h:inputText value="#{usuarioController.usuario.numDocumento}" id="documento" styleClass="form-control form" a:placeholder="#{regUsuEti.placeDoc}"/>
+                                <h:message for="documento"/>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <h:outputLabel for="genero" value="#{regUsuEti.genero}"/>
+                                <h:selectOneMenu value="#{usuarioController.usuario.genero}" styleClass="form-control form">
+                                    <f:selectItem itemValue="Femenino" itemLabel="#{regUsuEti.feme}"/>
+                                    <f:selectItem itemValue="Masculino" itemLabel="#{regUsuEti.mascu}"/>
+                                </h:selectOneMenu>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <h:outputLabel for="contra" value="#{regUsuEti.contra}"/>
+                            <h:inputText value="#{usuarioController.usuario.pass}" id="contra" a:type="password" styleClass="form-control form" a:placeholder="#{regUsuEti.placeCont}" a:pattern="[A-Za-z0-9]{5,15}"/>
+                            <h:message for="contra"/>
+                        </div>
+
+                        <h:commandButton action="#{usuarioController.registrarUsuario()}" styleClass="btn boton d-block mx-auto" value="#{regUsuEti.btn_registrar}"/>
+                    </h:form>
+                </div>
+            </div>
+        </f:view>
+    </h:body>
+</html>

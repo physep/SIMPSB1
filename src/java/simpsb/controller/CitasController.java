@@ -20,10 +20,13 @@ public class CitasController {
     private ServiciosFacadeLocal serviciosFacadeLocal;
     @EJB
     private EmpleadoFacadeLocal empleadoFacadeLocal;
+    @EJB
+    private UsuarioFacadeLocal usuarioFacadeLocal;
 
     private Citas citas;
     private Empleado empleado;
     private Servicios servicios;
+    private Usuario usuario;
 
     private List<Servicios> listServicios;
     private List<Empleado> listEmpleados;
@@ -83,6 +86,7 @@ public class CitasController {
             citas.setIdServicio(servicios);
             citasFacadeLocal.create(citas);
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Se ha generado exitosamente su cita"));
+            FacesContext.getCurrentInstance().getExternalContext().redirect("consultarCita.xhtml");
         } catch (Exception e) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Error", "Ha ocurrido un error al generar su cita"));
         }
@@ -130,6 +134,7 @@ public class CitasController {
             citas.setIdServicio(servicios);
             citasFacadeLocal.edit(citas);
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Se ha generado exitosamente su cita"));
+            FacesContext.getCurrentInstance().getExternalContext().redirect("consultarCita.xhtml");
         } catch (Exception e) {
             citasFacadeLocal.edit(citas);
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Error", "Ha ocurrido un error al modificar su cita"));

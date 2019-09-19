@@ -20,7 +20,7 @@ import javax.persistence.Table;
 
 /**
  *
- * @author SebastianParra
+ * @author APRENDIZ
  */
 @Entity
 @Table(name = "comisiones")

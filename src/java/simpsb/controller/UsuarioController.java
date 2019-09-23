@@ -17,8 +17,10 @@ public class UsuarioController {
     @EJB
     private UsuarioFacadeLocal usuarioFacadeLocal;
     private Usuario usuario;
-
- 
+    
+    @EJB
+    private RolesFacadeLocal rolesFacadeLocal;
+    private Roles roles;
 
     @PostConstruct
     public void init() {
@@ -33,11 +35,18 @@ public class UsuarioController {
         this.usuario = usuario;
     }
 
+    public Roles getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Roles roles) {
+        this.roles = roles;
+    }
+
     public void registrarUsuario() {
         try {
             usuarioFacadeLocal.create(usuario);
-
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Se ha registrado exitosamente"));
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Se ha registrado exitosamente"));     
         } catch (Exception e) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Error", "Ha ocurrido un error al registrarse"));
         }

@@ -44,21 +44,16 @@ public class Usuario implements Serializable {
     @Basic(optional = false)
     @Column(name = "idUsuario")
     private Integer idUsuario;
-    @Size(max = 45)
     @Column(name = "nombre")
     private String nombre;
-    @Size(max = 45)
     @Column(name = "apellido")
     private String apellido;
-    @Size(max = 45)
     @Column(name = "genero")
     private String genero;
     @Column(name = "numDocumento")
     private Integer numDocumento;
-    @Size(max = 120)
     @Column(name = "correo")
     private String correo;
-    @Size(max = 45)
     @Column(name = "pass")
     private String pass;
     @OneToMany(mappedBy = "idUsuario")

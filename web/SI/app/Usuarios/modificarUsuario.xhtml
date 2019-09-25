@@ -63,11 +63,6 @@
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <h:outputLabel for="contra" value="#{regUsuEti.contra}"/>
-                            <h:inputText value="#{usuarioController.usuario.pass}" id="contra" a:type="password" styleClass="form-control form" a:placeholder="#{regUsuEti.placeCont}" a:pattern="[A-Za-z0-9]{5,15}"/>
-                            <h:message for="contra"/>
-                        </div>
 
                         <h:commandButton action="#{usuarioController.registrarUsuario()}" styleClass="btn boton d-block mx-auto" value="#{regUsuEti.btn_registrar}"/>
                     </h:form>

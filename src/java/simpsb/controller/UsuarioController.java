@@ -29,7 +29,6 @@ public class UsuarioController {
     @PostConstruct
     public void init() {
         usuario = new Usuario();
-        cliente = new Cliente();
 
     }
 
@@ -60,7 +59,7 @@ public class UsuarioController {
     public void registrarUsuario() {
         try {
             roles.setIdRol(3);
-            usuario.setIdRol(roles); 
+            usuario.setIdRol(roles);
             usuarioFacadeLocal.create(usuario);
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Se ha registrado exitosamente"));
         } catch (Exception e) {
@@ -90,7 +89,7 @@ public class UsuarioController {
     public String consultarUsuario(Usuario usuario) {
         try {
             usuario = usuarioFacadeLocal.find(usuario.getIdUsuario());
-            roles = usuario.getIdRol();
+            
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Funciona correcto"));
         } catch (Exception e) {
             e.printStackTrace();
@@ -102,6 +101,8 @@ public class UsuarioController {
     public void modificarUsuario() {
         try {
             usuario.setPass(usuario.getPass());
+            roles.setIdRol(3);
+            usuario.setIdRol(roles);
             usuarioFacadeLocal.edit(usuario);
         } catch (Exception e) {
             e.printStackTrace();

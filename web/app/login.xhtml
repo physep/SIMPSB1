@@ -25,13 +25,13 @@ and open the template in the editor.
                     <div class="form-group">
                         <h:outputLabel styleClass="text-uppercase" for="correo" value="Correo electrónico"/>
                         <h:inputText id="correo" styleClass="form-control form" value="#{sesionController.usuario.correo}"/>
-                        <h:message for="correo" errorClass="text-danger"/>
+                        <h:message for="correo" />
                     </div>
                     
                     <div class="form-group">
                         <h:outputLabel styleClass="text-uppercase" for="pass" value="Contraseña"/>
                         <h:inputSecret a:type="password" id="pass" styleClass="form-control form" value="#{sesionController.usuario.pass}"/>
-                        <h:message for="pass" errorClass="text-danger"/>
+                        <h:message for="pass"/>
                     </div>
                     
                     <div class="text-center">

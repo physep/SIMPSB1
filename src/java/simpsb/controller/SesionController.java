@@ -36,6 +36,7 @@ public class SesionController implements Serializable{
         Usuario u;
         String url = null;
         try {
+            usuarioFacadeLocal.login(usuario);
             url = "SI/app/Perfiles/indexSupervisor";
         } catch (Exception e) {
             e.printStackTrace();

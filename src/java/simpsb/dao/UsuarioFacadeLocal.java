@@ -30,4 +30,5 @@ public interface UsuarioFacadeLocal {
 
     int count();
     
+    Usuario login(Usuario user);
 }

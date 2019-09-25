@@ -21,6 +21,7 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 /**
  *
@@ -56,7 +57,6 @@ public class Usuario implements Serializable {
     @Column(name = "correo")
     private String correo;
     @Basic(optional = false)
-    @NotNull
     @Column(name = "pass")
     private String pass;
     @OneToMany(mappedBy = "idUsuario", fetch = FetchType.LAZY)

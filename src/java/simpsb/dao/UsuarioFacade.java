@@ -5,9 +5,11 @@
  */
 package simpsb.dao;
 
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import simpsb.entidades.Usuario;
 
 /**
@@ -28,5 +30,23 @@ public class UsuarioFacade extends AbstractFacade<Usuario> implements UsuarioFac
     public UsuarioFacade() {
         super(Usuario.class);
     }
-    
+
+    @Override
+    public Usuario login(Usuario user) {
+        Usuario u = null;
+        try {
+            Query query = em.createQuery("SELECT u FROM Usuario u WHERE u.correo = :correo AND u.pass = :pass");
+            query.setParameter("correo", user.getCorreo());
+            query.setParameter("pass", user.getPass());
+            List<Usuario> listUser = query.getResultList();
+            if (!listUser.isEmpty()) {
+                u = listUser.get(0);
+            }
+
+        } catch (Exception e) {
+            throw e;
+        }
+        return u;
+    }
+
 }

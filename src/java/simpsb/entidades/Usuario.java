@@ -10,6 +10,7 @@ import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -19,11 +20,11 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.NotNull;
 
 /**
  *
- * @author APRENDIZ
+ * @author SebastianParra
  */
 @Entity
 @Table(name = "usuario")
@@ -54,14 +55,16 @@ public class Usuario implements Serializable {
     private Integer numDocumento;
     @Column(name = "correo")
     private String correo;
+    @Basic(optional = false)
+    @NotNull
     @Column(name = "pass")
     private String pass;
-    @OneToMany(mappedBy = "idUsuario")
+    @OneToMany(mappedBy = "idUsuario", fetch = FetchType.LAZY)
     private List<Cliente> clienteList;
-    @OneToMany(mappedBy = "idUsuario")
+    @OneToMany(mappedBy = "idUsuario", fetch = FetchType.LAZY)
     private List<Empleado> empleadoList;
     @JoinColumn(name = "idRol", referencedColumnName = "idRol")
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Roles idRol;
 
     public Usuario() {
@@ -69,6 +72,11 @@ public class Usuario implements Serializable {
 
     public Usuario(Integer idUsuario) {
         this.idUsuario = idUsuario;
+    }
+
+    public Usuario(Integer idUsuario, String pass) {
+        this.idUsuario = idUsuario;
+        this.pass = pass;
     }
 
     public Integer getIdUsuario() {

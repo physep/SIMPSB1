@@ -17,16 +17,30 @@ public class UsuarioController {
     @EJB
     private UsuarioFacadeLocal usuarioFacadeLocal;
     private Usuario usuario;
-    
+
     @EJB
     private RolesFacadeLocal rolesFacadeLocal;
     private Roles roles;
+    
+    @EJB
+    private ClienteFacadeLocal clienteFacadeLocal;
+    private Cliente cliente;
 
     @PostConstruct
     public void init() {
         usuario = new Usuario();
+        cliente = new Cliente();
+
     }
 
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+    
     public Usuario getUsuario() {
         return usuario;
     }
@@ -45,8 +59,10 @@ public class UsuarioController {
 
     public void registrarUsuario() {
         try {
+            roles.setIdRol(3);
+            usuario.setIdRol(roles); 
             usuarioFacadeLocal.create(usuario);
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Se ha registrado exitosamente"));     
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Se ha registrado exitosamente"));
         } catch (Exception e) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Error", "Ha ocurrido un error al registrarse"));
         }
@@ -74,12 +90,22 @@ public class UsuarioController {
     public String consultarUsuario(Usuario usuario) {
         try {
             usuario = usuarioFacadeLocal.find(usuario.getIdUsuario());
-           
-
+            roles = usuario.getIdRol();
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Funciona correcto"));
         } catch (Exception e) {
             e.printStackTrace();
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Error", "Ha ocurrido un error"));
         }
         return "modificarUsuario";
+    }
+
+    public void modificarUsuario() {
+        try {
+            usuario.setPass(usuario.getPass());
+            usuarioFacadeLocal.edit(usuario);
+        } catch (Exception e) {
+            e.printStackTrace();
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Error", "Ha ocurrido un error"));
+        }
     }
 }

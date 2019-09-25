@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+*{
+	margin: 0;
+	padding: 0;
+	font-family: 'Josefin Sans', sans-serif;	
+}
+/* COLORES */
+
+/* AMARILLO #D4AF37*/
+/* GRIS LETRA rgb(210, 210, 210)*/
+.fondo{
+	background-image: url('../img/fondo.jpg');
+	background-size: 100% 100%;
+	background-attachment: fixed;
+}
+
+/* AREA DE TRABAJO */
+.area-trabajo{
+	padding-top: 150px; 
+	height: 1000px;
+	background-color: rgba(0,0,0,.8);
+}
+h1{
+	border-bottom: 3px solid #D4AF37
+}
+form{
+	border-radius: 5px;
+	color: #fff;
+	padding: 50px;
+	background-color: rgba(	0,0,0,.8);
+	width: 50%;
+}
+@media screen and (max-width: 576px){
+	form{
+		width: 100%;
+	}	
+}
+.form{
+	border: 0;
+	background-color: rgba(	0,0,0,.8);
+	border-bottom: 3px solid #D4AF37;
+}
+.boton:hover{
+    color: #D4AF37;
+    background: rgb(0,0,0);
+    border-bottom: 1px solid #D4AF37;
+}
+.boton{
+    background-color: #D4AF37;
+}

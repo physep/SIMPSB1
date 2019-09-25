@@ -11,6 +11,7 @@ import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -23,7 +24,7 @@ import javax.persistence.TemporalType;
 
 /**
  *
- * @author APRENDIZ
+ * @author SebastianParra
  */
 @Entity
 @Table(name = "horariotrabajo")
@@ -46,7 +47,7 @@ public class Horariotrabajo implements Serializable {
     @Column(name = "horaFin")
     @Temporal(TemporalType.TIME)
     private Date horaFin;
-    @OneToMany(mappedBy = "idHorarioTrabajo")
+    @OneToMany(mappedBy = "idHorarioTrabajo", fetch = FetchType.LAZY)
     private List<Empleado> empleadoList;
 
     public Horariotrabajo() {

@@ -17,7 +17,7 @@
     
     <context-param>
         <param-name>javax.faces.CONFIG_FILES</param-name>
-        <param-value>/WEB-INF/faces-config1.xml</param-value>
+        <param-value>/WEB-INF/faces-config.xml</param-value>
     </context-param>
     
     <servlet>
@@ -39,4 +39,5 @@
     <welcome-file-list>
         <welcome-file>faces/index.xhtml</welcome-file>
     </welcome-file-list>
+
 </web-app>

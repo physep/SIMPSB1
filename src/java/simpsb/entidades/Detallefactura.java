@@ -10,6 +10,7 @@ import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -20,7 +21,7 @@ import javax.persistence.Table;
 
 /**
  *
- * @author APRENDIZ
+ * @author SebastianParra
  */
 @Entity
 @Table(name = "detallefactura")
@@ -44,7 +45,7 @@ public class Detallefactura implements Serializable {
     private Integer iva;
     @Column(name = "valorTotal")
     private Integer valorTotal;
-    @OneToMany(mappedBy = "idDetalleFactura")
+    @OneToMany(mappedBy = "idDetalleFactura", fetch = FetchType.LAZY)
     private List<Factura> facturaList;
 
     public Detallefactura() {

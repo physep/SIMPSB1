@@ -111,7 +111,6 @@ public class CitasController {
         }
         return listCitas;
     }
-
     //METODO PARA CONSULTAR LA CITA
     public String consultarCita(Citas ct) {
         try {

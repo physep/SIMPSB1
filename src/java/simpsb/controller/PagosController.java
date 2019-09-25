@@ -128,13 +128,13 @@ public class PagosController {
             comisiones.setIdFactura(factura);
             comisionesFacadeLocal.create(comisiones);
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Se ha generado exitosamente su pago"));
-            FacesContext.getCurrentInstance().getExternalContext().redirect("consultarCita.xhtml");
+            FacesContext.getCurrentInstance().getExternalContext().redirect("consultarPago.xhtml");
         } catch (Exception e) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Error", "Ha ocurrido un error al generar su pago"));
         }
     }
 
-    public void eliminarPago() {
+    public void eliminarPagos() {
         try {
             comisionesFacadeLocal.remove(comisiones);
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", ""));

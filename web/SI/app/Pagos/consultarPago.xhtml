@@ -38,19 +38,19 @@ and open the template in the editor.
                         <h:dataTable value="#{pagosController.listarPagos()}" var="comisiones" styleClass="text-center table table-striped table-bordered dt-responsive nowrap col-md-12">
                             <h:column>
                                 <f:facet name="header">Id</f:facet>
-                                <h:outputText value="#{pagosController.comisiones.idComisiones}" id="idComision"/>
+                                <h:outputText value="#{comisiones.idComisiones}" id="idComision"/>
                             </h:column>  
                             <h:column>
                                 <f:facet name="header">Valor</f:facet>
-                                <h:outputText value="#{pagosController.comisiones.valor}" id="valor"/>
+                                <h:outputText value="#{comisiones.valor}" id="valor"/>
                             </h:column>    
                             <h:column>
                                 <f:facet name="header">Empleado</f:facet>
-                                <h:outputText value="#{pagosController.empleado.idUsuario.nombre}" id="idEmpleado"/>
+                                <h:outputText value="#{comisiones.idEmpleado.idUsuario.nombre}" id="idEmpleado"/>
                             </h:column>    
                             <h:column>
                                 <f:facet name="header">Factura</f:facet>
-                                <h:outputText value="#{pagosController.comisiones.idFactura}" id="idFactura"/>
+                                <h:outputText value="#{comisiones.idFactura.idFactura}" id="idFactura"/>
                             </h:column>    
                             <h:column>
                                 <h:form>

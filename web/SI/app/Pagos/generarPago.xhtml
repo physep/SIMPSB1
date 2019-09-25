@@ -36,7 +36,7 @@ and open the template in the editor.
                         <h:outputLabel value="idEmpleado" for="idEmpleado"/>
                         <h:selectOneMenu id="empleado" value="#{pagosController.empleado.idEmpleado}" styleClass="form form-control">
                             <f:selectItem itemLabel="Seleccionar" itemValue="0"/>
-                            <f:selectItems value="#{pagosController.listEmpleados}" var="empleado" 
+                            <f:selectItems value="#{pagosController.listEmpleado}" var="empleado" 
                                            itemValue="#{empleado.idEmpleado}" 
                                            itemLabel="#{empleado.idUsuario.nombre}"/>
                         </h:selectOneMenu>
@@ -44,12 +44,12 @@ and open the template in the editor.
                         <h:outputLabel value="idFactura" for="idFactura"/>
                         <h:selectOneMenu id="servicio" value="#{pagosController.factura.idFactura}" styleClass="form form-control">
                             <f:selectItem itemLabel="Seleccionar" itemValue="0"/>
-                            <f:selectItems value="#{pagosController.factura.idFactura}" var="factura" 
-                                           itemValue="#{factura}" 
-                                           itemLabel="#{factura}"/>
+                            <f:selectItems value="#{pagosController.listFactura}" var="factura" 
+                                           itemValue="#{factura.idFactura}" 
+                                           itemLabel="#{factura.idFactura}"/>
                         </h:selectOneMenu>
                     </div>
-                    <h:commandButton value="#{universEti.Registrar}" action="#{pagosController.registrarPagos()}" styleClass="btn boton"/>
+                    <h:commandButton value="#{universEti.Registrar}" action="#{pagosController.generarPago()}" styleClass="btn boton"/>
                 </h:form>
             </div>
         </div>

@@ -134,7 +134,7 @@ public class PagosController {
         }
     }
 
-    public void eliminarPagos() {
+    public void eliminarPagos(Comisiones comisiones) {
         try {
             comisionesFacadeLocal.remove(comisiones);
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", ""));
@@ -151,6 +151,30 @@ public class PagosController {
             e.printStackTrace();
         }
         return listPagos;
+    }
+    
+    public String consultarPago(Comisiones comi) {
+        try {
+            comisiones = comisionesFacadeLocal.find(comi.getIdComisiones());
+            empleado = comisiones.getIdEmpleado();
+            factura = comisiones.getIdFactura();
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Correcto"));
+        } catch (Exception e) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Error", "Ha ocurrido un error al modificar su cita"));
+        }
+        return "modificarPago";
+    }
+    
+    public void modificarPago() {
+        try {
+            comisiones.setIdEmpleado(empleado);
+            comisiones.setIdFactura(factura);
+            comisionesFacadeLocal.edit(comisiones);
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Se ha generado exitosamente su cita"));
+            FacesContext.getCurrentInstance().getExternalContext().redirect("consultarPago.xhtml");
+        } catch (Exception e) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Error", "Ha ocurrido un error al modificar su cita"));
+        }
     }
     
 }

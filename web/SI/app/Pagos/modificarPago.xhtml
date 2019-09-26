@@ -19,13 +19,13 @@ and open the template in the editor.
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item  text-right"><a href="#">Home</a></li>
-                <li class="breadcrumb-item  active" aria-current="page">Generar Pago</li>
+                <li class="breadcrumb-item  active" aria-current="page">Modificar Pago</li>
             </ol>
         </nav>
         <div class="container">
             <div class="formulario d-block mx-auto">
                 <div class="titulo">
-                    <h1 class="text-center">GENERAR PAGO</h1>
+                    <h1 class="text-center">MODIFICAR PAGO</h1>
                 </div>
                 <h:form>
                     <div class="form-group">
@@ -48,7 +48,7 @@ and open the template in the editor.
                                            itemLabel="#{factura.idFactura}"/>
                         </h:selectOneMenu>
                     </div>
-                    <h:commandButton value="#{universEti.Registrar}" action="#{pagosController.generarPago()}" styleClass="btn boton d-block mx-auto"/>
+                    <h:commandButton value="Modificar" action="#{pagosController.modificarPago()}" styleClass="btn boton d-block mx-auto"/>
                 </h:form>
             </div>
         </div>

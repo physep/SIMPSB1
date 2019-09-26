@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
 *{
-	margin: 0;
-	padding: 0;
-	font-family: 'Raleway', sans-serif;	
+    margin: 0;
+    padding: 0;
+    font-family: 'Raleway', sans-serif;	
 
 }
 /* COLORES */
@@ -10,77 +10,70 @@
 /* AMARILLO #D4AF37*/
 /* GRIS LETRA rgb(210, 210, 210)*/
 .fondo{
-	background-color: rgba(203,203,210);
+    background-color: rgb(203,203,210);
 }
 /*MIGAS*/
 .breadcrumb{
-	border-radius: 0;
-	background: rgba(42, 43, 42, 1);	
+    border-radius: 0;
+    background: rgba(42, 43, 42, 1);	
 }
 .breadcrumb a{
-	color: #D4AF37;
+    color: #D4AF37;
 }
 .breadcrumb a:hover{
-	border-bottom: 2px solid #D4AF37;
-	color: #D4AF37;
+    border-bottom: 2px solid #D4AF37;
+    color: #D4AF37;
 }
 .titulo h1{
-	padding-bottom: 10px;
-	border-bottom: 3px solid #D4AF37;
+    padding-bottom: 10px;
+    border-bottom: 3px solid #D4AF37;
+}
+.titulo .text-center{
+    padding-left: 50px;
 }
 .row{
-	margin-top: 30px;
+    margin-top: 30px;
 }
 .tabla{
-	border-radius: 5px;
-	color: rgb(210, 210, 210);
-	padding: 50px;
-	background-color: rgba(0,0,0,.9);
+    border-radius: 5px;
+    color: rgb(210, 210, 210);
+    padding: 50px;
+    background-color: rgba(0,0,0,.9);
 }
 /* TABLA */
 p{
-	font-size: 18px;
+    font-size: 18px;
 }
 p img{
-	height: 30px;
-	width: 30px;
- 	margin-right: 50px;
+    height: 30px;
+    width: 30px;
+    margin-right: 50px;
 }
 .table{
-	background:  rgb(210, 210, 210);
+    background:  rgb(210, 210, 210);
 }
 .dataTables_wrapper .dataTables_length, 
 .dataTables_wrapper .dataTables_filter, 
 .dataTables_wrapper .dataTables_info, 
 .dataTables_wrapper .dataTables_processing, 
 .dataTables_wrapper .dataTables_paginate{
-	color: rgb(210, 210, 210);
+    color: rgb(210, 210, 210);
 }
 td a img{
-	width: 30px;
-	height: 30px;
+    width: 30px;
+    height: 30px;
 }
-
-button{
-	background: none;
-  border: 0;
-  color: inherit;
-  position: relative;
-  margin-left: 20px;
-  float: right;
-  /* cursor: default; */
-  font: inherit;
-  line-height: normal;
-  overflow: visible;
-  padding: 0;
-  -webkit-user-select: none; /* for button */
-   -webkit-appearance: button; /* for input */
-     -moz-user-select: none;
-      -ms-user-select: none;
+.btn{
+    margin-right: 10px;
 }
-
-img:hover{
-	height: 30px;
-	width: 30px;
-	
+.swal-button{
+    background-color: #D4AF37;
+}
+.swal-button:not([disabled]):hover {
+    background-color: #000;
+    color: #fff;
+    transition: .3s;
+}
+.swal-overlay{
+    background-color: rgba(0,0,0,.8);
 }

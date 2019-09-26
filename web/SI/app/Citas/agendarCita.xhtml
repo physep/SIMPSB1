@@ -68,7 +68,16 @@
                             <h:message for="empleado"/>
                         </div>
 
-                        <h:commandButton styleClass="btn boton d-block mx-auto" action="#{citasController.generarCita()}" value="#{agcitaEti.btn_agendar}"/>
+                        <h:commandButton styleClass="btn boton d-block mx-auto" 
+                                         action="#{citasController.generarCita()}" 
+                                         value="#{agcitaEti.btn_agendar}" 
+                                         onclick="javascript:if (Swal.fire({
+                                             position: 'top-end',
+                                                     type: 'success',
+                                                     title: 'Se ha agendado correctamente su cita',
+                                                     showConfirmButton: false,
+                                                     timer: 1500
+                                                     })) return true;"/>
                     </h:form>
                 </div>
             </div>

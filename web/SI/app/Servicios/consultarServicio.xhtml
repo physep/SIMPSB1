@@ -60,7 +60,7 @@ and open the template in the editor.
                                 <h:column>
                                     <f:facet name="header">#{servisEti.acciones}</f:facet>
                                     <h:commandButton style="border: 0; margin: 10px;"  styleClass="btn btn-warning"  value="Modificar" action="#{serviciosController.consultarServicio(servicio)}"/>
-                                    <h:commandButton style="border: 0; margin: 10px;" styleClass="btn btn-danger" value="#{universEti.Eliminar}" action="#{serviciosController.eliminarServicios(servicio)}" />
+                                    <h:commandButton style="border: 0; margin: 10px;" styleClass="btn btn-danger" onclick="javascript:if(!confirm('¿Está seguro que desea eliminar este servicio?')) return false;" value="#{universEti.Eliminar}" action="#{serviciosController.eliminarServicios(servicio)}" />
                                 </h:column>
                             </h:dataTable>
                         </h:form>

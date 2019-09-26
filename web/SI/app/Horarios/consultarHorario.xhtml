@@ -60,7 +60,7 @@ and open the template in the editor.
                         <h:column>
                             <f:facet name="header">Acciones</f:facet>
                             <h:commandButton styleClass="btn btn-warning" action="#{horariosController.consultarHorariotrabajo(horariotrabajo)}" value="Modificar"/>
-                            <h:commandButton styleClass="btn btn-danger" action="#{horariosController.eliminarHorariotrabajo(horariotrabajo)}" value="#{universEti.Eliminar}"/>
+                            <h:commandButton styleClass="btn btn-danger" action="#{horariosController.eliminarHorariotrabajo(horariotrabajo)}" onclick="javascript:if(!confirm('¿Está seguro que desea eliminar este horario?')) return false;" value="#{universEti.Eliminar}"/>
                         </h:column>
                         
                     </h:dataTable>

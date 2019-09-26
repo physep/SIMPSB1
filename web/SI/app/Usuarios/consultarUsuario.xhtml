@@ -75,7 +75,7 @@ and open the template in the editor.
                                     <h:column>
                                         <f:facet name="header">#{concitaEti.enc_acciones}</f:facet>
                                         <h:commandButton class="btn btn-warning" action="#{usuarioController.consultarUsuario(usuario)}" value="Modificar"/>
-                                        <h:commandButton class="btn btn-danger" action="#{usuarioController.eliminarUsuario(usuario)}" value="#{universEti.Eliminar}"/>
+                                        <h:commandButton class="btn btn-danger" action="#{usuarioController.eliminarUsuario(usuario)}" onclick="javascript:if(!confirm('¿Está seguro que desea eliminar este usuario?')) return false;" value="#{universEti.Eliminar}"/>
                                         <h:commandButton class="btn btn-secondary" action="#" value="Asignar Rol"/>
                                     </h:column>
                                 </h:dataTable>

@@ -58,8 +58,9 @@ public class UsuarioController {
 
     public void registrarUsuario() {
         try {
-            
+            roles.setIdRol(3);
             usuario.setIdRol(roles);
+            usuarioFacadeLocal.create(usuario);
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Se ha registrado exitosamente"));
         } catch (Exception e) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Error", "Ha ocurrido un error al registrarse"));

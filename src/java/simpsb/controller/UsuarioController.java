@@ -29,7 +29,8 @@ public class UsuarioController {
     @PostConstruct
     public void init() {
         usuario = new Usuario();
-
+        roles = new Roles();
+        cliente = new Cliente();
     }
 
     public Cliente getCliente() {
@@ -61,6 +62,9 @@ public class UsuarioController {
             roles.setIdRol(3);
             usuario.setIdRol(roles);
             usuarioFacadeLocal.create(usuario);
+            //CREAR USUARIO
+            cliente.setIdUsuario(usuario);
+            clienteFacadeLocal.create(cliente);
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Se ha registrado exitosamente"));
         } catch (Exception e) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Error", "Ha ocurrido un error al registrarse"));
@@ -86,10 +90,9 @@ public class UsuarioController {
         }
     }
 
-    public String consultarUsuario(Usuario usuario) {
+    public String consultarUsuario(Usuario user) {
         try {
-            usuario = usuarioFacadeLocal.find(usuario.getIdUsuario());
-            
+            usuario = usuarioFacadeLocal.find(user.getIdUsuario());
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Funciona correcto"));
         } catch (Exception e) {
             e.printStackTrace();
@@ -100,10 +103,11 @@ public class UsuarioController {
 
     public void modificarUsuario() {
         try {
-            usuario.setPass(usuario.getPass());
             roles.setIdRol(3);
             usuario.setIdRol(roles);
+            usuario.getPass();
             usuarioFacadeLocal.edit(usuario);
+            FacesContext.getCurrentInstance().getExternalContext().redirect("consultarUsuario.xhtml");
         } catch (Exception e) {
             e.printStackTrace();
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Error", "Ha ocurrido un error"));

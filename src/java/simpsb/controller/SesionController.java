@@ -33,11 +33,11 @@ public class SesionController implements Serializable{
     }
     
     public String iniciarSesion(){
-        Usuario u;
         String url = null;
+        Usuario u;
         try {
             usuarioFacadeLocal.login(usuario);
-            url = "SI/app/Perfiles/indexSupervisor";
+            url = "index";
         } catch (Exception e) {
             e.printStackTrace();
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Error", "Ha ocurrido un error al iniciar sesión"));
@@ -45,3 +45,46 @@ public class SesionController implements Serializable{
         return url;
     }
 }
+ //   public String iniciarSesion() {
+   //     String url = null;
+     //   Usuario u;
+       // try {
+         //   u = usuarioFacadeLocal.login(usuario);
+           // if (u != null) {
+          //      String rol = u.getRolFK().getRol();
+           //     switch (rol) {
+             //       case "Usuario":
+               //         url = "app/user/principal?faces-redirect=true";
+                 //       break;
+                   // case "Administrador":
+                     //   url = "app/admin/principal?faces-redirect=true";
+   //                     break;
+ //                   default:
+       //         }
+     //           FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("user", u);
+         //   } else {
+           //     FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Aviso:", "Credenciales incorrectas"));
+ //           }
+   //     } catch (Exception e) {
+////            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Aviso:", "Error al iniciar sesion"));
+     //       e.printStackTrace();
+       // }
+        //return url;
+    //}
+
+   // public void vericarSesion() {
+     //   try {
+       //     Usuario u = (Usuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("user");
+         //   if (u == null) {
+           //     FacesContext.getCurrentInstance().getExternalContext().redirect("./../../permisos.xhtml");
+            //}
+      //  } catch (Exception e) {
+       // }
+  //  }
+
+    //public String logout() {
+      //  FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
+        //return "/index.xhtml?faces-redirect=true";
+    //}
+
+//}

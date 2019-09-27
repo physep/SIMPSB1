@@ -1,4 +1,3 @@
-     $(document).ready(function () {
-        $('#grid').DataTable();
-        responsive: true;
-    });
+$(document).ready(function () {
+    $('.display').DataTable();
+});

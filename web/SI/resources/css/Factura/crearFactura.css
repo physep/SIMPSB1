@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
+*{
+	margin: 0;
+	padding: 0;
+	font-family: 'Raleway', sans-serif;	
+
+}/* COLORES */
+
+/* AMARILLO #D4AF37*/
+/* GRIS LETRA rgb(210, 210, 210)*/
+.fondo{
+	background-color: rgb(203,203,210);
+}
+/*MIGAS*/
+.breadcrumb{
+    border-radius: 0;
+    background: rgba(42, 43, 42, 1);	
+}
+.breadcrumb a{
+    color: #D4AF37;
+}
+.breadcrumb a:hover{
+    border-bottom: 2px solid #D4AF37;
+    color: #D4AF37;
+}
+
+.row{
+    margin-top: 30px;
+}
+.titulo{
+	padding-bottom: 10px;
+	border-bottom: 3px solid #D4AF37;
+}
+
+.formulario{
+	border-radius: 5px;
+	color: rgb(210, 210, 210);
+	padding: 50px;
+	width: 100%;
+	background-color: rgba(0,0,0,.9);
+}
+
+.form-fondo{
+	border: 0;
+	background: rgba(0,0,0, 0.8); 
+	border-bottom: 3px solid #D4AF37;
+}
+.form{
+	background-color: rgba(010, 010, 010, 1);
+	outline: none;
+	color: white;
+}
+
+form input{
+	width: 100%;
+}
+form button{
+	color: rgb(210, 210, 210);
+}
+
+label{
+	margin-top: 10px;
+}
+.boton{
+    width: 100px;
+    margin-right: 10px;
+    background-color: #D4AF37;
+}
+.boton:hover{
+    color: #D4AF37;
+    background: rgb(0,0,0);
+    border-bottom: 1px solid #D4AF37;
+
+}
+
+
+/*Indicaciones*/
+.modal form input:focus:valid{
+	border-color: green;
+	background: #fff url(../img/invalid.png) no-repeat 98% center;
+}
+
+.modal form input:focus:invalid{
+	border-color: red;
+}
+
+.modal form input:valid{
+	border-color: green;
+}
+
+.modal form input:invalid{
+	border-color: red;
+}
+
+
+.swal-button{
+background-color: #D4AF37;
+}
+.swal-button:not([disabled]):hover {
+background-color: #000;
+color: #fff;
+transition: .3s;
+}
+.swal-overlay{
+background-color: rgba(0,0,0,.8);
+}
+
+

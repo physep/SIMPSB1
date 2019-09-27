@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+        <title>Factura</title>
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/> <link href="../../../resources/css/bootstrap.min.css" rel="stylesheet" type="text/css"/><link href="../../resources/css/Horarios/crearHorario.css" rel="stylesheet" type="text/css"/>
+        <link href="../../../resources/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../../resources/css/Factura/crearFactura.css" rel="stylesheet" type="text/css"/>
+        <link href="../../../resources/css/sweetalert2.min.css" rel="stylesheet" type="text/css"/>
+    </h:head>
+    <h:body class="fondo">
+        <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item  text-right"><a href="#">Home</a></li>
+        <li class="breadcrumb-item  active" aria-current="page">Facturación</li>
+    </ol>
+</nav>
+        <div class="container">
+
+            <div class="formulario d-block mx-auto">
+                <div class="titulo">
+                    <h1>FACTURACIÓN</h1>
+                </div>
+                <div class="row">
+                    <!-- FORMULARIO -->
+
+                    <h:form>
+                        <div class="form-group col-md-12">
+                            <h:outputLabel for="servicio" value="servicio"/>
+                            <h:selectOneMenu id="servicio" value="#{facturaController.servicios.nombre}" styleClass="form form-control">
+                                <f:selectItem itemLabel="Seleccionar" itemValue="0"/>
+                                <f:selectItems value="#{facturaController.listServicios}" var="servicio" 
+                                               itemValue="#{servicio.idServicio}" 
+                                               itemLabel="#{servicio.nombre}"/>
+                            </h:selectOneMenu>
+                            <h:message for="servicio"/>
+                        </div>
+                        <div class="form-group">
+                            <h:outputLabel for="subtotal" value="SubTotal"/>
+                            <h:inputText styleClass="form-control form-fondo form" id="subtotal" value="#{facturaController.factura}" a:type="number"/>
+                            <h:message for="subtotal"/>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <h:outputLabel for="citas" value="Citas"/>
+                            
+                            <h:selectOneMenu id="idicta" value="#{facturaController.citas.idCita}" styleClass="form form-control">
+                                <f:selectItem itemLabel="Seleccionar" itemValue="0" />
+                                <f:selectItems value="#{facturaController.listCitas}" var="citas"
+                                               >
+                                    
+                                </f:selectItems>
+                                
+                            </h:selectOneMenu>
+                            <h:message for="citas"/>
+                        </div>
+                        
+
+                    </h:form>
+                </div>
+
+            </div>
+
+        </div>
+    </h:body>
+</html>

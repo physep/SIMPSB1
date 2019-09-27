@@ -19,56 +19,45 @@ and open the template in the editor.
     </h:head>
     <h:body class="fondo">
         <nav aria-label="breadcrumb">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item  text-right"><a href="#">Home</a></li>
-        <li class="breadcrumb-item  active" aria-current="page">Facturación</li>
-    </ol>
-</nav>
-        <div class="container">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item  text-right"><a href="#">Home</a></li>
+                <li class="breadcrumb-item  active" aria-current="page">Facturación</li>
+            </ol>
+        </nav>
 
+
+        <div class="container">
+            <!-- fONDO DE FORMULARIO -->
             <div class="formulario d-block mx-auto">
                 <div class="titulo">
-                    <h1>FACTURACIÓN</h1>
-                </div>
-                <div class="row">
-                    <!-- FORMULARIO -->
+                    <h1 class="text-center">FACTURA</h1>
+                    <!-- Formulario -->
+
 
                     <h:form>
-                        <div class="form-group col-md-12">
-                            <h:outputLabel for="servicio" value="servicio"/>
-                            <h:selectOneMenu id="servicio" value="#{facturaController.servicios.nombre}" styleClass="form form-control">
-                                <f:selectItem itemLabel="Seleccionar" itemValue="0"/>
-                                <f:selectItems value="#{facturaController.listServicios}" var="servicio" 
-                                               itemValue="#{servicio.idServicio}" 
-                                               itemLabel="#{servicio.nombre}"/>
-                            </h:selectOneMenu>
-                            <h:message for="servicio"/>
-                        </div>
+                        
                         <div class="form-group">
                             <h:outputLabel for="subtotal" value="SubTotal"/>
-                            <h:inputText styleClass="form-control form-fondo form" id="subtotal" value="#{facturaController.factura}" a:type="number"/>
+                            <h:inputText styleClass="form-control form-fondo form" id="subtotal" value="#{facturaController.detalle.subTotal}">
+                            </h:inputText>
                             <h:message for="subtotal"/>
                         </div>
-                        <div class="form-group col-md-12">
+                        <div class="form-group">
                             <h:outputLabel for="citas" value="Citas"/>
-                            
-                            <h:selectOneMenu id="idicta" value="#{facturaController.citas.idCita}" styleClass="form form-control">
+
+                            <h:selectOneMenu id="idicta" value="#{facturaController.citas.idCita}" styleClass="form-control form-fondo form">
                                 <f:selectItem itemLabel="Seleccionar" itemValue="0" />
                                 <f:selectItems value="#{facturaController.listCitas}" var="citas"
-                                               >
-                                    
-                                </f:selectItems>
-                                
+                                               itemValue="#{citas.idCita}" 
+                                               itemLabel="#{citas.idCita}"/>
                             </h:selectOneMenu>
                             <h:message for="citas"/>
                         </div>
-                        
-
+                        <br></br>
+                        <h:commandButton styleClass="btn boton d-block mx-auto" value="#{universEti.Registrar}" id="agregar"  onclick="agregar();" action="#{facturaController.generarFactura()}"/>
                     </h:form>
                 </div>
-
             </div>
-
         </div>
     </h:body>
 </html>

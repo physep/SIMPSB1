@@ -7,68 +7,68 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <h:head>
-        <title>Crear Servicio</title>
+        <title>Modificar Servicio</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <link href="../../../resources/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="../../resources/css/Servicios/crearServicio.css" rel="stylesheet" type="text/css"/>
     </h:head>
-    <f:view locale="#{languageServicios.idiomaSeleccionado}">    
+    <f:view locale="#{languages.idiomaSeleccionado}">    
         <h:messages globalOnly="true" showDetail="true"/>
         <h:body styleClass="fondo">
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item  text-right"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item  active" aria-current="page">#{servisEti.modificarServicioMi}</li>
-                </ol>
-            </nav>
+            <f:view locale="es">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item  text-right"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item  active" aria-current="page">#{servisEti.modificarServicioMi}</li>
+                    </ol>
+                </nav>
 
-            <div class="container">
-                <h:form id="form-logout" prependId="false">
-                    <div class="dropdown">
-                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-hashpopup="true" aria-expanded="false">
-                            #{pagesEti[LanguageServicios.idiomasSoportados]}
-                        </button>
-                        <div class="dropdown-menu" aria-labelledly="dropdownMenuButton">
-                            <c:forEach items="#{languageServicios.idiomasSoportados}">
-                                <h:commandLink class="dropdown-item" actionListener="#{languageServicios.cambiarIdioma(idioma)}" value="#{pagesEti[idioma.language]}"/>
-                            </c:forEach>
-                        </div>
-                    </div>
-                </h:form>
-                <div class="formulario d-block mx-auto">
-                    <div class="titulo">
-                        <h1 class="text-center">#{servisEti.modificarServicio}</h1>
-                    </div>
-                    <h:form>
-                        <div class="form-group">
-                            <h:outputLabel for="nombreServicio" value="#{servisEti.nombreServicio}"/>
-                            <h:inputText id="nombreServicio" value="#{serviciosController.servicios.nombre}" a:placeholder="#{servisEti.placeNombre}" styleClass="form form-control"/>
-
-                            <h:outputLabel for="estado" value="#{servisEti.estadoServicio}"/>
-                            <h:selectOneMenu value="#{serviciosController.servicios.estado}" styleClass="form form-control">
-                                <f:selectItem itemLabel="Activo" itemValue="Activo"/>
-                                <f:selectItem itemLabel="Inactivo" itemValue="Inactivo"/>
-                                <f:selectItem itemLabel="-- Seleccionar --" itemValue="0"/>
-                            </h:selectOneMenu>
-
-                            <h:outputLabel for="valor" value="#{servisEti.valorServicio}"/>
-                            <h:inputText id="valor" value="#{serviciosController.servicios.valor}" a:placeholder="#{servisEti.placeValor}" styleClass="form form-control" />
-
-                            <h:outputLabel for="tiempoEstimado" value="#{servisEti.tiempoServicio}"/>
-                            <h:inputText id="tiempoEstimado" value="#{serviciosController.servicios.tiempoEstimado}" a:placeholder="#{servisEti.placeTiempo}" styleClass="form form-control"/>
-                        </div>
-                        <div class="text-center">
-                            <h:commandButton value="Modificar" action="#{serviciosController.actualizarServicios()}" styleClass="btn boton"/>
-                           <h:commandButton styleClass="btn boton" value="#{universEti.Regresar}"  action="consultarServicio"/>
+                <div class="container">
+                    <h:form id="form-logout" prependId="false">
+                        <div class="dropdown">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-hashpopup="true" aria-expanded="false">
+                                #{pagesEti[LanguageServicios.idiomasSoportados]}
+                            </button>
+                            <div class="dropdown-menu" aria-labelledly="dropdownMenuButton">
+                                <c:forEach items="#{languages.idiomasSoportados}">
+                                    <h:commandLink class="dropdown-item" actionListener="#{languages.cambiarIdioma(idioma)}" value="#{pagesEti[idioma.language]}"/>
+                                </c:forEach>
+                            </div>
                         </div>
                     </h:form>
-                </div>                
-            </div> 
+                    <div class="formulario d-block mx-auto">
+                        <div class="titulo">
+                            <h1 class="text-center">#{servisEti.modificarServicio}</h1>
+                        </div>
+                        <h:form>
+                            <div class="form-group">
+                                <h:outputLabel for="nombreServicio" value="#{servisEti.nombreServicio}"/>
+                                <h:inputText id="nombreServicio" value="#{serviciosController.servicios.nombre}" a:placeholder="#{servisEti.placeNombre}" styleClass="form form-control"/>
+
+                                <h:outputLabel for="estado" value="#{servisEti.estadoServicio}"/>
+                                <h:selectOneMenu value="#{serviciosController.servicios.estado}" styleClass="form form-control">
+                                    <f:selectItem itemLabel="Activo" itemValue="Activo"/>
+                                    <f:selectItem itemLabel="Inactivo" itemValue="Inactivo"/>
+                                    <f:selectItem itemLabel="-- Seleccionar --" itemValue="0"/>
+                                </h:selectOneMenu>
+
+                                <h:outputLabel for="valor" value="#{servisEti.valorServicio}"/>
+                                <h:inputText id="valor" value="#{serviciosController.servicios.valor}" a:placeholder="#{servisEti.placeValor}" styleClass="form form-control" />
+
+                                <h:outputLabel for="tiempoEstimado" value="#{servisEti.tiempoServicio}"/>
+                                <h:inputText id="tiempoEstimado" value="#{serviciosController.servicios.tiempoEstimado}" a:placeholder="#{servisEti.placeTiempo}" styleClass="form form-control"/>
+                            </div>
+                            <div class="text-center">
+                                <h:commandButton value="Modificar" action="#{serviciosController.actualizarServicios()}" styleClass="btn boton"/>
+                            </div>
+                        </h:form>
+                    </div>                
+                </div> 
+            </f:view>
         </h:body>
-    </f:view>
-    <!-- SCRIPTS -->
-    <script src="../../../resources/js/jquery-3.3.1.slim.min.js"></script>
-    <script src="../../../resources/js/popper.min.js"></script>
-    <script src="../../../resources/js/bootstrap.min.js"></script>
+        <!-- SCRIPTS -->
+        <script src="../../../resources/js/jquery-3.3.1.slim.min.js"></script>
+        <script src="../../../resources/js/popper.min.js"></script>
+        <script src="../../../resources/js/bootstrap.min.js"></script>
 
 </html>

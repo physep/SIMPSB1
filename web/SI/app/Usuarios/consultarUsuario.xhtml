@@ -8,7 +8,8 @@ and open the template in the editor.
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:c="http://xmlns.jcp.org/jsf/composite">
     <h:head>
         <title>Consultar Usuarios</title>
         <meta charset="UTF-8"/>
@@ -22,17 +23,17 @@ and open the template in the editor.
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item  text-right"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item  active" aria-current="page">Consultar Usuarios</li>
+                    <li class="breadcrumb-item  active" aria-current="page">#{usuariosEti.consultar}</li>
                 </ol>
             </nav>
             <div class="container">
                 <div class="tabla d-block mx-auto">
                     <div class="titulo">
-                        <h1 class="text-center">CONSULTAR USUARIOS</h1>
+                        <h1 class="text-center text-uppercase">#{usuariosEti.consultar}</h1>
                     </div>
                     <div class="row">
                         <div class="col-12">
-                            <p class="text-uppercase"> <img src="../../resources/img/icono-usuarios.png" alt="Icono usuarios"/>Usuarios </p>
+                            <p class="text-uppercase"> <img src="../../resources/img/icono-usuarios.png" alt="Icono usuarios"/>#{usuariosEti.usuarios} </p>
                             <h:form>
                                 <h:dataTable id="grid" value="#{usuarioController.listarUsuarios()}" var="usuario" styleClass="table table-striped table-bordered dt-responsive nowrap text-center">
                                     <h:column>
@@ -41,42 +42,43 @@ and open the template in the editor.
                                     </h:column>
 
                                     <h:column>
-                                        <f:facet name="header">Nombre</f:facet>
+                                        <f:facet name="header">#{usuariosEti.nombre}</f:facet>
                                         <h:outputText id="nombre" value="#{usuario.nombre}"/>
                                     </h:column>
 
                                     <h:column>
-                                        <f:facet name="header">Apellido</f:facet>
+                                        <f:facet name="header">#{usuariosEti.apellido}</f:facet>
                                         <h:outputText id="apellido" value="#{usuario.apellido}"/>
                                     </h:column>
 
                                     <h:column>
-                                        <f:facet name="header">Rol</f:facet>
+                                        <f:facet name="header">#{usuariosEti.rol}</f:facet>
                                         <h:outputText id="rol" value="#{usuario.idRol.rol}"/>
                                     </h:column>
 
                                     <h:column>
-                                        <f:facet name="header">Número de documento</f:facet>
+                                        <f:facet name="header">#{usuariosEti.documento}</f:facet>
                                         <h:outputText id="numDoc" value="#{usuario.numDocumento}">
                                         </h:outputText>
                                     </h:column>
 
                                     <h:column>
-                                        <f:facet name="header">Género</f:facet>
+                                        <f:facet name="header">#{usuariosEti.genero}</f:facet>
                                         <h:outputText id="genero" value="#{usuario.genero}">
                                         </h:outputText>
                                     </h:column>
 
                                     <h:column>
-                                        <f:facet name="header">Correo</f:facet>
+                                        <f:facet name="header">#{usuariosEti.correo}</f:facet>
                                         <h:outputText id="correo" value="#{usuario.correo}"/>
                                     </h:column>
 
                                     <h:column>
-                                        <f:facet name="header">#{concitaEti.enc_acciones}</f:facet>
-                                        <h:commandButton class="btn btn-warning" action="#{usuarioController.consultarUsuario(usuario)}" value="Modificar"/>
-                                        <h:commandButton class="btn btn-danger" action="#{usuarioController.eliminarUsuario(usuario)}" onclick="javascript:if(!confirm('¿Está seguro que desea eliminar este usuario?')) return false;" value="#{universEti.Eliminar}"/>
-                                        <h:commandButton class="btn btn-secondary" action="#" value="Asignar Rol"/>
+                                        <f:facet name="header">#{universEti.acciones}</f:facet>
+                                        <h:commandButton class="btn btn-warning" action="#{usuarioController.consultarUsuario(usuario)}" value="#{universEti.modificar}"/>
+                                        <h:commandButton class="btn btn-danger" action="#{usuarioController.eliminarUsuario(usuario)}" onclick="javascript:if (!confirm('¿Está seguro que desea eliminar este usuario?'))
+                                                    return false;" value="#{universEti.eliminar}"/>
+                                        <h:commandButton class="btn btn-dark" action="asignarRol.xhtml" value="#{usuariosEti.asignar}"/>
                                     </h:column>
                                 </h:dataTable>
                             </h:form>
@@ -85,6 +87,9 @@ and open the template in the editor.
                 </div>
             </div>
         </f:view>
+        <script src="../../../resources/js/jquery-3.3.1.slim.min.js" type="text/javascript"></script>
+        <script src="../../../resources/js/popper.min.js" type="text/javascript"></script>
+        <script src="../../../resources/js/bootstrap.min.js" type="text/javascript"></script>
         <script src="../../../resources/js/dataTables.responsive.min.js" type="text/javascript"></script>
         <script src="../../resources/js/iniciarTabla.js" type="text/javascript"></script>
     </h:body>

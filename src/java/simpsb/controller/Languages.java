@@ -17,13 +17,13 @@ import javax.inject.Named;
 
 @Named
 @RequestScoped
-public class LanguageServicios implements Serializable{
+public class Languages implements Serializable{
     
     private Locale idiomaSeleccionado;
     private List<Locale> idiomasSoportados;
     
     @PostConstruct
-    public void inti (){
+    public void init (){
         FacesContext fc = FacesContext.getCurrentInstance();
         idiomaSeleccionado = new Locale("es");
         idiomasSoportados = new ArrayList();
@@ -34,7 +34,7 @@ public class LanguageServicios implements Serializable{
         
     }
 
-    public LanguageServicios() {
+    public Languages() {
     }
 
     public Locale getIdiomaSeleccionado() {

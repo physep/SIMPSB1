@@ -14,6 +14,7 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <link href="../../../resources/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="../../resources/css/Perfiles/estilos-empleado.css" rel="stylesheet" type="text/css"/>
+        <f:event type="preRenderView" listener="#{sesionController.verificarSesion()}"/>
     </h:head>
     <h:body>
         <f:view locale="en">

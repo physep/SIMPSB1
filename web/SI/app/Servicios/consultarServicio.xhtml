@@ -15,63 +15,67 @@ and open the template in the editor.
         <title>Consultar Servicios</title>
         <link rel="stylesheet" href="../../../resources/css/bootstrap.min.css"/>
         <link rel="stylesheet" href="../../resources/css/Servicios/consultarServicio.css"/>
-
     </h:head>
     <h:messages globalOnly="true" showDetail="true"/>
     <h:body class="fondo">
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item  text-right"><a href="#">Home</a></li>
-                <li class="breadcrumb-item  active" aria-current="page">#{servisEti.consultarServicioMi}</li>
-            </ol>
-        </nav>
-        <div class="container">
-            <div class="tabla d-block mx-auto">
-                <div class="titulo">
-                    <h1 class="text-center">#{servisEti.consultarServicio}</h1>
-                </div>
-                <div class="row">
-                    <!-- TABLA  -->
-                    <div class="col-12 float-right">
-                        <p class="text-uppercase"><img src="../../resources/img/icono_servicios.png" alt=""/>Servicios </p>
+        <f:view locale="es">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item  text-right"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item  active" aria-current="page">#{servisEti.consultarServicioMi}</li>
+                </ol>
+            </nav>
+            <div class="container">
+                <div class="tabla d-block mx-auto">
+                    <div class="titulo">
+                        <h1 class="text-center">#{servisEti.consultarServicio}</h1>
+                    </div>
+                    <div class="row">
+                        <!-- TABLA  -->
+                        <div class="col-12 float-right">
+                            <p class="text-uppercase"><img src="../../resources/img/icono_servicios.png" alt=""/>#{servisEti.servicios} </p>
 
-                        <h:form>
-                            <h:dataTable value="#{serviciosController.listarServicios()}" var="servicio" styleClass="text-center table table-striped table-bordered dt-responsive nowrap col-md-12">
-                                <h:column>
-                                    <f:facet name="header">#{servisEti.IdServicio}</f:facet>
-                                    <h:outputText id="idServicio" value="#{servicio.idServicio}"/>
-                                </h:column>
-                                <h:column>
-                                    <f:facet name="header">#{servisEti.nombre} </f:facet>
-                                    <h:outputText id="nombre" value="#{servicio.nombre}"/>
-                                </h:column>
-                                <h:column>
-                                    <f:facet name="header">#{servisEti.estado} </f:facet>
-                                    <h:outputText id="estado" value="#{servicio.estado}"/>
-                                </h:column>
-                                <h:column>
-                                    <f:facet name="header">#{servisEti.valor} </f:facet>
-                                    <h:outputText id="valor" value="#{servicio.valor}"/>
-                                </h:column>
-                                <h:column>
-                                    <f:facet name="header">#{servisEti.tiempoServicio} </f:facet>
-                                    <h:outputText id="tiempoEstimado" value="#{servicio.tiempoEstimado}"/>
-                                </h:column>
-                                <h:column>
-                                    <f:facet name="header">#{servisEti.acciones}</f:facet>
-                                    <h:commandButton style="border: 0; margin: 10px;"  styleClass="btn btn-warning"  value="Modificar" action="#{serviciosController.consultarServicio(servicio)}"/>
-                                    <h:commandButton style="border: 0; margin: 10px;" styleClass="btn btn-danger" onclick="javascript:if(!confirm('¿Está seguro que desea eliminar este servicio?')) return false;" value="#{universEti.Eliminar}" action="#{serviciosController.eliminarServicios(servicio)}" />
-                                </h:column>
-                            </h:dataTable>
-                        </h:form>
+                            <h:form>
+                                <h:dataTable value="#{serviciosController.listarServicios()}" var="servicio" styleClass="text-center table table-striped table-bordered dt-responsive nowrap col-md-12">
+                                    <h:column>
+                                        <f:facet name="header">#{servisEti.IdServicio}</f:facet>
+                                        <h:outputText id="idServicio" value="#{servicio.idServicio}"/>
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header">#{servisEti.nombre} </f:facet>
+                                        <h:outputText id="nombre" value="#{servicio.nombre}"/>
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header">#{servisEti.estado} </f:facet>
+                                        <h:outputText id="estado" value="#{servicio.estado}"/>
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header">#{servisEti.valor} </f:facet>
+                                        <h:outputText id="valor" value="#{servicio.valor}"/>
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header">#{servisEti.tiempoServicio} </f:facet>
+                                        <h:outputText id="tiempoEstimado" value="#{servicio.tiempoEstimado}"/>
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header">#{servisEti.acciones}</f:facet>
+
+                                        <h:commandButton styleClass="btn btn-warning"  value="#{universEti.modificar}" action="#{serviciosController.consultarServicio(servicio)}"/>
+                                        <h:commandButton styleClass="btn btn-danger" onclick="javascript:if (!confirm('¿Está seguro que desea eliminar este servicio?'))
+                                                return false;" value="#{universEti.eliminar}" action="#{serviciosController.eliminarServicios(servicio)}" />
+
+                                    </h:column>
+                                </h:dataTable>
+                            </h:form>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- SCRIPTS -->
-        <script src="../../../resources/js/jquery-3.3.1.slim.min.js"></script>
-        <script src="../../../resources/js/popper.min.js"></script>
-        <script src="../../../resources/js/bootstrap.min.js"></script>
+            <!-- SCRIPTS -->
+            <script src="../../../resources/js/jquery-3.3.1.slim.min.js"></script>
+            <script src="../../../resources/js/popper.min.js"></script>
+            <script src="../../../resources/js/bootstrap.min.js"></script>
+        </f:view>
     </h:body>
 </html>

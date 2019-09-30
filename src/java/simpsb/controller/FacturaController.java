@@ -228,14 +228,7 @@ public class FacturaController {
     public void setListServicios(List<Servicios> listServicios) {
         this.listServicios = listServicios;
     }
-
-  
-    
-    
-    
-    
-    
-    public void generarFactura(){
+public void generarFactura(){
         try {
             factura.setIdCita(citas);
             factura.setIdDetalleFactura(detalle);
@@ -246,9 +239,43 @@ public class FacturaController {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Error", "Ha ocurrido un error al generar su factura"));
         }
     }
+
+    public List<Factura> listarFactura() {
+        List<Factura> listFactura = null;
+        try {
+            listFactura = facturaFacadeLocal.findAll();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return listFactura;
+    }
     
+    public String consultarFactura(Factura factu) {
+        try {
+            factura = facturaFacadeLocal.find(factu.getIdCita());
+            detalle = factura.getIdDetalleFactura();
+            citas = factura.getIdCita();
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Correcto"));
+        } catch (Exception e) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Error", "Ha ocurrido un error al modificar su cita"));
+        }
+        return "modificarFactura";
+    }
+    
+    public void modificarFactura() {
+        try {
+            factura.setIdCita(citas);
+            facturaFacadeLocal.edit(factura);
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Se ha generado exitosamente su cita"));
+            FacesContext.getCurrentInstance().getExternalContext().redirect("consultarFactura.xhtml");
+        } catch (Exception e) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Error", "Ha ocurrido un error al modificar su cita"));
+        }
+    }
+    
+}
    
     
     
     
-}
+

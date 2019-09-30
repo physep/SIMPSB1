@@ -34,7 +34,7 @@ and open the template in the editor.
                     <h1 class="text-center">FACTURA</h1>
                     <!-- Formulario -->
 
-                    <h:form>
+ <h:form>
                         <div class="form-group">
                             <h:outputLabel for="servicio" value="servicio"/>
 
@@ -60,7 +60,6 @@ and open the template in the editor.
                     </h:form>
                     <h:form>
                         
-                        
                         <div class="form-group">
                             <h:outputLabel for="subtotal" value="SubTotal"/>
                             <h:inputText styleClass="form-control form-fondo form" id="subtotal" value="#{facturaController.detalle.subTotal}"/>
@@ -78,7 +77,7 @@ and open the template in the editor.
                             <h:message for="citas"/>
                         </div>
                         <br></br>
-                        <h:commandButton styleClass="btn boton d-block mx-auto" value="#{universEti.Registrar}" id="agregar"  onclick="agregar();" action="#{facturaController.generarFactura()}"/>
+                        <h:commandButton styleClass="btn boton d-block mx-auto" value="#{universEti.Actualizar}" id="agregar"  onclick="agregar();" action="#{facturaController.modificarFactura()}"/>
                     </h:form>
                 </div>
             </div>

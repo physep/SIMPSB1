@@ -17,7 +17,26 @@ and open the template in the editor.
         <link href="../../resources/css/Horarios/modificarHorario.css" rel="stylesheet" type="text/css"/>
     </h:head>
     <h:body styleClass="fondo" >
-<<<<<<< HEAD
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+        <title>Modificar Horario</title>
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/> <link href="../../../resources/css/bootstrap.min.css" rel="stylesheet" type="text/css"/><link href="../../resources/css/Horarios/crearHorario.css" rel="stylesheet" type="text/css"/>
+        <link href="../../../resources/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../../resources/css/Horarios/modificarHorario.css" rel="stylesheet" type="text/css"/>
+    </h:head>
+    <h:body styleClass="fondo" >
+
         <!-- Migas de pan -->
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
@@ -104,7 +123,49 @@ and open the template in the editor.
                             </div>
                         </h:form>
                     </div>
->>>>>>> origin/master
+        <f:view locale="en">
+            <!-- Migas de pan -->
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">#{horarioEti.modificarhorario}</li>
+                </ol>
+            </nav>
+            <h:messages globalOnly="true" showDetail="true"/>
+            <!-- CONTENEDOR -->
+            <div class="container">
+                <!-- fONDO DE FORMULARIO -->
+                <div class="formulario d-block mx-auto">
+                    <div class="titulo">
+                        <h1 class="text-center text-uppercase">#{horarioEti.modificarhorario}</h1>
+                        <!-- Formulario -->
+                        <h:form>
+                            <!-- Horario del empleado -->
+                            <!-- Hora inicial -->
+                            <div>
+                                <h:outputLabel for="horaIn" value="#{horarioEti.horaIn}"/>
+                                <h:inputText a:type="time" styleClass="form-control form" id="horaIn" value="#{horariosController.horariotrabajo.horaInicio}">
+                                    <f:convertDateTime  pattern="HH:mm"/>
+                                </h:inputText>
+                                <h:message for="horaIn"/>
+                            </div>
+                            <!-- Hora final -->
+                            <div>
+                                <h:inputHidden class="form-control" id="idHorario" value="#{horariosController.horariotrabajo.idHorarioTrabajo}"/>
+                                <h:message for="idHorario"/>
+                                <h:outputLabel for="h   oraFn" value="#{horarioEti.horaFn}"/>
+                                <h:inputText a:type="time" styleClass="form-control form" id="horaFn" value="#{horariosController.horariotrabajo.horaFin}">
+                                    <f:convertDateTime  pattern="HH:mm"/>
+                                </h:inputText>
+                                <h:message for="horaFn"/>
+                            </div>
+
+                            <br></br>
+                            <div class="text-center">
+                                <h:commandButton styleClass="btn boton" value="#{universEti.modificar}" action="#{horariosController.actualizarHorario()}"/>
+                            </div>
+                        </h:form>
+                    </div>
                 </div>
             </div>
         </f:view>

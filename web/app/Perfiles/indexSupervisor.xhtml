@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+    <h:head>
+        <title>Supervisor</title>
+        <link href="../../resources/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../../resources/css/mdb.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../../resources/css/Perfiles/estilos-supervisor.css" rel="stylesheet" type="text/css"/>
+        <f:event type="preRenderView" listener="#{sesionController.verificarSesion()}"/> 
+    </h:head>
+
+    <h:body>
+        <f:view locale="en">
+
+            <div class="barra-lateral float-left">
+                <div class="perfil">
+                    <p class="text-center text-uppercase">Supervisor</p>
+                    <img src="../../SI/resources/img/perfil.png" alt=""/>
+                    <p class="text-center text-uppercase">juan sebastián parra martínez</p>
+                    <p class="text-center">
+                        <a class="text-center color" href="#" id="documentacion">#{perfilEti.documentacion}</a>
+                    </p>
+                </div>
+                <div class="modulos">
+                    <!-- HOME -->
+                    <div class="modulo d-block mx-auto">
+                        <img class="float-left" src="../../SI/resources/img/modulos/icono_home.png" alt=""/>
+                        <h4>
+                            <a href="Principal/principalSupervisor.xhtml?faces-redirect=true" target="area-trabajo">HOME</a>
+                        </h4>
+                    </div>
+                   
+                    <!-- FACTURACIÓN 
+                    <div class="modulo d-block mx-auto">
+                        <img class="float-left" src="../../SI/resources/img/modulos/icono_facturacion.png" alt=""/>
+                        <h5>
+                            <a href="#">#{perfilEti.Facturacion}</a>
+                        </h5>
+                        <p>
+                            <a href="../../SI/app/Facturacion/crearFactura.xhtml?faces-redirect=true" target="area-trabajo">#{perfilEti.crearFactura}</a>
+                        </p>
+                        <p>
+                            <a href="../../SI/app/Facturacion/consultarFactura.xhtml?faces-redirect=true" target="area-trabajo">#{perfilEti.consultarFactura}</a>
+                        </p>
+                    </div> -->
+                    <!-- SERVICIOS -->
+                    <div class="modulo d-block mx-auto">
+                        <img class="float-left" src="../../SI/resources/img/modulos/icono_servicios.png" alt=""/>
+                        <h5>
+                            <a href="#">#{perfilEti.Servicios}</a>
+                        </h5>
+                        <p>
+                            <a href="../../SI/app/Servicios/crearServicio.xhtml?faces-redirect=true" target="area-trabajo">#{perfilEti.crearServicios}</a>
+                        </p>
+                        <p>
+                            <a href="../../SI/app/Servicios/consultarServicio.xhtml?faces-redirect=true" target="area-trabajo">#{perfilEti.consultarServicios}</a>
+                        </p>
+                    </div>
+                    <!-- CITAS -->
+                    <div class="modulo d-block mx-auto">
+                        <img class="float-left" src="../../SI/resources/img/modulos/icono_citas.png" alt=""/>
+                        <h5>
+                            <a href="#">#{perfilEti.Citas}</a>
+                        </h5>
+                        <p>
+                            <a href="../../SI/app/Citas/agendarCita.xhtml" target="area-trabajo">#{perfilEti.agendarCita}</a>
+                        </p>
+                        <p>
+                            <a href="../../SI/app/Citas/consultarCita.xhtml?faces-redirect=true" target="area-trabajo">#{perfilEti.consultarCita}</a>
+                        </p>
+                    </div>
+                    <!-- HORARIOS -->
+                    <div class="modulo d-block mx-auto">
+                        <img class="float-left" src="../../SI/resources/img/modulos/icono_horarios.png" alt=""/>
+                        <h5>
+                            <a href="#">#{perfilEti.Horarios}</a>
+                        </h5>
+                        <p>
+                            <a href="../../SI/app/Horarios/crearHorario.xhtml?faces-redirect=true" target="area-trabajo">#{perfilEti.crearHorarios}</a>
+                        </p>
+                        <p>
+                            <a href="../../SI/app/Horarios/consultarHorario.xhtml?faces-redirect=true" target="area-trabajo">#{perfilEti.consultarHorarios}</a>
+                        </p>
+                    </div>
+                    <!-- PAGOS -->
+                    <div class="modulo d-block mx-auto">
+                        <img class="float-left" src="../../SI/resources/img/modulos/icono_pagos.png" alt=""/>
+                        <h5><a href="#">#{perfilEti.Pagos}</a></h5>
+                        <p><a href="../../SI/app/Pagos/generarPago.xhtml?faces-redirect=true" target="area-trabajo">#{perfilEti.generarPagos}</a></p>
+                        <p><a href="../../SI/app/Pagos/consultarPago.xhtml?faces-redirect=true" target="area-trabajo">#{perfilEti.consultarPagos}</a></p>
+                    </div>
+                    <!-- USUARIOS -->
+                    <div class="modulo d-block mx-auto">
+                        <img class="float-left" src="../../SI/resources/img/modulos/icono-usuarios.png" alt=""/>
+                        <h5><a href="#">#{perfilEti.usuarios}</a></h5>
+                        <p><a href="../../SI/app/Usuarios/consultarUsuario.xhtml?faces-redirect=true" target="area-trabajo">#{perfilEti.consultarUsuarios}</a></p>
+                        <p><a href="../../SI/app/Usuarios/crearUsuario.xhtml?faces-redirect=true" target="area-trabajo">#{perfilEti.registrarUsuario}</a></p>
+                    </div>
+                    
+                    <!-- REPORTES -->
+                    <div class="modulo d-block mx-auto">
+                        <img class="float-left" src="../../SI/resources/img/modulos/icono_reportes.png" alt=""/>
+                        <h4>
+                            <a href="../Error/404.xhtml?faces-redirect=true" target="area-trabajo">#{perfilEti.Reportes}</a>
+                        </h4>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="panel-derecho float-right">
+                <!-- NAVEGADOR -->
+                <nav>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="row izq">
+                                <div class="col-1 menu float-left">
+                                    <a class="nav-link p-0" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <button type="button" id="sidebarCollapse" class="navbar-btn">
+                                            <span></span>
+                                            <span></span>
+                                            <span></span>
+                                        </button>
+                                    </a>
+                                </div>
+                                <div class="col-9 titulo float-right">
+                                    <p><img src="../../SI/resources/img/logo.png" alt=""/></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 config">
+                            <ul>
+                                <li>
+                                    <a href="#"><img src="../../SI/img/config.png" alt=""/></a>
+                                    <ul>
+                                        <li>
+                                            <img src="../../SI/resources/img/editar-perfil.png" alt=""><a class="text-left" href="../Error/404.xhtml?faces-redirect=true" target="area-trabajo">#{perfilEti.editarPerfil}</a></img>
+                                        </li>
+                                        <li>	
+                                            <img src="../../SI/resources/img/ajustes.png" alt=""/><a class="text-left" href="../Error/404.xhtml?faces-redirect=true">#{perfilEti.configuracion}</a>
+                                        </li>
+                                        <li>
+                                            <img src="../../SI/resources/img/alarma.png" alt=""/><a class="text-left" href="../Error/404.xhtml?faces-redirect=true" target="area-trabajo">#{perfilEti.notificaciones}</a>
+                                        </li>
+                                        <li>	
+                                            <img src="../../SI/resources/img/logout.png" alt=""/><a class="text-left" href="#{sesionController.logout()}">#{perfilEti.cerrarSesion}</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <!-- MODAL CONFIGURACIONES -->
+
+                <!-- AREA DE TRABAJO -->
+                <div class="area-trabajo">
+                    <iframe name="area-trabajo" src="Principal/principalSupervisor.xhtml?faces-redirect=true"></iframe>
+                </div>
+
+            </div>
+        </f:view>
+    </h:body>
+    <!-- FOOTER -->
+
+    <!-- SCRIPTS -->
+    <script src="../../resources/js/jquery-3.3.1.slim.min.js" type="text/javascript"></script>
+    <script src="../../resources/js/popper.min.js" type="text/javascript"></script>
+    <script src="../../resources/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="../../SI/resources/js/ocultar-modulos.js" type="text/javascript"></script>
+
+
+</html>

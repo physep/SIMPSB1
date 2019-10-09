@@ -17,6 +17,7 @@ and open the template in the editor.
         <link href="../../resources/css/Horarios/modificarHorario.css" rel="stylesheet" type="text/css"/>
     </h:head>
     <h:body styleClass="fondo" >
+<<<<<<< HEAD
         <!-- Migas de pan -->
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
@@ -59,9 +60,54 @@ and open the template in the editor.
                         <h:commandButton styleClass="btn boton" value="#{universEti.Regresar}"  action="consultarHorario"/>
                         </div>
                     </h:form>
+=======
+        <f:view locale="en">
+            <!-- Migas de pan -->
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">#{horarioEti.modificarhorario}</li>
+                </ol>
+            </nav>
+            <h:messages globalOnly="true" showDetail="true"/>
+            <!-- CONTENEDOR -->
+            <div class="container">
+                <!-- fONDO DE FORMULARIO -->
+                <div class="formulario d-block mx-auto">
+                    <div class="titulo">
+                        <h1 class="text-center text-uppercase">#{horarioEti.modificarhorario}</h1>
+                        <!-- Formulario -->
+                        <h:form>
+                            <!-- Horario del empleado -->
+                            <!-- Hora inicial -->
+                            <div>
+                                <h:outputLabel for="horaIn" value="#{horarioEti.horaIn}"/>
+                                <h:inputText a:type="time" styleClass="form-control form" id="horaIn" value="#{horariosController.horariotrabajo.horaInicio}">
+                                    <f:convertDateTime  pattern="HH:mm"/>
+                                </h:inputText>
+                                <h:message for="horaIn"/>
+                            </div>
+                            <!-- Hora final -->
+                            <div>
+                                <h:inputHidden class="form-control" id="idHorario" value="#{horariosController.horariotrabajo.idHorarioTrabajo}"/>
+                                <h:message for="idHorario"/>
+                                <h:outputLabel for="h   oraFn" value="#{horarioEti.horaFn}"/>
+                                <h:inputText a:type="time" styleClass="form-control form" id="horaFn" value="#{horariosController.horariotrabajo.horaFin}">
+                                    <f:convertDateTime  pattern="HH:mm"/>
+                                </h:inputText>
+                                <h:message for="horaFn"/>
+                            </div>
+
+                            <br></br>
+                            <div class="text-center">
+                                <h:commandButton styleClass="btn boton" value="#{universEti.modificar}" action="#{horariosController.actualizarHorario()}"/>
+                            </div>
+                        </h:form>
+                    </div>
+>>>>>>> origin/master
                 </div>
             </div>
-        </div>
+        </f:view>
     </h:body>
     <script src="../../../resources/js/bootstrap.min.js" type="text/javascript"></script>
 </html>

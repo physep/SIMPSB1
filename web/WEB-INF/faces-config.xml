@@ -3,29 +3,26 @@
               xmlns="http://xmlns.jcp.org/xml/ns/javaee"
               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
               xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
-
-    
-    
-        
     <application>
         <locale-config>
             <default-locale>es</default-locale>
             <support-locale>es</support-locale>
             <support-locale>en</support-locale>
         </locale-config>
+        
         <resource-bundle>
-            <base-name>simpsb.languages.Citas.agendarCita</base-name>
-            <var>agcitaEti</var>
+            <base-name>simpsb.languages.Citas.citas</base-name>
+            <var>citasEti</var>
         </resource-bundle>
         
         <resource-bundle>
-            <base-name>simpsb.languages.Citas.consultarCita</base-name>
-            <var>concitaEti</var>
+            <base-name>simpsb.languages.Usuario.usuarios</base-name>
+            <var>usuariosEti</var>
         </resource-bundle>
         
         <resource-bundle>
-            <base-name>simpsb.languages.Usuario.registrarUsuario</base-name>
-            <var>regUsuEti</var>
+            <base-name>simpsb.languages.Pagos.pagos</base-name>
+            <var>pagosEti</var>
         </resource-bundle>
  
         <resource-bundle>
@@ -34,7 +31,7 @@
         </resource-bundle>
         
         <resource-bundle>
-            <base-name>simpsb.languages.universal.pagesU</base-name>
+            <base-name>simpsb.languages.Universal.universal</base-name>
             <var>universEti</var>
         </resource-bundle>
         
@@ -44,18 +41,25 @@
         </resource-bundle>
         
         <resource-bundle>
-             <base-name>simpsb.languages.Perfiles.perfiles</base-name>
+            <base-name>simpsb.languages.Perfiles.perfiles</base-name>
             <var>perfilEti</var>
         </resource-bundle>
         
         <resource-bundle>
-             <base-name>simpsb.languages.Horarios.horarios</base-name>
+            <base-name>simpsb.languages.Horarios.horarios</base-name>
             <var>horarioEti</var>
         </resource-bundle>
+        
         <resource-bundle>
-             <base-name>simpsb.languages.Servicio.pages</base-name>
+            <base-name>simpsb.languages.Pages</base-name>
             <var>pagesEti</var>
         </resource-bundle>
+        
+        <managed-bean> 
+            <managed-bean-name>currentDate</managed-bean-name> 
+            <managed-bean-class>java.util.Date</managed-bean-class> 
+            <managed-bean-scope>request</managed-bean-scope> 
+        </managed-bean> 
     </application>
     
 </faces-config>

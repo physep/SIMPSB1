@@ -10,12 +10,12 @@
         <link href="resources/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="resources/css/files/estilosIndex.css" rel="stylesheet" type="text/css"/>
         <link href="resources/css/mdb.min.css" rel="stylesheet" type="text/css"/>
-        <link rel="shortcut icon" href="img/shortcut-logo.png"/>
+        <link rel="shortcut icon" href="resources/img/shortcut-logo.png"/>
         <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" type="text/css"/>
         <script src="https://kit.fontawesome.com/5e77c8969a.js"  type="text/javascript"></script>
     </h:head>
     <h:body styleClass="fondo">
-        <f:view locale="en">
+        <f:view locale="es">
             <!-- BARRA DE NAVEGACIÓN -->
 
             <h:head class="banner-alto">
@@ -37,21 +37,23 @@
                                 </button>
                             </a>
                             <div class="dropdown-menu text-center" aria-labelledby="navbarDropdown">
-                                <a href="index.xhtml#header" class="text-center nav-link text-uppercase">#{indexEti.menu_inicio}</a> 
-                                <a href="index.xhtml#servicios" class="text-center nav-link text-uppercase">#{indexEti.menu_servicios}</a> 
-                                <a href="index.xhtml#citas" class="text-center nav-link text-uppercase">#{indexEti.menu_citas}</a> 
-                                <a href="index.xhtml#quienes-somos" class="text-center nav-link text-uppercase">#{indexEti.menu_quienessomos}</a> 
-                                <a href="index.xhtml#equipo" class="text-center nav-link text-uppercase">#{indexEti.menu_equipo}</a> 
-                                <a href="index.xhtml#ubicacion" class="text-center nav-link text-uppercase">#{indexEti.menu_ubicacion}</a> 
-                                <a data-toggle="modal" data-target="#contactenos" href="index.xhtml#contactenos" class="text-center nav-link text-uppercase">#</a> 
+                                <a href="#header" class="text-center nav-link text-uppercase">#{indexEti.menu_inicio}</a> 
+                                <a href="#servicios" class="text-center nav-link text-uppercase">#{indexEti.menu_servicios}</a> 
+                                <a href="#citas" class="text-center nav-link text-uppercase">#{indexEti.menu_citas}</a> 
+                                <a href="#quienes-somos" class="text-center nav-link text-uppercase">#{indexEti.menu_quienessomos}</a> 
+                                <a href="#equipo" class="text-center nav-link text-uppercase">#{indexEti.menu_equipo}</a> 
+                                <a href="#ubicacion" class="text-center nav-link text-uppercase">#{indexEti.menu_ubicacion}</a> 
+                                <a data-toggle="modal" data-target="#contactenos" href="index.xhtml#contactenos" class="text-center nav-link text-uppercase">#{indexEti.menu_contactenos}</a> 
                                 <a class="text-center nav-link text-uppercase" id="ingreso">#{indexEti.menu_ingreso} <i class="fas fa-chevron-down"></i></a>
-                                <ul id="login" class="ingreso"> 
-                                    <li class="nav-item">
-                                        <h:commandLink action="app/login?faces-redirect=true" styleClass="text-center nav-link text-uppercase mostrar" value="#{indexEti.login}"/>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="app/registro.xhtml?faces-redirect=true" class="text-center nav-link text-uppercase">Registrarse</a> 
-                                    </li>
+                                <ul id="login" class="ingreso text-center"> 
+                                    <h:form>
+                                        <li class="nav-item">
+                                            <h:commandLink action="app/login?faces-redirect=true" class="text-center nav-link text-uppercase mx-auto" value="#{indexEti.login}"/>
+                                        </li>
+                                        <li class="nav-item">
+                                            <h:commandLink action="app/registro?faces-redirect=true" class="text-center nav-link text-uppercase mx-auto" value="#{indexEti.registrar}"/>
+                                        </li>
+                                    </h:form>
                                 </ul>
                             </div> 
                         </div> 
@@ -355,13 +357,13 @@
                             <h:form>
                                 <h:outputLabel for="nombre" value="#{indexEti.form_nombre}"/>
                                 <h:inputText id="nombre" value="#" a:placeholder="#{indexEti.form_nombre}" styleClass="form-control"/>
-                                
+
                                 <h:outputLabel for="email" value="#{indexEti.form_email}"/>
                                 <h:inputText id="email" value="#" a:placeholder="#{indexEti.form_email}" styleClass="form-control"/>
-                                
+
                                 <h:outputLabel for="telefono" value="#{indexEti.form_tel}"/>
                                 <h:inputText id="telefono" value="#" a:placeholder="#{indexEti.form_tel}" styleClass="form-control"/>
-                                
+
                                 <h:outputLabel for="comentario" value="#{indexEti.form_comme}"/>
                                 <h:inputTextarea id="comentario" value="#" styleClass="form-control" a:placeholder="#{indexEti.place_comme}" rows="8"/>
                             </h:form>

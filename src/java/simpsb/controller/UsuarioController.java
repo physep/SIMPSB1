@@ -21,7 +21,8 @@ public class UsuarioController {
     @EJB
     private RolesFacadeLocal rolesFacadeLocal;
     private Roles roles;
-    
+    private List<Roles> listRol;
+
     @EJB
     private ClienteFacadeLocal clienteFacadeLocal;
     private Cliente cliente;
@@ -31,6 +32,15 @@ public class UsuarioController {
         usuario = new Usuario();
         roles = new Roles();
         cliente = new Cliente();
+        listRol = rolesFacadeLocal.findAll();
+    }
+
+    public List<Roles> getListRol() {
+        return listRol;
+    }
+
+    public void setListRol(List<Roles> listRol) {
+        this.listRol = listRol;
     }
 
     public Cliente getCliente() {
@@ -40,7 +50,7 @@ public class UsuarioController {
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
-    
+
     public Usuario getUsuario() {
         return usuario;
     }
@@ -62,7 +72,6 @@ public class UsuarioController {
             roles.setIdRol(3);
             usuario.setIdRol(roles);
             usuarioFacadeLocal.create(usuario);
-            //CREAR USUARIO
             cliente.setIdUsuario(usuario);
             clienteFacadeLocal.create(cliente);
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Se ha registrado exitosamente"));
@@ -107,6 +116,7 @@ public class UsuarioController {
             usuario.setIdRol(roles);
             usuario.getPass();
             usuarioFacadeLocal.edit(usuario);
+
             FacesContext.getCurrentInstance().getExternalContext().redirect("consultarUsuario.xhtml");
         } catch (Exception e) {
             e.printStackTrace();

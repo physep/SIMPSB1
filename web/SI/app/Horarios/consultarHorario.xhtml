@@ -11,66 +11,68 @@ and open the template in the editor.
       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
       xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
     <h:head>
-        <title>Crear Horario</title>
-
+        <title>Consultar Horario</title>
         <link href="../../../resources/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="../../resources/css/Horarios/consultarHorario.css" rel="stylesheet" type="text/css"/>
     </h:head>
 
     <h:body styleClass="fondo">
-        <h:messages globalOnly="true" showDetail="true"/>
-        <!-- Migas de pan -->
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Consultar Horario</li>
-            </ol>
-        </nav>
-        <div class="container">
-            <div class="formulario d-block mx-auto">
-                <div class="titulo">
-                    <h1 class="text-center">CONSULTAR HORARIO</h1>
-                </div>  
-                <p class="text-uppercase">
-                    <img src="../../resources/img/icono_horarios.png" alt=""/>
-                    HORARIOS
-                </p>
-                <h:form>
-                    <h:dataTable value="#{horariosController.listarHorariotrabajo()}" var="horariotrabajo" styleClass="table table-striped table-bordered dt-responsive nowrap text-center">
-                        <h:column>
-                            <f:facet name="header">Id Horario</f:facet>
-                            <h:outputText id="idHorario" value="#{horariotrabajo.idHorarioTrabajo}">
-                            </h:outputText>
-                        </h:column>
-                        
-                        <h:column>
-                            <f:facet name="header">Hora Inicio</f:facet>
-                            <h:outputText id="HoraIn" value="#{horariotrabajo.horaInicio}">
-                                <f:convertDateTime dateStyle="full" pattern="h:mm a"></f:convertDateTime>
-                            </h:outputText>
-                        </h:column>
-                        
-                        <h:column>
-                            <f:facet name="header">Hora Final</f:facet>
-                            <h:outputText id="HoraFn" value="#{horariotrabajo.horaFin}">
-                                <f:convertDateTime dateStyle="full" pattern="h:mm a"></f:convertDateTime>
-                            </h:outputText>
-                        </h:column>
-                        
-                        <h:column>
-                            <f:facet name="header">Acciones</f:facet>
-                            <h:commandButton styleClass="btn btn-warning" action="#{horariosController.consultarHorariotrabajo(horariotrabajo)}" value="Modificar"/>
-                            <h:commandButton styleClass="btn btn-danger" action="#{horariosController.eliminarHorariotrabajo(horariotrabajo)}" onclick="javascript:if(!confirm('¿Está seguro que desea eliminar este horario?')) return false;" value="#{universEti.Eliminar}"/>
-                        </h:column>
-                        
-                    </h:dataTable>
-                </h:form>
+        <f:view locale="en">
+            <h:messages globalOnly="true" showDetail="true"/>
+            <!-- Migas de pan -->
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">#{horarioEti.current_consultar}</li>
+                </ol>
+            </nav>
+            <div class="container">
+                <div class="formulario d-block mx-auto">
+                    <div class="titulo">
+                        <h1 class="text-center">#{horarioEti.consultarhorario}</h1>
+                    </div>  
+                    <p class="text-uppercase">
+                        <img src="../../resources/img/icono_horarios.png" alt=""/>
+                        HORARIOS
+                    </p>
+                    <h:form>
+                        <h:dataTable value="#{horariosController.listarHorariotrabajo()}" var="horariotrabajo" styleClass="table table-striped table-bordered dt-responsive nowrap text-center">
+                            <h:column>
+                                <f:facet name="header">ID</f:facet>
+                                <h:outputText id="idHorario" value="#{horariotrabajo.idHorarioTrabajo}">
+                                </h:outputText>
+                            </h:column>
 
+                            <h:column>
+                                <f:facet name="header">#{horarioEti.horaIn}</f:facet>
+                                <h:outputText id="HoraIn" value="#{horariotrabajo.horaInicio}">
+                                    <f:convertDateTime dateStyle="full" pattern="h:mm a"></f:convertDateTime>
+                                </h:outputText>
+                            </h:column>
+
+                            <h:column>
+                                <f:facet name="header">#{horarioEti.horaFn}</f:facet>
+                                <h:outputText id="HoraFn" value="#{horariotrabajo.horaFin}">
+                                    <f:convertDateTime dateStyle="full" pattern="h:mm a"></f:convertDateTime>
+                                </h:outputText>
+                            </h:column>
+
+                            <h:column>
+                                <f:facet name="header">#{universEti.acciones}</f:facet>
+                                <h:commandButton styleClass="btn btn-warning" action="#{horariosController.consultarHorariotrabajo(horariotrabajo)}" value="#{universEti.modificar}"/>
+                                <h:commandButton styleClass="btn btn-danger" action="#{horariosController.eliminarHorariotrabajo(horariotrabajo)}" onclick="javascript:if (!confirm('¿Está seguro que desea eliminar este horario?'))
+                                        return false;" value="#{universEti.eliminar}"/>
+                            </h:column>
+
+                        </h:dataTable>
+                    </h:form>
+
+                </div>
             </div>
-        </div>
-        <!-- SCRIPTS -->
-        <script src="../../../resources/js/jquery-3.3.1.slim.min.js"></script>
-        <script src="../../../resources/js/popper.min.js"></script>
-        <script src="../../../resources/js/bootstrap.min.js"></script>
+            <!-- SCRIPTS -->
+            <script src="../../../resources/js/jquery-3.3.1.slim.min.js"></script>
+            <script src="../../../resources/js/popper.min.js"></script>
+            <script src="../../../resources/js/bootstrap.min.js"></script>
+        </f:view>
     </h:body>
 </html>

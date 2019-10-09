@@ -8,6 +8,7 @@ package simpsb.entidades;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -43,16 +44,16 @@ public class Empleado implements Serializable {
     @OneToMany(mappedBy = "idEmpleado", fetch = FetchType.LAZY)
     private List<Comisiones> comisionesList;
     @JoinColumn(name = "idHorarioTrabajo", referencedColumnName = "idHorarioTrabajo")
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Horariotrabajo idHorarioTrabajo;
     @JoinColumn(name = "idUsuario", referencedColumnName = "idUsuario")
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Usuario idUsuario;
     @JoinColumn(name = "idDiaDescanso", referencedColumnName = "idDiaDescanso")
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Diadescanso idDiaDescanso;
     @JoinColumn(name = "idCargo", referencedColumnName = "idCargo")
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Cargos idCargo;
 
     public Empleado() {

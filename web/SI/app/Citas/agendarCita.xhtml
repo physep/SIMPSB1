@@ -10,13 +10,14 @@
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8" type="text/javascript"></script>
     </h:head>
     <h:body styleClass="fondo">
-        <f:view locale="es">           
+        <f:view locale="es">      
+            
             <h:messages globalOnly="true" showDetail="true"/>
             <!--Migas de Pan-->
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">#{agcitaEti.current_agendarCita}</li>
+                    <li class="breadcrumb-item active" aria-current="page">#{citasEti.current_agendarCita}</li>
                 </ol>
             </nav> 
 
@@ -24,13 +25,13 @@
             <div class="container">
                 <div class="formulario d-block mx-auto">
                     <div class="titulo">
-                        <h1 class="text-center">#{agcitaEti.titulo_agendarCita}</h1>
+                        <h1 class="text-center">#{citasEti.titulo_agendarCita}</h1>
                     </div>
 
                     <h:form>
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <h:outputLabel for="fecha" value="#{agcitaEti.fecha}"/>
+                                <h:outputLabel for="fecha" value="#{citasEti.fecha}"/>
                                 <h:inputText id="fecha" styleClass="form form-control" a:type="date" 
                                              value="#{citasController.citas.fecha}"> 
                                     <f:convertDateTime for="fecha" type="date" pattern="yyyy-MM-dd"></f:convertDateTime>
@@ -38,7 +39,7 @@
                                 <h:message for="fecha"/>
                             </div>
                             <div class="form-group col-md-6">
-                                <h:outputLabel for="hora" value="#{agcitaEti.hora}"/>
+                                <h:outputLabel for="hora" value="#{citasEti.hora}"/>
                                 <h:inputText id="hora" styleClass="form form-control" a:type="time" 
                                              value="#{citasController.citas.hora}">
                                     <f:convertDateTime dateStyle="full" pattern="HH:mm"></f:convertDateTime>
@@ -48,9 +49,9 @@
                         </div>
 
                         <div class="form-group col-md-12">
-                            <h:outputLabel for="servicio" value="#{agcitaEti.servicio}"/>
+                            <h:outputLabel for="servicio" value="#{citasEti.servicio}"/>
                             <h:selectOneMenu id="servicio" value="#{citasController.servicios.idServicio}" styleClass="form form-control">
-                                <f:selectItem itemLabel="#{agcitaEti.seleccionar}" itemValue="0"/>
+                                <f:selectItem itemLabel="#{universEti.seleccionar}" itemValue="0" noSelectionOption="true"/>
                                 <f:selectItems value="#{citasController.listServicios}" var="servicio" 
                                                itemValue="#{servicio.idServicio}" 
                                                itemLabel="#{servicio.nombre}"/>
@@ -59,9 +60,9 @@
                         </div>
 
                         <div class="form-group col-md-12">
-                            <h:outputLabel for="empleado" value="#{agcitaEti.empleado}"/>
+                            <h:outputLabel for="empleado" value="#{citasEti.empleado}"/>
                             <h:selectOneMenu id="empleado" value="#{citasController.empleado.idEmpleado}" styleClass="form form-control">
-                                <f:selectItem itemLabel="#{agcitaEti.seleccionar}" itemValue="0"/>
+                                <f:selectItem itemLabel="#{universEti.seleccionar}" itemValue="0" noSelectionOption="true"/>
                                 <f:selectItems value="#{citasController.listEmpleados}" var="emp" 
                                                itemValue="#{emp.idEmpleado}" 
                                                itemLabel="#{emp.idUsuario.nombre}"/>
@@ -71,14 +72,7 @@
 
                         <h:commandButton styleClass="btn boton d-block mx-auto" 
                                          action="#{citasController.generarCita()}" 
-                                         value="#{agcitaEti.btn_agendar}" 
-                                         onclick="javascript:if (Swal.fire({
-                                             position: 'top-end',
-                                                     type: 'success',
-                                                     title: 'Se ha agendado correctamente su cita',
-                                                     showConfirmButton: false,
-                                                     timer: 1500
-                                                     })) return true;"/>
+                                         value="#{citasEti.btn_agendar}"/> 
                     </h:form>
                 </div>
             </div>

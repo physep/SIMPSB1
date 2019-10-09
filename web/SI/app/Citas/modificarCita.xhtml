@@ -21,14 +21,14 @@ and open the template in the editor.
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item active" aria-current="page"></li>
+                    <li class="breadcrumb-item active" aria-current="page">#{citasEti.titulo_modificar}</li>
                 </ol>
             </nav> 
             <!-- Area de Trabajo -->
             <div class="container">
                 <div class="formulario d-block mx-auto">
                     <div class="titulo">
-                        <h1 class="text-center">MODIFICAR CITA</h1>
+                        <h1 class="text-center text-uppercase">#{citasEti.titulo_modificar}</h1>
                     </div>
 
                     <h:form>
@@ -37,14 +37,14 @@ and open the template in the editor.
                             <h:inputHidden value="#{citasController.servicios.idServicio}"/>
                             <h:inputHidden value="#{citasController.empleado.idEmpleado}"/>
                             <div class="form-group col-md-6">
-                                <h:outputLabel for="fecha" value="#{agcitaEti.fecha}"/>
+                                <h:outputLabel for="fecha" value="#{citasEti.fecha}"/>
                                 <h:inputText id="fecha" styleClass="form form-control" a:type="date" value="#{citasController.citas.fecha}">
                                     <f:convertDateTime for="fecha" type="date" pattern="yyyy-MM-dd"></f:convertDateTime>
                                 </h:inputText>
                                 <h:message for="fecha"/>
                             </div>
                             <div class="form-group col-md-6">
-                                <h:outputLabel for="hora" value="#{agcitaEti.hora}"/>
+                                <h:outputLabel for="hora" value="#{citasEti.hora}"/>
                                 <h:inputText id="hora" styleClass="form form-control"  a:type="time" value="#{citasController.citas.hora}">
                                     <f:convertDateTime dateStyle="full" pattern="HH:mm"></f:convertDateTime>
                                 </h:inputText>
@@ -53,7 +53,7 @@ and open the template in the editor.
                         </div>
 
                         <div class="form-group col-md-12">
-                            <h:outputLabel for="servicio" value="#{agcitaEti.servicio}"/>
+                            <h:outputLabel for="servicio" value="#{citasEti.servicio}"/>
                             <h:selectOneMenu id="servicio" value="#{citasController.servicios.idServicio}" styleClass="form form-control">
                                 <f:selectItem itemLabel="#{agcitaEti.seleccionar}" itemValue="0"/>
                                 <f:selectItems value="#{citasController.listServicios}" var="servicio" 
@@ -64,7 +64,7 @@ and open the template in the editor.
                         </div>
 
                         <div class="form-group col-md-12">
-                            <h:outputLabel for="empleado" value="#{agcitaEti.empleado}"/>
+                            <h:outputLabel for="empleado" value="#{citasEti.empleado}"/>
                             <h:selectOneMenu id="empleado" value="#{citasController.empleado.idEmpleado}" styleClass="form form-control">
                                 <f:selectItem itemLabel="#{agcitaEti.seleccionar}" itemValue="0"/>
                                 <f:selectItems value="#{citasController.listEmpleados}" var="emp" 
@@ -74,7 +74,14 @@ and open the template in the editor.
                             <h:message for="empleado"/>
                         </div>
                         <div class="text-center">
-                        <h:commandButton styleClass="btn boton" action="#{citasController.modificarCita()}" value="Modificar"/>
+                            <h:commandButton styleClass="btn boton" action="#{citasController.modificarCita()}" value="#{universEti.modificar}"
+                                         onclick="javascript:if (Swal.fire({
+                                             position: 'top-end',
+                                                     type: 'success',
+                                                     title: '#{citasEti.alerta_mod}',
+                                                     showConfirmButton: false,
+                                                     timer: 1500
+                                                     })) return true;"/>
                         </div>
                     </h:form>
                 </div>

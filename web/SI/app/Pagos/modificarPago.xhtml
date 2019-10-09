@@ -10,56 +10,58 @@ and open the template in the editor.
       xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
-    <head>
+    <h:head>
         <title>Generar Pagos</title>
         <link href="../../../resources/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="../../resources/css/Pagos/estilos-generar-pagos.css" rel="stylesheet" type="text/css"/>
-    </head>
-    <body>
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item  text-right"><a href="#">Home</a></li>
-                <li class="breadcrumb-item  active" aria-current="page">Modificar Pago</li>
-            </ol>
-        </nav>
-        <div class="container">
-            <div class="formulario d-block mx-auto">
-                <div class="titulo">
-                    <h1 class="text-center">MODIFICAR PAGO</h1>
-                </div>
-                <h:form>
-                    <div class="form-group">
-                        <h:outputLabel value="Valor" for="valor"/>
-                        <h:inputText id="valor" value="#{pagosController.comisiones.valor}" styleClass="form form-control"/>
-
-                        <h:outputLabel value="Empleado" for="idEmpleado"/>
-                        <h:selectOneMenu id="empleado" value="#{pagosController.empleado.idEmpleado}" styleClass="form form-control">
-                            <f:selectItem itemLabel="Seleccionar" itemValue="0"/>
-                            <f:selectItems value="#{pagosController.listEmpleado}" var="empleado" 
-                                           itemValue="#{empleado.idEmpleado}" 
-                                           itemLabel="#{empleado.idUsuario.nombre}"/>
-                        </h:selectOneMenu>
-
-                        <h:outputLabel value="Factura" for="idFactura"/>
-                        <h:selectOneMenu id="servicio" value="#{pagosController.factura.idFactura}" styleClass="form form-control">
-                            <f:selectItem itemLabel="Seleccionar" itemValue="0"/>
-                            <f:selectItems value="#{pagosController.listFactura}" var="factura" 
-                                           itemValue="#{factura.idFactura}" 
-                                           itemLabel="#{factura.idFactura}"/>
-                        </h:selectOneMenu>
+    </h:head>
+    <h:body>
+        <f:view locale="es">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item  text-right"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item  active" aria-current="page">#{pagosEti.modificar}</li>
+                </ol>
+            </nav>
+            <div class="container">
+                <div class="formulario d-block mx-auto">
+                    <div class="titulo">
+                        <h1 class="text-center text-uppercase">#{pagosEti.modificar}</h1>
                     </div>
-                    <h:commandButton value="Modificar" action="#{pagosController.modificarPago()}" styleClass="btn boton d-block mx-auto"/>
-                </h:form>
+                    <h:form>
+                        <h:inputHidden value="#{pagosController.comisiones.idComisiones}"/>
+                        <div class="form-group">
+                            <h:outputLabel value="#{pagosEti.valor}" for="valor"/>
+                            <h:inputText id="valor" value="#{pagosController.comisiones.valor}" styleClass="form form-control"/>
+
+                            <h:outputLabel value="#{pagosEti.empleado}" for="idEmpleado"/>
+                            <h:selectOneMenu id="empleado" value="#{pagosController.empleado.idEmpleado}" styleClass="form form-control">
+                                <f:selectItem itemLabel="#{universEti.seleccionar}" itemValue="0" noSelectionOption="true"/>
+                                <f:selectItems value="#{pagosController.listEmpleado}" var="empleado" 
+                                               itemValue="#{empleado.idEmpleado}" 
+                                               itemLabel="#{empleado.idUsuario.nombre}"/>
+                            </h:selectOneMenu>
+
+                            <h:outputLabel value="#{pagosEti.factura}" for="idFactura"/>
+                            <h:selectOneMenu id="factura" value="#{pagosController.factura.idFactura}" styleClass="form form-control">
+                                <f:selectItem itemLabel="#{universEti.seleccionar}" itemValue="0" noSelectionOption="true"/>
+                                <f:selectItems value="#{pagosController.listFactura}" var="factura" 
+                                               itemValue="#{factura.idFactura}" 
+                                               itemLabel="#{factura.idFactura}"/>
+                            </h:selectOneMenu>
+                        </div>
+                        <h:commandButton value="#{universEti.modificar}" action="#{pagosController.modificarPago()}" styleClass="btn boton d-block mx-auto"/>
+                    </h:form>
+                </div>
             </div>
-        </div>
-        <!-- SCRIPTS -->
-        <script src="../../../js/jquery-3.3.1.slim.min.js"></script>
-        <script src="../../../js/popper.min.js"></script>
-        <script src="../../../js/bootstrap.min.js"></script>
-        <script src="../../../js/mdb.min.js"></script>
-        <script src="../../../js/datatables.min.js"></script>
+            <!-- SCRIPTS -->
+            <script src="../../../js/jquery-3.3.1.slim.min.js"></script>
+            <script src="../../../js/popper.min.js"></script>
+            <script src="../../../js/bootstrap.min.js"></script>
+            <script src="../../../js/mdb.min.js"></script>
+            <script src="../../../js/datatables.min.js"></script>
 
-        <script src="../../js/validaciongelmer.js"></script>
-
-    </body>
+            <script src="../../js/validaciongelmer.js"></script>
+        </f:view>
+    </h:body>
 </html>

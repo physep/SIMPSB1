@@ -17,48 +17,50 @@ and open the template in the editor.
         <link href="../../resources/css/Servicios/crearServicio.css" rel="stylesheet" type="text/css"/>
     </h:head>
     <h:body styleClass="fondo">
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <a href="crearServicio.xhtml"></a>
-                <li class="breadcrumb-item  text-right"><a href="#">Home</a></li>
-                <li class="breadcrumb-item  active" aria-current="page">#{servisEti.crearServicioMi}</li>
-            </ol>
-        </nav>
-        <div class="container">
-            <div class="formulario d-block mx-auto">
-                <div class="titulo">
-                    <h1 class="text-center">#{servisEti.crearServicio}</h1>
+        <f:view locale="en">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <a href="crearServicio.xhtml"></a>
+                    <li class="breadcrumb-item  text-right"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item  active" aria-current="page">#{servisEti.crearServicioMi}</li>
+                </ol>
+            </nav>
+            <div class="container">
+                <div class="formulario d-block mx-auto">
+                    <div class="titulo">
+                        <h1 class="text-center">#{servisEti.crearServicio}</h1>
+                    </div>
+                    <h:form>
+
+                        <div class="form-group">
+                            <h:outputLabel for="nombreServicio" value="#{servisEti.nombreServicio}"/>
+                            <h:inputText id="nombreServicio" value="#{serviciosController.servicios.nombre}" a:placeholder="#{servisEti.placeNombre}" styleClass="form form-control"/>
+
+                            <h:outputLabel for="estado" value="#{servisEti.estadoServicio}"/>
+                            <h:selectOneMenu value="#{serviciosController.servicios.estado}" styleClass="form form-control">
+                                <f:selectItem itemLabel="Activo" itemValue="Activo"/>
+                                <f:selectItem itemLabel="Inactivo" itemValue="Inactivo"/>
+                                <f:selectItem itemLabel="-- Seleccionar --" itemValue="0"/>
+                            </h:selectOneMenu>
+
+                            <h:outputLabel for="valor" value="#{servisEti.valorServicio}"/>
+                            <h:inputText id="valor" value="#{serviciosController.servicios.valor}" a:placeholder="#{servisEti.placeValor}" styleClass="form form-control" />
+
+                            <h:outputLabel for="tiempoEstimado" value="#{servisEti.tiempoServicio}"/>
+                            <h:inputText id="tiempoEstimado" value="#{serviciosController.servicios.tiempoEstimado}" a:placeholder="#{servisEti.placeTiempo}" styleClass="form form-control"/>
+                        </div>
+
+                        <div class="text-center">
+                            <h:commandButton value="#{universEti.registrar}" action="#{serviciosController.registrarServicios()}" styleClass="btn boton"/>
+                        </div>
+                    </h:form>
                 </div>
-                <h:form>
-                    
-                    <div class="form-group">
-                        <h:outputLabel for="nombreServicio" value="#{servisEti.nombreServicio}"/>
-                        <h:inputText id="nombreServicio" value="#{serviciosController.servicios.nombre}" a:placeholder="#{servisEti.placeNombre}" styleClass="form form-control"/>
-
-                        <h:outputLabel for="estado" value="#{servisEti.estadoServicio}"/>
-                        <h:selectOneMenu value="#{serviciosController.servicios.estado}" styleClass="form form-control">
-                            <f:selectItem itemLabel="Activo" itemValue="Activo"/>
-                            <f:selectItem itemLabel="Inactivo" itemValue="Inactivo"/>
-                            <f:selectItem itemLabel="-- Seleccionar --" itemValue="0"/>
-                        </h:selectOneMenu>
-
-                        <h:outputLabel for="valor" value="#{servisEti.valorServicio}"/>
-                        <h:inputText id="valor" value="#{serviciosController.servicios.valor}" a:placeholder="#{servisEti.placeValor}" styleClass="form form-control" />
-
-                        <h:outputLabel for="tiempoEstimado" value="#{servisEti.tiempoServicio}"/>
-                        <h:inputText id="tiempoEstimado" value="#{serviciosController.servicios.tiempoEstimado}" a:placeholder="#{servisEti.placeTiempo}" styleClass="form form-control"/>
-                    </div>
-                    
-                    <div class="text-center">
-                        <h:commandButton value="#{universEti.Registrar}" action="#{serviciosController.registrarServicios()}" styleClass="btn boton"/>
-                    </div>
-                </h:form>
             </div>
-        </div>
 
-        <!-- SCRIPTS -->
-        <script src="../../../resources/js/jquery-3.3.1.slim.min.js"></script>
-        <script src="../../../resources/js/popper.min.js"></script>
-        <script src="../../../resources/js/bootstrap.min.js"></script>
+            <!-- SCRIPTS -->
+            <script src="../../../resources/js/jquery-3.3.1.slim.min.js"></script>
+            <script src="../../../resources/js/popper.min.js"></script>
+            <script src="../../../resources/js/bootstrap.min.js"></script>
+        </f:view>
     </h:body>
 </html>

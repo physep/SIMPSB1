@@ -41,6 +41,7 @@ and open the template in the editor.
 
                     <!-- Formulario -->
 
+<<<<<<< HEAD
                     <h:form id="formfactura">
                       
                          
@@ -60,7 +61,14 @@ and open the template in the editor.
                                             <h:outputLabel id="idEmailCliente" value="--"/>
                                         </h:panelGrid>
                                    
+=======
+                    <h:form>
+                        
+                        <div class="form-group">
+                            <h:outputLabel for="servicio" value="servicio"/>
+>>>>>>> origin/master
 
+<<<<<<< HEAD
                                 
                                 
                                     <h:panelGrid >
@@ -70,6 +78,35 @@ and open the template in the editor.
                                 
                         
                             
+=======
+                            <h:selectOneMenu id="servicio" value="#{facturaController.servicios.idServicio}" styleClass="form-control form-fondo form">
+                                <f:selectItem itemLabel="Seleccionar" itemValue="0" />
+                                <f:selectItems value="#{facturaController.listServicios}" var="servicios"
+                                               itemValue="#{servicios.idServicio}" 
+                                               itemLabel="#{servicios.nombre}"/>
+                            </h:selectOneMenu>
+                            <h:message for="servicio"/>
+                        </div>
+                        <div class="form-group">
+                            <h:outputLabel for="cliente" value="Cliente"/>
+
+                            <h:selectOneMenu id="cliente" value="#{facturaController.cliente.idCliente}" styleClass="form-control form-fondo form">
+                                <f:selectItem itemLabel="Seleccionar" itemValue="0" />
+                                <f:selectItems value="#{facturaController.listCliente}" var="cliente"
+                                               itemValue="#{cliente.idCliente}" 
+                                               itemLabel="#{cliente.idUsuario.nombre} #{cliente.idUsuario.apellido}"/>
+                            </h:selectOneMenu>
+                            <h:message for="cliente"/>
+                        </div>
+                   
+                        <div class="form-group">
+                            <h:outputLabel for="subtotal" value="SubTotal"/>
+                            <h:inputText styleClass="form-control form-fondo form" id="subtotal" value="#{facturaController.detalle.subTotal}"/>
+                            <h:message for="subtotal"/>
+                        </div>
+                        <div class="form-group">
+                            <h:outputLabel for="citas" value="Citas"/>
+>>>>>>> origin/master
 
                            
 

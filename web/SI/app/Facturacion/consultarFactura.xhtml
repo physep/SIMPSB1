@@ -27,7 +27,7 @@
                 <div class="row">
                     <!-- TABLA  -->
                     <div class="col-12">
-                        <p class="text-uppercase"> Factura</p>
+                        <p class="text-uppercase">Factura</p>
                         <h:dataTable value="#{facturaController.listarFactura()}" var="factura" styleClass="text-center table table-striped table-bordered dt-responsive nowrap col-md-12">
                             <h:column>
                                 <f:facet name="header">Id</f:facet>
@@ -66,8 +66,8 @@
                                 <h:outputText value="#{factura.idDetalleFactura.valorTotal}" id="Total"/>
                             </h:column> 
                             <h:column>
-                                <h:form>
                                     <f:facet name="header">Acciones</f:facet>                                   
+                                <h:form>
                                     <h:commandButton styleClass="btn btn-warning" value="Modificar" action="#{facturaController.consultarFactura(factura)}"/>
                                 </h:form>
                             </h:column>    

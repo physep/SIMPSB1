@@ -23,10 +23,14 @@ public class CitasController {
     @EJB
     private UsuarioFacadeLocal usuarioFacadeLocal;
 
+    @EJB
+    private ClienteFacadeLocal clienteFacadeLocal;
+    
     private Citas citas;
     private Empleado empleado;
     private Servicios servicios;
     private Usuario usuario;
+    private Cliente cliente;
 
     private List<Servicios> listServicios;
     private List<Empleado> listEmpleados;
@@ -40,8 +44,17 @@ public class CitasController {
         listEmpleados = empleadoFacadeLocal.findAll();
     }
 
+    
     public Citas getCitas() {
         return citas;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
 
     public void setCitas(Citas citas) {
@@ -81,19 +94,14 @@ public class CitasController {
     }
 
     public void generarCita() {
-       // Cliente cl = null;
+        Cliente cl = null;
         try {
-            //cl = (Cliente) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("user");
-
-           // if (cl.getIdUsuario().getNombre() != null) {
-             //   citas.setIdCliente(cl);
+            cl = (Cliente) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("user");
                 citas.setIdEmpleado(empleado);
                 citas.setIdServicio(servicios);
                 citasFacadeLocal.create(citas);
                 FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Se ha generado exitosamente su cita"));
                 FacesContext.getCurrentInstance().getExternalContext().redirect("consultarCita.xhtml");
-          //  }
-
         } catch (Exception e) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Error", "Ha ocurrido un error al generar su cita"));
         }

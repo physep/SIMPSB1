@@ -18,61 +18,50 @@
             <div class="container">
 
                 <h:form styleClass="d-block mx-auto">
-                    <h1>#{regUsuEti.titulo_registrarse}</h1>
+                    <h1>#{usuariosEti.titulo_registrarse}</h1>
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <h:outputLabel for="nombre" value="#{regUsuEti.nombre}"/>
-                            <h:inputText value="#{usuarioController.usuario.nombre}" id="nombre" styleClass="form-control form" a:placeholder="#{regUsuEti.placeNom}" a:pattern="[A-Za-z0-9]{4,8}"/>
+                            <h:outputLabel for="nombre" value="#{usuariosEti.nombre}"/>
+                            <h:inputText value="#{usuarioController.usuario.nombre}" id="nombre" styleClass="form-control form" a:placeholder="#{usuariosEti.placeNom}"/>
                             <h:message for="nombre"/>
                         </div>
 
                         <div class="form-group col-md-6">
-                            <h:outputLabel for="apellido" value="#{regUsuEti.apellido}"/>
-                            <h:inputText  value="#{usuarioController.usuario.apellido}" id="apellido" styleClass="form-control form" a:placeholder="#{regUsuEti.placeApe}" a:pattern="[A-Za-z0-9]{4,8}"/>
+                            <h:outputLabel for="apellido" value="#{usuariosEti.apellido}"/>
+                            <h:inputText  value="#{usuarioController.usuario.apellido}" id="apellido" styleClass="form-control form" a:placeholder="#{usuariosEti.placeApe}"/>
                             <h:message for="apellido"/>
                         </div>
                     </div>
 
-                        <div class="form-group">
-                            <h:outputLabel for="correo" value="#{regUsuEti.correo}"/>
-                            <h:inputText value="#{usuarioController.usuario.correo}" id="correo" styleClass="form-control form" a:placeholder="#{regUsuEti.placeCorr}" a:pattern="^[\w._%-]+@[\w.-]+\.[a-zA-Z]{2,4}$"/>
-                            <h:message for="correo"/>
-                        </div>
+                    <div class="form-group">
+                        <h:outputLabel for="correo" value="#{usuariosEti.correo}"/>
+                        <h:inputText value="#{usuarioController.usuario.correo}" id="correo" styleClass="form-control form" a:placeholder="#{usuariosEti.placeCorr}"/>
+                        <h:message for="correo"/>
+                    </div>
+                    
                     <div class="form-row">
                         <div class="form-group  col-md-6">
-                            <h:outputLabel for="documento" value="#{regUsuEti.documento}"/>
-                            <h:inputText value="#{usuarioController.usuario.numDocumento}" id="documento" styleClass="form-control form" a:placeholder="#{regUsuEti.placeDoc}" a:pattern="[0-9]{10}"/>
+                            <h:outputLabel for="documento" value="#{usuariosEti.documento}"/>
+                            <h:inputText value="#{usuarioController.usuario.numDocumento}" id="documento" styleClass="form-control form" a:placeholder="#{usuariosEti.placeDoc}"/>
                             <h:message for="documento"/>
                         </div>
                         <div class="form-group col-md-6">
-                            <h:outputLabel for="genero" value="#{regUsuEti.genero}"/>
+                            <h:outputLabel for="genero" value="#{usuariosEti.genero}"/>
                             <h:selectOneMenu value="#{usuarioController.usuario.genero}" styleClass="form-control form">
-                                <f:selectItem itemValue="Femenino" itemLabel="#{regUsuEti.feme}"/>
-                                <f:selectItem itemValue="Masculino" itemLabel="#{regUsuEti.mascu}"/>
+                                <f:selectItem itemValue="Femenino" itemLabel="#{usuariosEti.feme}"/>
+                                <f:selectItem itemValue="Masculino" itemLabel="#{usuariosEti.mascu}"/>
                             </h:selectOneMenu>
                         </div>
                     </div>
 
-                    <!--      <div class="form-row"> -->
                     <div class="form-group">
-                        <h:outputLabel for="contra" value="#{regUsuEti.contra}"/>
-                        <h:inputText value="#{usuarioController.usuario.pass}" id="contra" a:type="password" styleClass="form-control form" a:placeholder="#{regUsuEti.placeCont}" a:pattern="[A-Za-z0-9]{5,15}"/>
+                        <h:outputLabel for="contra" value="#{usuariosEti.contra}"/>
+                        <h:inputText value="#{usuarioController.usuario.pass}" id="contra" a:type="password" styleClass="form-control form" a:placeholder="#{usuariosEti.placeCont}"/>
                         <h:message for="contra"/>
                     </div>
-
-                    <!--             <div class="form-group col-md-6">
-                                     <h:outputLabel for="conf_contra" value="#{regUsuEti.conf_contra}"/>
-                                     <h:inputText id="conf_contra" a:type="password" styleClass="form-control form" a:placeholder="#{regUsuEti.placeConf}" a:pattern="[A-Za-z0-9]{5,15}"/>
-                                     <h:message for="conf_contra"/>
-                                 </div>
-                             </div> -->
-                    <h:commandButton action="#{usuarioController.registrarUsuario()}" styleClass="btn boton d-block mx-auto" value="#{regUsuEti.btn_registrar}"/>
+                    <h:commandButton action="login" actionListener="#{usuarioController.registrarUsuario()}" styleClass="btn boton d-block mx-auto" value="#{usuariosEti.btn_registrar}"/>
                 </h:form>
-
-
             </div>
         </div>
-
-
     </h:body>
 </html>

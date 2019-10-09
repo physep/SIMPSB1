@@ -17,10 +17,9 @@ and open the template in the editor.
         <link href="../../../resources/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="../../resources/css/Horarios/crearHorario.css" rel="stylesheet" type="text/css"/>
         <link href="../../../resources/css/sweetalert2.min.css" rel="stylesheet" type="text/css"/>
-        <f:event type="preRenderView" listener="#{sesionController.verificarSesion()}"/>
     </h:head>
     <h:body class="fondo" >
-        <f:view locale="#{languages.idiomaSeleccionado}">
+        <f:view locale="en">
             <!-- Migas de pan -->
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
@@ -28,32 +27,7 @@ and open the template in the editor.
                     <li class="breadcrumb-item active" aria-current="page">#{horarioEti.current_crear}</li>
                 </ol>
             </nav>
-            <!--    <h:form>
-                <div class="dropdown">
-                    <button type="button" class="btn btn-default dropdown-toggle data-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            #{pagesEti[languages.seleccionarIdioma.language]}
-
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <c:forEach items="#{languages.idiomaSoportado}" var="idioma">
-                <h:commandLink class="dropdown-item" actionListener="#{languages.cambiarIdioma(idioma)}"
-                               value="#{pagesEti[idioma.language]}"/>
-            </c:forEach>
-        </div>
-    </div>
-</h:form> -->
-            <h:form>
-                <div class="dropdown">
-                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-hashpopup="true" aria-expanded="false">
-                        #{pagesEti[languages.idiomasSoportados]}
-                    </button>
-                    <div class="dropdown-menu" aria-labelledly="dropdownMenuButton">
-                        <c:forEach items="#{languages.idiomasSoportados}" var="idiomas">
-                            <h:commandLink class="dropdown-item" actionListener="#{languages.cambiarIdioma(idioma)}" value="#{pagesEti[idiomas.language]}"/>
-                        </c:forEach> 
-                    </div>
-                </div>
-            </h:form>
+           
             <h:messages globalOnly="true" showDetail="true"/>
             <!-- CONTENEDOR -->
             <div class="container">
@@ -82,12 +56,12 @@ and open the template in the editor.
                                 <h:message for="horaFn"/>
                             </div>
                             <br></br>
-                            <h:commandButton styleClass="btn boton d-block mx-auto" value="#{universEti.Registrar}" id="agregar"  onclick="agregar();"/>
+                            <h:commandButton styleClass="btn boton d-block mx-auto" value="#{universEti.registrar}" id="agregar"  onclick="agregar();"/>
                         </h:form>
                     </div>
                 </div>
             </div>
-        </f:view>
+            </f:view>
     </h:body>
     <script src="../../../resources/js/jquery-3.3.1.slim.min.js" type="text/javascript"></script>
     <script src="../../../resources/js/popper.min.js" type="text/javascript"></script>

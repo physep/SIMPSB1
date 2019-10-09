@@ -9,6 +9,7 @@
             <support-locale>es</support-locale>
             <support-locale>en</support-locale>
         </locale-config>
+        
         <resource-bundle>
             <base-name>simpsb.languages.Citas.citas</base-name>
             <var>citasEti</var>
@@ -40,18 +41,25 @@
         </resource-bundle>
         
         <resource-bundle>
-             <base-name>simpsb.languages.Perfiles.perfiles</base-name>
+            <base-name>simpsb.languages.Perfiles.perfiles</base-name>
             <var>perfilEti</var>
         </resource-bundle>
         
         <resource-bundle>
-             <base-name>simpsb.languages.Horarios.horarios</base-name>
+            <base-name>simpsb.languages.Horarios.horarios</base-name>
             <var>horarioEti</var>
         </resource-bundle>
+        
         <resource-bundle>
-             <base-name>simpsb.languages.Pages</base-name>
+            <base-name>simpsb.languages.Pages</base-name>
             <var>pagesEti</var>
         </resource-bundle>
+        
+        <managed-bean> 
+            <managed-bean-name>currentDate</managed-bean-name> 
+            <managed-bean-class>java.util.Date</managed-bean-class> 
+            <managed-bean-scope>request</managed-bean-scope> 
+        </managed-bean> 
     </application>
     
 </faces-config>

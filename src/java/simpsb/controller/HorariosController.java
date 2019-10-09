@@ -49,6 +49,7 @@ public class HorariosController {
         try {
             HorariotrabajoFacadeLocal.create(Horariotrabajo);
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso: ", "Registro exitoso"));
+            FacesContext.getCurrentInstance().getExternalContext().redirect("consultarHorario.xhtml");
         } catch (Exception e) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Error: ", "No se registro"));
             e.printStackTrace();
@@ -68,7 +69,7 @@ public class HorariosController {
         try {
             HorariotrabajoFacadeLocal.edit(Horariotrabajo);
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso: ", "Actulizacion exitosa"));
-
+            FacesContext.getCurrentInstance().getExternalContext().redirect("consultarHorario.xhtml");
         } catch (Exception e) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Error: ", "Parra Hijueputa"));
             e.printStackTrace();

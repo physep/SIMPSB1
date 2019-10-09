@@ -12,10 +12,9 @@
         <link href="../../../resources/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="../../resources/css/Servicios/crearServicio.css" rel="stylesheet" type="text/css"/>
     </h:head>
-    <f:view locale="#{languages.idiomaSeleccionado}">    
         <h:messages globalOnly="true" showDetail="true"/>
-        <h:body styleClass="fondo">
-            <f:view locale="es">
+        <f:view locale="es">
+            <h:body styleClass="fondo">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item  text-right"><a href="#">Home</a></li>
@@ -24,23 +23,12 @@
                 </nav>
 
                 <div class="container">
-                    <h:form id="form-logout" prependId="false">
-                        <div class="dropdown">
-                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-hashpopup="true" aria-expanded="false">
-                                #{pagesEti[LanguageServicios.idiomasSoportados]}
-                            </button>
-                            <div class="dropdown-menu" aria-labelledly="dropdownMenuButton">
-                                <c:forEach items="#{languages.idiomasSoportados}">
-                                    <h:commandLink class="dropdown-item" actionListener="#{languages.cambiarIdioma(idioma)}" value="#{pagesEti[idioma.language]}"/>
-                                </c:forEach>
-                            </div>
-                        </div>
-                    </h:form>
                     <div class="formulario d-block mx-auto">
                         <div class="titulo">
                             <h1 class="text-center">#{servisEti.modificarServicio}</h1>
                         </div>
                         <h:form>
+                            <h:inputHidden value="#{serviciosController.servicios.idServicio}"/>
                             <div class="form-group">
                                 <h:outputLabel for="nombreServicio" value="#{servisEti.nombreServicio}"/>
                                 <h:inputText id="nombreServicio" value="#{serviciosController.servicios.nombre}" a:placeholder="#{servisEti.placeNombre}" styleClass="form form-control"/>
@@ -64,11 +52,10 @@
                         </h:form>
                     </div>                
                 </div> 
-            </f:view>
-        </h:body>
         <!-- SCRIPTS -->
         <script src="../../../resources/js/jquery-3.3.1.slim.min.js"></script>
         <script src="../../../resources/js/popper.min.js"></script>
         <script src="../../../resources/js/bootstrap.min.js"></script>
-
+            </h:body>
+        </f:view>
 </html>

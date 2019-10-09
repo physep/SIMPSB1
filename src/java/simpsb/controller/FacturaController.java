@@ -1,5 +1,7 @@
 package simpsb.controller;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
@@ -49,7 +51,7 @@ public class FacturaController {
     private List<Factura> listFactura;
     private List<Citas> listCitas;
     private List<Detallefactura> listDetallefactura;
-    private List<Usuario> listUsuario;
+    private List<Cliente> listCliente;
     private List<Empleado> listEmpleado; 
      private List<Servicios> listServicios;
     
@@ -61,7 +63,7 @@ public class FacturaController {
         factura= new Factura();
         listCitas= citasFacadeLocal.findAll();
         listDetallefactura= detallefacturaFacadeLocal.findAll();
-        listUsuario= usuariosFacadeLocal.findAll();
+        listCliente = clienteFacadeLocal.findAll();
         listEmpleado= empleadoFacadeLocal.findAll();
         listServicios= serviciosFacadeLocal.findAll();
     }
@@ -189,12 +191,12 @@ public class FacturaController {
         this.listDetallefactura = listDetallefactura;
     }
 
-    public List<Usuario> getListUsuario() {
-        return listUsuario;
+    public List<Cliente> getListCliente() {
+        return listCliente;
     }
 
-    public void setListUsuario(List<Usuario> listUsuario) {
-        this.listUsuario = listUsuario;
+    public void setListUsuario(List<Cliente> listCliente) {
+        this.listCliente = listCliente;
     }
 
     public List<Empleado> getListEmpleado() {
@@ -229,7 +231,11 @@ public class FacturaController {
         this.listServicios = listServicios;
     }
 public void generarFactura(){
+            Date fechaActual = new Date();
+            SimpleDateFormat formato = new SimpleDateFormat("MM-dd-yyyy");
         try {
+            //Date fecha = formato.format(fechaActual);
+            factura.setFecha(fechaActual);
             factura.setIdCita(citas);
             factura.setIdDetalleFactura(detalle);
             detallefacturaFacadeLocal.create(detalle);

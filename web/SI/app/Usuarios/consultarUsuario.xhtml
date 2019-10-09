@@ -1,9 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
@@ -16,6 +10,16 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <link href="../../../resources/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="../../resources/css/Usuarios/consultarUsuarios.css" rel="stylesheet" type="text/css"/>
+                <!-- DATATABLES -->
+        <link href="../../../resources/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../../../resources/css/datatables.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../../../resources/css/buttons.dataTables.min.css" rel="stylesheet" type="text/css"/>
+        
+        <!-- ICONOS Y ALERTAS -->
+        <link href="../../../resources/css/all.min.css" rel="stylesheet" type="text/css"/> 
+        <link href="../../../resources/css/responsive.dataTables.min.css" rel="stylesheet" type="text/css"/>
+        <script src="https://kit.fontawesome.com/5e77c8969a.js"  type="text/javascript"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8" type="text/javascript"></script>
     </h:head>
 
     <h:body styleClass="fondo">
@@ -35,7 +39,7 @@ and open the template in the editor.
                         <div class="col-12">
                             <p class="text-uppercase"> <img src="../../resources/img/icono-usuarios.png" alt="Icono usuarios"/>#{usuariosEti.usuarios} </p>
                             <h:form>
-                                <h:dataTable id="grid" value="#{usuarioController.listarUsuarios()}" var="usuario" styleClass="table table-striped table-bordered dt-responsive nowrap text-center">
+                                <h:dataTable id="grid" value="#{usuarioController.listarUsuarios()}" var="usuario" styleClass="tablas table table-striped table-bordered dt-responsive nowrap text-center">
                                     <h:column>
                                         <f:facet name="header">ID</f:facet>
                                         <h:outputText id="id" value="#{usuario.idUsuario}"/>
@@ -78,7 +82,7 @@ and open the template in the editor.
                                         <h:commandButton class="btn btn-warning" action="#{usuarioController.consultarUsuario(usuario)}" value="#{universEti.modificar}"/>
                                         <h:commandButton class="btn btn-danger" action="#{usuarioController.eliminarUsuario(usuario)}" onclick="javascript:if (!confirm('¿Está seguro que desea eliminar este usuario?'))
                                                     return false;" value="#{universEti.eliminar}"/>
-                                        <h:commandButton class="btn btn-dark" action="asignarRol.xhtml" value="#{usuariosEti.asignar}"/>
+                              <!--          <h:commandButton class="btn btn-dark" action="asignarRol.xhtml" value="#{usuariosEti.asignar}"/> -->
                                     </h:column>
                                 </h:dataTable>
                             </h:form>
@@ -87,10 +91,20 @@ and open the template in the editor.
                 </div>
             </div>
         </f:view>
+        <!-- BOOTSTRAP -->
         <script src="../../../resources/js/jquery-3.3.1.slim.min.js" type="text/javascript"></script>
         <script src="../../../resources/js/popper.min.js" type="text/javascript"></script>
         <script src="../../../resources/js/bootstrap.min.js" type="text/javascript"></script>
+        <!-- DATATABLES -->
+        <script src="../../../resources/js/tablas/jquery.dataTables.min.js" type="text/javascript"></script>
+        <script src="../../../resources/js/tablas/dataTables.buttons.min.js" type="text/javascript"></script>
+        <script src="../../../resources/js/tablas/datatables.min.js" type="text/javascript"></script>
+        <script src="../../../resources/js/tablas/jszip.min.js" type="text/javascript"></script>
+        <script src="../../../resources/js/tablas/pdfmake.min.js" type="text/javascript"></script>
+        <script src="../../../resources/js/tablas/vfs_fonts.js" type="text/javascript"></script>
+        <script src="../../../resources/js/tablas/buttons.html5.min.js" type="text/javascript"></script>
+        
         <script src="../../../resources/js/dataTables.responsive.min.js" type="text/javascript"></script>
-        <script src="../../resources/js/iniciarTabla.js" type="text/javascript"></script>
+        <script src="../../../resources/js/botones.js" type="text/javascript"></script>
     </h:body>
 </html>

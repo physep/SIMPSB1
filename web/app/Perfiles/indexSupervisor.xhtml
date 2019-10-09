@@ -12,7 +12,7 @@
         <link href="../../resources/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="../../resources/css/mdb.min.css" rel="stylesheet" type="text/css"/>
         <link href="../../resources/css/Perfiles/estilos-supervisor.css" rel="stylesheet" type="text/css"/>
-        <f:event type="preRenderView" listener="#{sesionController.verificarSesion()}"/>
+        <f:event type="preRenderView" listener="#{sesionController.verificarSesion()}"/> 
     </h:head>
 
     <h:body>
@@ -35,20 +35,20 @@
                             <a href="Principal/principalSupervisor.xhtml?faces-redirect=true" target="area-trabajo">HOME</a>
                         </h4>
                     </div>
-                    <!-- FACTURACIÓN -->
+                   
+                    <!-- FACTURACIÓN 
                     <div class="modulo d-block mx-auto">
                         <img class="float-left" src="../../SI/resources/img/modulos/icono_facturacion.png" alt=""/>
-                        <h4>
-                            <a href="../Facturacion/facturacion.html" target="area-trabajo">#{perfilEti.Facturacion}</a>
-                        </h4>
-                    </div>
-                    <!-- REPORTES -->
-                    <div class="modulo d-block mx-auto">
-                        <img class="float-left" src="../../SI/resources/img/modulos/icono_reportes.png" alt=""/>
-                        <h4>
-                            <a href="../Reportes/reportes-supervisor.html" target="area-trabajo">#{perfilEti.Reportes}</a>
-                        </h4>
-                    </div>
+                        <h5>
+                            <a href="#">#{perfilEti.Facturacion}</a>
+                        </h5>
+                        <p>
+                            <a href="../../SI/app/Facturacion/crearFactura.xhtml?faces-redirect=true" target="area-trabajo">#{perfilEti.crearFactura}</a>
+                        </p>
+                        <p>
+                            <a href="../../SI/app/Facturacion/consultarFactura.xhtml?faces-redirect=true" target="area-trabajo">#{perfilEti.consultarFactura}</a>
+                        </p>
+                    </div> -->
                     <!-- SERVICIOS -->
                     <div class="modulo d-block mx-auto">
                         <img class="float-left" src="../../SI/resources/img/modulos/icono_servicios.png" alt=""/>
@@ -102,6 +102,14 @@
                         <p><a href="../../SI/app/Usuarios/consultarUsuario.xhtml?faces-redirect=true" target="area-trabajo">#{perfilEti.consultarUsuarios}</a></p>
                         <p><a href="../../SI/app/Usuarios/crearUsuario.xhtml?faces-redirect=true" target="area-trabajo">#{perfilEti.registrarUsuario}</a></p>
                     </div>
+                    
+                    <!-- REPORTES -->
+                    <div class="modulo d-block mx-auto">
+                        <img class="float-left" src="../../SI/resources/img/modulos/icono_reportes.png" alt=""/>
+                        <h4>
+                            <a href="../Error/404.xhtml?faces-redirect=true" target="area-trabajo">#{perfilEti.Reportes}</a>
+                        </h4>
+                    </div>
                 </div>
             </div>
 
@@ -132,13 +140,13 @@
                                     <a href="#"><img src="../../SI/img/config.png" alt=""/></a>
                                     <ul>
                                         <li>
-                                            <img src="../../SI/resources/img/editar-perfil.png" alt=""><a class="text-left" href="../Config/editarPerfil.xhtml" target="area-trabajo">#{perfilEti.editarPerfil}</a></img>
+                                            <img src="../../SI/resources/img/editar-perfil.png" alt=""><a class="text-left" href="../Error/404.xhtml?faces-redirect=true" target="area-trabajo">#{perfilEti.editarPerfil}</a></img>
                                         </li>
                                         <li>	
-                                            <img src="../../SI/resources/img/ajustes.png" alt=""/><a class="text-left" href="">#{perfilEti.configuracion}</a>
+                                            <img src="../../SI/resources/img/ajustes.png" alt=""/><a class="text-left" href="../Error/404.xhtml?faces-redirect=true">#{perfilEti.configuracion}</a>
                                         </li>
                                         <li>
-                                            <img src="../../SI/resources/img/alarma.png" alt=""/><a class="text-left" href="" target="area-trabajo">#{perfilEti.notificaciones}</a>
+                                            <img src="../../SI/resources/img/alarma.png" alt=""/><a class="text-left" href="../Error/404.xhtml?faces-redirect=true" target="area-trabajo">#{perfilEti.notificaciones}</a>
                                         </li>
                                         <li>	
                                             <img src="../../SI/resources/img/logout.png" alt=""/><a class="text-left" href="#{sesionController.logout()}">#{perfilEti.cerrarSesion}</a>

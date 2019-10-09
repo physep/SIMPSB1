@@ -29,6 +29,7 @@ and open the template in the editor.
                         <h1 class="text-center text-uppercase">#{pagosEti.modificar}</h1>
                     </div>
                     <h:form>
+                        <h:inputHidden value="#{pagosController.comisiones.idComisiones}"/>
                         <div class="form-group">
                             <h:outputLabel value="#{pagosEti.valor}" for="valor"/>
                             <h:inputText id="valor" value="#{pagosController.comisiones.valor}" styleClass="form form-control"/>

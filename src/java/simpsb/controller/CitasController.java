@@ -23,10 +23,14 @@ public class CitasController {
     @EJB
     private UsuarioFacadeLocal usuarioFacadeLocal;
 
+    @EJB
+    private ClienteFacadeLocal clienteFacadeLocal;
+    
     private Citas citas;
     private Empleado empleado;
     private Servicios servicios;
     private Usuario usuario;
+    private Cliente cliente;
 
     private List<Servicios> listServicios;
     private List<Empleado> listEmpleados;
@@ -40,8 +44,17 @@ public class CitasController {
         listEmpleados = empleadoFacadeLocal.findAll();
     }
 
+    
     public Citas getCitas() {
         return citas;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
 
     public void setCitas(Citas citas) {
@@ -84,7 +97,6 @@ public class CitasController {
         Cliente cl = null;
         try {
             cl = (Cliente) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("user");
-                citas.setIdCliente(cl);
                 citas.setIdEmpleado(empleado);
                 citas.setIdServicio(servicios);
                 citasFacadeLocal.create(citas);

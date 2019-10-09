@@ -124,13 +124,13 @@
 /* PANEL DERECHO */
 .panel-derecho{
     width: calc(100% - 280px);
-    height: 1170px;
+    height: 1100px;
     background-color: rgb(203,203,210);
 }
 /* AREA DE TRABAJO */
 .area-trabajo{
     width: 100%;
-    height: calc(100% - 80px);
+    height: calc(100% - 150px);
 }
 iframe{
     width: 100%;

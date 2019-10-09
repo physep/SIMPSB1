@@ -8,6 +8,16 @@
         <title>Consultar Pagos</title>
         <link href="../../../resources/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="../../resources/css/Pagos/estilos-consultar-pagos.css" rel="stylesheet" type="text/css"/>
+        <!-- DATATABLES -->
+        <link href="../../../resources/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../../../resources/css/datatables.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../../../resources/css/buttons.dataTables.min.css" rel="stylesheet" type="text/css"/>
+
+        <!-- ICONOS Y ALERTAS -->
+        <link href="../../../resources/css/all.min.css" rel="stylesheet" type="text/css"/> 
+        <link href="../../../resources/css/responsive.dataTables.min.css" rel="stylesheet" type="text/css"/>
+        <script src="https://kit.fontawesome.com/5e77c8969a.js"  type="text/javascript"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8" type="text/javascript"></script>
     </h:head>
     <div class="container">
 
@@ -29,7 +39,7 @@
                         <!-- TABLA  -->
                         <div class="col-12">
                             <p class="text-uppercase"> <img src="../../resources/img/icono_pagos.png" alt=""/>#{pagosEti.pagos} </p>
-                            <h:dataTable value="#{pagosController.listarPagos()}" var="comisiones" styleClass="text-center table table-striped table-bordered dt-responsive nowrap col-md-12">
+                            <h:dataTable value="#{pagosController.listarPagos()}" var="comisiones" styleClass="display tablas table table-striped table-bordered dt-responsive nowrap text-center">
                                 <h:column>
                                     <f:facet name="header">ID</f:facet>
                                     <h:outputText value="#{comisiones.idComisiones}" id="idComision"/>
@@ -49,8 +59,11 @@
                                 <h:column>
                                     <h:form>
                                         <f:facet name="header">#{universEti.acciones}</f:facet>
-                                        <h:commandButton styleClass="btn btn-danger" value="#{universEti.eliminar}" onclick="javascript:if (!confirm('¿Está seguro que desea eliminar este pago?'))
-                                                return false;" action="#{pagosController.eliminarPagos(comisiones)}"/>
+                                        <h:commandButton styleClass="btn btn-danger" 
+                                                         value="#{universEti.eliminar}" 
+                                                         onclick="javascript:if (!confirm('¿Está seguro que desea eliminar este pago?'))
+                                                                     return false;" 
+                                                         action="#{pagosController.eliminarPagos(comisiones)}"/>
                                         <h:commandButton styleClass="btn btn-warning" value="#{universEti.modificar}" action="#{pagosController.consultarPago(comisiones)}"/>
                                     </h:form>
                                 </h:column>    
@@ -59,21 +72,20 @@
                     </div>
                 </div>
             </div>
-            <!-- SCRIPTS -->
-            <script src="../../../js/jquery-3.3.1.slim.min.js"></script>
-            <script src="../../../js/popper.min.js"></script>
-            <script src="../../../js/bootstrap.min.js"></script>
-            <script src="../../../js/mdb.min.js"></script>
-            <script src="../../../js/datatables.min.js"></script>
-            <script src="../../../js/dataTables.responsive.min.js"></script>
-            <script src="../../js/borrarusuario2.js"></script>
-            <script>
-                                            $(document).ready(function () {
-                                                $('#grid').DataTable();
-                                                responsive: true
-                                            });
-            </script>
+            <!-- BOOTSTRAP -->
+            <script src="../../../resources/js/jquery-3.3.1.slim.min.js" type="text/javascript"></script>
+            <script src="../../../resources/js/popper.min.js" type="text/javascript"></script>
+            <script src="../../../resources/js/bootstrap.min.js" type="text/javascript"></script>
+            <!-- DATATABLES -->
+            <script src="../../../resources/js/tablas/dataTables.buttons.min.js" type="text/javascript"></script>
+            <script src="../../../resources/js/tablas/datatables.min.js" type="text/javascript"></script>
+            <script src="../../../resources/js/tablas/jszip.min.js" type="text/javascript"></script>
+            <script src="../../../resources/js/tablas/pdfmake.min.js" type="text/javascript"></script>
+            <script src="../../../resources/js/tablas/vfs_fonts.js" type="text/javascript"></script>
+            <script src="../../../resources/js/tablas/buttons.html5.min.js" type="text/javascript"></script>
 
+            <script src="../../../resources/js/dataTables.responsive.min.js" type="text/javascript"></script>
+            <script src="../../../resources/js/botones.js" type="text/javascript"></script>
         </f:view>
     </h:body>
 </html>

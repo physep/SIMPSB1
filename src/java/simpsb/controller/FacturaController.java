@@ -232,6 +232,7 @@ public void generarFactura(){
         try {
             factura.setIdCita(citas);
             factura.setIdDetalleFactura(detalle);
+            detalle.setIva(16);
             detallefacturaFacadeLocal.create(detalle);
             facturaFacadeLocal.create(factura);
              FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Se ha generado exitosamente su factura"));
@@ -242,6 +243,7 @@ public void generarFactura(){
 
     public List<Factura> listarFactura() {
         List<Factura> listFactura = null;
+        List<Factura> listDetalle = null;
         try {
             listFactura = facturaFacadeLocal.findAll();
         } catch (Exception e) {
@@ -252,24 +254,23 @@ public void generarFactura(){
     
     public String consultarFactura(Factura factu) {
         try {
-            factura = facturaFacadeLocal.find(factu.getIdCita());
-            detalle = factura.getIdDetalleFactura();
-            citas = factura.getIdCita();
+            factura = facturaFacadeLocal.find(factu.getIdFactura());
+            detalle= detallefacturaFacadeLocal.find(factu.getIdDetalleFactura());
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Correcto"));
         } catch (Exception e) {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Error", "Ha ocurrido un error al modificar su cita"));
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Error", "Ha ocurrido un error al modificar su factura"));
         }
         return "modificarFactura";
     }
     
     public void modificarFactura() {
         try {
-            factura.setIdCita(citas);
             facturaFacadeLocal.edit(factura);
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Se ha generado exitosamente su cita"));
+            detallefacturaFacadeLocal.edit(detalle);
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Se ha generado exitosamente su factura"));
             FacesContext.getCurrentInstance().getExternalContext().redirect("consultarFactura.xhtml");
         } catch (Exception e) {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Error", "Ha ocurrido un error al modificar su cita"));
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Error", "Ha ocurrido un error al modificar su factura"));
         }
     }
     

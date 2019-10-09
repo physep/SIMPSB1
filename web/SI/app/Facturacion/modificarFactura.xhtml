@@ -59,22 +59,27 @@ and open the template in the editor.
                         </div>
                     </h:form>
                     <h:form>
-                        
-                        <div class="form-group">
+                        <div>
+                            <h:inputHidden class="form-control" id="idFactura" value="#{facturaController.factura.idFactura}"/>
+                            <h:message for="idFactura"/>
+                            <h:inputHidden class="form-control" id="idDetalle" value="#{facturaController.detalle.idDetalleFactura}"/>
+                            <h:message for="idDetalle"/>
+                        </div>
+                       <div class="form-group">
                             <h:outputLabel for="subtotal" value="SubTotal"/>
                             <h:inputText styleClass="form-control form-fondo form" id="subtotal" value="#{facturaController.detalle.subTotal}"/>
                             <h:message for="subtotal"/>
                         </div>
                         <div class="form-group">
-                            <h:outputLabel for="citas" value="Citas"/>
+                            <h:outputLabel for="cliente" value="Id Cita"/>
 
-                            <h:selectOneMenu id="idicta" value="#{facturaController.citas.idCita}" styleClass="form-control form-fondo form">
+                            <h:selectOneMenu id="idcita" value="#{facturaController.citas.idCita}" styleClass="form-control form-fondo form" >
                                 <f:selectItem itemLabel="Seleccionar" itemValue="0" />
-                                <f:selectItems value="#{facturaController.listCitas}" var="citas"
-                                               itemValue="#{citas.idCita}" 
-                                               itemLabel="#{citas.idCita}"/>
+                                <f:selectItems value="#{facturaController.listCitas}" var="cita"
+                                               itemValue="#{cita.idCita}" 
+                                               itemLabel="#{cita.idCita}"/>
                             </h:selectOneMenu>
-                            <h:message for="citas"/>
+                            <h:message for="idcita"/>
                         </div>
                         <br></br>
                         <h:commandButton styleClass="btn boton d-block mx-auto" value="#{universEti.Actualizar}" id="agregar"  onclick="agregar();" action="#{facturaController.modificarFactura()}"/>

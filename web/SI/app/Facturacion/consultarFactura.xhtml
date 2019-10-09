@@ -5,7 +5,7 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <h:head>
-        <title>Consultar Pagos</title>
+        <title>Consultar Factura</title>
         <link href="../../../resources/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="../../resources/css/Pagos/estilos-consultar-pagos.css" rel="stylesheet" type="text/css"/>
     </h:head>
@@ -40,19 +40,27 @@
                                 </h:outputText>
                             </h:column>    
                             <h:column>
-                                <f:facet name="header">Cliente</f:facet>
-                                <h:outputText value="#{factura.idCita.idCliente.idUsuario.nombre}" id="idCliente"/>
-                            </h:column>    
-                            <h:column>
                                 <f:facet name="header">Hora</f:facet>
                                 <h:outputText value="#{factura.hora}" id="Hora">
-                                <f:convertDateTime dateStyle="full" pattern="h:mm a"></f:convertDateTime>
+                                <f:convertDateTime dateStyle="full" pattern="HH:mm a"></f:convertDateTime>
                                 </h:outputText>
                             </h:column>  
                             <h:column>
                                 <f:facet name="header">IdCita</f:facet>
                                 <h:outputText value="#{factura.idCita}" id="Cita"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">IdDetalle</f:facet>
+                                <h:outputText value="#{factura.idCita}" id="detalle"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">Subtotall</f:facet>
+                                <h:outputText value="#{factura.idDetalleFactura.subTotal}" id="subtotal"/>
                             </h:column> 
+                            <h:column>
+                                <f:facet name="header">Iva</f:facet>
+                                <h:outputText value="#{factura.idDetalleFactura.iva}%" id="iva"/>
+                            </h:column>
                             <h:column>
                                 <f:facet name="header">Total</f:facet>
                                 <h:outputText value="#{factura.idDetalleFactura.valorTotal}" id="Total"/>

@@ -27,8 +27,9 @@
 .row{
     margin-top: 30px;
 }
-.titulo{
-	
+.titulo h1{
+	padding-bottom: 10px;
+	border-bottom: 3px solid #D4AF37;
 }
 
 .formulario{
@@ -103,7 +104,5 @@ transition: .3s;
 .swal-overlay{
 background-color: rgba(0,0,0,.8);
 }
-
-
 
 

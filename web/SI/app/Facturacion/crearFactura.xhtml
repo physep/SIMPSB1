@@ -9,16 +9,21 @@ and open the template in the editor.
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
-      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      >
     <h:head>
         <title>Factura</title>
-        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/> <link href="../../../resources/css/bootstrap.min.css" rel="stylesheet" type="text/css"/><link href="../../resources/css/Horarios/crearHorario.css" rel="stylesheet" type="text/css"/>
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+        <!-- Estilos css -->
         <link href="../../../resources/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="../../resources/css/Factura/crearFactura.css" rel="stylesheet" type="text/css"/>
         <link href="../../../resources/css/sweetalert2.min.css" rel="stylesheet" type="text/css"/>
     </h:head>
-    <h:body class="fondo">
-         <h:messages globalOnly="true" showDetail="true"/>
+    <h:body class="fondo"> <!-- Fondo-->
+        <!-- Mensaje de Controladores -->
+        <h:messages globalOnly="true" showDetail="true"/>
+        <!-- Migas De pan , si funcionar -->
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item  text-right"><a href="#">Home</a></li>
@@ -26,57 +31,64 @@ and open the template in the editor.
             </ol>
         </nav>
 
-
+        <!-- Contenedor -->
         <div class="container">
             <!-- fONDO DE FORMULARIO -->
             <div class="formulario d-block mx-auto">
+                <!-- Titulo -->
                 <div class="titulo">
                     <h1 class="text-center">FACTURA</h1>
+
                     <!-- Formulario -->
 
-                    <h:form>
-                        <div class="form-group">
-                            <h:outputLabel for="servicio" value="servicio"/>
+                    <h:form id="formfactura">
+                      
+                         
+                                
+                                    
+                                        <h:panelGrid columns="3" id="gridBuscarDatoscliente">
+                                            <h:outputLabel value="Documento Cliente"/>
+                                            <h:inputText size="14" styleClass="form-control form-fondo form"/>
+                                            <h:commandButton value="..."/>
+                                        </h:panelGrid>
+                                    
+                                    
+                                        <h:panelGrid id="gridDatoscliente" columns="2">
+                                            <h:outputLabel value="Nombre"/>
+                                            <h:outputLabel id="idNombreCliente" value="--"/>
+                                            <h:outputLabel value="Email"/>
+                                            <h:outputLabel id="idEmailCliente" value="--"/>
+                                        </h:panelGrid>
+                                   
 
-                            <h:selectOneMenu id="servicio" value="#{facturaController.servicios.nombre}" styleClass="form-control form-fondo form">
-                                <f:selectItem itemLabel="Seleccionar" itemValue="0" />
-                                <f:selectItems value="#{facturaController.listServicios}" var="servicios"
-                                               itemValue="#{servicios.nombre}" 
-                                               itemLabel="#{servicios.nombre}"/>
-                            </h:selectOneMenu>
-                            <h:message for="servicio"/>
-                        </div>
-                        <div class="form-group">
-                            <h:outputLabel for="cliente" value="cliente"/>
-
-                            <h:selectOneMenu id="cliente" value="#{facturaController.cliente.idUsuario.nombre}" styleClass="form-control form-fondo form">
-                                <f:selectItem itemLabel="Seleccionar" itemValue="0" />
-                                <f:selectItems value="#{facturaController.listUsuario}" var="cliente"
-                                               itemValue="#{cliente.nombre}" 
-                                               itemLabel="#{cliente.nombre}"/>
-                            </h:selectOneMenu>
-                            <h:message for="cliente"/>
-                        </div>
-                    </h:form>
-                    <h:form>
+                                
+                                
+                                    <h:panelGrid >
+                                   
+                                    <h:outputLabel value="00001"/>
+                                </h:panelGrid> 
+                                
                         
-                        
-                        <div class="form-group">
-                            <h:outputLabel for="subtotal" value="SubTotal"/>
-                            <h:inputText styleClass="form-control form-fondo form" id="subtotal" value="#{facturaController.detalle.subTotal}"/>
-                            <h:message for="subtotal"/>
-                        </div>
-                        <div class="form-group">
-                            <h:outputLabel for="citas" value="Citas"/>
+                            
 
-                            <h:selectOneMenu id="idicta" value="#{facturaController.citas.idCita}" styleClass="form-control form-fondo form">
-                                <f:selectItem itemLabel="Seleccionar" itemValue="0" />
-                                <f:selectItems value="#{facturaController.listCitas}" var="citas"
-                                               itemValue="#{citas.idCita}" 
-                                               itemLabel="#{citas.idCita}"/>
-                            </h:selectOneMenu>
-                            <h:message for="citas"/>
-                        </div>
+                           
+
+                            <h:panelGrid columns="3">
+                                <h:outputLabel for="cliente" value="Id Cita"/>
+
+                                <h:selectOneMenu id="idcita" value="#{facturaController.citas.idCita}" styleClass="form-control form-fondo form" >
+                                    <f:selectItem itemLabel="Seleccionar" itemValue="0" />
+                                    <f:selectItems value="#{facturaController.listCitas}" var="cita"
+                                                   itemValue="#{cita.idCita}" 
+                                                   itemLabel="#{cita.idCita}"/>
+                                </h:selectOneMenu>
+                                <h:message for="idcita"/>
+                            </h:panelGrid>
+                            <h:dataTable id="tablaServiciosFactura">
+
+                            </h:dataTable>
+                        
+
                         <br></br>
                         <h:commandButton styleClass="btn boton d-block mx-auto" value="#{universEti.Registrar}" id="agregar"  onclick="agregar();" action="#{facturaController.generarFactura()}"/>
                     </h:form>

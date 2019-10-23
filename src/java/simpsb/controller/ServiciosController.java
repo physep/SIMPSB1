@@ -64,7 +64,6 @@ public class ServiciosController {
             serviciosFacadeLocal.create(servicios);
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso: ", "Eliminacion exitosa"));
             FacesContext.getCurrentInstance().getExternalContext().redirect("consultarServicio.xhtml");
-
         } catch (Exception e) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Error: ", "No conexion"));
             e.printStackTrace();
@@ -76,7 +75,6 @@ public class ServiciosController {
             serviciosFacadeLocal.edit(servicios);
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso: ", "Actulizacion exitosa"));
             FacesContext.getCurrentInstance().getExternalContext().redirect("consultarServicio.xhtml");
-            
         } catch (Exception e) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Error: ", "No conexion"));
             e.printStackTrace();

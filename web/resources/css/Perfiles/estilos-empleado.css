@@ -227,3 +227,6 @@ nav{
 	background-color: #000;
 	margin: 0;
 }
+a{
+    text-decoration: none;
+}

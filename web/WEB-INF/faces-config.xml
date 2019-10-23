@@ -6,8 +6,8 @@
     <application>
         <locale-config>
             <default-locale>es</default-locale>
-            <support-locale>es</support-locale>
-            <support-locale>en</support-locale>
+            <supported-locale>es</supported-locale>
+            <supported-locale>en</supported-locale>
         </locale-config>
         
         <resource-bundle>
@@ -51,7 +51,7 @@
         </resource-bundle>
         
         <resource-bundle>
-            <base-name>simpsb.languages.Pages</base-name>
+            <base-name>simpsb.languages.Pages.pages</base-name>
             <var>pagesEti</var>
         </resource-bundle>
         

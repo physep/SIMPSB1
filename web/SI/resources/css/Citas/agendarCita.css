@@ -13,6 +13,14 @@
     background-color: rgb(203,203,210);
 }
 /*MIGAS*/
+.lanbtn{
+ color: #000;
+ margin: 0;
+}
+.breadcrumb .lanbtn a{
+    border-bottom: 2px solid #D4AF37;
+    color: #000;
+}
 .breadcrumb{
     border-radius: 0;
     background: rgba(42, 43, 42, 1);	

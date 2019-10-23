@@ -43,16 +43,16 @@
                                 <a href="#quienes-somos" class="text-center nav-link text-uppercase">#{indexEti.menu_quienessomos}</a> 
                                 <a href="#equipo" class="text-center nav-link text-uppercase">#{indexEti.menu_equipo}</a> 
                                 <a href="#ubicacion" class="text-center nav-link text-uppercase">#{indexEti.menu_ubicacion}</a> 
-                                <a data-toggle="modal" data-target="#contactenos" href="index.xhtml#contactenos" class="text-center nav-link text-uppercase">#{indexEti.menu_contactenos}</a> 
+                                <a data-toggle="modal" data-target="#contactenos" class="text-center nav-link text-uppercase">#{indexEti.menu_contactenos}</a> 
                                 <a class="text-center nav-link text-uppercase" id="ingreso">#{indexEti.menu_ingreso} <i class="fas fa-chevron-down"></i></a>
-                                <ul id="login" class="ingreso text-center"> 
+                                <ul id="login" class="ingreso"> 
                                     <h:form>
-                                        <li class="nav-item">
-                                            <h:commandLink action="app/login?faces-redirect=true" class="text-center nav-link text-uppercase mx-auto" value="#{indexEti.login}"/>
-                                        </li>
-                                        <li class="nav-item">
-                                            <h:commandLink action="app/registro?faces-redirect=true" class="text-center nav-link text-uppercase mx-auto" value="#{indexEti.registrar}"/>
-                                        </li>
+                                            <li class="nav-item">
+                                                <h:commandLink action="app/login?faces-redirect=true" class="text-center nav-link text-uppercase mx-auto" value="#{indexEti.login}"/>
+                                            </li>
+                                            <li class="nav-item">
+                                                <h:commandLink action="app/registro?faces-redirect=true" class="text-center nav-link text-uppercase mx-auto" value="#{indexEti.registrar}"/>
+                                            </li>
                                     </h:form>
                                 </ul>
                             </div> 

@@ -26,7 +26,7 @@ public class Languages implements Serializable{
     public void init (){
         FacesContext fc = FacesContext.getCurrentInstance();
         idiomaSeleccionado = new Locale("es");
-        idiomasSoportados = new ArrayList();
+        idiomasSoportados = new ArrayList<>();
         Iterator<Locale> it = fc.getApplication().getSupportedLocales();
         while (it.hasNext()){
             idiomasSoportados.add(it.next());

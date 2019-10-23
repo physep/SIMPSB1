@@ -14,10 +14,10 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <link href="../../../resources/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="../../resources/css/Perfiles/estilos-empleado.css" rel="stylesheet" type="text/css"/>
-        <f:event type="preRenderView" listener="#{sesionController.verificarSesion()}"/>
+
     </h:head>
     <h:body>
-        <f:view locale="en">
+        <f:view locale="es">
 
             <!-- BARRA LATERAL -->
             <div class="barra-lateral float-left">
@@ -29,31 +29,45 @@ and open the template in the editor.
                 <div class="modulos">
                     <!-- HOME -->
                     <div class="modulo d-block mx-auto">
-                        <img class="float-left" src="../../resources/img/modulos/icono_home.png" alt="Home"/>
-                        <h4><a href="Principal/principal-empleado.html" target="area-trabajo">HOME</a></h4>
+                        <img class="float-left" src="../../SI/resources/img/modulos/icono_home.png" alt="Home"/>
+                        <h4>
+                            <a href="Principal/principal-empleado.html" target="area-trabajo">HOME</a>
+                        </h4>
                     </div>
                     <!-- REPORTES -->
                     <div class="modulo d-block mx-auto">
-                        <img class="float-left" src="../../resources/img/modulos/icono_reportes.png" alt="Reportes"/>
-                        <h4><a href="../Reportes/reportes-empleado.html" target="area-trabajo">REPORTES</a></h4>
+                        <img class="float-left" src="../../SI/resources/img/modulos/icono_reportes.png" alt="Reportes"/>
+                        <h4><a href="../Reportes/reportes-empleado.html" target="area-trabajo" class="text-decoration-none">REPORTES</a></h4>
                     </div>
                     <!-- CITAS -->
                     <div class="modulo d-block mx-auto">
-                        <img class="float-left" src="../../resources/img/modulos/icono_citas.png" alt="Citas"/>
-                        <h5><a href="#">CITAS</a></h5>
-                        <p><a target="area-trabajo" href="../Citas/consultar-cita.html">Consultar citas</a></p>
+                        <img class="float-left" src="../../SI/resources/img/modulos/icono_citas.png" alt="Citas"/>
+                        <h5>
+                            <a href="#" class="text-decoration-none">#{perfilEti.Citas}</a>
+                        </h5>
+                        <p>
+                            <a target="area-trabajo" href="../Citas/consultar-cita.html" class="text-decoration-none">#{perfilEti.consultarCita}</a>
+                        </p>
                     </div>
                     <!-- HORARIOS -->
                     <div class="modulo d-block mx-auto">
-                        <img class="float-left" src="../../resources/img/modulos/icono_horarios.png" alt="Horarios"/>
-                        <h5><a href="#">HORARIOS</a></h5>
-                        <p><a target="area-trabajo" href="../Horarios/consultar-horarios.html">Consultar horarios</a></p>
+                        <img class="float-left" src="../../SI/resources/img/modulos/icono_horarios.png" alt="Horarios"/>
+                        <h5>
+                            <a href="#" class="text-decoration-none">#{perfilEti.Horarios}</a>
+                        </h5>
+                        <p>
+                            <a target="area-trabajo" href="../Horarios/consultar-horarios.html" class="text-decoration-none">#{perfilEti.consultarHorarios}</a>
+                        </p>
                     </div>
                     <!-- PAGOS -->
                     <div class="modulo d-block mx-auto">
-                        <img class="float-left" src="../../resources/img/modulos/icono_pagos.png" alt="Pagos"/>
-                        <h5><a href="#">PAGOS</a></h5>
-                        <p><a target="area-trabajo" href="../Pagos/consultar-pagos.html">Consultar pagos</a></p>
+                        <img class="float-left" src="../../SI/resources/img/modulos/icono_pagos.png" alt="Pagos"/>
+                        <h5>
+                            <a href="#" class="text-decoration-none">#{perfilEti.Pagos}</a>
+                        </h5>
+                        <p>
+                            <a target="area-trabajo" href="../Pagos/consultar-pagos.html" class="text-decoration-none">#{perfilEti.consultarPagos}</a>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -71,23 +85,23 @@ and open the template in the editor.
                                         <span></span>
                                 </div>
                                 <div class="col-9 titulo float-right">
-                                    <p><img src="../../resources/img/logo.png" alt=""/></p>
+                                    <p><img src="../../SI/resources/img/logo.png" alt=""/></p>
                                 </div>
                             </div>
                         </div>
                         <div class="col-6 config">
                             <ul>
                                 <li>
-                                    <a href="#"><img src="../../img/config.png" alt=""/></a>
+                                    <a href="#"><img src="../../SI/resources/img/config.png" alt=""/></a>
                                     <ul>
                                         <li>
-                                            <img src="../../img/editar-perfil.png" alt=""/><a class="text-left" href="../Config/editar-perfil.html" target="area-trabajo">Editar Perfil</a>
+                                            <img src="../../SI/resources/img/editar-perfil.png" alt=""/><a class="text-left" href="../Config/editar-perfil.html" target="area-trabajo">Editar Perfil</a>
                                         </li>
                                         <li>	
-                                            <img src="../../img/logout.png" alt=""/><a class="text-left" href="../../../index.html">Cerrar Sesión</a>
+                                            <img src="../../SI/resources/img/logout.png" alt=""/><a class="text-left" href="../../../index.html">Cerrar Sesión</a>
                                         </li>
                                         <li>
-                                            <img src="../../img/alarma.png" alt=""/><a class="text-left" href="">Notificaciones</a>
+                                            <img src="../../SI/resources/img/alarma.png" alt=""/><a class="text-left" href="">Notificaciones</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -98,7 +112,7 @@ and open the template in the editor.
 
                 <!-- AREA DE TRABAJO -->
                 <div class="area-trabajo">
-                    <iframe name="area-trabajo" src="Principal/principal-empleado.html" frameborder="0"></iframe>
+                    <iframe name="area-trabajo" src="Principal/principalEmpleado.xhtml" frameborder="0"></iframe>
                 </div>
 
             </div>

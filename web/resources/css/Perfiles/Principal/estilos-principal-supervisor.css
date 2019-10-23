@@ -1,101 +1,122 @@
 @import url('data:application/octet-stream;base64,QGZvbnQtZmFjZSB7CiAgZm9udC1mYW1pbHk6ICdSYWxld2F5JzsKICBmb250LXN0eWxlOiBub3JtYWw7CiAgZm9udC13ZWlnaHQ6IDQwMDsKICBmb250LWRpc3BsYXk6IHN3YXA7CiAgc3JjOiBsb2NhbCgnUmFsZXdheScpLCBsb2NhbCgnUmFsZXdheS1SZWd1bGFyJyksIHVybChodHRwczovL2ZvbnRzLmdzdGF0aWMuY29tL3MvcmFsZXdheS92MTMvMVB0dWc4ellTX1NLZ2dQTnlDMElTZy50dGYpIGZvcm1hdCgndHJ1ZXR5cGUnKTsKfQo=');
 *{
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
-	font-family: 'Raleway', sans-serif;	
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Raleway', sans-serif;	
 }
 .fondo{
-  background-color: rgba(203,203,210);
+    background-color: rgb(203,203,210);
 }
 .contenedor{
-  padding: 25px;
-  padding-top: 0;
+    padding: 15px;
+    padding-top: 0;
 }
 /*MIGAS*/
 .breadcrumb{
-  border-radius: 0;
-  background: rgba(42, 43, 42, 1);  
+    border-radius: 0;
+    background: rgba(42, 43, 42, 1);  
 }
 .breadcrumb a{
-  color: #D4AF37;
+    color: #D4AF37;
 }
 .breadcrumb a:hover{
-  border-bottom: 2px solid #D4AF37;
-  color: #D4AF37;
+    border-bottom: 2px solid #D4AF37;
+    color: #D4AF37;
 }
 /*calendario*/
 .calendario{
-  margin-top: 15px;
-  padding: 25px;
-  height: 100vh;
-  border-radius: 5px;
-  background-color: #fff;
+    margin-top: 15px;
+    padding: 25px;
+    color: rgb(120,120,120);
+    height: 100vh;
+    margin-bottom: 30px;
+    border-radius: 5px;
+    background-color: #fff;
 }
 /*panel derecho*/
 .panel-derecho{
-  height: 100vh;
-  padding-right: 0; 
-
+    height: 100vh;
+    padding-right: 0; 
+    margin-bottom: 30px;
 }
+@media screen and (max-width: 576px){
+    .panel-derecho{
+    height: 100vh;
+    padding-right: 0; 
+    padding-left: 0; 
+}
+}   
 .row{
-  margin: 0;
-}
-/*panel atajos*/
-.panel-atajos{
-  margin-left: 25px;
-  height: 40vh;
-  border-radius: 5px;
+    margin: 0;
 }
 /*recordatorios*/
 .recordatorios{
-  margin-top: 15px;
+    padding: 20px;
+    margin-top: 15px;
+    height: 33.33%;
     background-color: #fff;
 }
 /*atajos*/
 .atajos{
-  padding: 20px;
-  margin-top: 15px;
-  background-color: #fff;
+    padding: 25px;
+    margin-top: 15px;
+    height: 33.33%;
+    background-color: #fff;
 }
-.grafica{
-  margin-left: 25px;
-  margin-top: 20px;
-  border-radius: 5px;
-  background-color: #fff;
-  height: 50vh;
-}
+
 .espacio{
-  width: 23px;
+    width: 23px;
 }
 /* ATAJOS */
 .atajos h3 img{
-  margin-right: 10px;
-  width: 30px;
-  height: 30px;
+    margin-right: 10px;
+    width: 30px;
+    height: 30px;
 }
 .atajos h3{
-  color: rgb(120, 120, 120);
-  font-size: 20px;
-  font-weight: 600;
+    color: rgb(120, 120, 120);
+    font-size: 20px;
+    font-weight: 600;
 }
 .atajos h2 img{
-  width: 40px;
-  height: 40px;
-  margin-right: 15px;
+    width: 40px;
+    height: 40px;
+    margin-right: 15px;
 }
 .atajos a{
-  color: rgb(120, 120, 120); 
-  text-decoration: none;
+    color: rgb(120, 120, 120); 
+    text-decoration: none;
 }
 .atajos a:hover{
-  color: #000;
-  border-left: 2px solid #D4AF37;
-  padding-left: 20px;
-  transition: .3s;
+    color: #000;
+    border-left: 2px solid #D4AF37;
+    padding-left: 20px;
+    transition: .3s;
 }
 .atajos h2{
-  font-size: 30px;
-  margin-left: 20px;
-  margin-top: 40px; 
+    font-size: 30px;
+    margin-left: 20px;
+    margin-top: 40px; 
+}
+#grafico{
+    padding-top: 20px;
+    height: 450px;
+    width: 100%;
+}
+textarea{
+    margin-top: 30px;
+    width: 100%;
+    height: 80%;
+    background-color: #D4AF37;
+}
+.recordatorios h3 img{
+    margin-right: 10px;
+    width: 30px;
+    height: 30px;
+}
+.recordatorios h3{
+    color: rgb(120, 120, 120);
+    font-size: 20px;
+    font-weight: 600;
 }

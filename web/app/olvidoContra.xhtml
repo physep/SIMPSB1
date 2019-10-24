@@ -1,16 +1,35 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <title>TODO supply a title</title>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+        <title>Olvido de contraseña</title>
+        <link href="../resources/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../resources/css/files/estilosLogin.css" rel="stylesheet" type="text/css"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
+    </h:head>
+    <h:body class="fondo">
+        <f:view locale="es">
+            <!-- AREA DE TRABAJO -->
+            <div class="area-trabajo">
+                <div class="container">
+                    <h:messages globalOnly="true" showDetail="true" class="text-info h4"/>
+
+                    <h:form styleClass="d-block mx-auto formu">
+                        <h1 class="text-center text-uppercase">#{indexEti.olvidocon}</h1>
+                        <div class="form-group">
+                            <h:outputLabel for="correo" styleClass="text-uppercase" value="#{indexEti.form_email}"/>
+                            <h:inputText id="correo" styleClass="form-control form" value="#{sesionController.usuario.correo}"/>
+                            <h:message for="correo"/>
+                        </div>
+
+                        <div class="text-center">
+                            <h:commandButton action="#{sesionController.iniciarSesion()}" class="btn boton" value="#{universEti.enviar}"/>
+                        </div>
+                    </h:form>
+                </div>
+            </div>
+        </f:view>
+    </h:body>
 </html>

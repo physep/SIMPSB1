@@ -16,7 +16,7 @@
                 <div class="container">
                     <h:messages globalOnly="true" showDetail="true" class="text-info h4"/>
 
-                    <h:form styleClass="d-block mx-auto">
+                    <h:form styleClass="d-block mx-auto formu">
                         <h1 class="text-center text-uppercase">#{indexEti.login}</h1>
                         <div class="form-group">
                             <h:outputLabel for="correo" styleClass="text-uppercase" value="#{indexEti.form_email}"/>
@@ -33,6 +33,7 @@
                         <div class="text-center">
                             <h:commandButton action="#{sesionController.iniciarSesion()}" class="btn boton" value="#{indexEti.ingresar}"/>
                         </div>
+                        <a href="olvidoContra.xhtml?faces-redirect=true" class="text-decoration-none text-warning">Olvidó su contraseña?</a>
                     </h:form>
                 </div>
             </div>

@@ -48,4 +48,19 @@ public class UsuarioFacade extends AbstractFacade<Usuario> implements UsuarioFac
         }
         return usuario;
     }
+    
+    public Usuario verificarCorreo(Usuario user){
+        Usuario usuario = null;
+        try {
+            Query query = em.createQuery("SELECT u FROM Usuario u WHERE u.correo = :correo");
+            query.setParameter("correo", user.getCorreo());
+            List<Usuario> listaU = query.getResultList();
+            if (!listaU.isEmpty()) {
+                usuario = listaU.get(0);
+            }
+        } catch (Exception e) {
+            throw e;
+        }
+        return usuario;
+    }
 }

@@ -31,4 +31,6 @@ public interface UsuarioFacadeLocal {
     int count();
     
     Usuario login(Usuario user);
+   
+    Usuario verificarCorreo(Usuario user);
 }

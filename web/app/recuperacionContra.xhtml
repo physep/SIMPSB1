@@ -4,7 +4,7 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
     <h:head>
-        <title>Olvido de contraseña</title>
+        <title>Recupera tu contraseña</title>
         <link href="../resources/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="../resources/css/files/estilosLogin.css" rel="stylesheet" type="text/css"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -21,6 +21,11 @@
                         <div class="form-group">
                             <h:outputLabel for="correo" styleClass="text-uppercase" value="#{indexEti.form_email}"/>
                             <h:inputText id="correo" styleClass="form-control form" value="#{mailController.destinatario}"/>
+                            <h:message for="correo"/>
+                        </div>
+                        <div class="form-group">
+                            <h:outputLabel for="correo" styleClass="text-uppercase" value="#{indexEti.form_email}"/>
+                            <h:inputText id="correo1" styleClass="form-control form" value="#{mailController.destinatario}"/>
                             <h:message for="correo"/>
                         </div>
 

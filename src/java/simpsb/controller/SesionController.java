@@ -9,6 +9,7 @@ import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 import simpsb.dao.*;
 import simpsb.entidades.*;
+import simpsb.controller.*;
 
 @Named
 @ViewScoped

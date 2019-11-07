@@ -30,32 +30,32 @@
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <h:outputLabel for="nombre" value="#{usuariosEti.nombre}"/>
-                                <h:inputText value="#{usuarioController.usuario.nombre}" id="nombre" styleClass="form-control form" a:placeholder="#{usuariosEti.placeNom}"/>
+                                <h:inputText value="#{clienteController.usuario.nombre}" id="nombre" styleClass="form-control form" a:placeholder="#{usuariosEti.placeNom}"/>
                                 <h:message for="nombre"/>
                             </div>
 
                             <div class="form-group col-md-6">
                                 <h:outputLabel for="apellido" value="#{usuariosEti.apellido}"/>
-                                <h:inputText  value="#{usuarioController.usuario.apellido}" id="apellido" styleClass="form-control form" a:placeholder="#{usuariosEti.placeApe}"/>
+                                <h:inputText  value="#{clienteController.usuario.apellido}" id="apellido" styleClass="form-control form" a:placeholder="#{usuariosEti.placeApe}"/>
                                 <h:message for="apellido"/>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <h:outputLabel for="correo" value="#{usuariosEti.correo}"/>
-                            <h:inputText value="#{usuarioController.usuario.correo}" id="correo" styleClass="form-control form" a:placeholder="#{usuariosEti.placeCorr}"/>
+                            <h:inputText value="#{clienteController.usuario.correo}" id="correo" styleClass="form-control form" a:placeholder="#{usuariosEti.placeCorr}"/>
                             <h:message for="correo"/> 
                         </div>
 
                         <div class="form-row">
                             <div class="form-group  col-md-6">
                                 <h:outputLabel for="documento" value="#{usuariosEti.documento}"/>
-                                <h:inputText value="#{usuarioController.usuario.numDocumento}" id="documento" styleClass="form-control form" a:placeholder="#{usuariosEti.placeDoc}"/>
+                                <h:inputText value="#{clienteController.usuario.numDocumento}" id="documento" styleClass="form-control form" a:placeholder="#{usuariosEti.placeDoc}"/>
                                 <h:message for="documento"/>
                             </div>
                             <div class="form-group col-md-6">
                                 <h:outputLabel for="genero" value="#{usuariosEti.genero}"/>
-                                <h:selectOneMenu value="#{usuarioController.usuario.genero}" styleClass="form-control form">
+                                <h:selectOneMenu value="#{clienteController.usuario.genero}" styleClass="form-control form">
                                     <f:selectItem itemValue="0" itemLabel="-- Seleccionar --" noSelectionOption="true"/>
                                     <f:selectItem itemValue="Femenino" itemLabel="#{usuariosEti.feme}"/>
                                     <f:selectItem itemValue="Masculino" itemLabel="#{usuariosEti.mascu}"/>
@@ -65,11 +65,11 @@
 
                         <div class="form-group">
                             <h:outputLabel for="contra" value="#{usuariosEti.contra}"/>
-                            <h:inputText value="#{usuarioController.usuario.pass}" id="contra" a:type="password" styleClass="form-control form" a:placeholder="#{usuariosEti.placeCont}" a:pattern="[A-Za-z0-9]{5,15}"/>
+                            <h:inputText value="#{clienteController.usuario.pass}" id="contra" a:type="password" styleClass="form-control form" a:placeholder="#{usuariosEti.placeCont}" a:pattern="[A-Za-z0-9]{5,15}"/>
                             <h:message for="contra"/>
                         </div> 
 
-                        <h:commandButton action="#{usuarioController.registrarUsuario()}" styleClass="btn boton d-block mx-auto" value="#{usuariosEti.btn_registrar}"/>
+                        <h:commandButton action="#{clienteController.registrarUsuario()}" styleClass="btn boton d-block mx-auto" value="#{usuariosEti.btn_registrar}"/>
                     </h:form>
                 </div>
             </div>

@@ -90,9 +90,10 @@ public class UsuarioController {
         return listUsu;
     }
 
-    public void eliminarUsuario(Usuario usuario) {
+    public void eliminarUsuario(Usuario user) {
         try {
-            usuarioFacadeLocal.remove(usuario);
+            clienteFacadeLocal.remove(cliente);
+            usuarioFacadeLocal.remove(user);
         } catch (Exception e) {
             e.printStackTrace();
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Error", "Ha ocurrido un error al eliminar"));

@@ -42,7 +42,7 @@ public class Cliente implements Serializable {
     @OneToMany(mappedBy = "idCliente", fetch = FetchType.LAZY)
     private List<Citas> citasList;
     @JoinColumn(name = "idUsuario", referencedColumnName = "idUsuario")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Usuario idUsuario;
 
     public Cliente() {

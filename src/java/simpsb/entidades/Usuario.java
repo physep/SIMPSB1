@@ -8,6 +8,7 @@ package simpsb.entidades;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -59,12 +60,12 @@ public class Usuario implements Serializable {
     @Basic(optional = false)
     @Column(name = "pass")
     private String pass;
-    @OneToMany(mappedBy = "idUsuario", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "idUsuario", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Cliente> clienteList;
-    @OneToMany(mappedBy = "idUsuario", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "idUsuario", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Empleado> empleadoList;
     @JoinColumn(name = "idRol", referencedColumnName = "idRol")
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Roles idRol;
 
     public Usuario() {

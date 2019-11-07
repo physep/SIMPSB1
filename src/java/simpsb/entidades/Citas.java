@@ -11,7 +11,6 @@ import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -50,15 +49,15 @@ public class Citas implements Serializable {
     @Temporal(TemporalType.TIME)
     private Date hora;
     @JoinColumn(name = "idServicio", referencedColumnName = "idServicio")
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     private Servicios idServicio;
     @JoinColumn(name = "idCliente", referencedColumnName = "idCliente")
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     private Cliente idCliente;
     @JoinColumn(name = "idEmpleado", referencedColumnName = "idEmpleado")
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     private Empleado idEmpleado;
-    @OneToMany(mappedBy = "idCita", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "idCita")
     private List<Factura> facturaList;
 
     public Citas() {

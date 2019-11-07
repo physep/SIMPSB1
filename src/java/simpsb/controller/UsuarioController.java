@@ -1,6 +1,7 @@
 package simpsb.controller;
 
 import java.util.List;
+import javax.annotation.ManagedBean;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
@@ -10,7 +11,7 @@ import javax.inject.Named;
 import simpsb.dao.*;
 import simpsb.entidades.*;
 
-@Named
+@ManagedBean
 @RequestScoped
 public class UsuarioController {
 

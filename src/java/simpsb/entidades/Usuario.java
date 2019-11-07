@@ -8,10 +8,8 @@ package simpsb.entidades;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -47,25 +45,33 @@ public class Usuario implements Serializable {
     @Basic(optional = false)
     @Column(name = "idUsuario")
     private Integer idUsuario;
+    @Size(max = 45)
     @Column(name = "nombre")
     private String nombre;
+    @Size(max = 45)
     @Column(name = "apellido")
     private String apellido;
+    @Size(max = 45)
     @Column(name = "genero")
     private String genero;
     @Column(name = "numDocumento")
     private Integer numDocumento;
+    @Size(max = 120)
     @Column(name = "correo")
     private String correo;
     @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 45)
     @Column(name = "pass")
     private String pass;
-    @OneToMany(mappedBy = "idUsuario", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "idUsuario")
     private List<Cliente> clienteList;
-    @OneToMany(mappedBy = "idUsuario", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "idUsuario")
     private List<Empleado> empleadoList;
+    @OneToMany(mappedBy = "idUsuario")
+    private List<Fotosperfil> fotosperfilList;
     @JoinColumn(name = "idRol", referencedColumnName = "idRol")
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne
     private Roles idRol;
 
     public Usuario() {
@@ -150,6 +156,14 @@ public class Usuario implements Serializable {
 
     public void setEmpleadoList(List<Empleado> empleadoList) {
         this.empleadoList = empleadoList;
+    }
+
+    public List<Fotosperfil> getFotosperfilList() {
+        return fotosperfilList;
+    }
+
+    public void setFotosperfilList(List<Fotosperfil> fotosperfilList) {
+        this.fotosperfilList = fotosperfilList;
     }
 
     public Roles getIdRol() {

@@ -25,7 +25,7 @@ public class CitasController {
 
     @EJB
     private ClienteFacadeLocal clienteFacadeLocal;
-    
+
     private Citas citas;
     private Empleado empleado;
     private Servicios servicios;
@@ -44,7 +44,6 @@ public class CitasController {
         listEmpleados = empleadoFacadeLocal.findAll();
     }
 
-    
     public Citas getCitas() {
         return citas;
     }
@@ -94,25 +93,28 @@ public class CitasController {
     }
 
     public void generarCita() {
+        Usuario us = null;
         Cliente cl = null;
         try {
-            cl = (Cliente) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("user");
-                citas.setIdEmpleado(empleado);
-                citas.setIdServicio(servicios);
-                citasFacadeLocal.create(citas);
-                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Se ha generado exitosamente su cita"));
-                FacesContext.getCurrentInstance().getExternalContext().redirect("consultarCita.xhtml");
+            us = (Usuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("user");
+            cl = clienteFacadeLocal.find(us.getIdUsuario());
+            citas.setIdCliente(cl);
+            citas.setIdEmpleado(empleado);
+            citas.setIdServicio(servicios);
+            citasFacadeLocal.create(citas);
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Se ha generado exitosamente la cita"));
+            FacesContext.getCurrentInstance().getExternalContext().redirect("consultarCita.xhtml");
         } catch (Exception e) {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Error", "Ha ocurrido un error al generar su cita"));
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Error", "Ha ocurrido un error al generar la cita"));
         }
     }
 
     public void eliminarCita(Citas cita) {
         try {
             citasFacadeLocal.remove(cita);
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Se ha generado exitosamente su cita"));
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Se ha eliminado exitosamente la cita"));
         } catch (Exception e) {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Error", "Ha ocurrido un error al generar su cita"));
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Error", "Ha ocurrido un error al eliminar la cita"));
         }
     }
 

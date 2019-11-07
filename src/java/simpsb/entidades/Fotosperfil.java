@@ -6,64 +6,64 @@
 package simpsb.entidades;
 
 import java.io.Serializable;
-import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 /**
  *
  * @author SebastianParra
  */
 @Entity
-@Table(name = "cliente")
+@Table(name = "fotosperfil")
 @NamedQueries({
-    @NamedQuery(name = "Cliente.findAll", query = "SELECT c FROM Cliente c")
-    , @NamedQuery(name = "Cliente.findByIdCliente", query = "SELECT c FROM Cliente c WHERE c.idCliente = :idCliente")})
-public class Cliente implements Serializable {
+    @NamedQuery(name = "Fotosperfil.findAll", query = "SELECT f FROM Fotosperfil f")
+    , @NamedQuery(name = "Fotosperfil.findByIdFoto", query = "SELECT f FROM Fotosperfil f WHERE f.idFoto = :idFoto")
+    , @NamedQuery(name = "Fotosperfil.findByFoto", query = "SELECT f FROM Fotosperfil f WHERE f.foto = :foto")})
+public class Fotosperfil implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "idCliente")
-    private Integer idCliente;
-    @OneToMany(mappedBy = "idCliente")
-    private List<Citas> citasList;
+    @NotNull
+    @Column(name = "idFoto")
+    private Integer idFoto;
+    @Size(max = 100)
+    @Column(name = "foto")
+    private String foto;
     @JoinColumn(name = "idUsuario", referencedColumnName = "idUsuario")
     @ManyToOne
     private Usuario idUsuario;
 
-    public Cliente() {
+    public Fotosperfil() {
     }
 
-    public Cliente(Integer idCliente) {
-        this.idCliente = idCliente;
+    public Fotosperfil(Integer idFoto) {
+        this.idFoto = idFoto;
     }
 
-    public Integer getIdCliente() {
-        return idCliente;
+    public Integer getIdFoto() {
+        return idFoto;
     }
 
-    public void setIdCliente(Integer idCliente) {
-        this.idCliente = idCliente;
+    public void setIdFoto(Integer idFoto) {
+        this.idFoto = idFoto;
     }
 
-    public List<Citas> getCitasList() {
-        return citasList;
+    public String getFoto() {
+        return foto;
     }
 
-    public void setCitasList(List<Citas> citasList) {
-        this.citasList = citasList;
+    public void setFoto(String foto) {
+        this.foto = foto;
     }
 
     public Usuario getIdUsuario() {
@@ -77,18 +77,18 @@ public class Cliente implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (idCliente != null ? idCliente.hashCode() : 0);
+        hash += (idFoto != null ? idFoto.hashCode() : 0);
         return hash;
     }
 
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Cliente)) {
+        if (!(object instanceof Fotosperfil)) {
             return false;
         }
-        Cliente other = (Cliente) object;
-        if ((this.idCliente == null && other.idCliente != null) || (this.idCliente != null && !this.idCliente.equals(other.idCliente))) {
+        Fotosperfil other = (Fotosperfil) object;
+        if ((this.idFoto == null && other.idFoto != null) || (this.idFoto != null && !this.idFoto.equals(other.idFoto))) {
             return false;
         }
         return true;
@@ -96,7 +96,7 @@ public class Cliente implements Serializable {
 
     @Override
     public String toString() {
-        return "simpsb.entidades.Cliente[ idCliente=" + idCliente + " ]";
+        return "simpsb.entidades.Fotosperfil[ idFoto=" + idFoto + " ]";
     }
     
 }

@@ -7,26 +7,26 @@ package simpsb.dao;
 
 import java.util.List;
 import javax.ejb.Local;
-import simpsb.entidades.Usuario;
+import simpsb.entidades.Contacto;
 
 /**
  *
  * @author SebastianParra
  */
 @Local
-public interface UsuarioFacadeLocal {
+public interface ContactoFacadeLocal {
 
-    void create(Usuario usuario);
+    void create(Contacto contacto);
 
-    void edit(Usuario usuario);
+    void edit(Contacto contacto);
 
-    void remove(Usuario usuario);
+    void remove(Contacto contacto);
 
-    Usuario find(Object id);
+    Contacto find(Object id);
 
-    List<Usuario> findAll();
+    List<Contacto> findAll();
 
-    List<Usuario> findRange(int[] range);
+    List<Contacto> findRange(int[] range);
 
     int count();
     

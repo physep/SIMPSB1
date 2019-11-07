@@ -11,7 +11,6 @@ import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -49,15 +48,15 @@ public class Factura implements Serializable {
     @Column(name = "hora")
     @Temporal(TemporalType.TIME)
     private Date hora;
-    @OneToMany(mappedBy = "idFactura", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "idFactura")
     private List<Calificacion> calificacionList;
-    @OneToMany(mappedBy = "idFactura", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "idFactura")
     private List<Comisiones> comisionesList;
     @JoinColumn(name = "idCita", referencedColumnName = "idCita")
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     private Citas idCita;
     @JoinColumn(name = "idDetalleFactura", referencedColumnName = "idDetalleFactura")
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     private Detallefactura idDetalleFactura;
 
     public Factura() {

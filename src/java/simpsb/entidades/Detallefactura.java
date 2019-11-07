@@ -10,7 +10,6 @@ import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -45,7 +44,7 @@ public class Detallefactura implements Serializable {
     private Integer iva;
     @Column(name = "valorTotal")
     private Integer valorTotal;
-    @OneToMany(mappedBy = "idDetalleFactura", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "idDetalleFactura")
     private List<Factura> facturaList;
 
     public Detallefactura() {

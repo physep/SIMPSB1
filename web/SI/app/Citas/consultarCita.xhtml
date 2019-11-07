@@ -37,6 +37,7 @@ and open the template in the editor.
                     <li class="breadcrumb-item  active" aria-current="page">#{citasEti.current_consultarCita}</li>
                 </ol>
             </nav>
+            <h:messages globalOnly="true" showDetail="true" class="mensajes"/>
             <h:form>
                 <div class="dropdown d-flex justify-content-end">
                     <button type="button" class="lanbtn btn dropdown-toggle"
@@ -64,16 +65,19 @@ and open the template in the editor.
                                     <h:column>
                                         <f:facet name="header">ID</f:facet>
                                         <h:outputText id="id" value="#{cita.idCita}"/>
+                                        <h:message for="id"/>
                                     </h:column>
 
                                     <h:column>
                                         <f:facet name="header">#{citasEti.enc_nombre}</f:facet>
-                                        <h:outputText id="cliente" value="#{cita.idCliente.idUsuario.nombre}"/>
+                                        <h:outputText id="cliente" value="#{cita.idCliente.idUsuario.nombre} #{cita.idCliente.idUsuario.apellido}"/>
+                                        <h:message for="cliente"/>
                                     </h:column>
 
                                     <h:column>
                                         <f:facet name="header">#{citasEti.enc_servicio}</f:facet>
                                         <h:outputText id="servicio" value="#{cita.idServicio.nombre}"/>
+                                        <h:message for="servicio"/>
                                     </h:column>
 
                                     <h:column>
@@ -81,6 +85,7 @@ and open the template in the editor.
                                         <h:outputText id="fecha" value="#{cita.fecha}">
                                             <f:convertDateTime for="fecha" type="date" dateStyle="full"></f:convertDateTime>
                                         </h:outputText>
+                                        <h:message for="fecha"/>
                                     </h:column>
 
                                     <h:column>
@@ -88,11 +93,13 @@ and open the template in the editor.
                                         <h:outputText id="hora" value="#{cita.hora}">
                                             <f:convertDateTime dateStyle="full" pattern="h:mm a"></f:convertDateTime>
                                         </h:outputText>
+                                        <h:message for="hora"/>
                                     </h:column>
 
                                     <h:column>
                                         <f:facet name="header">#{citasEti.enc_empleado}</f:facet>
                                         <h:outputText id="empleado" value="#{cita.idEmpleado.idUsuario.nombre}"/>
+                                        <h:message for="empleado"/>
                                     </h:column>
 
                                     <h:column>

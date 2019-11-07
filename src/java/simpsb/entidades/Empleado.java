@@ -8,10 +8,8 @@ package simpsb.entidades;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -21,6 +19,7 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
 
 /**
  *
@@ -30,7 +29,8 @@ import javax.persistence.Table;
 @Table(name = "empleado")
 @NamedQueries({
     @NamedQuery(name = "Empleado.findAll", query = "SELECT e FROM Empleado e")
-    , @NamedQuery(name = "Empleado.findByIdEmpleado", query = "SELECT e FROM Empleado e WHERE e.idEmpleado = :idEmpleado")})
+    , @NamedQuery(name = "Empleado.findByIdEmpleado", query = "SELECT e FROM Empleado e WHERE e.idEmpleado = :idEmpleado")
+    , @NamedQuery(name = "Empleado.findByDescripcion", query = "SELECT e FROM Empleado e WHERE e.descripcion = :descripcion")})
 public class Empleado implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -39,21 +39,24 @@ public class Empleado implements Serializable {
     @Basic(optional = false)
     @Column(name = "idEmpleado")
     private Integer idEmpleado;
-    @OneToMany(mappedBy = "idEmpleado", fetch = FetchType.LAZY)
+    @Size(max = 45)
+    @Column(name = "descripcion")
+    private String descripcion;
+    @OneToMany(mappedBy = "idEmpleado")
     private List<Citas> citasList;
-    @OneToMany(mappedBy = "idEmpleado", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "idEmpleado")
     private List<Comisiones> comisionesList;
     @JoinColumn(name = "idHorarioTrabajo", referencedColumnName = "idHorarioTrabajo")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne
     private Horariotrabajo idHorarioTrabajo;
     @JoinColumn(name = "idUsuario", referencedColumnName = "idUsuario")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne
     private Usuario idUsuario;
     @JoinColumn(name = "idDiaDescanso", referencedColumnName = "idDiaDescanso")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne
     private Diadescanso idDiaDescanso;
     @JoinColumn(name = "idCargo", referencedColumnName = "idCargo")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne
     private Cargos idCargo;
 
     public Empleado() {
@@ -69,6 +72,14 @@ public class Empleado implements Serializable {
 
     public void setIdEmpleado(Integer idEmpleado) {
         this.idEmpleado = idEmpleado;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
     public List<Citas> getCitasList() {

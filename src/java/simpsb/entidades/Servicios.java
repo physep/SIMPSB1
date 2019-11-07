@@ -10,7 +10,6 @@ import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -41,15 +40,18 @@ public class Servicios implements Serializable {
     @Basic(optional = false)
     @Column(name = "idServicio")
     private Integer idServicio;
+    @Size(max = 45)
     @Column(name = "nombre")
     private String nombre;
+    @Size(max = 45)
     @Column(name = "estado")
     private String estado;
     @Column(name = "valor")
     private Integer valor;
+    @Size(max = 45)
     @Column(name = "tiempoEstimado")
     private String tiempoEstimado;
-    @OneToMany(mappedBy = "idServicio", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "idServicio")
     private List<Citas> citasList;
 
     public Servicios() {

@@ -18,6 +18,8 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -25,6 +27,7 @@ import javax.validation.constraints.Size;
  */
 @Entity
 @Table(name = "servicios")
+@XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Servicios.findAll", query = "SELECT s FROM Servicios s")
     , @NamedQuery(name = "Servicios.findByIdServicio", query = "SELECT s FROM Servicios s WHERE s.idServicio = :idServicio")
@@ -40,15 +43,12 @@ public class Servicios implements Serializable {
     @Basic(optional = false)
     @Column(name = "idServicio")
     private Integer idServicio;
-    @Size(max = 45)
     @Column(name = "nombre")
     private String nombre;
-    @Size(max = 45)
     @Column(name = "estado")
     private String estado;
     @Column(name = "valor")
     private Integer valor;
-    @Size(max = 45)
     @Column(name = "tiempoEstimado")
     private String tiempoEstimado;
     @OneToMany(mappedBy = "idServicio")
@@ -101,6 +101,7 @@ public class Servicios implements Serializable {
         this.tiempoEstimado = tiempoEstimado;
     }
 
+    @XmlTransient
     public List<Citas> getCitasList() {
         return citasList;
     }

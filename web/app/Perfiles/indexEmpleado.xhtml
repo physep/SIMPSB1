@@ -1,33 +1,30 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:p="http://primefaces.org/ui">
+
     <h:head>
         <title>Empleado</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <link href="../../../resources/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-        <link href="../../resources/css/Perfiles/estilos-empleado.css" rel="stylesheet" type="text/css"/>
+        <link href="../../resources/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../../resources/css/mdb.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../../resources/css/Perfiles/estilos-perfiles.css" rel="stylesheet" type="text/css"/>
 
     </h:head>
-    <h:body>
-        <f:view locale="es">
 
-            <!-- BARRA LATERAL -->
-            <div class="barra-lateral float-left">
+    <h:body class="fondo">
+        <f:view locale="#{languages.idiomaSeleccionado}">
+            <!-- SIDEBAR -->
+            <div class="col-2 sidebar float-left">
                 <div class="perfil">
                     <p class="text-center text-uppercase">Empleado</p>
-                    <img src="../../resources/img/perfil.png" alt=""/>
-                    <p class="text-center text-uppercase">Juan Sebastián Parra Martínez</p>
+                    <img src="../../SI/resources/img/perfil.png" alt=""/>
+                    <p class="text-center text-uppercase">juan sebastian parra martinez</p>
                 </div>
                 <div class="modulos">
-                    <!-- HOME -->
+                    <h:form>
+                        <!-- HOME -->
                     <div class="modulo d-block mx-auto">
                         <img class="float-left" src="../../SI/resources/img/modulos/icono_home.png" alt="Home"/>
                         <h4>
@@ -69,39 +66,33 @@ and open the template in the editor.
                             <a target="area-trabajo" href="../Pagos/consultar-pagos.html" class="text-decoration-none">#{perfilEti.consultarPagos}</a>
                         </p>
                     </div>
+                    </h:form>
                 </div>
             </div>
-
-
-            <div class="panel-derecho float-right">
-                <!-- NAVEGADOR -->
-                <nav>
+            <!-- AREA DE TRABAJO -->
+            <div class="col-10 derecho float-right">
+                <nav class="navbarra float-right col-12">
                     <div class="row">
-                        <div class="col-6">
-                            <div class="row izq">
-                                <div class="col-1 menu float-left">
-                                    <input class="" id="menu" type="checkbox"/>
-                                        <span></span>
-                                        <span></span>
-                                </div>
-                                <div class="col-9 titulo float-right">
-                                    <p><img src="../../SI/resources/img/logo.png" alt=""/></p>
-                                </div>
-                            </div>
+                        <div class="col-6 logo">
+                            <p><img src="../../SI/resources/img/logo.png" alt=""/></p>
                         </div>
-                        <div class="col-6 config">
+                        <div class="col-3"></div>
+                        <div class="col-3 config">
                             <ul>
                                 <li>
                                     <a href="#"><img src="../../SI/resources/img/config.png" alt=""/></a>
                                     <ul>
                                         <li>
-                                            <img src="../../SI/resources/img/editar-perfil.png" alt=""/><a class="text-left" href="../Config/editar-perfil.html" target="area-trabajo">Editar Perfil</a>
+                                            <img src="../../SI/resources/img/editar-perfil.png" alt=""><a class="text-left" href="../Error/404.xhtml?faces-redirect=true" target="area-trabajo">#{perfilEti.editarPerfil}</a></img>
                                         </li>
                                         <li>	
-                                            <img src="../../SI/resources/img/logout.png" alt=""/><a class="text-left" href="../../../index.html">Cerrar Sesión</a>
+                                            <img src="../../SI/resources/img/ajustes.png" alt=""/><a class="text-left" href="../Error/404.xhtml?faces-redirect=true">#{perfilEti.configuracion}</a>
                                         </li>
                                         <li>
-                                            <img src="../../SI/resources/img/alarma.png" alt=""/><a class="text-left" href="">Notificaciones</a>
+                                            <img src="../../SI/resources/img/alarma.png" alt=""/><a class="text-left" href="../Error/404.xhtml?faces-redirect=true" target="area-trabajo">#{perfilEti.notificaciones}</a>
+                                        </li>
+                                        <li>	
+                                            <img src="../../SI/resources/img/logout.png" alt=""/><a class="text-left" href="#{sesionController.logout()}">#{perfilEti.cerrarSesion}</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -109,23 +100,16 @@ and open the template in the editor.
                         </div>
                     </div>
                 </nav>
-
-                <!-- AREA DE TRABAJO -->
-                <div class="area-trabajo">
-                    <iframe name="area-trabajo" src="Principal/principalEmpleado.xhtml" frameborder="0"></iframe>
+                <div class="cargado">
+                    <iframe name="area-trabajo" src="Principal/principalSupervisor.xhtml?faces-redirect=true" ></iframe>
                 </div>
-
             </div>
-
-            <!-- FOOTER -->
-
-            <!-- SCRIPTS -->
-            <script src="../../../js/jquery-3.3.1.slim.min.js"></script>
-            <script src="../../../js/popper.min.js"></script>
-            <script src="../../../js/bootstrap.min.js"></script>
-            <script src="../../../js/mdb.min.js"></script>
-            <script src="../../../js/mostrar-ingreso.js"></script>
-            <script src="../../js/ocultar-modulos.js"></script>
         </f:view>
     </h:body>
+
+    <!-- SCRIPTS -->
+    <script src="../../resources/js/jquery-3.3.1.slim.min.js" type="text/javascript"></script>
+    <script src="../../resources/js/popper.min.js" type="text/javascript"></script>
+    <script src="../../resources/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="../../SI/resources/js/ocultar-modulos.js" type="text/javascript"></script>
 </html>

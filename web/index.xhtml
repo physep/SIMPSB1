@@ -47,12 +47,12 @@
                                 <a class="text-center nav-link text-uppercase" id="ingreso">#{indexEti.menu_ingreso} <i class="fas fa-chevron-down"></i></a>
                                 <ul id="login" class="ingreso"> 
                                     <h:form>
-                                            <li class="nav-item">
-                                                <h:commandLink action="app/login?faces-redirect=true" class="text-center nav-link text-uppercase mx-auto" value="#{indexEti.login}"/>
-                                            </li>
-                                            <li class="nav-item">
-                                                <h:commandLink action="app/registro?faces-redirect=true" class="text-center nav-link text-uppercase mx-auto" value="#{indexEti.registrar}"/>
-                                            </li>
+                                        <li class="nav-item">
+                                            <h:commandLink action="app/login?faces-redirect=true" class="text-center nav-link text-uppercase mx-auto" value="#{indexEti.login}"/>
+                                        </li>
+                                        <li class="nav-item">
+                                            <h:commandLink action="app/registro?faces-redirect=true" class="text-center nav-link text-uppercase mx-auto" value="#{indexEti.registrar}"/>
+                                        </li>
                                     </h:form>
                                 </ul>
                             </div> 
@@ -432,5 +432,7 @@
             <script src="resources/js/mostrar-ingreso.js" type="text/javascript"></script>
 
         </f:view>
+        <br />
+        <h:link outcome="welcomePrimefaces" value="Primefaces welcome page" />
     </h:body>
 </html>

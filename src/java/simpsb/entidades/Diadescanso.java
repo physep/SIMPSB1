@@ -18,6 +18,8 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -25,6 +27,7 @@ import javax.validation.constraints.Size;
  */
 @Entity
 @Table(name = "diadescanso")
+@XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Diadescanso.findAll", query = "SELECT d FROM Diadescanso d")
     , @NamedQuery(name = "Diadescanso.findByIdDiaDescanso", query = "SELECT d FROM Diadescanso d WHERE d.idDiaDescanso = :idDiaDescanso")
@@ -37,7 +40,6 @@ public class Diadescanso implements Serializable {
     @Basic(optional = false)
     @Column(name = "idDiaDescanso")
     private Integer idDiaDescanso;
-    @Size(max = 45)
     @Column(name = "dia")
     private String dia;
     @OneToMany(mappedBy = "idDiaDescanso")
@@ -66,6 +68,7 @@ public class Diadescanso implements Serializable {
         this.dia = dia;
     }
 
+    @XmlTransient
     public List<Empleado> getEmpleadoList() {
         return empleadoList;
     }

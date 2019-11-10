@@ -112,9 +112,12 @@ public class EmpleadoController {
         this.listCargos = listCargos;
     }
 
-     public void asignarRol() {
+     public void asignarRol(Object idUsuario) {
+         Empleado emp = null;
+         Usuario us = null;
         try {
-            empleado.setIdUsuario(usuario);
+            emp = empleadoFacadeLocal.find(us.getIdUsuario());
+            empleado.setIdUsuario(emp);
             empleado.setIdCargo(cargos);
             empleado.setIdDiaDescanso(diadescanso);
             empleado.setIdHorarioTrabajo(horariotrabajo);

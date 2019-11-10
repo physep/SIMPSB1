@@ -17,6 +17,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
@@ -24,6 +25,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "comisiones")
+@XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Comisiones.findAll", query = "SELECT c FROM Comisiones c")
     , @NamedQuery(name = "Comisiones.findByIdComisiones", query = "SELECT c FROM Comisiones c WHERE c.idComisiones = :idComisiones")

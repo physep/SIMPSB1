@@ -20,6 +20,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -27,6 +29,7 @@ import javax.persistence.TemporalType;
  */
 @Entity
 @Table(name = "horariotrabajo")
+@XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Horariotrabajo.findAll", query = "SELECT h FROM Horariotrabajo h")
     , @NamedQuery(name = "Horariotrabajo.findByIdHorarioTrabajo", query = "SELECT h FROM Horariotrabajo h WHERE h.idHorarioTrabajo = :idHorarioTrabajo")
@@ -80,6 +83,7 @@ public class Horariotrabajo implements Serializable {
         this.horaFin = horaFin;
     }
 
+    @XmlTransient
     public List<Empleado> getEmpleadoList() {
         return empleadoList;
     }

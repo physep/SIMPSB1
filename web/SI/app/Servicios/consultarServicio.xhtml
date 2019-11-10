@@ -25,15 +25,29 @@ and open the template in the editor.
         <script src="https://kit.fontawesome.com/5e77c8969a.js"  type="text/javascript"></script>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8" type="text/javascript"></script>
     </h:head>
-    <h:messages globalOnly="true" showDetail="true"/>
     <h:body class="fondo">
-        <f:view locale="es">
+        <f:view locale="#{languages.idiomaSeleccionado}">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item  text-right"><a href="#">Home</a></li>
                     <li class="breadcrumb-item  active" aria-current="page">#{servisEti.consultarServicioMi}</li>
                 </ol>
             </nav>
+            <h:messages globalOnly="true" showDetail="true" class="mensajes"/>
+            <h:form>
+                <div class="dropdown d-flex justify-content-end">
+                    <button type="button" class="lanbtn btn dropdown-toggle"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        #{pagesEti[languages.idiomaSeleccionado.language]}
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <c:forEach items="#{languages.idiomasSoportados}" var="idioma">
+                            <h:commandLink class="dropdown-item" actionListener="#{languages.cambiarIdioma(idioma)}"
+                                           value="#{pagesEti[idioma.language]}"/>
+                        </c:forEach>    
+                    </div>
+                </div>
+            </h:form>
             <div class="container">
                 <div class="tabla d-block mx-auto">
                     <div class="titulo">
@@ -71,7 +85,7 @@ and open the template in the editor.
 
                                         <h:commandButton styleClass="btn btn-warning"  value="#{universEti.modificar}" action="#{serviciosController.consultarServicio(servicio)}"/>
                                         <h:commandButton styleClass="btn btn-danger" onclick="javascript:if (!confirm('¿Está seguro que desea eliminar este servicio?'))
-                                                return false;" value="#{universEti.eliminar}" action="#{serviciosController.eliminarServicios(servicio)}" />
+                                                    return false;" value="#{universEti.eliminar}" action="#{serviciosController.eliminarServicios(servicio)}" />
 
                                     </h:column>
                                 </h:dataTable>

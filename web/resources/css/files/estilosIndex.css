@@ -5,6 +5,14 @@
     font-family: 'Josefin Sans', sans-serif;	
 
 }
+.mensajes{
+    width: 100%;
+    height: 45px;
+    padding: 10px;
+    font-weight: 600;
+    background-color: #D4AF37;
+    color: #000;
+}
 .fondo{
     background-image: url('../../img/fondo.jpg');
     background-size: 100% 100%;

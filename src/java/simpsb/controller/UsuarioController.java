@@ -11,7 +11,7 @@ import javax.inject.Named;
 import simpsb.dao.*;
 import simpsb.entidades.*;
 
-@ManagedBean
+@Named
 @RequestScoped
 public class UsuarioController {
 
@@ -27,12 +27,17 @@ public class UsuarioController {
     @EJB
     private ClienteFacadeLocal clienteFacadeLocal;
     private Cliente cliente;
+    
+    @EJB
+    private EmpleadoFacadeLocal empleadoFacadeLocal;
+    private Empleado empleado;
 
     @PostConstruct
     public void init() {
         usuario = new Usuario();
         roles = new Roles();
         cliente = new Cliente();
+        empleado = new Empleado();
         listRol = rolesFacadeLocal.findAll();
     }
 
@@ -124,5 +129,16 @@ public class UsuarioController {
             e.printStackTrace();
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Error", "Ha ocurrido un error"));
         }
+    }
+    
+    public String consultarRol(Empleado emp) {
+        try {
+            empleado = empleadoFacadeLocal.find(emp.getIdUsuario());
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Funciona correcto"));
+        } catch (Exception e) {
+            e.printStackTrace();
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Error", "Ha ocurrido un error"));
+        }
+        return "asignarRol";
     }
 }

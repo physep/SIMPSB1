@@ -17,6 +17,7 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
@@ -24,6 +25,7 @@ import javax.validation.constraints.Size;
  */
 @Entity
 @Table(name = "fotosperfil")
+@XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Fotosperfil.findAll", query = "SELECT f FROM Fotosperfil f")
     , @NamedQuery(name = "Fotosperfil.findByIdFoto", query = "SELECT f FROM Fotosperfil f WHERE f.idFoto = :idFoto")
@@ -36,7 +38,6 @@ public class Fotosperfil implements Serializable {
     @NotNull
     @Column(name = "idFoto")
     private Integer idFoto;
-    @Size(max = 100)
     @Column(name = "foto")
     private String foto;
     @JoinColumn(name = "idUsuario", referencedColumnName = "idUsuario")

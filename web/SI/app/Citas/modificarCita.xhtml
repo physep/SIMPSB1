@@ -8,15 +8,16 @@ and open the template in the editor.
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <h:head>
         <title>Modificar Cita</title>
         <link href="../../../resources/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="../../resources/css/Citas/modificarCita.css" rel="stylesheet" type="text/css"/>
     </h:head>
     <h:body styleClass="fondo">
-        <f:view locale="es">           
-            <h:messages globalOnly="true" showDetail="true"/>
+        <f:view locale="#{languages.idiomaSeleccionado}">           
+            
             <!--Migas de Pan-->
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
@@ -24,6 +25,21 @@ and open the template in the editor.
                     <li class="breadcrumb-item active" aria-current="page">#{citasEti.titulo_modificar}</li>
                 </ol>
             </nav> 
+            <h:messages globalOnly="true" showDetail="true" class="mensajes"/>
+            <h:form>
+                <div class="dropdown d-flex justify-content-end">
+                    <button type="button" class="lanbtn btn dropdown-toggle"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        #{pagesEti[languages.idiomaSeleccionado.language]}
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <c:forEach items="#{languages.idiomasSoportados}" var="idioma">
+                            <h:commandLink class="dropdown-item" actionListener="#{languages.cambiarIdioma(idioma)}"
+                                           value="#{pagesEti[idioma.language]}"/>
+                        </c:forEach>    
+                    </div>
+                </div>
+            </h:form>
             <!-- Area de Trabajo -->
             <div class="container">
                 <div class="formulario d-block mx-auto">

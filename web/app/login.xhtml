@@ -2,7 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <h:head>
         <title>Iniciar Sesión</title>
         <link href="../resources/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
@@ -10,11 +11,25 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </h:head>
     <h:body class="fondo">
-        <f:view locale="en">
+        <f:view locale="#{languages.idiomaSeleccionado}">
             <!-- AREA DE TRABAJO -->
             <div class="area-trabajo">
                 <div class="container">
-                    <h:messages globalOnly="true" showDetail="true" class="text-info h4"/>
+                    <h:messages globalOnly="true" showDetail="true" class="mensajes"/>
+                    <h:form>
+                        <div class="dropdown d-flex justify-content-end">
+                            <button type="button" class="lanbtn btn dropdown-toggle"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                #{pagesEti[languages.idiomaSeleccionado.language]}
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <c:forEach items="#{languages.idiomasSoportados}" var="idioma">
+                                    <h:commandLink class="dropdown-item" actionListener="#{languages.cambiarIdioma(idioma)}"
+                                                   value="#{pagesEti[idioma.language]}"/>
+                                </c:forEach>    
+                            </div>
+                        </div>
+                    </h:form>
 
                     <h:form styleClass="d-block mx-auto formu">
                         <h1 class="text-center text-uppercase">#{indexEti.login}</h1>

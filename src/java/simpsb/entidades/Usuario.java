@@ -21,6 +21,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -28,6 +30,7 @@ import javax.validation.constraints.Size;
  */
 @Entity
 @Table(name = "usuario")
+@XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Usuario.findAll", query = "SELECT u FROM Usuario u")
     , @NamedQuery(name = "Usuario.findByIdUsuario", query = "SELECT u FROM Usuario u WHERE u.idUsuario = :idUsuario")
@@ -45,23 +48,17 @@ public class Usuario implements Serializable {
     @Basic(optional = false)
     @Column(name = "idUsuario")
     private Integer idUsuario;
-    @Size(max = 45)
     @Column(name = "nombre")
     private String nombre;
-    @Size(max = 45)
     @Column(name = "apellido")
     private String apellido;
-    @Size(max = 45)
     @Column(name = "genero")
     private String genero;
     @Column(name = "numDocumento")
     private Integer numDocumento;
-    @Size(max = 120)
     @Column(name = "correo")
     private String correo;
     @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 45)
     @Column(name = "pass")
     private String pass;
     @OneToMany(mappedBy = "idUsuario")
@@ -142,6 +139,7 @@ public class Usuario implements Serializable {
         this.pass = pass;
     }
 
+    @XmlTransient
     public List<Cliente> getClienteList() {
         return clienteList;
     }
@@ -150,6 +148,7 @@ public class Usuario implements Serializable {
         this.clienteList = clienteList;
     }
 
+    @XmlTransient
     public List<Empleado> getEmpleadoList() {
         return empleadoList;
     }
@@ -158,6 +157,7 @@ public class Usuario implements Serializable {
         this.empleadoList = empleadoList;
     }
 
+    @XmlTransient
     public List<Fotosperfil> getFotosperfilList() {
         return fotosperfilList;
     }

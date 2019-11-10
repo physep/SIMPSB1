@@ -23,13 +23,28 @@
 
     </div>
     <h:body class="fondo">
-        <f:view locale="es">
+        <f:view locale="#{languages.idiomaSeleccionado}">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item  text-right"><a href="#">Home</a></li>
                     <li class="breadcrumb-item  active" aria-current="page">#{pagosEti.consultar}</li>
                 </ol>
             </nav>
+            <h:messages globalOnly="true" showDetail="true" class="mensajes"/>
+            <h:form>
+                <div class="dropdown d-flex justify-content-end">
+                    <button type="button" class="lanbtn btn dropdown-toggle"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        #{pagesEti[languages.idiomaSeleccionado.language]}
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <c:forEach items="#{languages.idiomasSoportados}" var="idioma">
+                            <h:commandLink class="dropdown-item" actionListener="#{languages.cambiarIdioma(idioma)}"
+                                           value="#{pagesEti[idioma.language]}"/>
+                        </c:forEach>    
+                    </div>
+                </div>
+            </h:form>
             <div class="container">
                 <div class="tabla d-block mx-auto">
                     <div class="titulo">

@@ -17,8 +17,7 @@ and open the template in the editor.
     </h:head>
 
     <h:body styleClass="fondo">
-        <f:view locale="en">
-            <h:messages globalOnly="true" showDetail="true"/>
+        <f:view locale="#{languages.idiomaSeleccionado}">
             <!-- Migas de pan -->
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
@@ -26,6 +25,21 @@ and open the template in the editor.
                     <li class="breadcrumb-item active" aria-current="page">#{horarioEti.current_consultar}</li>
                 </ol>
             </nav>
+            <h:messages globalOnly="true" showDetail="true" class="mensajes"/>
+            <h:form>
+                <div class="dropdown d-flex justify-content-end">
+                    <button type="button" class="lanbtn btn dropdown-toggle"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        #{pagesEti[languages.idiomaSeleccionado.language]}
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <c:forEach items="#{languages.idiomasSoportados}" var="idioma">
+                            <h:commandLink class="dropdown-item" actionListener="#{languages.cambiarIdioma(idioma)}"
+                                           value="#{pagesEti[idioma.language]}"/>
+                        </c:forEach>    
+                    </div>
+                </div>
+            </h:form>
             <div class="container">
                 <div class="formulario d-block mx-auto">
                     <div class="titulo">
@@ -33,7 +47,7 @@ and open the template in the editor.
                     </div>  
                     <p class="text-uppercase">
                         <img src="../../resources/img/icono_horarios.png" alt=""/>
-                        HORARIOS
+                        #{horarioEti.horarios}
                     </p>
                     <h:form>
                         <h:dataTable value="#{horariosController.listarHorariotrabajo()}" var="horariotrabajo" styleClass="table table-striped table-bordered dt-responsive nowrap text-center">
@@ -61,7 +75,7 @@ and open the template in the editor.
                                 <f:facet name="header">#{universEti.acciones}</f:facet>
                                 <h:commandButton styleClass="btn btn-warning" action="#{horariosController.consultarHorariotrabajo(horariotrabajo)}" value="#{universEti.modificar}"/>
                                 <h:commandButton styleClass="btn btn-danger" action="#{horariosController.eliminarHorariotrabajo(horariotrabajo)}" onclick="javascript:if (!confirm('¿Está seguro que desea eliminar este horario?'))
-                                        return false;" value="#{universEti.eliminar}"/>
+                                            return false;" value="#{universEti.eliminar}"/>
                             </h:column>
 
                         </h:dataTable>

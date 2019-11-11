@@ -15,9 +15,6 @@
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
-                    <file>${libs.primefaces.classpath}</file>
-                </library>
-                <library dirs="200">
                     <file>${file.reference.primefaces-7.0.jar}</file>
                 </library>
             </web-module-libraries>

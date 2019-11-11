@@ -97,7 +97,7 @@
                                         <h:commandButton class="btn btn-warning" action="#{usuarioController.consultarUsuario(usuario)}" value="#{universEti.modificar}"/>
                                         <h:commandButton class="btn btn-danger" action="#{usuarioController.eliminarUsuario(usuario)}" onclick="javascript:if (!confirm('¿Está seguro que desea eliminar este usuario?'))
                                                     return false;" value="#{universEti.eliminar}"/>
-                                        <h:commandButton class="btn btn-dark" action="asignarRol.xhtml" value="#{usuariosEti.asignar}"/>
+                                        <h:commandButton class="btn btn-dark" action="#{usuarioController.consultarRol(usuario.idUsuario)}" value="#{usuariosEti.asignar}"/>
                                     </h:column>
                                 </h:dataTable>
                             </h:form>

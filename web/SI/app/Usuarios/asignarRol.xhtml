@@ -1,15 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
-      xmlns:c="http://xmlns.jcp.org/jsf/composite">
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <h:head>
         <title>Asignar Rol</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -35,12 +28,11 @@ and open the template in the editor.
                     </div>
 
                     <h:form>
-                        <h:inputText value="#{}" styleClass="form-control form"/>
                         <div class="form-group">
                             <h:outputLabel for="cargo" value="#{usuariosEti.cargo}"/>
-                            <h:selectOneMenu id="cargo" value="#{empleadoController.cargos.idCargo}" styleClass="form form-control">
+                            <h:selectOneMenu id="cargo" value="#{usuarioController.cargos.idCargo}" styleClass="form form-control">
                                 <f:selectItem itemValue="0" noSelectionOption="true" itemLabel="#{universEti.seleccionar}"/>
-                                <f:selectItems value="#{empleadoController.listCargos}" 
+                                <f:selectItems value="#{usuarioController.listCargos}" 
                                                var="cargo"
                                                itemLabel="#{cargo.cargo}"
                                                itemValue="#{cargo.idCargo}"/>
@@ -50,28 +42,28 @@ and open the template in the editor.
                         <div class="form-group">
 
                             <h:outputLabel for="horario" value="#{usuariosEti.horario}"/>
-                            <h:selectOneMenu id="horario" value="#{empleadoController.horariotrabajo.idHorarioTrabajo}" styleClass="form form-control">
+                            <h:selectOneMenu id="horario" value="#{usuarioController.horariotrabajo.idHorarioTrabajo}" styleClass="form form-control">
                                 <f:selectItem itemValue="0" noSelectionOption="true" itemLabel="#{universEti.seleccionar}"/>
-                                <f:selectItems value="#{empleadoController.listHorario}" 
+                                <f:selectItems value="#{usuarioController.listHorario}" 
                                                var="horario"
                                                itemLabel="#{horario.horaInicio.hours} - #{horario.horaFin.hours}"
                                                itemValue="#{horario.idHorarioTrabajo}"/>
                             </h:selectOneMenu>
                         </div>
-                        
+
                         <div class="form-group">
                             <h:outputLabel for="diad" value="#{usuariosEti.diad}"/>
-                            <h:selectOneMenu id="diad" value="#{empleadoController.diadescanso.idDiaDescanso}" styleClass="form form-control">
+                            <h:selectOneMenu id="diad" value="#{usuarioController.diadescanso.idDiaDescanso}" styleClass="form form-control">
                                 <f:selectItem itemValue="0" noSelectionOption="true" itemLabel="#{universEti.seleccionar}"/>
-                                <f:selectItems value="#{empleadoController.listDiaD}" 
+                                <f:selectItems value="#{usuarioController.listDiaD}" 
                                                var="diad"
                                                itemLabel="#{diad.dia}"
                                                itemValue="#{diad.idDiaDescanso}"/>
                             </h:selectOneMenu>
                         </div>
-                        
+
                         <div class="text-center">
-                            <h:commandButton action="#{empleadoController.asignarRol()}" class="btn boton" value="#{usuariosEti.enviar}"/>
+                            <h:commandButton action="#{usuarioController.asignarRol(usuarioController.usuario.idUsuario)}" class="btn boton" value="#{usuariosEti.enviar}"/>
                         </div>
 
                     </h:form>

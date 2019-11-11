@@ -19,18 +19,18 @@
                     <h:form styleClass="d-block mx-auto formu">
                         <h1 class="text-center text-uppercase">#{indexEti.olvidocon}</h1>
                         <div class="form-group">
-                            <h:outputLabel for="correo" styleClass="text-uppercase" value="#{indexEti.form_email}"/>
-                            <h:inputText id="correo" styleClass="form-control form" value="#{mailController.destinatario}"/>
-                            <h:message for="correo"/>
+                            <h:outputLabel for="contra" styleClass="text-uppercase" value="#{indexEti.form_email}"/>
+                            <h:inputText id="contra" styleClass="form-control form" value="#{usuarioController.usuario.pass}"/>
+                            <h:message for="contra"/>
                         </div>
                         <div class="form-group">
-                            <h:outputLabel for="correo" styleClass="text-uppercase" value="#{indexEti.form_email}"/>
-                            <h:inputText id="correo1" styleClass="form-control form" value="#{mailController.destinatario}"/>
-                            <h:message for="correo"/>
+                            <h:outputLabel for="conf" styleClass="text-uppercase" value="#{indexEti.form_email}"/>
+                            <h:inputText id="conf" styleClass="form-control form"/>
+                            <h:message for="conf"/>
                         </div>
 
                         <div class="text-center">
-                            <h:commandButton action="#{mailController.enviarCorreo()}" class="btn boton" value="#{universEti.enviar}"/>
+                            <h:commandButton action="#{usuarioController.cambiarContra()}" class="btn boton" value="#{universEti.enviar}"/>
                         </div>
                     </h:form>
                 </div>

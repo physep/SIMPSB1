@@ -116,8 +116,8 @@ public class EmpleadoController {
          Empleado emp = null;
          Usuario us = null;
         try {
-            emp = empleadoFacadeLocal.find(us.getIdUsuario());
-            empleado.setIdUsuario(emp);
+            us = usuarioFacadeLocal.find(emp.getIdUsuario());
+            empleado.setIdUsuario(us);
             empleado.setIdCargo(cargos);
             empleado.setIdDiaDescanso(diadescanso);
             empleado.setIdHorarioTrabajo(horariotrabajo);

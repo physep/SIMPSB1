@@ -12,7 +12,6 @@
     </h:head>
     <h:body styleClass="fondo">
         <f:view locale="#{languages.idiomaSeleccionado}">           
-            <h:messages globalOnly="true" showDetail="true" class="text-info h4"/>
             <!--Migas de Pan-->
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
@@ -45,6 +44,8 @@
                     <h:form>
                         <h:inputHidden value="#{usuarioController.usuario.idUsuario}"/>
                         <h:inputHidden value="#{usuarioController.usuario.pass}"/>
+                        <h:inputHidden value="#{usuarioController.usuario.idRol}">
+                        </h:inputHidden>
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <h:outputLabel for="nombre" value="#{usuariosEti.nombre}"/>

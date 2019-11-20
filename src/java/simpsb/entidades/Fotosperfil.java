@@ -17,7 +17,6 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
@@ -25,7 +24,6 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @Entity
 @Table(name = "fotosperfil")
-@XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Fotosperfil.findAll", query = "SELECT f FROM Fotosperfil f")
     , @NamedQuery(name = "Fotosperfil.findByIdFoto", query = "SELECT f FROM Fotosperfil f WHERE f.idFoto = :idFoto")

@@ -28,11 +28,12 @@
                     </div>
 
                     <h:form>
+                        <h:inputHidden value="#{empleadoController.usuario.idUsuario}"/>
                         <div class="form-group">
                             <h:outputLabel for="cargo" value="#{usuariosEti.cargo}"/>
-                            <h:selectOneMenu id="cargo" value="#{usuarioController.cargos.idCargo}" styleClass="form form-control">
+                            <h:selectOneMenu id="cargo" value="#{empleadoController.cargos.idCargo}" styleClass="form form-control">
                                 <f:selectItem itemValue="0" noSelectionOption="true" itemLabel="#{universEti.seleccionar}"/>
-                                <f:selectItems value="#{usuarioController.listCargos}" 
+                                <f:selectItems value="#{empleadoController.listCargos}" 
                                                var="cargo"
                                                itemLabel="#{cargo.cargo}"
                                                itemValue="#{cargo.idCargo}"/>
@@ -42,9 +43,9 @@
                         <div class="form-group">
 
                             <h:outputLabel for="horario" value="#{usuariosEti.horario}"/>
-                            <h:selectOneMenu id="horario" value="#{usuarioController.horariotrabajo.idHorarioTrabajo}" styleClass="form form-control">
+                            <h:selectOneMenu id="horario" value="#{empleadoController.horariotrabajo.idHorarioTrabajo}" styleClass="form form-control">
                                 <f:selectItem itemValue="0" noSelectionOption="true" itemLabel="#{universEti.seleccionar}"/>
-                                <f:selectItems value="#{usuarioController.listHorario}" 
+                                <f:selectItems value="#{empleadoController.listHorario}" 
                                                var="horario"
                                                itemLabel="#{horario.horaInicio.hours} - #{horario.horaFin.hours}"
                                                itemValue="#{horario.idHorarioTrabajo}"/>
@@ -53,9 +54,9 @@
 
                         <div class="form-group">
                             <h:outputLabel for="diad" value="#{usuariosEti.diad}"/>
-                            <h:selectOneMenu id="diad" value="#{usuarioController.diadescanso.idDiaDescanso}" styleClass="form form-control">
+                            <h:selectOneMenu id="diad" value="#{empleadoController.diadescanso.idDiaDescanso}" styleClass="form form-control">
                                 <f:selectItem itemValue="0" noSelectionOption="true" itemLabel="#{universEti.seleccionar}"/>
-                                <f:selectItems value="#{usuarioController.listDiaD}" 
+                                <f:selectItems value="#{empleadoController.listDiaD}" 
                                                var="diad"
                                                itemLabel="#{diad.dia}"
                                                itemValue="#{diad.idDiaDescanso}"/>
@@ -63,7 +64,7 @@
                         </div>
 
                         <div class="text-center">
-                            <h:commandButton action="#{usuarioController.asignarRol(usuarioController.usuario.idUsuario)}" class="btn boton" value="#{usuariosEti.enviar}"/>
+                            <h:commandButton action="#{empleadoController.asignarRol(usuarioController.cliente)}" class="btn boton" value="#{usuariosEti.enviar}"/>
                         </div>
 
                     </h:form>

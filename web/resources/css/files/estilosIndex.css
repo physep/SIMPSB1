@@ -13,6 +13,9 @@
     background-color: #D4AF37;
     color: #000;
 }
+.ancho{
+    width: 398px;
+}
 .fondo{
     background-image: url('../../img/fondo.jpg');
     background-size: 100% 100%;

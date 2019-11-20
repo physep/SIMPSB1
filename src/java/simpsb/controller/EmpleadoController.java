@@ -13,39 +13,55 @@ import simpsb.entidades.*;
 @Named
 @RequestScoped
 public class EmpleadoController {
+
     @EJB
     private UsuarioFacadeLocal usuarioFacadeLocal;
-    private Usuario usuario;
-    
     @EJB
     private CargosFacadeLocal cargosFacadeLocal;
-    private Cargos cargos;
-    private List<Cargos> listCargos;
-
     @EJB
     private EmpleadoFacadeLocal empleadoFacadeLocal;
-    private Empleado empleado;
-
     @EJB
     private HorariotrabajoFacadeLocal horariotrabajoFacadeLocal;
-    private Horariotrabajo horariotrabajo;
-    private List<Horariotrabajo> listHorario;
-
+    @EJB
+    private RolesFacadeLocal rolesFacadeLocal;
     @EJB
     private DiadescansoFacadeLocal diadescansoFacadeLocal;
-    private Diadescanso diadescanso;
-    private List<Diadescanso> listDiaD;
+    @EJB
+    private ClienteFacadeLocal clienteFacadeLocal;
     
+    private Usuario usuario;
+    private Cargos cargos;
+    private Empleado empleado;
+    private Roles roles;
+    private Horariotrabajo horariotrabajo;
+    private Diadescanso diadescanso;
+    private Cliente cliente;
+
+    //LISTAS
+    private List<Cargos> listCargos;
+    private List<Horariotrabajo> listHorario;
+    private List<Diadescanso> listDiaD;
+
     @PostConstruct
-    public void init(){
+    public void init() {
         empleado = new Empleado();
         cargos = new Cargos();
         diadescanso = new Diadescanso();
         horariotrabajo = new Horariotrabajo();
         usuario = new Usuario();
+        roles = new Roles();
+        cliente = new Cliente();
         listDiaD = diadescansoFacadeLocal.findAll();
         listCargos = cargosFacadeLocal.findAll();
         listHorario = horariotrabajoFacadeLocal.findAll();
+    }
+
+    public Roles getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Roles roles) {
+        this.roles = roles;
     }
 
     public Usuario getUsuario() {
@@ -55,7 +71,7 @@ public class EmpleadoController {
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
-    
+
     public Diadescanso getDiadescanso() {
         return diadescanso;
     }
@@ -88,6 +104,14 @@ public class EmpleadoController {
         this.listHorario = listHorario;
     }
 
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+    
     public Empleado getEmpleado() {
         return empleado;
     }
@@ -112,22 +136,39 @@ public class EmpleadoController {
         this.listCargos = listCargos;
     }
 
-     public void asignarRol(Object idUsuario) {
-         Empleado emp = null;
-         Usuario us = null;
+    public String consultarRol(Usuario user) {
         try {
-            us = usuarioFacadeLocal.find(emp.getIdUsuario());
-            empleado.setIdUsuario(us);
+            usuario = usuarioFacadeLocal.find(user.getIdUsuario());
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Funciona correcto"));
+        } catch (Exception e) {
+            e.printStackTrace();
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Error", "Ha ocurrido un error"));
+        }
+        return "asignarRol";
+    }
+
+    public void asignarRol(Cliente cl) {
+        try {
+            //Asigno todos los valores del empleado y lo creo
+            usuario = usuarioFacadeLocal.find(usuario.getIdUsuario());
+            empleado.setIdUsuario(usuario);
             empleado.setIdCargo(cargos);
             empleado.setIdDiaDescanso(diadescanso);
             empleado.setIdHorarioTrabajo(horariotrabajo);
             empleadoFacadeLocal.create(empleado);
+            //Cambio el rol en la tabla usuario
+            roles.setIdRol(2);
+            usuario.setIdRol(roles);
+            usuarioFacadeLocal.edit(usuario);
+            //Elimino el cliente
+            clienteFacadeLocal.remove(cl);
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Se ha asignado correctamente el rol"));
+            FacesContext.getCurrentInstance().getExternalContext().redirect("consultarUsuario.xhtml");
         } catch (Exception e) {
             e.printStackTrace();
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Error", "Ha ocurrido un error"));
 
         }
     }
-}
 
+}

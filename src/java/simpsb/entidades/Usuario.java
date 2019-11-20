@@ -6,7 +6,6 @@
 package simpsb.entidades;
 
 import java.io.Serializable;
-import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -17,12 +16,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -30,7 +26,6 @@ import javax.xml.bind.annotation.XmlTransient;
  */
 @Entity
 @Table(name = "usuario")
-@XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Usuario.findAll", query = "SELECT u FROM Usuario u")
     , @NamedQuery(name = "Usuario.findByIdUsuario", query = "SELECT u FROM Usuario u WHERE u.idUsuario = :idUsuario")
@@ -61,12 +56,6 @@ public class Usuario implements Serializable {
     @Basic(optional = false)
     @Column(name = "pass")
     private String pass;
-    @OneToMany(mappedBy = "idUsuario")
-    private List<Cliente> clienteList;
-    @OneToMany(mappedBy = "idUsuario")
-    private List<Empleado> empleadoList;
-    @OneToMany(mappedBy = "idUsuario")
-    private List<Fotosperfil> fotosperfilList;
     @JoinColumn(name = "idRol", referencedColumnName = "idRol")
     @ManyToOne
     private Roles idRol;
@@ -137,33 +126,6 @@ public class Usuario implements Serializable {
 
     public void setPass(String pass) {
         this.pass = pass;
-    }
-
-    @XmlTransient
-    public List<Cliente> getClienteList() {
-        return clienteList;
-    }
-
-    public void setClienteList(List<Cliente> clienteList) {
-        this.clienteList = clienteList;
-    }
-
-    @XmlTransient
-    public List<Empleado> getEmpleadoList() {
-        return empleadoList;
-    }
-
-    public void setEmpleadoList(List<Empleado> empleadoList) {
-        this.empleadoList = empleadoList;
-    }
-
-    @XmlTransient
-    public List<Fotosperfil> getFotosperfilList() {
-        return fotosperfilList;
-    }
-
-    public void setFotosperfilList(List<Fotosperfil> fotosperfilList) {
-        this.fotosperfilList = fotosperfilList;
     }
 
     public Roles getIdRol() {

@@ -23,7 +23,6 @@
                             <h:inputText id="correo" styleClass="form-control form" value="#{mailController.destinatario}"/>
                             <h:message for="correo"/>
                         </div>
-                        <h:inputHidden value="#{mailController.destinatario}"/>
                         <div class="text-center">
                             <h:commandButton action="#{mailController.recuperacionContra()}" class="btn boton" value="#{universEti.enviar}"/>
                         </div>

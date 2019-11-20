@@ -43,18 +43,19 @@
                     </div>
 
                     <h:form>
+                        <p>olas #{session.getValue("user").getNombre()}</p>    
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <h:outputLabel for="fecha" value="#{citasEti.fecha}"/>
                                 <h:inputText id="fecha" styleClass="form form-control" a:type="date" 
-                                             value="#{citasController.citas.fecha}"> 
+                                             value="#{citasController.citas.fecha}" a:min="#{citasController.año}-#{citasController.mes}-#{citasController.dia}"> 
                                     <f:convertDateTime for="fecha" type="date" pattern="yyyy-MM-dd"></f:convertDateTime>
                                 </h:inputText>
                                 <h:message for="fecha"/>
                             </div>
                             <div class="form-group col-md-6">
                                 <h:outputLabel for="hora" value="#{citasEti.hora}"/>
-                                <h:inputText id="hora" styleClass="form form-control" a:type="time" 
+                                <h:inputText id="hora" styleClass="form form-control" a:type="time" a:min=""
                                              value="#{citasController.citas.hora}">
                                     <f:convertDateTime dateStyle="full" pattern="HH:mm"></f:convertDateTime>
                                 </h:inputText>

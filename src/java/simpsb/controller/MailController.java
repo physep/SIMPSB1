@@ -25,6 +25,22 @@ public class MailController {
     String asunto = "Recuperación de contraseña";
     String destinatario = "";
     String mensaje = "";
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public Mailer getMailer() {
+        return mailer;
+    }
+
+    public void setMailer(Mailer mailer) {
+        this.mailer = mailer;
+    }
     
     public String getAsunto() {
         return asunto;
@@ -57,9 +73,10 @@ public class MailController {
         String newPass = "";
 
         //Busco el usuario
-        user = usuarioFacadeLocal.find(usuario.getIdUsuario());
+        user = usuarioFacadeLocal.find(usuario.getCorreo());
+         
         //Verifico que el usuario exista
-        if (user != null) {
+        if (user.equals(destinatario)) {
             //Creo la nueva contraseña    
             int a;
             for (int i = 0; i < 7; i++) {

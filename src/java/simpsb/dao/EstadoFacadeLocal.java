@@ -7,29 +7,27 @@ package simpsb.dao;
 
 import java.util.List;
 import javax.ejb.Local;
-import simpsb.entidades.Usuario;
+import simpsb.entidades.Estado;
 
 /**
  *
  * @author SebastianParra
  */
 @Local
-public interface UsuarioFacadeLocal {
+public interface EstadoFacadeLocal {
 
-    void create(Usuario usuario);
+    void create(Estado estado);
 
-    void edit(Usuario usuario);
+    void edit(Estado estado);
 
-    void remove(Usuario usuario);
+    void remove(Estado estado);
 
-    Usuario find(Object id);
+    Estado find(Object id);
 
-    List<Usuario> findAll();
+    List<Estado> findAll();
 
-    List<Usuario> findRange(int[] range);
+    List<Estado> findRange(int[] range);
 
     int count();
-    
-    Usuario login(Usuario user);
     
 }

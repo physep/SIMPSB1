@@ -103,6 +103,12 @@ and open the template in the editor.
                                     </h:column>
 
                                     <h:column>
+                                        <f:facet name="header">Estado</f:facet>
+                                        <h:outputText id="estado" value="#{cita.estadoFK.estado}"/>
+                                        <h:message for="estado"/>
+                                    </h:column>
+                                    
+                                    <h:column>
                                         <f:facet name="header">#{universEti.acciones}</f:facet>
                                         <h:commandButton class="btn btn-warning" action="#{citasController.consultarCita(cita)}" value="#{universEti.modificar}"/>
                                         <h:commandButton class="btn btn-danger" 

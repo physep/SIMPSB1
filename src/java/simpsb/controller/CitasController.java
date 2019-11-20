@@ -1,6 +1,7 @@
 package simpsb.controller;
 
-import java.util.List;
+import java.text.SimpleDateFormat;
+import java.util.*;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
@@ -22,15 +23,17 @@ public class CitasController {
     private EmpleadoFacadeLocal empleadoFacadeLocal;
     @EJB
     private UsuarioFacadeLocal usuarioFacadeLocal;
-
     @EJB
     private ClienteFacadeLocal clienteFacadeLocal;
+    @EJB
+    private EstadoFacadeLocal estadoFacadeLocal;
 
     private Citas citas;
     private Empleado empleado;
     private Servicios servicios;
     private Usuario usuario;
     private Cliente cliente;
+    private Estado estado;
 
     private List<Servicios> listServicios;
     private List<Empleado> listEmpleados;
@@ -40,8 +43,19 @@ public class CitasController {
         citas = new Citas();
         servicios = new Servicios();
         empleado = new Empleado();
+        estado = new Estado();
         listServicios = serviciosFacadeLocal.findAll();
         listEmpleados = empleadoFacadeLocal.findAll();
+        validarEstado();
+    }
+
+    //GETTERS Y SETTERS CONTROLADOR
+    public Estado getEstado() {
+        return estado;
+    }
+
+    public void setEstado(Estado estado) {
+        this.estado = estado;
     }
 
     public Citas getCitas() {
@@ -92,15 +106,48 @@ public class CitasController {
         this.listEmpleados = listEmpleados;
     }
 
+    //FECHAS 
+    Calendar fecha = Calendar.getInstance();
+    int dia = fecha.get(Calendar.DATE);
+    int mes = fecha.get(Calendar.MONTH)+1;
+    int año = fecha.get(Calendar.YEAR);
+
+    //GETTERS Y SETTERS FECHA
+    public int getDia() {
+        return dia;
+    }
+
+    public void setDia(int dia) {
+        this.dia = dia;
+    }
+
+    public int getMes() {
+        return mes;
+    }
+
+    public void setMes(int mes) {
+        this.mes = mes;
+    }
+
+    public int getAño() {
+        return año;
+    }
+
+    public void setAño(int año) {
+        this.año = año;
+    }
+
     public void generarCita() {
-        Usuario us = null;
-        Cliente cl = null;
+        Usuario user = null;
+//        Cliente cl = null;
         try {
-            us = (Usuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("user");
-            cl = clienteFacadeLocal.find(us.getIdUsuario());
-            citas.setIdCliente(cl);
+            user = (Usuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("user");
+//            cl = clienteFacadeLocal.find(us.getIdUsuario());
+//            citas.setIdCliente(cl);
             citas.setIdEmpleado(empleado);
             citas.setIdServicio(servicios);
+            estado.setIdEstado(3);
+            citas.setEstadoFK(estado);
             citasFacadeLocal.create(citas);
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Se ha generado exitosamente la cita"));
             FacesContext.getCurrentInstance().getExternalContext().redirect("consultarCita.xhtml");
@@ -138,6 +185,7 @@ public class CitasController {
 
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Correcto"));
         } catch (Exception e) {
+            e.printStackTrace();
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Error", "Ha ocurrido un error al modificar su cita"));
         }
         return "modificarCita";
@@ -157,4 +205,44 @@ public class CitasController {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Error", "Ha ocurrido un error al modificar su cita"));
         }
     }
+
+    //METODO PARA VALIDAR EL ESTADO DE LA CITA
+    private void validarEstado() {
+        try {
+            //CREO UNA LISTA PARA TRAER TODAS LAS FECHAS
+
+            List<Citas> listaCitas = null;
+            listaCitas = citasFacadeLocal.findAll();
+
+            //CONVIERTO LAS FECHAS A STRING
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
+
+            for (Citas ct : listaCitas) {
+                String fechaString = sdf.format(ct.getFecha());
+                String fechaActual = sdf.format(new Date());
+                //CONVIERTO LAS FECHAS A INT PARA PODER COMPARARLAS
+                int fechaInt = Integer.parseInt(fechaString);
+                int fechaActualInt = Integer.parseInt(fechaActual);
+                //VERIFICO QUE LA LISTA DE LAS CITAS NO ESTÉ VACIA
+                if (listaCitas != null) {
+                    //HAGO UNA CONDICION PARA CAMBIAR EL ESTADO DE LA CITA A VENCIDA
+                    if (fechaInt < fechaActualInt) {
+                        estado.setIdEstado(2);
+                        ct.setEstadoFK(estado);
+                        citasFacadeLocal.edit(ct);
+                    }
+                }
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Error", "La lista de citas esta vacia"));
+        }
+    }
+
+    //MÉTODOS ESPECIALES PARA EL PERFIL CLIENTE
+    public void listarCitasCl() {
+
+    }
+
 }

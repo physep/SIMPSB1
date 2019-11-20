@@ -3,16 +3,15 @@ package simpsb.controller;
 import java.io.Serializable;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
+import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
-import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 import simpsb.dao.*;
 import simpsb.entidades.*;
-import simpsb.controller.*;
 
 @Named
-@ViewScoped
+@SessionScoped
 public class SesionController implements Serializable {
 
     @EJB
@@ -33,11 +32,12 @@ public class SesionController implements Serializable {
     }
 
     public String iniciarSesion() {
+        Usuario u = null;
         String url = null;
-        Usuario u;
         try {
             u = usuarioFacadeLocal.login(usuario);
             if (u != null) {
+                FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("user", u);
                 String rol = u.getIdRol().getRol();
                 switch (rol) {
                     case "Cliente":
@@ -51,7 +51,8 @@ public class SesionController implements Serializable {
                         break;
                     default:
                 }
-                FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("user", u);
+            } else {
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Error", "Credenciales incorrectas"));
             }
         } catch (Exception e) {
             e.printStackTrace();

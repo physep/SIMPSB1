@@ -6,6 +6,7 @@
 package simpsb.entidades;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,6 +17,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -36,6 +38,9 @@ import javax.validation.constraints.Size;
     , @NamedQuery(name = "Usuario.findByCorreo", query = "SELECT u FROM Usuario u WHERE u.correo = :correo")
     , @NamedQuery(name = "Usuario.findByPass", query = "SELECT u FROM Usuario u WHERE u.pass = :pass")})
 public class Usuario implements Serializable {
+
+    @OneToMany(mappedBy = "idUsuario")
+    private List<Fotosperfil> fotosperfilList;
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -159,6 +164,14 @@ public class Usuario implements Serializable {
     @Override
     public String toString() {
         return "simpsb.entidades.Usuario[ idUsuario=" + idUsuario + " ]";
+    }
+
+    public List<Fotosperfil> getFotosperfilList() {
+        return fotosperfilList;
+    }
+
+    public void setFotosperfilList(List<Fotosperfil> fotosperfilList) {
+        this.fotosperfilList = fotosperfilList;
     }
     
 }

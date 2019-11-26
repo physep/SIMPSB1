@@ -27,7 +27,9 @@ import javax.validation.constraints.Size;
 @NamedQueries({
     @NamedQuery(name = "Fotosperfil.findAll", query = "SELECT f FROM Fotosperfil f")
     , @NamedQuery(name = "Fotosperfil.findByIdFoto", query = "SELECT f FROM Fotosperfil f WHERE f.idFoto = :idFoto")
-    , @NamedQuery(name = "Fotosperfil.findByFoto", query = "SELECT f FROM Fotosperfil f WHERE f.foto = :foto")})
+    , @NamedQuery(name = "Fotosperfil.findByFoto", query = "SELECT f FROM Fotosperfil f WHERE f.foto = :foto")
+    , @NamedQuery(name = "Fotosperfil.findByRuta", query = "SELECT f FROM Fotosperfil f WHERE f.ruta = :ruta")
+    , @NamedQuery(name = "Fotosperfil.findByTipo", query = "SELECT f FROM Fotosperfil f WHERE f.tipo = :tipo")})
 public class Fotosperfil implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -38,6 +40,10 @@ public class Fotosperfil implements Serializable {
     private Integer idFoto;
     @Column(name = "foto")
     private String foto;
+    @Column(name = "ruta")
+    private String ruta;
+    @Column(name = "tipo")
+    private String tipo;
     @JoinColumn(name = "idUsuario", referencedColumnName = "idUsuario")
     @ManyToOne
     private Usuario idUsuario;
@@ -63,6 +69,22 @@ public class Fotosperfil implements Serializable {
 
     public void setFoto(String foto) {
         this.foto = foto;
+    }
+
+    public String getRuta() {
+        return ruta;
+    }
+
+    public void setRuta(String ruta) {
+        this.ruta = ruta;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 
     public Usuario getIdUsuario() {

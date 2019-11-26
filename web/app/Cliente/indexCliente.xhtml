@@ -1,0 +1,149 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+    <h:head>
+        <title>Supervisor</title>
+        <link href="../../resources/css/Bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../estilos-perfiles.css" rel="stylesheet" type="text/css"/>
+
+    </h:head>
+
+    <h:body class="fondo">
+        <f:view locale="#{languages.idiomaSeleccionado}">
+            <!-- SIDEBAR -->
+            <div class="col-2 sidebar float-left">
+                <div class="perfil">
+                    <p class="text-center text-uppercase">Supervisor</p>
+                    <img src="../resources/img/perfil.png" alt=""/>
+                    <p class="text-center text-uppercase">#{session.getValue("user").getNombre()} #{session.getValue("user").getApellido()}</p>
+                </div>
+                <div class="modulos">
+                    <h:form>
+                        <!-- HOME -->
+                        <div class="modulo d-block mx-auto">
+                            <img class="float-left" src="../resources/img/icono_home.png" alt=""/>
+                            <h4>
+                                <a href="../Principal/principalSupervisor.xhtml" target="area-trabajo">HOME</a>
+                            </h4>
+                        </div>
+
+                        <!-- FACTURACIÓN -->
+                        <div class="modulo d-block mx-auto">
+                            <img class="float-left" src="../resources/img/icono_facturacion.png" alt=""/>
+                            <h5>
+                                <a href="#">#{perfilEti.Facturacion}</a>
+                            </h5>
+                            <p>
+                                <a href="Facturacion/crearFactura.xhtml" target="area-trabajo">#{perfilEti.crearFactura}</a>
+                            </p>
+                            <p>
+                                <a href="Facturacion/consultarFactura.xhtml" target="area-trabajo">#{perfilEti.consultarFactura}</a>
+                            </p>
+                        </div> 
+                        <!-- SERVICIOS -->
+                        <div class="modulo d-block mx-auto">
+                            <img class="float-left" src="../resources/img/icono_servicios.png" alt=""/>
+                            <h5>
+                                <a href="#">#{perfilEti.Servicios}</a>
+                            </h5>
+                            <p>
+                                <a href="Servicios/crearServicio.xhtml?faces-redirect=true" target="area-trabajo">#{perfilEti.crearServicios}</a>
+                            </p>
+                            <p>
+                                <a href="Servicios/consultarServicio.xhtml?faces-redirect=true" target="area-trabajo">#{perfilEti.consultarServicios}</a>
+                            </p>
+                        </div>
+                        <!-- CITAS -->
+                        <div class="modulo d-block mx-auto">
+                            <img class="float-left" src="../resources/img/icono_citas.png" alt=""/>
+                            <h5>
+                                <a href="#">#{perfilEti.Citas}</a>
+                            </h5>
+                            <p>
+                                <a href="Citas/agendarCita.xhtml" target="area-trabajo">#{perfilEti.agendarCita}</a>
+                            </p>
+                            <p>
+                                <a href="Citas/consultarCita.xhtml?faces-redirect=true" target="area-trabajo">#{perfilEti.consultarCita}</a>
+                            </p>
+                        </div>
+                        <!-- HORARIOS -->
+                        <div class="modulo d-block mx-auto">
+                            <img class="float-left" src="../resources/img/icono_horarios.png" alt=""/>
+                            <h5>
+                                <a href="#">#{perfilEti.Horarios}</a>
+                            </h5>
+                            <p>
+                                <a href="Horarios/crearHorario.xhtml?faces-redirect=true" target="area-trabajo">#{perfilEti.crearHorarios}</a>
+                            </p>
+                            <p>
+                                <a href="Horarios/consultarHorario.xhtml?faces-redirect=true" target="area-trabajo">#{perfilEti.consultarHorarios}</a>
+                            </p>
+                        </div>
+                        <!-- PAGOS -->
+                        <div class="modulo d-block mx-auto">
+                            <img class="float-left" src="../resources/img/icono_pagos.png" alt=""/>
+                            <h5><a href="#">#{perfilEti.Pagos}</a></h5>
+                            <p><a href="Pagos/generarPago.xhtml?faces-redirect=true" target="area-trabajo">#{perfilEti.generarPagos}</a></p>
+                            <p><a href="Pagos/consultarPago.xhtml?faces-redirect=true" target="area-trabajo">#{perfilEti.consultarPagos}</a></p>
+                        </div>
+                        <!-- USUARIOS -->
+                        <div class="modulo d-block mx-auto">
+                            <img class="float-left" src="../resources/img/icono-usuarios.png" alt=""/>
+                            <h5><a href="#">#{perfilEti.usuarios}</a></h5>
+                            <p><a href="Usuarios/consultarUsuario.xhtml?faces-redirect=true" target="area-trabajo">#{perfilEti.consultarUsuarios}</a></p>
+                            <p><a href="Usuarios/crearUsuario.xhtml?faces-redirect=true" target="area-trabajo">#{perfilEti.registrarUsuario}</a></p>
+                        </div>
+
+                        <!-- REPORTES -->
+                        <div class="modulo d-block mx-auto">
+                            <img class="float-left" src="../resources/img/icono_reportes.png" alt=""/>
+                            <h4>
+                                <a href="../Error/404.xhtml?faces-redirect=true" target="area-trabajo">#{perfilEti.Reportes}</a>
+                            </h4>
+                        </div>
+                    </h:form>
+                </div>
+            </div>
+            <!-- AREA DE TRABAJO -->
+            <div class="col-10 derecho float-right">
+                <nav class="navbarra float-right col-12">
+                    <div class="row">
+                        <div class="col-6 logo">
+                            <p><img src="../resources/img/logo.png" alt=""/></p>
+                        </div>
+                        <div class="col-3"></div>
+                        <div class="col-3 config">
+                            <ul>
+                                <li>
+                                    <a href="#"><img src="../resources/img/config.png" alt=""/></a>
+                                    <ul>
+                                        <li>
+                                            <img src="../resources/img/ajustes.png" alt=""/><a class="text-left" href="../Error/404.xhtml?faces-redirect=true">#{perfilEti.configuracion}</a>
+                                        </li>
+                                        <li>
+                                            <img src="../resources/img/alarma.png" alt=""/><a class="text-left" href="../Error/404.xhtml?faces-redirect=true" target="area-trabajo">#{perfilEti.notificaciones}</a>
+                                        </li>
+                                        <li>	
+                                            <img src="../resources/img/logout.png" alt=""/><a class="text-left" href="#{sesionController.logout()}">#{perfilEti.cerrarSesion}</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <div class="cargado">
+                    <iframe name="area-trabajo" src="Principal/principalSupervisor.xhtml?faces-redirect=true" ></iframe>
+                </div>
+            </div>
+        </f:view>
+    </h:body>
+
+    <!-- SCRIPTS -->
+    <script src="../../resources/js/Bootstrap/jquery-3.3.1.slim.min.js" type="text/javascript"></script>
+    <script src="../../resources/js/Bootstrap/popper.min.js" type="text/javascript"></script>
+    <script src="../../resources/js/Bootstrap/bootstrap.min.js" type="text/javascript"></script>
+</html>

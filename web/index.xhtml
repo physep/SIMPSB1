@@ -7,12 +7,12 @@
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
         <title>VIP Peluqueria's</title>
-        <link href="resources/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-        <link href="resources/css/files/estilosIndex.css" rel="stylesheet" type="text/css"/>
-        <link href="resources/css/mdb.min.css" rel="stylesheet" type="text/css"/>
+        <link href="resources/css/Bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="resources/css/Index/estilosIndex.css" rel="stylesheet" type="text/css"/>
+        <link href="resources/css/Otros/mdb.min.css" rel="stylesheet" type="text/css"/>
         <link rel="shortcut icon" href="resources/img/shortcut-logo.png"/>
         <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" type="text/css"/>
-        <script src="resources/js/font-awesome.js" type="text/javascript"></script>
+        <script src="resources/js/Otros/font-awesome.js" type="text/javascript"></script>
     </h:head>
     <h:body styleClass="fondo">
         <f:view locale="es">
@@ -36,14 +36,15 @@
                                     <span></span>
                                 </button>
                             </a>
-                            <div class="dropdown-menu text-center" aria-labelledby="navbarDropdown">
+                            <div class="dropdown-menu text-center">
                                 <a href="#header" class="text-center nav-link text-uppercase">#{indexEti.menu_inicio}</a> 
                                 <a href="#servicios" class="text-center nav-link text-uppercase">#{indexEti.menu_servicios}</a> 
                                 <a href="#citas" class="text-center nav-link text-uppercase">#{indexEti.menu_citas}</a> 
                                 <a href="#quienes-somos" class="text-center nav-link text-uppercase">#{indexEti.menu_quienessomos}</a> 
                                 <a href="#equipo" class="text-center nav-link text-uppercase">#{indexEti.menu_equipo}</a> 
                                 <a href="#ubicacion" class="text-center nav-link text-uppercase">#{indexEti.menu_ubicacion}</a> 
-                                <a data-toggle="modal" data-target="#contactenos" class="text-center nav-link text-uppercase">#{indexEti.menu_contactenos}</a> 
+                                <a href="#" data-toggle="modal" data-target="#exampleModal" class="text-center nav-link text-uppercase">#{indexEti.menu_contactenos}</a> 
+                                <a href="#"  data-toggle="modal" data-target="#exampleModalLong">#{indexEti.btn_conocemas}</a>
                                 <a class="text-center nav-link text-uppercase" id="ingreso">#{indexEti.menu_ingreso} <i class="fas fa-chevron-down"></i></a>
                                 <ul id="login" class="ingreso"> 
                                     <h:form>
@@ -51,7 +52,7 @@
                                             <h:commandLink action="app/login?faces-redirect=true" class="text-center nav-link text-uppercase mx-auto" value="#{indexEti.login}"/>
                                         </li>
                                         <li class="nav-item ancho">
-                                            <h:commandLink action="app/registro?faces-redirect=true" class="text-center nav-link text-uppercase mx-auto" value="#{indexEti.registrar}"/>
+                                            <h:commandLink action="app/Index/registro?faces-redirect=true" class="text-center nav-link text-uppercase mx-auto" value="#{indexEti.registrar}"/>
                                         </li>
                                     </h:form>
                                 </ul>
@@ -59,7 +60,26 @@
                         </div> 
                     </div> 
                 </nav>
-
+<!--  MODAL CONTACTENOS -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true"></span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
                 <!--  ENCABEZADO -->
                 <div class="fondo-header" id="header">
                     <div class="container content">
@@ -227,11 +247,11 @@
                                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, sint?
                                     </p>
                                     <p>#{indexEti.calificacion}</p>
-                                    <p><img src="SI/resources/img/estrella.png" alt=""/>  
-                                        <img src="SI/resources/img/estrella.png" alt=""/>  
-                                        <img src="SI/resources/img/estrella.png" alt=""/>  
-                                        <img src="SI/resources/img/estrella.png" alt=""/>  
-                                        <img src="SI/resources/img/estrella_vacio.png" alt=""/></p>
+                                    <p><img src="resources/img/estrella.png" alt=""/>  
+                                        <img src="resources/img/estrella.png" alt=""/>  
+                                        <img src="resources/img/estrella.png" alt=""/>  
+                                        <img src="resources/img/estrella.png" alt=""/>  
+                                        <img src="resources/img/estrella_vacio.png" alt=""/></p>
                                 </div>
                             </div>
                         </div>
@@ -245,11 +265,11 @@
                                     <h3>CAMILO</h3>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, sint?</p>
                                     <p>#{indexEti.calificacion}</p>
-                                    <p> <img src="SI/resources/img/estrella.png" alt=""/>  
-                                        <img src="SI/resources/img/estrella.png" alt=""/>  
-                                        <img src="SI/resources/img/estrella.png" alt=""/>  
-                                        <img src="SI/resources/img/estrella_vacio.png" alt=""/>  
-                                        <img src="SI/resources/img/estrella_vacio.png" alt=""/></p>
+                                    <p> <img src="resources/img/estrella.png" alt=""/>  
+                                        <img src="resources/img/estrella.png" alt=""/>  
+                                        <img src="resources/img/estrella.png" alt=""/>  
+                                        <img src="resources/img/estrella_vacio.png" alt=""/>  
+                                        <img src="resources/img/estrella_vacio.png" alt=""/></p>
                                 </div>
                             </div>
                         </div>
@@ -263,11 +283,11 @@
                                     <h3>LUCIA</h3>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, sint?</p>
                                     <p>#{indexEti.calificacion}</p>
-                                    <p><img src="SI/resources/img/estrella.png" alt=""/>  
-                                        <img src="SI/resources/img/estrella.png" alt=""/>  
-                                        <img src="SI/resources/img/estrella.png" alt=""/>  
-                                        <img src="SI/resources/img/estrella.png" alt=""/>  
-                                        <img src="SI/resources/img/estrella.png" alt=""/></p>
+                                    <p><img src="resources/img/estrella.png" alt=""/>  
+                                        <img src="resources/img/estrella.png" alt=""/>  
+                                        <img src="resources/img/estrella.png" alt=""/>  
+                                        <img src="resources/img/estrella.png" alt=""/>  
+                                        <img src="resources/img/estrella.png" alt=""/></p>
                                 </div>
                             </div>
                         </div>
@@ -283,11 +303,11 @@
                                     <h3>ANDRÉS</h3>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, sint?</p>
                                     <p>#{indexEti.calificacion}</p>
-                                    <p><img src="SI/resources/img/estrella.png" alt=""/>  
-                                        <img src="SI/resources/img/estrella.png" alt=""/>  
-                                        <img src="SI/resources/img/estrella_vacio.png" alt=""/>  
-                                        <img src="SI/resources/img/estrella_vacio.png" alt=""/>  
-                                        <img src="SI/resources/img/estrella_vacio.png" alt=""/></p>
+                                    <p><img src="resources/img/estrella.png" alt=""/>  
+                                        <img src="resources/img/estrella.png" alt=""/>  
+                                        <img src="resources/img/estrella_vacio.png" alt=""/>  
+                                        <img src="resources/img/estrella_vacio.png" alt=""/>  
+                                        <img src="resources/img/estrella_vacio.png" alt=""/></p>
                                 </div>
                             </div>
                         </div>
@@ -301,11 +321,11 @@
                                     <h3>PAOLA</h3>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, sint?</p>
                                     <p>#{indexEti.calificacion}</p>
-                                    <p><img src="SI/resources/img/estrella.png" alt=""/>  
-                                        <img src="SI/resources/img/estrella_vacio.png" alt=""/>  
-                                        <img src="SI/resources/img/estrella_vacio.png" alt=""/>  
-                                        <img src="SI/resources/img/estrella_vacio.png" alt=""/>  
-                                        <img src="SI/resources/img/estrella_vacio.png" alt=""/>  
+                                    <p><img src="resources/img/estrella.png" alt=""/>  
+                                        <img src="resources/img/estrella_vacio.png" alt=""/>  
+                                        <img src="resources/img/estrella_vacio.png" alt=""/>  
+                                        <img src="resources/img/estrella_vacio.png" alt=""/>  
+                                        <img src="resources/img/estrella_vacio.png" alt=""/>  
                                     </p>
                                 </div>
                             </div>
@@ -320,11 +340,11 @@
                                     <h3>RONALD</h3>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, sint?</p>
                                     <p>#{indexEti.calificacion}</p>
-                                    <p><img src="SI/resources/img/estrella.png" alt=""/>  
-                                        <img src="SI/resources/img/estrella.png" alt=""/>  
-                                        <img src="SI/resources/img/estrella_vacio.png" alt=""/>  
-                                        <img src="SI/resources/img/estrella_vacio.png" alt=""/>  
-                                        <img src="SI/resources/img/estrella_vacio.png" alt=""/></p>
+                                    <p><img src="resources/img/estrella.png" alt=""/>  
+                                        <img src="resources/img/estrella.png" alt=""/>  
+                                        <img src="resources/img/estrella_vacio.png" alt=""/>  
+                                        <img src="resources/img/estrella_vacio.png" alt=""/>  
+                                        <img src="resources/img/estrella_vacio.png" alt=""/></p>
                                 </div>
                             </div>
                         </div>
@@ -421,15 +441,18 @@
 
 
             <!-- SCRIPTS -->
-            <script src="resources/js/jquery-3.3.1.slim.min.js" type="text/javascript"></script>
-            <script src="resources/js/popper.min.js" type="text/javascript"></script>
-            <script src="resources/js/bootstrap.min.js" type="text/javascript"></script>
+            <!-- BOOTSTRAP -->
+            <script src="resources/js/Bootstrap/jquery-3.3.1.slim.min.js" type="text/javascript"></script>
+            <script src="resources/js/Bootstrap/popper.min.js" type="text/javascript"></script>
+            <script src="resources/js/Bootstrap/bootstrap.min.js" type="text/javascript"></script>
+            <!-- OTROS -->
             <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8" type="text/javascript"></script>
             <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" type="text/javascript"></script>
-            <script src="resources/js/scroll-bar.js" type="text/javascript"></script>
-            <script src="resources/js/menu.js" type="text/javascript"></script>
-            <script src="resources/js/aos-init.js" type="text/javascript"></script>
-            <script src="resources/js/mostrar-ingreso.js" type="text/javascript"></script>
+            <!-- PROPIOS -->
+            <script src="resources/js/JSPropios/scroll-bar.js" type="text/javascript"></script>
+            <script src="resources/js/JSPropios/menu.js" type="text/javascript"></script>
+            <script src="resources/js/Otros/aos-init.js" type="text/javascript"></script>
+            <script src="resources/js/JSPropios/mostrar-ingreso.js" type="text/javascript"></script>
 
         </f:view>
     </h:body>

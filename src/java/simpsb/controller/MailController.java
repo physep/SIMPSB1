@@ -70,13 +70,17 @@ public class MailController {
         //Creo las variables 
         
         Usuario user = null;
+        String usere;
         String newPass = "";
 
         //Busco el usuario
-        user = usuarioFacadeLocal.find(usuario.getCorreo());
+        usuario.getNumDocumento();
+        
+        user = usuarioFacadeLocal.find(usuario.getIdUsuario());
+        usere = user.getCorreo();
          
         //Verifico que el usuario exista
-        if (user.equals(destinatario)) {
+        if (usere.equals(destinatario)) {
             //Creo la nueva contraseña    
             int a;
             for (int i = 0; i < 7; i++) {
@@ -122,7 +126,7 @@ public class MailController {
                     + "</div>"
                     + "</body>\n";
             this.setMensaje(text);
-            this.setDestinatario(usuario.getCorreo());
+            this.setDestinatario(destinatario);
             //Envio el correo
             mailer.send();
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Aviso", "Se envio la contraseña a su correo"));

@@ -9,6 +9,7 @@ import javax.faces.context.FacesContext;
 import javax.inject.Named;
 import simpsb.dao.*;
 import simpsb.entidades.*;
+import simpsb.controller.*;
 
 @Named
 @SessionScoped
@@ -37,17 +38,17 @@ public class SesionController implements Serializable {
         try {
             u = usuarioFacadeLocal.login(usuario);
             if (u != null) {
-                FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("user", u);
+                FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("usuario", u);
                 String rol = u.getIdRol().getRol();
                 switch (rol) {
                     case "Cliente":
-                        url = "Perfiles/indexCliente?faces-redirect=true";
+                        url = "Cliente/indexCliente?faces-redirect=true";
                         break;
                     case "Empleado":
-                        url = "Perfiles/indexEmpleado?faces-redirect=true";
+                        url = "Empleado/indexEmpleado?faces-redirect=true";
                         break;
                     case "Supervisor":
-                        url = "Perfiles/indexSupervisor?faces-redirect=true";
+                        url = "Supervisor/indexSupervisor?faces-redirect=true";
                         break;
                     default:
                 }
@@ -74,6 +75,6 @@ public class SesionController implements Serializable {
 
     public String logout() {
         FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
-        return "../../../";
+        return "../../";
     }
 }

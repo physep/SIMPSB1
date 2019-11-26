@@ -2,11 +2,15 @@ package simpsb.controller;
 
 import java.util.List;
 import javax.annotation.PostConstruct;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStream;
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Named;
+import javax.servlet.http.Part;
 import simpsb.dao.*;
 import simpsb.entidades.*;
 
@@ -22,11 +26,17 @@ public class UsuarioController {
     private EmpleadoFacadeLocal empleadoFacadeLocal;
     @EJB
     private RolesFacadeLocal rolesFacadeLocal;
+    @EJB
+    private FotosperfilFacadeLocal fotosperfilFacadeLocal;
     
     private Usuario usuario;
     private Roles roles;
     private Cliente cliente;
     private Empleado empleado;
+    private Fotosperfil fotosperfil;
+    private Part file;
+    private String nombre;
+    private String pathReal;
 
     @PostConstruct
     public void init() {
@@ -35,7 +45,39 @@ public class UsuarioController {
         roles = new Roles();
         cliente = new Cliente();
         empleado = new Empleado();
+        fotosperfil = new Fotosperfil();
+    }
 
+    public Fotosperfil getFotosperfil() {
+        return fotosperfil;
+    }
+
+    public void setFotosperfil(Fotosperfil fotosperfil) {
+        this.fotosperfil = fotosperfil;
+    }
+
+    public Part getFile() {
+        return file;
+    }
+
+    public void setFile(Part file) {
+        this.file = file;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getPathReal() {
+        return pathReal;
+    }
+
+    public void setPathReal(String pathReal) {
+        this.pathReal = pathReal;
     }
 
     public Roles getRoles() {
@@ -149,6 +191,47 @@ public class UsuarioController {
             usuario.setIdUsuario(us.getIdUsuario());
             usuarioFacadeLocal.edit(usuario);
         } catch (Exception e) {
+        }
+    }
+    
+    public String subirArchivos(){
+        String path = FacesContext.getCurrentInstance().getExternalContext().getRealPath("FotosPerfil");
+        path = path.substring(0, path.indexOf("\\build"));
+        path = path + "\\web\\FotosPerfil\\";
+        try {
+            this.nombre = file.getSubmittedFileName();
+            path = path + this.nombre;
+            pathReal = "/SIMPSB1/FotosPerfil" + nombre;
+            
+            InputStream in = file.getInputStream();
+            File f = new File (path);
+            f.createNewFile();
+            FileOutputStream  out = new FileOutputStream(f);
+             
+            byte[] data = new byte[in.available()];
+            in.read(data);
+            out.write(data);
+            
+            in.close();
+            out.close();
+            
+            guardarBD();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "indexSupervisor?faces-redirect=true";
+    }
+    
+    public void guardarBD(){
+        Usuario user = null;
+        try {
+            
+            fotosperfil.setFoto(this.nombre);
+            fotosperfil.setRuta(this.pathReal);
+            fotosperfil.setTipo(this.file.getContentType());
+            fotosperfilFacadeLocal.create(fotosperfil);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

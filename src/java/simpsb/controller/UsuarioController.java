@@ -226,6 +226,7 @@ public class UsuarioController {
         Usuario user = null;
         try {
             
+            fotosperfil.setFoto(nombre);
             fotosperfil.setFoto(this.nombre);
             fotosperfil.setRuta(this.pathReal);
             fotosperfil.setTipo(this.file.getContentType());

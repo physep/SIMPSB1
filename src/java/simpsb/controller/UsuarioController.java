@@ -9,6 +9,7 @@ import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import javax.inject.Inject;
 import javax.inject.Named;
 import javax.servlet.http.Part;
 import simpsb.dao.*;
@@ -18,6 +19,8 @@ import simpsb.entidades.*;
 @RequestScoped
 public class UsuarioController {
 
+    @Inject 
+    private Utils util;
     @EJB
     private UsuarioFacadeLocal usuarioFacadeLocal;
     @EJB
@@ -223,8 +226,8 @@ public class UsuarioController {
     }
     
     public void guardarBD(){
-        Usuario user = null;
         try {
+            util.get("usuario");
             
             fotosperfil.setFoto(this.nombre);
             fotosperfil.setRuta(this.pathReal);

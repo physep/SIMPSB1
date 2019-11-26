@@ -6,6 +6,7 @@ import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import javax.inject.Inject;
 import javax.inject.Named;
 import simpsb.dao.*;
 import simpsb.entidades.*;
@@ -15,6 +16,9 @@ import simpsb.controller.*;
 @SessionScoped
 public class SesionController implements Serializable {
 
+    @Inject 
+    private Utils util;
+    
     @EJB
     private UsuarioFacadeLocal usuarioFacadeLocal;
     private Usuario usuario;
@@ -38,7 +42,7 @@ public class SesionController implements Serializable {
         try {
             u = usuarioFacadeLocal.login(usuario);
             if (u != null) {
-                FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("usuario", u);
+                util.add("usuario", u);
                 String rol = u.getIdRol().getRol();
                 switch (rol) {
                     case "Cliente":

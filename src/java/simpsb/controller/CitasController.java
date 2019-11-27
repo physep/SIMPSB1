@@ -141,7 +141,7 @@ public class CitasController {
         Usuario user = null;
 //        Cliente cl = null;
         try {
-            user = (Usuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("user");
+            user = (Usuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("userSession");
 //            cl = clienteFacadeLocal.find(us.getIdUsuario());
 //            citas.setIdCliente(cl);
             citas.setIdEmpleado(empleado);

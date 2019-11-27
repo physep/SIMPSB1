@@ -38,7 +38,7 @@ public class SesionController implements Serializable {
         try {
             u = usuarioFacadeLocal.login(usuario);
             if (u != null) {
-                FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("usuario", u);
+                FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("userSession", u);
                 String rol = u.getIdRol().getRol();
                 switch (rol) {
                     case "Cliente":

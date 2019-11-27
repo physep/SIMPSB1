@@ -122,7 +122,11 @@ public class UploadController {
     }
     
     public void guardarBD() {
+        Usuario user = null;
+        
         try {
+            user = (Usuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("userSession");
+            fotosPerfil.setIdUsuario(user);
             fotosPerfil.setFoto(this.nombre);
             fotosPerfil.setRuta(this.pathReal);
             fotosPerfil.setTipo(this.file.getContentType());

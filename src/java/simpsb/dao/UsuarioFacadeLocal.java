@@ -32,4 +32,5 @@ public interface UsuarioFacadeLocal {
     
     Usuario login(Usuario user);
     
+    Usuario getId(Object id);
 }

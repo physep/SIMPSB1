@@ -92,15 +92,13 @@ public class UploadController {
         this.listaFotosPerfil = listaFotosPerfil;
     }
 
-    public String SubirArchivos() {
+    public String subirArchivos() {
         String path = FacesContext.getCurrentInstance().getExternalContext().getRealPath("FotosPerfil");
         path = path.substring(0, path.indexOf("\\build"));
         path = path + "\\web\\FotosPerfil\\";
-
         try {
-
             path = path + this.nombre;
-            pathReal = "/SubirFotosPerfil/FotosPerfil/" + nombre;
+            pathReal = "/SIMPSB1/FotosPerfil" + nombre;
 
             InputStream in = file.getInputStream();
             File f = new File(path);
@@ -118,7 +116,7 @@ public class UploadController {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return "cargado?faces-redirect=true";
+        return "indexSupervisor?faces-redirect=true";
     }
     
     public void guardarBD() {

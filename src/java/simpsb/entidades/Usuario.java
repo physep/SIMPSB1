@@ -39,9 +39,6 @@ import javax.validation.constraints.Size;
     , @NamedQuery(name = "Usuario.findByPass", query = "SELECT u FROM Usuario u WHERE u.pass = :pass")})
 public class Usuario implements Serializable {
 
-    @OneToMany(mappedBy = "idUsuario")
-    private List<Fotosperfil> fotosperfilList;
-
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -61,6 +58,12 @@ public class Usuario implements Serializable {
     @Basic(optional = false)
     @Column(name = "pass")
     private String pass;
+    @OneToMany(mappedBy = "idUsuario")
+    private List<Cliente> clienteList;
+    @OneToMany(mappedBy = "idUsuario")
+    private List<Empleado> empleadoList;
+    @OneToMany(mappedBy = "idUsuario")
+    private List<Fotosperfil> fotosperfilList;
     @JoinColumn(name = "idRol", referencedColumnName = "idRol")
     @ManyToOne
     private Roles idRol;
@@ -133,6 +136,30 @@ public class Usuario implements Serializable {
         this.pass = pass;
     }
 
+    public List<Cliente> getClienteList() {
+        return clienteList;
+    }
+
+    public void setClienteList(List<Cliente> clienteList) {
+        this.clienteList = clienteList;
+    }
+
+    public List<Empleado> getEmpleadoList() {
+        return empleadoList;
+    }
+
+    public void setEmpleadoList(List<Empleado> empleadoList) {
+        this.empleadoList = empleadoList;
+    }
+
+    public List<Fotosperfil> getFotosperfilList() {
+        return fotosperfilList;
+    }
+
+    public void setFotosperfilList(List<Fotosperfil> fotosperfilList) {
+        this.fotosperfilList = fotosperfilList;
+    }
+
     public Roles getIdRol() {
         return idRol;
     }
@@ -164,14 +191,6 @@ public class Usuario implements Serializable {
     @Override
     public String toString() {
         return "simpsb.entidades.Usuario[ idUsuario=" + idUsuario + " ]";
-    }
-
-    public List<Fotosperfil> getFotosperfilList() {
-        return fotosperfilList;
-    }
-
-    public void setFotosperfilList(List<Fotosperfil> fotosperfilList) {
-        this.fotosperfilList = fotosperfilList;
     }
     
 }

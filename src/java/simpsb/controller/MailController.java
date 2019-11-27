@@ -1,6 +1,7 @@
 package simpsb.controller;
 
 import java.io.UnsupportedEncodingException;
+import java.util.List;
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
@@ -72,10 +73,17 @@ public class MailController {
         Usuario user = null;
         String usere;
         String newPass = "";
+        List<Usuario> lista = null;
 
+        int docu = user.getNumDocumento();
+        lista = usuarioFacadeLocal.findAll();
         //Busco el usuario
-        usuario.getNumDocumento();
-        
+        for (Usuario us : lista) {
+            int doc = us.getNumDocumento();
+            if (doc == docu) {
+                us.getIdUsuario();
+            }
+        }
         user = usuarioFacadeLocal.find(usuario.getIdUsuario());
         usere = user.getCorreo();
          
@@ -102,6 +110,7 @@ public class MailController {
                 }
             }
             //Edito la nueva contraseña
+            
             usuario.setPass(newPass);
             //Guardo la nueva contraseña
             usuarioFacadeLocal.edit(usuario);

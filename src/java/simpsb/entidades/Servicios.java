@@ -21,7 +21,7 @@ import javax.validation.constraints.Size;
 
 /**
  *
- * @author SebastianParra
+ * @author LeonardoLara
  */
 @Entity
 @Table(name = "servicios")
@@ -40,12 +40,15 @@ public class Servicios implements Serializable {
     @Basic(optional = false)
     @Column(name = "idServicio")
     private Integer idServicio;
+    @Size(max = 45)
     @Column(name = "nombre")
     private String nombre;
+    @Size(max = 45)
     @Column(name = "estado")
     private String estado;
     @Column(name = "valor")
     private Integer valor;
+    @Size(max = 45)
     @Column(name = "tiempoEstimado")
     private String tiempoEstimado;
     @OneToMany(mappedBy = "idServicio")

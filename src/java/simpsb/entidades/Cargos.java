@@ -21,7 +21,7 @@ import javax.validation.constraints.Size;
 
 /**
  *
- * @author SebastianParra
+ * @author LeonardoLara
  */
 @Entity
 @Table(name = "cargos")
@@ -37,6 +37,7 @@ public class Cargos implements Serializable {
     @Basic(optional = false)
     @Column(name = "idCargo")
     private Integer idCargo;
+    @Size(max = 45)
     @Column(name = "cargo")
     private String cargo;
     @OneToMany(mappedBy = "idCargo")

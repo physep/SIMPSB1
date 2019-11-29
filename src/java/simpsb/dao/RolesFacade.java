@@ -12,7 +12,7 @@ import simpsb.entidades.Roles;
 
 /**
  *
- * @author SebastianParra
+ * @author LeonardoLara
  */
 @Stateless
 public class RolesFacade extends AbstractFacade<Roles> implements RolesFacadeLocal {

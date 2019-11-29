@@ -12,7 +12,7 @@ import simpsb.entidades.Contacto;
 
 /**
  *
- * @author SebastianParra
+ * @author LeonardoLara
  */
 @Stateless
 public class ContactoFacade extends AbstractFacade<Contacto> implements ContactoFacadeLocal {

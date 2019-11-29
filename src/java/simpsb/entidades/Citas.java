@@ -25,7 +25,7 @@ import javax.persistence.TemporalType;
 
 /**
  *
- * @author SebastianParra
+ * @author LeonardoLara
  */
 @Entity
 @Table(name = "citas")
@@ -57,9 +57,6 @@ public class Citas implements Serializable {
     @JoinColumn(name = "idEmpleado", referencedColumnName = "idEmpleado")
     @ManyToOne
     private Empleado idEmpleado;
-    @JoinColumn(name = "estadoFK", referencedColumnName = "idEstado")
-    @ManyToOne
-    private Estado estadoFK;
     @OneToMany(mappedBy = "idCita")
     private List<Factura> facturaList;
 
@@ -116,14 +113,6 @@ public class Citas implements Serializable {
 
     public void setIdEmpleado(Empleado idEmpleado) {
         this.idEmpleado = idEmpleado;
-    }
-
-    public Estado getEstadoFK() {
-        return estadoFK;
-    }
-
-    public void setEstadoFK(Estado estadoFK) {
-        this.estadoFK = estadoFK;
     }
 
     public List<Factura> getFacturaList() {

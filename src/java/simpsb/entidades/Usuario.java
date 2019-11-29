@@ -24,7 +24,7 @@ import javax.validation.constraints.Size;
 
 /**
  *
- * @author SebastianParra
+ * @author LeonardoLara
  */
 @Entity
 @Table(name = "usuario")
@@ -39,28 +39,35 @@ import javax.validation.constraints.Size;
     , @NamedQuery(name = "Usuario.findByPass", query = "SELECT u FROM Usuario u WHERE u.pass = :pass")})
 public class Usuario implements Serializable {
 
-    @OneToMany(mappedBy = "idUsuario")
-    private List<Fotosperfil> fotosperfilList;
-
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "idUsuario")
     private Integer idUsuario;
+    @Size(max = 45)
     @Column(name = "nombre")
     private String nombre;
+    @Size(max = 45)
     @Column(name = "apellido")
     private String apellido;
+    @Size(max = 45)
     @Column(name = "genero")
     private String genero;
     @Column(name = "numDocumento")
     private Integer numDocumento;
+    @Size(max = 120)
     @Column(name = "correo")
     private String correo;
     @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 45)
     @Column(name = "pass")
     private String pass;
+    @OneToMany(mappedBy = "idUsuario")
+    private List<Cliente> clienteList;
+    @OneToMany(mappedBy = "idUsuario")
+    private List<Empleado> empleadoList;
     @JoinColumn(name = "idRol", referencedColumnName = "idRol")
     @ManyToOne
     private Roles idRol;
@@ -133,6 +140,22 @@ public class Usuario implements Serializable {
         this.pass = pass;
     }
 
+    public List<Cliente> getClienteList() {
+        return clienteList;
+    }
+
+    public void setClienteList(List<Cliente> clienteList) {
+        this.clienteList = clienteList;
+    }
+
+    public List<Empleado> getEmpleadoList() {
+        return empleadoList;
+    }
+
+    public void setEmpleadoList(List<Empleado> empleadoList) {
+        this.empleadoList = empleadoList;
+    }
+
     public Roles getIdRol() {
         return idRol;
     }
@@ -164,14 +187,6 @@ public class Usuario implements Serializable {
     @Override
     public String toString() {
         return "simpsb.entidades.Usuario[ idUsuario=" + idUsuario + " ]";
-    }
-
-    public List<Fotosperfil> getFotosperfilList() {
-        return fotosperfilList;
-    }
-
-    public void setFotosperfilList(List<Fotosperfil> fotosperfilList) {
-        this.fotosperfilList = fotosperfilList;
     }
     
 }

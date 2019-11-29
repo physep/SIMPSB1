@@ -25,38 +25,35 @@ import simpsb.entidades.*;
 @Named
 @RequestScoped
 public class UploadController {
-
+    
     @EJB
-    private FotosperfilFacadeLocal fotosPerfilFacadeLocal;
-    private Fotosperfil fotosPerfil;
-
+    private FotosPerfilFacadeLocal fotosFacadeLocal;
+    private FotosPerfil fotosPerfil;
+    
     private Part file;
     private String nombre;
     private String pathReal;
-
-    private List<Fotosperfil> listaFotosPerfil;
-
+    
+    private List<FotosPerfil> listFotos;
+    
     @PostConstruct
-    public void init() {
-        fotosPerfil = new Fotosperfil();
+    public void init(){
+        fotosPerfil = new FotosPerfil();
     }
 
-    public UploadController() {
+    public FotosPerfilFacadeLocal getFotosFacadeLocal() {
+        return fotosFacadeLocal;
     }
 
-    public FotosperfilFacadeLocal getFotosPerfilFacadeLocal() {
-        return fotosPerfilFacadeLocal;
+    public void setFotosFacadeLocal(FotosPerfilFacadeLocal fotosFacadeLocal) {
+        this.fotosFacadeLocal = fotosFacadeLocal;
     }
 
-    public void setFotosPerfilFacadeLocal(FotosperfilFacadeLocal fotosPerfilFacadeLocal) {
-        this.fotosPerfilFacadeLocal = fotosPerfilFacadeLocal;
-    }
-
-    public Fotosperfil getFotosPerfil() {
+    public FotosPerfil getFotosPerfil() {
         return fotosPerfil;
     }
 
-    public void setFotosPerfil(Fotosperfil fotosPerfil) {
+    public void setFotosPerfil(FotosPerfil fotosPerfil) {
         this.fotosPerfil = fotosPerfil;
     }
 
@@ -84,65 +81,65 @@ public class UploadController {
         this.pathReal = pathReal;
     }
 
-    public List<Fotosperfil> getListaFotosPerfil() {
-        return listaFotosPerfil;
+    public List<FotosPerfil> getListFotos() {
+        return listFotos;
     }
 
-    public void setListaFotosPerfil(List<Fotosperfil> listaFotosPerfil) {
-        this.listaFotosPerfil = listaFotosPerfil;
+    public void setListFotos(List<FotosPerfil> listFotos) {
+        this.listFotos = listFotos;
     }
-
-    public String SubirArchivos() {
+    
+    public String SubirFotos(){
+        //Se obtione la ruta de la carpeta
         String path = FacesContext.getCurrentInstance().getExternalContext().getRealPath("FotosPerfil");
         path = path.substring(0, path.indexOf("\\build"));
         path = path + "\\web\\FotosPerfil\\";
-
+        
         try {
+            
+        this.nombre = file.getSubmittedFileName();
+        path = path + this.nombre;
+        pathReal = "/SIMPSB/FotosPerfil/" + nombre;
+        
+        InputStream in = file.getInputStream();
+        File f = new File(path);
+        f.createNewFile();
+        FileOutputStream out = new FileOutputStream(f);
+        
+        byte [] data = new byte[in.available()];
+        in.read(data);
+        out.write(data);
 
-            path = path + this.nombre;
-            pathReal = "/SubirFotosPerfil/FotosPerfil/" + nombre;
-
-            InputStream in = file.getInputStream();
-            File f = new File(path);
-            f.createNewFile();
-            FileOutputStream out = new FileOutputStream(f);
-            
-            byte[] data = new byte[in.available()];
-            in.read(data);
-            out.write(data);
-            
-            in.close();
-            out.close();
-            
-            guardarBD();
+        in.close();
+        out.close();
+        
+        guardarBD();
         } catch (Exception e) {
             e.printStackTrace();
         }
         return "cargado?faces-redirect=true";
-    }
-    
-    public void guardarBD() {
-        Usuario user = null;
-        
-        try {
-            user = (Usuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("userSession");
-            fotosPerfil.setIdUsuario(user);
-            fotosPerfil.setFoto(this.nombre);
-            fotosPerfil.setRuta(this.pathReal);
-            fotosPerfil.setTipo(this.file.getContentType());
-            fotosPerfilFacadeLocal.create(fotosPerfil);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
         
     }
     
-    public String listarFotosPerfil() {
+    public void guardarBD(){
         try {
-            listaFotosPerfil = fotosPerfilFacadeLocal.findAll();
+            
+            fotosPerfil.setNombreFoto(this.nombre);
+            fotosPerfil.setRutaFoto(this.pathReal);
+            fotosPerfil.setTipoFoto(this.file.getContentType());
+            
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return "listarFotosPerfil";
     }
+    
+    public String listarFotos() {
+            try {
+                listFotos = fotosFacadeLocal.findAll();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return "listarFotos";
+    }
+    
 }

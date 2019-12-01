@@ -14,12 +14,12 @@
         <f:view locale="#{languages.idiomaSeleccionado}">
             <!-- SIDEBAR -->
             <h:form enctype="multipart/form-data">
-
+                <h:inputHidden value="#{usuarioController.usuario.idUsuario}"/>
                 <div class="col-2 sidebar float-left">
                     <div class="perfil">
                         <p class="text-center text-uppercase">Supervisor</p>
                         <img src="../../FotosPerfil/FB_IMG_1549049633816.jpg" alt="" data-toggle="modal" data-target="#cambio"/>
-                        <p class="text-center text-uppercase">#{session.getValue("usuario").getNombre()} #{session.getValue("usuario").getApellido()}</p>
+                        <p class="text-center text-uppercase"></p>
                     </div>
                     <!--  MODAL CAMBIO FOTO -->
                     <div class="modal fade" id="cambio" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -114,8 +114,8 @@
                         <div class="modulo d-block mx-auto">
                             <img class="float-left" src="../resources/img/icono-usuarios.png" alt=""/>
                             <h5><a href="#">#{perfilEti.usuarios}</a></h5>
-                            <p><a href="Usuarios/consultarUsuario.xhtml?faces-redirect=true" target="area-trabajo">#{perfilEti.consultarUsuarios}</a></p>
                             <p><a href="Usuarios/crearUsuario.xhtml?faces-redirect=true" target="area-trabajo">#{perfilEti.registrarUsuario}</a></p>
+                            <p><a href="Usuarios/consultarUsuario.xhtml?faces-redirect=true" target="area-trabajo">#{perfilEti.consultarUsuarios}</a></p>
                         </div>
 
                         <!-- REPORTES -->

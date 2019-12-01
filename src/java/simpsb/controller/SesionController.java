@@ -37,12 +37,12 @@ public class SesionController implements Serializable {
     }
 
     public String iniciarSesion() {
-        Usuario u = null;
         String url = null;
+        Usuario u;
         try {
             u = usuarioFacadeLocal.login(usuario);
             if (u != null) {
-                util.add("usuario", u);
+                FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("user", u);
                 String rol = u.getIdRol().getRol();
                 switch (rol) {
                     case "Cliente":
@@ -57,11 +57,11 @@ public class SesionController implements Serializable {
                     default:
                 }
             } else {
-                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Error", "Credenciales incorrectas"));
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Aviso:", "Credenciales incorrectas"));
             }
         } catch (Exception e) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Error:", "Error al iniciar sesion"));
             e.printStackTrace();
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Error", "Ha ocurrido un error al iniciar sesión"));
         }
         return url;
     }

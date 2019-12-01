@@ -117,7 +117,9 @@ public class UsuarioController {
 
     //MÉTODOS CRUD DE USUARIOS
     public void registrarUsuario() {
+        Usuario user = null;
         try {
+            user = (Usuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("user");
             roles.setIdRol(3);
             usuario.setIdRol(roles);
             usuarioFacadeLocal.create(usuario);

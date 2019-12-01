@@ -18,10 +18,14 @@
 
                     <h:form styleClass="d-block mx-auto formu">
                         <h1 class="text-center text-uppercase">#{indexEti.olvidocon}</h1>
-                        <h:inputText value="#{mailController.usuario.numDocumento}"/>
+                        <div class="form-group">
+                            <h:outputLabel for="doc" styleClass="text-uppercase" value="#{usuariosEti.documento}"/>
+                            <h:inputText id="doc" styleClass="form-control form" a:type="number" value="#{mailController.usuario.numDocumento}"/>
+                            <h:message for="doc"/>
+                        </div>
                         <div class="form-group">
                             <h:outputLabel for="correo" styleClass="text-uppercase" value="#{indexEti.form_email}"/>
-                            <h:inputText id="correo" styleClass="form-control form" value="#{mailController.destinatario}"/>
+                            <h:inputText id="correo" styleClass="form-control form" a:type="email" value="#{mailController.destinatario}"/>
                             <h:message for="correo"/>
                         </div>
                         <div class="text-center">

@@ -100,6 +100,7 @@
     font-weight: 600;
     font-size: 17px;
     color: rgb(210, 210, 210);
+    text-decoration: none;
 }
 .modulo p{
     padding-left: 45px;

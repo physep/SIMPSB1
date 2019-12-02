@@ -51,6 +51,7 @@ public class Calificacion implements Serializable {
     @Column(name = "hora")
     @Temporal(TemporalType.TIME)
     private Date hora;
+    @Size(max = 220)
     @Column(name = "comentario")
     private String comentario;
     @JoinColumn(name = "idFactura", referencedColumnName = "idFactura")

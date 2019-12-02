@@ -39,6 +39,7 @@ public class Empleado implements Serializable {
     @Basic(optional = false)
     @Column(name = "idEmpleado")
     private Integer idEmpleado;
+    @Size(max = 45)
     @Column(name = "descripcion")
     private String descripcion;
     @OneToMany(mappedBy = "idEmpleado")

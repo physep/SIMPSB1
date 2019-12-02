@@ -27,29 +27,26 @@ import simpsb.entidades.*;
 public class UploadController {
 
     @EJB
-    private FotosperfilFacadeLocal fotosPerfilFacadeLocal;
+    private FotosperfilFacadeLocal fotosFacadeLocal;
     private Fotosperfil fotosPerfil;
 
     private Part file;
     private String nombre;
     private String pathReal;
 
-    private List<Fotosperfil> listaFotosPerfil;
+    private List<Fotosperfil> listFotos;
 
     @PostConstruct
     public void init() {
         fotosPerfil = new Fotosperfil();
     }
 
-    public UploadController() {
+    public FotosperfilFacadeLocal getFotosFacadeLocal() {
+        return fotosFacadeLocal;
     }
 
-    public FotosperfilFacadeLocal getFotosPerfilFacadeLocal() {
-        return fotosPerfilFacadeLocal;
-    }
-
-    public void setFotosPerfilFacadeLocal(FotosperfilFacadeLocal fotosPerfilFacadeLocal) {
-        this.fotosPerfilFacadeLocal = fotosPerfilFacadeLocal;
+    public void setFotosFacadeLocal(FotosperfilFacadeLocal fotosFacadeLocal) {
+        this.fotosFacadeLocal = fotosFacadeLocal;
     }
 
     public Fotosperfil getFotosPerfil() {
@@ -84,18 +81,20 @@ public class UploadController {
         this.pathReal = pathReal;
     }
 
-    public List<Fotosperfil> getListaFotosPerfil() {
-        return listaFotosPerfil;
+    public List<Fotosperfil> getListFotos() {
+        return listFotos;
     }
 
-    public void setListaFotosPerfil(List<Fotosperfil> listaFotosPerfil) {
-        this.listaFotosPerfil = listaFotosPerfil;
+    public void setListFotos(List<Fotosperfil> listFotos) {
+        this.listFotos = listFotos;
     }
 
-    public String subirArchivos() {
+    public String SubirFotos() {
+        //Se obtione la ruta de la carpeta
         String path = FacesContext.getCurrentInstance().getExternalContext().getRealPath("FotosPerfil");
         path = path.substring(0, path.indexOf("\\build"));
         path = path + "\\web\\FotosPerfil\\";
+
         try {
             path = path + this.nombre;
             pathReal = "/SIMPSB1/FotosPerfil" + nombre;
@@ -104,39 +103,40 @@ public class UploadController {
             File f = new File(path);
             f.createNewFile();
             FileOutputStream out = new FileOutputStream(f);
-            
+
             byte[] data = new byte[in.available()];
             in.read(data);
             out.write(data);
-            
+
             in.close();
             out.close();
-            
+
             guardarBD();
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return "indexSupervisor?faces-redirect=true";
+        return "indexSupervisor.xhtml?faces-redirect=true";
     }
-    
+
     public void guardarBD() {
         try {
+
             fotosPerfil.setFoto(this.nombre);
             fotosPerfil.setRuta(this.pathReal);
             fotosPerfil.setTipo(this.file.getContentType());
-            fotosPerfilFacadeLocal.create(fotosPerfil);
+
         } catch (Exception e) {
             e.printStackTrace();
         }
-        
     }
-    
-    public String listarFotosPerfil() {
+
+    public String listarFotos() {
         try {
-            listaFotosPerfil = fotosPerfilFacadeLocal.findAll();
+            listFotos = fotosFacadeLocal.findAll();
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return "listarFotosPerfil";
+        return "listarFotos";
     }
+
 }

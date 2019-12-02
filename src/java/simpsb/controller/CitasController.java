@@ -18,11 +18,11 @@ import simpsb.entidades.*;
 @Named
 @RequestScoped
 public class CitasController {
-    
+
     MailController mailC = new MailController();
-    @Inject    
+    @Inject
     Utils util;
-    
+
     @EJB
     private CitasFacadeLocal citasFacadeLocal;
     @EJB
@@ -35,17 +35,17 @@ public class CitasController {
     private ClienteFacadeLocal clienteFacadeLocal;
     @EJB
     private EstadoFacadeLocal estadoFacadeLocal;
-    
+
     private Citas citas;
     private Empleado empleado;
     private Servicios servicios;
     private Usuario usuario;
     private Cliente cliente;
     private Estado estado;
-    
+
     private List<Servicios> listServicios;
     private List<Empleado> listEmpleados;
-    
+
     @PostConstruct
     public void init() {
         citas = new Citas();
@@ -62,55 +62,55 @@ public class CitasController {
     public Estado getEstado() {
         return estado;
     }
-    
+
     public void setEstado(Estado estado) {
         this.estado = estado;
     }
-    
+
     public Citas getCitas() {
         return citas;
     }
-    
+
     public Cliente getCliente() {
         return cliente;
     }
-    
+
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
-    
+
     public void setCitas(Citas citas) {
         this.citas = citas;
     }
-    
+
     public Servicios getServicios() {
         return servicios;
     }
-    
+
     public void setServicios(Servicios servicios) {
         this.servicios = servicios;
     }
-    
+
     public List<Servicios> getListServicios() {
         return listServicios;
     }
-    
+
     public void setListServicios(List<Servicios> listServicios) {
         this.listServicios = listServicios;
     }
-    
+
     public Empleado getEmpleado() {
         return empleado;
     }
-    
+
     public void setEmpleado(Empleado empleado) {
         this.empleado = empleado;
     }
-    
+
     public List<Empleado> getListEmpleados() {
         return listEmpleados;
     }
-    
+
     public void setListEmpleados(List<Empleado> listEmpleados) {
         this.listEmpleados = listEmpleados;
     }
@@ -125,29 +125,29 @@ public class CitasController {
     public int getDia() {
         return dia;
     }
-    
+
     public void setDia(int dia) {
         this.dia = dia;
     }
-    
+
     public int getMes() {
         return mes;
     }
-    
+
     public void setMes(int mes) {
         this.mes = mes;
     }
-    
+
     public int getAño() {
         return año;
     }
-    
+
     public void setAño(int año) {
         this.año = año;
     }
-    
+
     public void generarCita() {
-        
+
         Usuario user = null;
         Cliente cl = null;
         try {
@@ -167,7 +167,7 @@ public class CitasController {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Error", "Ha ocurrido un error al generar la cita"));
         }
     }
-    
+
     public void eliminarCita(Citas cita) {
         try {
             citasFacadeLocal.remove(cita);
@@ -194,14 +194,14 @@ public class CitasController {
             citas = citasFacadeLocal.find(ct.getIdCita());
             servicios = citas.getIdServicio();
             empleado = citas.getIdEmpleado();
-            
+
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Correcto"));
         } catch (Exception e) {
             e.printStackTrace();
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Error", "Ha ocurrido un error al modificar su cita"));
         }
         return "modificarCita";
-        
+
     }
 
     //METODO PARA MODIFICAR LA CITA
@@ -228,7 +228,7 @@ public class CitasController {
 
             //CONVIERTO LAS FECHAS A STRING
             SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
-            
+
             for (Citas ct : listaCitas) {
                 String fechaString = sdf.format(ct.getFecha());
                 String fechaActual = sdf.format(new Date());
@@ -245,7 +245,7 @@ public class CitasController {
                     }
                 }
             }
-            
+
         } catch (Exception e) {
             e.printStackTrace();
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Error", "La lista de citas esta vacia"));
@@ -254,7 +254,7 @@ public class CitasController {
 
     //MÉTODOS ESPECIALES PARA EL PERFIL CLIENTE
     public void listarCitasCl() {
-        
+
     }
-    
+
 }

@@ -30,8 +30,7 @@ public interface UsuarioFacadeLocal {
 
     int count();
     
-    Usuario login(Usuario user);
+    Usuario login(Usuario users);
     
     Usuario getId(int numDocumento);
-    
 }

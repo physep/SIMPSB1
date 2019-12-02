@@ -17,75 +17,93 @@ and open the template in the editor.
         <link href="../../resources/css/Factura/crearFactura.css" rel="stylesheet" type="text/css"/>
         <link href="../../../resources/css/sweetalert2.min.css" rel="stylesheet" type="text/css"/>
     </h:head>
-    <h:body class="fondo">
-         <h:messages globalOnly="true" showDetail="true"/>
+<h:body class="fondo"> <!-- Fondo-->
+        <!-- Mensaje de Controladores -->
+        <h:messages globalOnly="true" showDetail="true"/>
+        <!-- Migas De pan , si funcionar -->
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item  text-right"><a href="#">Home</a></li>
                 <li class="breadcrumb-item  active" aria-current="page">Facturación</li>
             </ol>
         </nav>
-
-
+        
+        <!-- Contenedor -->
         <div class="container">
             <!-- fONDO DE FORMULARIO -->
             <div class="formulario d-block mx-auto">
                 <div class="titulo">
-                    <h1 class="text-center">FACTURA</h1>
-                    <!-- Formulario -->
-
- <h:form>
-                        <div class="form-group">
-                            <h:outputLabel for="servicio" value="servicio"/>
-
-                            <h:selectOneMenu id="servicio" value="#{facturaController.servicios.nombre}" styleClass="form-control form-fondo form">
-                                <f:selectItem itemLabel="Seleccionar" itemValue="0" />
-                                <f:selectItems value="#{facturaController.listServicios}" var="servicios"
-                                               itemValue="#{servicios.nombre}" 
-                                               itemLabel="#{servicios.nombre}"/>
-                            </h:selectOneMenu>
-                            <h:message for="servicio"/>
-                        </div>
-                        <div class="form-group">
-                            <h:outputLabel for="cliente" value="cliente"/>
-
-                            <h:selectOneMenu id="cliente" value="#{facturaController.cliente.idUsuario.nombre}" styleClass="form-control form-fondo form">
-                                <f:selectItem itemLabel="Seleccionar" itemValue="0" />
-                                <f:selectItems value="#{facturaController.listUsuario}" var="cliente"
-                                               itemValue="#{cliente.nombre}" 
-                                               itemLabel="#{cliente.nombre}"/>
-                            </h:selectOneMenu>
-                            <h:message for="cliente"/>
-                        </div>
-                    </h:form>
-                    <h:form>
-                        <div>
-                            <h:inputHidden class="form-control" id="idFactura" value="#{facturaController.factura.idFactura}"/>
-                            <h:message for="idFactura"/>
-                            <h:inputHidden class="form-control" id="idDetalle" value="#{facturaController.detalle.idDetalleFactura}"/>
-                            <h:message for="idDetalle"/>
-                        </div>
-                       <div class="form-group">
+                        <h1 class="text-center">Datos Factura</h1>
+                    </div>
+                <h:form>
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <h:outputLabel for="emafierrt" value="Id Cita:  "/>
+                                <h:outputLabel id="emafierrt" value="#{facturaController.factura.idCita}"/>
+                                <h:message for="emafierrt"/>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <h:outputLabel for="nombre" value="Nombre:  "/>
+                                <h:outputLabel id="nombre" value="#{facturaController.factura.idCita.idCliente.idUsuario.nombre} #{facturaController.factura.idCita.idCliente.idUsuario.apellido}"/>
+                                <h:message for="nombre"/>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <h:outputLabel for="documento" value="Docuemnto:  "/>
+                                <h:outputLabel id="documento" value="#{facturaController.factura.idCita.idCliente.idUsuario.numDocumento}" />
+                                <h:message for="documento"/>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <h:outputLabel for="email" value="Correo:  "/>
+                                <h:outputLabel id="email" value="#{facturaController.factura.idCita.idCliente.idUsuario.correo}"/>
+                                <h:message for="email"/>
+                            </div>
+                           <div class="form-group col-md-4">
+                                <h:outputLabel for="emafier" value="Servicio:  "/>
+                                <h:outputLabel id="emafier" value="#{facturaController.factura.idCita.idServicio.nombre}"/>
+                                <h:message for="emafier"/>
+                            </div>
+                            
+                            <div class="form-group col-md-12">
+                                <h:outputLabel for="emafierr" value="Empleado:  "/>
+                                <h:outputLabel id="emafierr" value="#{facturaController.factura.idCita.idEmpleado.idUsuario.nombre}"/>
+                                <h:message for="emafierr"/>
+                            </div>
+                            <h:form>
+                               <div class="form-group col-md-6">
                             <h:outputLabel for="subtotal" value="SubTotal"/>
                             <h:inputText styleClass="form-control form-fondo form" id="subtotal" value="#{facturaController.detalle.subTotal}"/>
                             <h:message for="subtotal"/>
                         </div>
-                        <div class="form-group">
-                            <h:outputLabel for="cliente" value="Id Cita"/>
-
-                            <h:selectOneMenu id="idcita" value="#{facturaController.citas.idCita}" styleClass="form-control form-fondo form" >
-                                <f:selectItem itemLabel="Seleccionar" itemValue="0" />
-                                <f:selectItems value="#{facturaController.listCitas}" var="cita"
+                                <div class="form-group col-md-6">
+                            <h:outputLabel for="idCita" value="Id Cita"/>
+                            <h:selectOneMenu id="idCita" value="#{facturaController.citas.idCita}" styleClass="form form-control">
+                                <f:selectItem itemLabel="Seleccionar" itemValue="0"/>
+                                <f:selectItems value="#{facturaController.listCitas}" var="cita" 
                                                itemValue="#{cita.idCita}" 
                                                itemLabel="#{cita.idCita}"/>
                             </h:selectOneMenu>
-                            <h:message for="idcita"/>
+                            <h:message for="idCita"/>
                         </div>
-                        <br></br>
-                        <h:commandButton styleClass="btn boton d-block mx-auto" value="#{universEti.Actualizar}" id="agregar"  onclick="agregar();" action="#{facturaController.modificarFactura()}"/>
-                    </h:form>
-                </div>
-            </div>
+                            
+                                        <h:commandButton value="Generar Venta" styleClass="btn boton d-block mx-auto" action="#{facturaController.generarFactura()}" />
+                                </h:form>
+                            </div>
+                </h:form>
         </div>
+        </div> 
+        <!-- BOOTSTRAP -->
+        <script src="../../../resources/js/jquery-3.3.1.slim.min.js" type="text/javascript"></script>
+        <script src="../../../resources/js/popper.min.js" type="text/javascript"></script>
+        <script src="../../../resources/js/bootstrap.min.js" type="text/javascript"></script>
+        <!-- DATATABLES -->
+        <script src="../../../resources/js/tablas/dataTables.buttons.min.js" type="text/javascript"></script>
+        <script src="../../../resources/js/tablas/datatables.min.js" type="text/javascript"></script>
+        <script src="../../../resources/js/tablas/jszip.min.js" type="text/javascript"></script>
+        <script src="../../../resources/js/tablas/pdfmake.min.js" type="text/javascript"></script>
+        <script src="../../../resources/js/tablas/vfs_fonts.js" type="text/javascript"></script>
+        <script src="../../../resources/js/tablas/buttons.html5.min.js" type="text/javascript"></script>
+        
+        <script src="../../../resources/js/dataTables.responsive.min.js" type="text/javascript"></script>
+        <script src="../../../resources/js/botones.js" type="text/javascript"></script>
     </h:body>
 </html>

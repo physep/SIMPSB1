@@ -28,6 +28,7 @@
                     <!-- TABLA  -->
                     <div class="col-12">
                         <p class="text-uppercase">Factura</p>
+                        <h:form>
                         <h:dataTable value="#{facturaController.listarFactura()}" var="factura" styleClass="text-center table table-striped table-bordered dt-responsive nowrap col-md-12">
                             <h:column>
                                 <f:facet name="header">Id</f:facet>
@@ -47,11 +48,11 @@
                             </h:column>  
                             <h:column>
                                 <f:facet name="header">IdCita</f:facet>
-                                <h:outputText value="#{factura.idCita}" id="Cita"/>
+                                <h:outputText value="#{factura.idCita.idCita}" id="Cita"/>
                             </h:column>
                             <h:column>
                                 <f:facet name="header">IdDetalle</f:facet>
-                                <h:outputText value="#{factura.idCita}" id="detalle"/>
+                                <h:outputText value="#{factura.idDetalleFactura.idDetalleFactura}" id="detalle"/>
                             </h:column>
                             <h:column>
                                 <f:facet name="header">Subtotall</f:facet>
@@ -66,12 +67,12 @@
                                 <h:outputText value="#{factura.idDetalleFactura.valorTotal}" id="Total"/>
                             </h:column> 
                             <h:column>
-                                    <f:facet name="header">Acciones</f:facet>                                   
-                                <h:form>
+                                    <f:facet name="header">Acciones</f:facet>
+                                    <h:commandButton actionListener="#{facturaController.genenarPDF(idC, idFac, idDf, idSer)}" value="Generar PDF"/>
                                     <h:commandButton styleClass="btn btn-warning" value="Modificar" action="#{facturaController.consultarFactura(factura)}"/>
-                                </h:form>
                             </h:column>    
                         </h:dataTable>
+                        </h:form>
                     </div>
                 </div>
             </div>

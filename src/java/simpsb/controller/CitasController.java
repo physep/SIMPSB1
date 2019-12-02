@@ -7,6 +7,7 @@ import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import javax.inject.Inject;
 import javax.inject.Named;
 import simpsb.dao.*;
 import simpsb.entidades.*;
@@ -14,6 +15,10 @@ import simpsb.entidades.*;
 @Named
 @RequestScoped
 public class CitasController {
+
+    MailController mailC = new MailController();
+    @Inject
+    Utils util;
 
     @EJB
     private CitasFacadeLocal citasFacadeLocal;
@@ -44,6 +49,7 @@ public class CitasController {
         servicios = new Servicios();
         empleado = new Empleado();
         estado = new Estado();
+        cliente = new Cliente();
         listServicios = serviciosFacadeLocal.findAll();
         listEmpleados = empleadoFacadeLocal.findAll();
         validarEstado();
@@ -109,7 +115,7 @@ public class CitasController {
     //FECHAS 
     Calendar fecha = Calendar.getInstance();
     int dia = fecha.get(Calendar.DATE);
-    int mes = fecha.get(Calendar.MONTH)+1;
+    int mes = fecha.get(Calendar.MONTH) + 1;
     int año = fecha.get(Calendar.YEAR);
 
     //GETTERS Y SETTERS FECHA
@@ -138,17 +144,20 @@ public class CitasController {
     }
 
     public void generarCita() {
-        Usuario user = null;
-//        Cliente cl = null;
+
+        Usuario user;
+        Cliente cl = null;
         try {
-            user = (Usuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("userSession");
-//            cl = clienteFacadeLocal.find(us.getIdUsuario());
-//            citas.setIdCliente(cl);
+            user = (Usuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("user");
+//            cl = clienteFacadeLocal.find(user.getIdUsuario());
+            cliente.setIdCliente(1);
+            citas.setIdCliente(cliente);
             citas.setIdEmpleado(empleado);
             citas.setIdServicio(servicios);
             estado.setIdEstado(3);
             citas.setEstadoFK(estado);
             citasFacadeLocal.create(citas);
+            mailC.citas();
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Se ha generado exitosamente la cita"));
             FacesContext.getCurrentInstance().getExternalContext().redirect("consultarCita.xhtml");
         } catch (Exception e) {
@@ -241,7 +250,7 @@ public class CitasController {
     }
 
     //MÉTODOS ESPECIALES PARA EL PERFIL CLIENTE
-    public void listarCitasCl() {
+    public void listarCitasUs() {
 
     }
 

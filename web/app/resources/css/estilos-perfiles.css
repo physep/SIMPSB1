@@ -51,6 +51,7 @@
     background-color: rgba(212, 175, 55, .7);
 }
 .perfil img{
+    border-radius: 50%;
     display: block;
     margin: auto;
     width: 100px;
@@ -99,6 +100,7 @@
     font-weight: 600;
     font-size: 17px;
     color: rgb(210, 210, 210);
+    text-decoration: none;
 }
 .modulo p{
     padding-left: 45px;

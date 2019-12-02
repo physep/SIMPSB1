@@ -9,6 +9,7 @@ import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import javax.inject.Inject;
 import javax.inject.Named;
 import javax.servlet.http.Part;
 import simpsb.dao.*;
@@ -18,6 +19,8 @@ import simpsb.entidades.*;
 @RequestScoped
 public class UsuarioController {
 
+    @Inject 
+    private Utils util;
     @EJB
     private UsuarioFacadeLocal usuarioFacadeLocal;
     @EJB
@@ -27,13 +30,13 @@ public class UsuarioController {
     @EJB
     private RolesFacadeLocal rolesFacadeLocal;
     @EJB
-    private FotosperfilFacadeLocal fotosperfilFacadeLocal;
+    private FotosPerfilFacadeLocal fotosperfilFacadeLocal;
     
     private Usuario usuario;
     private Roles roles;
     private Cliente cliente;
     private Empleado empleado;
-    private Fotosperfil fotosperfil;
+    private FotosPerfil fotosperfil;
     private Part file;
     private String nombre;
     private String pathReal;
@@ -45,14 +48,14 @@ public class UsuarioController {
         roles = new Roles();
         cliente = new Cliente();
         empleado = new Empleado();
-        fotosperfil = new Fotosperfil();
+        fotosperfil = new FotosPerfil();
     }
 
-    public Fotosperfil getFotosperfil() {
+    public FotosPerfil getFotosperfil() {
         return fotosperfil;
     }
 
-    public void setFotosperfil(Fotosperfil fotosperfil) {
+    public void setFotosperfil(FotosPerfil fotosperfil) {
         this.fotosperfil = fotosperfil;
     }
 
@@ -114,14 +117,15 @@ public class UsuarioController {
 
     //MÉTODOS CRUD DE USUARIOS
     public void registrarUsuario() {
+        Usuario user = null;
         try {
+            user = (Usuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("user");
             roles.setIdRol(3);
             usuario.setIdRol(roles);
             usuarioFacadeLocal.create(usuario);
             cliente.setIdUsuario(usuario);
             clienteFacadeLocal.create(cliente);
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Se ha registrado exitosamente"));
-            FacesContext.getCurrentInstance().getExternalContext().redirect("consultarUsuario.xhtml");
         } catch (Exception e) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Error", "Ha ocurrido un error al registrarse"));
         }
@@ -191,48 +195,6 @@ public class UsuarioController {
             usuario.setIdUsuario(us.getIdUsuario());
             usuarioFacadeLocal.edit(usuario);
         } catch (Exception e) {
-        }
-    }
-    
-    public String subirArchivos(){
-        String path = FacesContext.getCurrentInstance().getExternalContext().getRealPath("FotosPerfil");
-        path = path.substring(0, path.indexOf("\\build"));
-        path = path + "\\web\\FotosPerfil\\";
-        try {
-            this.nombre = file.getSubmittedFileName();
-            path = path + this.nombre;
-            pathReal = "/SIMPSB1/FotosPerfil" + nombre;
-            
-            InputStream in = file.getInputStream();
-            File f = new File (path);
-            f.createNewFile();
-            FileOutputStream  out = new FileOutputStream(f);
-             
-            byte[] data = new byte[in.available()];
-            in.read(data);
-            out.write(data);
-            
-            in.close();
-            out.close();
-            
-            guardarBD();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return "indexSupervisor?faces-redirect=true";
-    }
-    
-    public void guardarBD(){
-        Usuario user = null;
-        try {
-            
-            fotosperfil.setFoto(nombre);
-            fotosperfil.setFoto(this.nombre);
-            fotosperfil.setRuta(this.pathReal);
-            fotosperfil.setTipo(this.file.getContentType());
-            fotosperfilFacadeLocal.create(fotosperfil);
-        } catch (Exception e) {
-            e.printStackTrace();
         }
     }
 }

@@ -21,6 +21,9 @@
 .fondo{
     background-color: rgb(203,203,210);
 }
+.row{
+    margin: 0;
+}
 .contenedor{
     padding: 15px;
     padding-top: 0;
@@ -37,99 +40,47 @@
     border-bottom: 2px solid #D4AF37;
     color: #D4AF37;
 }
-/*calendario*/
-.calendario{
-    margin-top: 15px;
-    padding: 25px;
-    color: rgb(120,120,120);
-    height: 100vh;
-    margin-bottom: 30px;
-    border-radius: 5px;
-    background-color: #fff;
-}
-/*panel derecho*/
-.panel-derecho{
-    height: 100vh;
-    padding-right: 0; 
-    margin-bottom: 30px;
-}
-@media screen and (max-width: 576px){
-    .panel-derecho{
-    height: 100vh;
-    padding-right: 0; 
-    padding-left: 0; 
-}
-}   
-.row{
-    margin: 0;
-}
-/*recordatorios*/
-.recordatorios{
-    padding: 20px;
-    margin-top: 15px;
-    height: 33.33%;
-    background-color: #fff;
-}
-/*atajos*/
-.atajos{
-    padding: 25px;
-    margin-top: 15px;
-    height: 33.33%;
-    background-color: #fff;
-}
 
-.espacio{
-    width: 23px;
+.bienvenido{
+    font-size: 40px;
+    color: #000;
 }
-/* ATAJOS */
-.atajos h3 img{
-    margin-right: 10px;
-    width: 30px;
+p img{
     height: 30px;
+    width: 30px;
+    margin-right: 50px;
 }
-.atajos h3{
-    color: rgb(120, 120, 120);
-    font-size: 20px;
-    font-weight: 600;
+.table{
+    background:  rgb(210, 210, 210);
 }
-.atajos h2 img{
-    width: 40px;
-    height: 40px;
-    margin-right: 15px;
+.atajos{
+    border-radius: 5px;
+    margin: 30px;
+    background-color: #fff;
+    height: 80vh;
+    padding: 20px;
 }
 .atajos a{
-    color: rgb(120, 120, 120); 
-    text-decoration: none;
+  color: rgb(120, 120, 120); 
+  text-decoration: none;
 }
 .atajos a:hover{
-    color: #000;
-    border-left: 2px solid #D4AF37;
-    padding-left: 20px;
-    transition: .3s;
+  color: #000;
+  border-left: 2px solid #D4AF37;
+  padding-left: 20px;
+  transition: .3s;
 }
-.atajos h2{
-    font-size: 30px;
-    margin-left: 20px;
-    margin-top: 40px; 
+.atajos h2 img{
+  margin-left: 40px;
+  width: 40px;
+  height: 40px;
+  margin-right: 15px;
 }
-#grafico{
-    padding-top: 20px;
-    height: 450px;
-    width: 100%;
+.citas{
+    border-radius: 5px;
+    margin: 30px;
+    background-color: #fff;
+    height: 80vh;
+    padding: 20px;
 }
-textarea{
-    margin-top: 30px;
-    width: 100%;
-    height: 80%;
-    background-color: #D4AF37;
-}
-.recordatorios h3 img{
-    margin-right: 10px;
-    width: 30px;
-    height: 30px;
-}
-.recordatorios h3{
-    color: rgb(120, 120, 120);
-    font-size: 20px;
-    font-weight: 600;
-}
+

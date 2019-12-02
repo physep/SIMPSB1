@@ -43,7 +43,8 @@
                     </div>
 
                     <h:form>
-                        <p>Usuario:</p>    
+                        <h:inputHidden value="#{citasController.citas.idCita}"/>
+                        <p>Usuario: #{utils.get("usuario")}</p>    
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <h:outputLabel for="fecha" value="#{citasEti.fecha}"/>
@@ -55,7 +56,7 @@
                             </div>
                             <div class="form-group col-md-6">
                                 <h:outputLabel for="hora" value="#{citasEti.hora}"/>
-                                <h:inputText id="hora" styleClass="form form-control" a:type="time" a:min=""
+                                <h:inputText id="hora" styleClass="form form-control" a:type="time" a:min="9:00" a:max="20:00" a:step="1800"
                                              value="#{citasController.citas.hora}">
                                     <f:convertDateTime dateStyle="full" pattern="HH:mm"></f:convertDateTime>
                                 </h:inputText>

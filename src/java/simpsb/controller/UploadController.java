@@ -29,24 +29,16 @@ public class UploadController {
     @EJB
     private FotosPerfilFacadeLocal fotosFacadeLocal;
     private FotosPerfil fotosPerfil;
-    
+
     private Part file;
     private String nombre;
     private String pathReal;
-    
+
     private List<FotosPerfil> listFotos;
-    
+
     @PostConstruct
-    public void init(){
+    public void init() {
         fotosPerfil = new FotosPerfil();
-    }
-
-    public FotosPerfilFacadeLocal getFotosFacadeLocal() {
-        return fotosFacadeLocal;
-    }
-
-    public void setFotosFacadeLocal(FotosPerfilFacadeLocal fotosFacadeLocal) {
-        this.fotosFacadeLocal = fotosFacadeLocal;
     }
 
     public FotosPerfil getFotosPerfil() {
@@ -88,58 +80,43 @@ public class UploadController {
     public void setListFotos(List<FotosPerfil> listFotos) {
         this.listFotos = listFotos;
     }
-    
-    public String SubirFotos(){
-        //Se obtione la ruta de la carpeta
+
+    public String subirArchivos() {
         String path = FacesContext.getCurrentInstance().getExternalContext().getRealPath("FotosPerfil");
         path = path.substring(0, path.indexOf("\\build"));
         path = path + "\\web\\FotosPerfil\\";
-        
         try {
-            
-        this.nombre = file.getSubmittedFileName();
-        path = path + this.nombre;
-        pathReal = "/SIMPSB/FotosPerfil/" + nombre;
-        
-        InputStream in = file.getInputStream();
-        File f = new File(path);
-        f.createNewFile();
-        FileOutputStream out = new FileOutputStream(f);
-        
-        byte [] data = new byte[in.available()];
-        in.read(data);
-        out.write(data);
+            this.nombre = file.getSubmittedFileName();
+            path = path + this.nombre;
+            pathReal = "/SIMPSB1/FotosPerfil" + nombre;
 
-        in.close();
-        out.close();
-        
-        guardarBD();
+            InputStream in = file.getInputStream();
+            File f = new File(path);
+            f.createNewFile();
+            FileOutputStream out = new FileOutputStream(f);
+
+            byte[] data = new byte[in.available()];
+            in.read(data);
+            out.write(data);
+
+            in.close();
+            out.close();
+
+            guardarBD();
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return "cargado?faces-redirect=true";
-        
+        return "indexSupervisor?faces-redirect=true";
     }
-    
-    public void guardarBD(){
+
+    public void guardarBD() {
         try {
-            
-            fotosPerfil.setNombreFoto(this.nombre);
-            fotosPerfil.setRutaFoto(this.pathReal);
-            fotosPerfil.setTipoFoto(this.file.getContentType());
-            
+            fotosPerfil.setFoto(this.nombre);
+            fotosPerfil.setRuta(this.pathReal);
+            fotosPerfil.setTipo(this.file.getContentType());
+            fotosFacadeLocal.create(fotosPerfil);
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-    
-    public String listarFotos() {
-            try {
-                listFotos = fotosFacadeLocal.findAll();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return "listarFotos";
-    }
-    
+    } 
 }

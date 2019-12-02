@@ -31,7 +31,6 @@ import javax.validation.constraints.Size;
     , @NamedQuery(name = "Estado.findByEstado", query = "SELECT e FROM Estado e WHERE e.estado = :estado")})
 public class Estado implements Serializable {
 
-    @Size(max = 45)
     @Column(name = "estado")
     private String estado;
     @OneToMany(mappedBy = "estadoFK")

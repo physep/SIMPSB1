@@ -31,7 +31,6 @@ import javax.validation.constraints.Size;
     , @NamedQuery(name = "Roles.findByRol", query = "SELECT r FROM Roles r WHERE r.rol = :rol")})
 public class Roles implements Serializable {
 
-    @Size(max = 45)
     @Column(name = "rol")
     private String rol;
 

@@ -33,7 +33,6 @@ import javax.validation.constraints.Size;
     , @NamedQuery(name = "Empleado.findByDescripcion", query = "SELECT e FROM Empleado e WHERE e.descripcion = :descripcion")})
 public class Empleado implements Serializable {
 
-    @Size(max = 45)
     @Column(name = "descripcion")
     private String descripcion;
 

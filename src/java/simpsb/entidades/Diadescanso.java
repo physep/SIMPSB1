@@ -31,7 +31,6 @@ import javax.validation.constraints.Size;
     , @NamedQuery(name = "Diadescanso.findByDia", query = "SELECT d FROM Diadescanso d WHERE d.dia = :dia")})
 public class Diadescanso implements Serializable {
 
-    @Size(max = 45)
     @Column(name = "dia")
     private String dia;
 

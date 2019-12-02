@@ -34,13 +34,10 @@ import javax.validation.constraints.Size;
     , @NamedQuery(name = "Servicios.findByTiempoEstimado", query = "SELECT s FROM Servicios s WHERE s.tiempoEstimado = :tiempoEstimado")})
 public class Servicios implements Serializable {
 
-    @Size(max = 45)
     @Column(name = "nombre")
     private String nombre;
-    @Size(max = 45)
     @Column(name = "estado")
     private String estado;
-    @Size(max = 45)
     @Column(name = "tiempoEstimado")
     private String tiempoEstimado;
 

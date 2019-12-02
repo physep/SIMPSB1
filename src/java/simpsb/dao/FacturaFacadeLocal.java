@@ -11,7 +11,7 @@ import simpsb.entidades.Factura;
 
 /**
  *
- * @author SebastianParra
+ * @author LeonardoLara
  */
 @Local
 public interface FacturaFacadeLocal {

@@ -12,7 +12,7 @@ import simpsb.entidades.Calificacion;
 
 /**
  *
- * @author SebastianParra
+ * @author LeonardoLara
  */
 @Stateless
 public class CalificacionFacade extends AbstractFacade<Calificacion> implements CalificacionFacadeLocal {

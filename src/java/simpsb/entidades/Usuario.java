@@ -63,7 +63,7 @@ public class Usuario implements Serializable {
     @OneToMany(mappedBy = "idUsuario")
     private List<Empleado> empleadoList;
     @OneToMany(mappedBy = "idUsuario")
-    private List<Fotosperfil> fotosperfilList;
+    private List<FotosPerfil> fotosperfilList;
     @JoinColumn(name = "idRol", referencedColumnName = "idRol")
     @ManyToOne
     private Roles idRol;
@@ -152,11 +152,11 @@ public class Usuario implements Serializable {
         this.empleadoList = empleadoList;
     }
 
-    public List<Fotosperfil> getFotosperfilList() {
+    public List<FotosPerfil> getFotosperfilList() {
         return fotosperfilList;
     }
 
-    public void setFotosperfilList(List<Fotosperfil> fotosperfilList) {
+    public void setFotosperfilList(List<FotosPerfil> fotosperfilList) {
         this.fotosperfilList = fotosperfilList;
     }
 

@@ -30,13 +30,13 @@ public class UsuarioController {
     @EJB
     private RolesFacadeLocal rolesFacadeLocal;
     @EJB
-    private FotosperfilFacadeLocal fotosperfilFacadeLocal;
+    private FotosPerfilFacadeLocal fotosperfilFacadeLocal;
     
     private Usuario usuario;
     private Roles roles;
     private Cliente cliente;
     private Empleado empleado;
-    private Fotosperfil fotosperfil;
+    private FotosPerfil fotosperfil;
     private Part file;
     private String nombre;
     private String pathReal;
@@ -48,14 +48,14 @@ public class UsuarioController {
         roles = new Roles();
         cliente = new Cliente();
         empleado = new Empleado();
-        fotosperfil = new Fotosperfil();
+        fotosperfil = new FotosPerfil();
     }
 
-    public Fotosperfil getFotosperfil() {
+    public FotosPerfil getFotosperfil() {
         return fotosperfil;
     }
 
-    public void setFotosperfil(Fotosperfil fotosperfil) {
+    public void setFotosperfil(FotosPerfil fotosperfil) {
         this.fotosperfil = fotosperfil;
     }
 
@@ -195,48 +195,6 @@ public class UsuarioController {
             usuario.setIdUsuario(us.getIdUsuario());
             usuarioFacadeLocal.edit(usuario);
         } catch (Exception e) {
-        }
-    }
-    
-    public String subirArchivos(){
-        String path = FacesContext.getCurrentInstance().getExternalContext().getRealPath("FotosPerfil");
-        path = path.substring(0, path.indexOf("\\build"));
-        path = path + "\\web\\FotosPerfil\\";
-        try {
-            this.nombre = file.getSubmittedFileName();
-            path = path + this.nombre;
-            pathReal = "/SIMPSB1/FotosPerfil" + nombre;
-            
-            InputStream in = file.getInputStream();
-            File f = new File (path);
-            f.createNewFile();
-            FileOutputStream  out = new FileOutputStream(f);
-             
-            byte[] data = new byte[in.available()];
-            in.read(data);
-            out.write(data);
-            
-            in.close();
-            out.close();
-            
-            guardarBD();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return "indexSupervisor?faces-redirect=true";
-    }
-    
-    public void guardarBD(){
-        try {
-            util.get("usuario");
-            
-            fotosperfil.setFoto(nombre);
-            fotosperfil.setFoto(this.nombre);
-            fotosperfil.setRuta(this.pathReal);
-            fotosperfil.setTipo(this.file.getContentType());
-            fotosperfilFacadeLocal.create(fotosperfil);
-        } catch (Exception e) {
-            e.printStackTrace();
         }
     }
 }

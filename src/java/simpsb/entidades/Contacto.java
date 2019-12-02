@@ -19,7 +19,7 @@ import javax.validation.constraints.Size;
 
 /**
  *
- * @author SebastianParra
+ * @author LeonardoLara
  */
 @Entity
 @Table(name = "contacto")
@@ -38,12 +38,15 @@ public class Contacto implements Serializable {
     @Basic(optional = false)
     @Column(name = "idContacto")
     private Integer idContacto;
+    @Size(max = 45)
     @Column(name = "nombre")
     private String nombre;
+    @Size(max = 45)
     @Column(name = "correo")
     private String correo;
     @Column(name = "telefono")
     private Integer telefono;
+    @Size(max = 150)
     @Column(name = "comentario")
     private String comentario;
 

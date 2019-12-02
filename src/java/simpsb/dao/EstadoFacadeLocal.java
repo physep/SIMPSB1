@@ -7,26 +7,26 @@ package simpsb.dao;
 
 import java.util.List;
 import javax.ejb.Local;
-import simpsb.entidades.Fotosperfil;
+import simpsb.entidades.Estado;
 
 /**
  *
  * @author SebastianParra
  */
 @Local
-public interface FotosperfilFacadeLocal {
+public interface EstadoFacadeLocal {
 
-    void create(Fotosperfil fotosperfil);
+    void create(Estado estado);
 
-    void edit(Fotosperfil fotosperfil);
+    void edit(Estado estado);
 
-    void remove(Fotosperfil fotosperfil);
+    void remove(Estado estado);
 
-    Fotosperfil find(Object id);
+    Estado find(Object id);
 
-    List<Fotosperfil> findAll();
+    List<Estado> findAll();
 
-    List<Fotosperfil> findRange(int[] range);
+    List<Estado> findRange(int[] range);
 
     int count();
     

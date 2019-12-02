@@ -31,15 +31,16 @@ import javax.validation.constraints.Size;
     , @NamedQuery(name = "Roles.findByRol", query = "SELECT r FROM Roles r WHERE r.rol = :rol")})
 public class Roles implements Serializable {
 
+    @Size(max = 45)
+    @Column(name = "rol")
+    private String rol;
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "idRol")
     private Integer idRol;
-    @Size(max = 45)
-    @Column(name = "rol")
-    private String rol;
     @OneToMany(mappedBy = "idRol")
     private List<Usuario> usuarioList;
 
@@ -58,13 +59,6 @@ public class Roles implements Serializable {
         this.idRol = idRol;
     }
 
-    public String getRol() {
-        return rol;
-    }
-
-    public void setRol(String rol) {
-        this.rol = rol;
-    }
 
     public List<Usuario> getUsuarioList() {
         return usuarioList;
@@ -97,6 +91,14 @@ public class Roles implements Serializable {
     @Override
     public String toString() {
         return "simpsb.entidades.Roles[ idRol=" + idRol + " ]";
+    }
+
+    public String getRol() {
+        return rol;
+    }
+
+    public void setRol(String rol) {
+        this.rol = rol;
     }
     
 }

@@ -30,7 +30,7 @@ import javax.validation.constraints.Size;
     , @NamedQuery(name = "Fotosperfil.findByFoto", query = "SELECT f FROM Fotosperfil f WHERE f.foto = :foto")
     , @NamedQuery(name = "Fotosperfil.findByRuta", query = "SELECT f FROM Fotosperfil f WHERE f.ruta = :ruta")
     , @NamedQuery(name = "Fotosperfil.findByTipo", query = "SELECT f FROM Fotosperfil f WHERE f.tipo = :tipo")})
-public class Fotosperfil implements Serializable {
+public class FotosPerfil implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -38,20 +38,23 @@ public class Fotosperfil implements Serializable {
     @NotNull
     @Column(name = "idFoto")
     private Integer idFoto;
+    @Size(max = 100)
     @Column(name = "foto")
     private String foto;
+    @Size(max = 100)
     @Column(name = "ruta")
     private String ruta;
+    @Size(max = 100)
     @Column(name = "tipo")
     private String tipo;
     @JoinColumn(name = "idUsuario", referencedColumnName = "idUsuario")
     @ManyToOne
     private Usuario idUsuario;
 
-    public Fotosperfil() {
+    public FotosPerfil() {
     }
 
-    public Fotosperfil(Integer idFoto) {
+    public FotosPerfil(Integer idFoto) {
         this.idFoto = idFoto;
     }
 
@@ -105,10 +108,10 @@ public class Fotosperfil implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Fotosperfil)) {
+        if (!(object instanceof FotosPerfil)) {
             return false;
         }
-        Fotosperfil other = (Fotosperfil) object;
+        FotosPerfil other = (FotosPerfil) object;
         if ((this.idFoto == null && other.idFoto != null) || (this.idFoto != null && !this.idFoto.equals(other.idFoto))) {
             return false;
         }

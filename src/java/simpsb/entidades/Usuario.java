@@ -39,6 +39,9 @@ import javax.validation.constraints.Size;
     , @NamedQuery(name = "Usuario.findByPass", query = "SELECT u FROM Usuario u WHERE u.pass = :pass")})
 public class Usuario implements Serializable {
 
+    @OneToMany(mappedBy = "idUsuario")
+    private List<FotosPerfil> fotosperfilList;
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -63,7 +66,7 @@ public class Usuario implements Serializable {
     @OneToMany(mappedBy = "idUsuario")
     private List<Empleado> empleadoList;
     @OneToMany(mappedBy = "idUsuario")
-    private List<FotosPerfil> fotosperfilList;
+    private List<FotosPerfil> fotosPerfilList;
     @JoinColumn(name = "idRol", referencedColumnName = "idRol")
     @ManyToOne
     private Roles idRol;
@@ -191,6 +194,14 @@ public class Usuario implements Serializable {
     @Override
     public String toString() {
         return "simpsb.entidades.Usuario[ idUsuario=" + idUsuario + " ]";
+    }
+
+    public List<FotosPerfil> getFotosPerfilList() {
+        return fotosperfilList;
+    }
+
+    public void setFotosPerfilList(List<FotosPerfil> fotosperfilList) {
+        this.fotosperfilList = fotosperfilList;
     }
     
 }

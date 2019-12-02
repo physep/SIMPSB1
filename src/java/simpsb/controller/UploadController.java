@@ -25,7 +25,7 @@ import simpsb.entidades.*;
 @Named
 @RequestScoped
 public class UploadController {
-
+    
     @EJB
     private FotosPerfilFacadeLocal fotosFacadeLocal;
     private FotosPerfil fotosPerfil;
@@ -118,5 +118,5 @@ public class UploadController {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
+    } 
 }

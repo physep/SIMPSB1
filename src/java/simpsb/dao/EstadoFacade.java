@@ -8,14 +8,14 @@ package simpsb.dao;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import simpsb.entidades.Fotosperfil;
+import simpsb.entidades.Estado;
 
 /**
  *
  * @author SebastianParra
  */
 @Stateless
-public class FotosperfilFacade extends AbstractFacade<Fotosperfil> implements FotosperfilFacadeLocal {
+public class EstadoFacade extends AbstractFacade<Estado> implements EstadoFacadeLocal {
 
     @PersistenceContext(unitName = "SIMPSB1PU")
     private EntityManager em;
@@ -25,8 +25,8 @@ public class FotosperfilFacade extends AbstractFacade<Fotosperfil> implements Fo
         return em;
     }
 
-    public FotosperfilFacade() {
-        super(Fotosperfil.class);
+    public EstadoFacade() {
+        super(Estado.class);
     }
     
 }

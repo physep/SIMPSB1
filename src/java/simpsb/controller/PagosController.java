@@ -32,15 +32,7 @@ public class PagosController {
     private List<Empleado> listEmpleado;
     private List<Factura> listFactura;
     
-    @PostConstruct
-    public void init(){
-        comisiones = new Comisiones();
-        empleado = new Empleado();
-        usuario = new Usuario();
-        factura = new Factura();
-        listEmpleado = empleadoFacadeLocal.findAll();
-        listFactura = facturaFacadeLocal.findAll();
-    }
+    
 
     public ComisionesFacadeLocal getComisionesFacadeLocal() {
         return comisionesFacadeLocal;

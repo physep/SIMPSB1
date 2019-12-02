@@ -13,7 +13,7 @@
         <link href="../../../resources/css/Tablas/jquery.dataTables.css" rel="stylesheet" type="text/css"/>
         <link href="../../../resources/css/Tablas/datatables.min.css" rel="stylesheet" type="text/css"/>
         <link href="../../../resources/css/Tablas/buttons.dataTables.min.css" rel="stylesheet" type="text/css"/>
-        
+
         <!-- ICONOS Y ALERTAS -->
         <link href="../../../resources/css/Bootstrap/all.min.css" rel="stylesheet" type="text/css"/>
         <link href="../../../resources/css/Tablas/responsive.dataTables.min.css" rel="stylesheet" type="text/css"/>
@@ -45,6 +45,7 @@
                         </c:forEach>    
                     </div>
                 </div>
+
             </h:form>
             <div class="container">
                 <div class="tabla d-block mx-auto">
@@ -89,23 +90,27 @@
                                     </h:form>
                                 </h:column>    
                             </h:dataTable>
+                            <h:form>
+                                <h:commandButton actionListener="#{pagoscontroller.genenarPDF(actionEvent)}" value="PDF" styleClass="btn btn-warning">
+                                </h:commandButton>
+                            </h:form>
                         </div>
                     </div>
                 </div>
             </div>
-           <!-- BOOTSTRAP -->
-        <script src="../../../resources/js/Bootstrap/jquery-3.3.1.slim.min.js" type="text/javascript"></script>
-        <script src="../../../resources/js/Bootstrap/popper.min.js" type="text/javascript"></script>
-        <script src="../../../resources/js/Bootstrap/bootstrap.min.js" type="text/javascript"></script>
-        <!-- DATATABLES -->
-        <script src="../../../resources/js/Tablas/dataTables.buttons.min.js" type="text/javascript"></script>
-        <script src="../../../resources/js/Tablas/datatables.min.js" type="text/javascript"></script>
-        <script src="../../../resources/js/Tablas/jszip.min.js" type="text/javascript"></script>
-        <script src="../../../resources/js/Tablas/pdfmake.min.js" type="text/javascript"></script>
-        <script src="../../../resources/js/Tablas/vfs_fonts.js" type="text/javascript"></script>
-        <script src="../../../resources/js/Tablas/buttons.html5.min.js" type="text/javascript"></script>
-        <script src="../../../resources/js/Tablas/dataTables.responsive.min.js" type="text/javascript"></script>
-        <script src="../../../resources/js/JSPropios/botones.js" type="text/javascript"></script>
+            <!-- BOOTSTRAP -->
+            <script src="../../../resources/js/Bootstrap/jquery-3.3.1.slim.min.js" type="text/javascript"></script>
+            <script src="../../../resources/js/Bootstrap/popper.min.js" type="text/javascript"></script>
+            <script src="../../../resources/js/Bootstrap/bootstrap.min.js" type="text/javascript"></script>
+            <!-- DATATABLES -->
+            <script src="../../../resources/js/Tablas/dataTables.buttons.min.js" type="text/javascript"></script>
+            <script src="../../../resources/js/Tablas/datatables.min.js" type="text/javascript"></script>
+            <script src="../../../resources/js/Tablas/jszip.min.js" type="text/javascript"></script>
+            <script src="../../../resources/js/Tablas/pdfmake.min.js" type="text/javascript"></script>
+            <script src="../../../resources/js/Tablas/vfs_fonts.js" type="text/javascript"></script>
+            <script src="../../../resources/js/Tablas/buttons.html5.min.js" type="text/javascript"></script>
+            <script src="../../../resources/js/Tablas/dataTables.responsive.min.js" type="text/javascript"></script>
+            <script src="../../../resources/js/JSPropios/botones.js" type="text/javascript"></script>
         </f:view>
     </h:body>
 </html>

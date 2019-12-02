@@ -7,6 +7,7 @@ package simpsb.entidades;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -17,13 +18,14 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 /**
  *
- * @author SebastianParra
+ * @author Leonardo Lara
  */
 @Entity
 @Table(name = "citas")
@@ -58,6 +60,8 @@ public class Citas implements Serializable {
     @JoinColumn(name = "estadoFK", referencedColumnName = "idEstado")
     @ManyToOne
     private Estado estadoFK;
+    @OneToMany(mappedBy = "idCita")
+    private List<Factura> facturaList;
 
     public Citas() {
     }
@@ -120,6 +124,14 @@ public class Citas implements Serializable {
 
     public void setEstadoFK(Estado estadoFK) {
         this.estadoFK = estadoFK;
+    }
+
+    public List<Factura> getFacturaList() {
+        return facturaList;
+    }
+
+    public void setFacturaList(List<Factura> facturaList) {
+        this.facturaList = facturaList;
     }
 
     @Override

@@ -11,7 +11,7 @@ import simpsb.entidades.Usuario;
 
 /**
  *
- * @author SebastianParra
+ * @author Leonardo Lara
  */
 @Local
 public interface UsuarioFacadeLocal {
@@ -30,7 +30,4 @@ public interface UsuarioFacadeLocal {
 
     int count();
     
-    Usuario login(Usuario users);
-    
-    Usuario getId(int numDocumento);
 }

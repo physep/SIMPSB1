@@ -12,7 +12,7 @@ import simpsb.entidades.Servicios;
 
 /**
  *
- * @author LeonardoLara
+ * @author Leonardo Lara
  */
 @Stateless
 public class ServiciosFacade extends AbstractFacade<Servicios> implements ServiciosFacadeLocal {

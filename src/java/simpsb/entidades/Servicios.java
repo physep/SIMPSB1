@@ -21,7 +21,7 @@ import javax.validation.constraints.Size;
 
 /**
  *
- * @author LeonardoLara
+ * @author Leonardo Lara
  */
 @Entity
 @Table(name = "servicios")
@@ -34,24 +34,20 @@ import javax.validation.constraints.Size;
     , @NamedQuery(name = "Servicios.findByTiempoEstimado", query = "SELECT s FROM Servicios s WHERE s.tiempoEstimado = :tiempoEstimado")})
 public class Servicios implements Serializable {
 
-    @Size(max = 45)
-    @Column(name = "nombre")
-    private String nombre;
-    @Size(max = 45)
-    @Column(name = "estado")
-    private String estado;
-    @Size(max = 45)
-    @Column(name = "tiempoEstimado")
-    private String tiempoEstimado;
-
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "idServicio")
     private Integer idServicio;
+    @Column(name = "nombre")
+    private String nombre;
+    @Column(name = "estado")
+    private String estado;
     @Column(name = "valor")
     private Integer valor;
+    @Column(name = "tiempoEstimado")
+    private String tiempoEstimado;
     @OneToMany(mappedBy = "idServicio")
     private List<Citas> citasList;
 
@@ -70,6 +66,21 @@ public class Servicios implements Serializable {
         this.idServicio = idServicio;
     }
 
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
 
     public Integer getValor() {
         return valor;
@@ -79,6 +90,13 @@ public class Servicios implements Serializable {
         this.valor = valor;
     }
 
+    public String getTiempoEstimado() {
+        return tiempoEstimado;
+    }
+
+    public void setTiempoEstimado(String tiempoEstimado) {
+        this.tiempoEstimado = tiempoEstimado;
+    }
 
     public List<Citas> getCitasList() {
         return citasList;
@@ -111,30 +129,6 @@ public class Servicios implements Serializable {
     @Override
     public String toString() {
         return "simpsb.entidades.Servicios[ idServicio=" + idServicio + " ]";
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getEstado() {
-        return estado;
-    }
-
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }
-
-    public String getTiempoEstimado() {
-        return tiempoEstimado;
-    }
-
-    public void setTiempoEstimado(String tiempoEstimado) {
-        this.tiempoEstimado = tiempoEstimado;
     }
     
 }

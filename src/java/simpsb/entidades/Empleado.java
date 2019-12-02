@@ -23,7 +23,7 @@ import javax.validation.constraints.Size;
 
 /**
  *
- * @author LeonardoLara
+ * @author Leonardo Lara
  */
 @Entity
 @Table(name = "empleado")
@@ -33,16 +33,14 @@ import javax.validation.constraints.Size;
     , @NamedQuery(name = "Empleado.findByDescripcion", query = "SELECT e FROM Empleado e WHERE e.descripcion = :descripcion")})
 public class Empleado implements Serializable {
 
-    @Size(max = 45)
-    @Column(name = "descripcion")
-    private String descripcion;
-
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "idEmpleado")
     private Integer idEmpleado;
+    @Column(name = "descripcion")
+    private String descripcion;
     @OneToMany(mappedBy = "idEmpleado")
     private List<Citas> citasList;
     @OneToMany(mappedBy = "idEmpleado")
@@ -75,6 +73,13 @@ public class Empleado implements Serializable {
         this.idEmpleado = idEmpleado;
     }
 
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
 
     public List<Citas> getCitasList() {
         return citasList;
@@ -147,14 +152,6 @@ public class Empleado implements Serializable {
     @Override
     public String toString() {
         return "simpsb.entidades.Empleado[ idEmpleado=" + idEmpleado + " ]";
-    }
-
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
     }
     
 }

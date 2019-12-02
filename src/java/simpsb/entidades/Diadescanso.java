@@ -21,7 +21,7 @@ import javax.validation.constraints.Size;
 
 /**
  *
- * @author LeonardoLara
+ * @author Leonardo Lara
  */
 @Entity
 @Table(name = "diadescanso")
@@ -31,16 +31,14 @@ import javax.validation.constraints.Size;
     , @NamedQuery(name = "Diadescanso.findByDia", query = "SELECT d FROM Diadescanso d WHERE d.dia = :dia")})
 public class Diadescanso implements Serializable {
 
-    @Size(max = 45)
-    @Column(name = "dia")
-    private String dia;
-
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "idDiaDescanso")
     private Integer idDiaDescanso;
+    @Column(name = "dia")
+    private String dia;
     @OneToMany(mappedBy = "idDiaDescanso")
     private List<Empleado> empleadoList;
 
@@ -59,6 +57,13 @@ public class Diadescanso implements Serializable {
         this.idDiaDescanso = idDiaDescanso;
     }
 
+    public String getDia() {
+        return dia;
+    }
+
+    public void setDia(String dia) {
+        this.dia = dia;
+    }
 
     public List<Empleado> getEmpleadoList() {
         return empleadoList;
@@ -91,14 +96,6 @@ public class Diadescanso implements Serializable {
     @Override
     public String toString() {
         return "simpsb.entidades.Diadescanso[ idDiaDescanso=" + idDiaDescanso + " ]";
-    }
-
-    public String getDia() {
-        return dia;
-    }
-
-    public void setDia(String dia) {
-        this.dia = dia;
     }
     
 }

@@ -11,7 +11,7 @@ import simpsb.entidades.Diadescanso;
 
 /**
  *
- * @author LeonardoLara
+ * @author Leonardo Lara
  */
 @Local
 public interface DiadescansoFacadeLocal {

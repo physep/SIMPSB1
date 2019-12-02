@@ -54,8 +54,8 @@
     border-radius: 50%;
     display: block;
     margin: auto;
-    width: 100px;
-    height: 100px;
+    width: 145px;
+    height: 145px;
 }
 .perfil img:hover{
     opacity: .5;
@@ -258,4 +258,19 @@ iframe{
     padding-right: 20px;
     background-color: #000;
     margin: 0;
+}
+
+
+/*Tamaño estrellas*/
+
+.tamañoImg img{
+    width: 70px ;
+    height: 70px ;
+
+}
+
+.tamañoImg {
+    width: 70px ;
+    height: 70px ;
+    
 }

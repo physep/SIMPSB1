@@ -55,8 +55,11 @@
                         <!-- TABLA  -->
                         <div class="col-12">
                             <p class="text-uppercase"> <img src="../../resources/img/icono_pagos.png" alt=""/>#{pagosEti.pagos} </p>
+                            <h:form>
                             <h:commandButton actionListener="#{pagoscontroller.genenarPDF(actionEvent)}" value="PDF" styleClass="btn btn-warning">
-                    </h:commandButton>
+                  
+                            </h:commandButton>
+                                </h:form>
                             <h:dataTable value="#{pagosController.listarPagos()}" var="comisiones" styleClass="display tablas table table-striped table-bordered dt-responsive nowrap text-center">
                                 <h:column>
                                     <f:facet name="header">ID</f:facet>

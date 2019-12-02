@@ -113,8 +113,6 @@ public class MailController {
 
     public void citas() throws UnsupportedEncodingException {
         //Defino destinatario
-        citas.getIdCita();
-        Cliente cor = citas.getIdCliente();
         this.setDestinatario(citas.getIdCliente().getIdUsuario().getCorreo());
         //Defino asunto
         this.setAsunto("Se ha agendado correctamente su cita");

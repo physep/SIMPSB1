@@ -23,7 +23,7 @@ import javax.persistence.TemporalType;
 
 /**
  *
- * @author LeonardoLara
+ * @author Leonardo Lara
  */
 @Entity
 @Table(name = "horariotrabajo")

@@ -43,6 +43,7 @@ public class CitasController {
     private List<Servicios> listServicios;
     private List<Empleado> listEmpleados;
 
+
     @PostConstruct
     public void init() {
         citas = new Citas();
@@ -54,6 +55,7 @@ public class CitasController {
         listEmpleados = empleadoFacadeLocal.findAll();
         validarEstado();
     }
+    
 
     //GETTERS Y SETTERS CONTROLADOR
     public Estado getEstado() {
@@ -143,12 +145,12 @@ public class CitasController {
         this.año = año;
     }
 
-    public void generarCita() {
+    public void generarCita(int idUser) {
 
         Usuario user;
         Cliente cl = null;
         try {
-            user = (Usuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("user");
+            user = usuarioFacadeLocal.find(idUser+1);
 //            cl = clienteFacadeLocal.find(user.getIdUsuario());
             cliente.setIdCliente(1);
             citas.setIdCliente(cliente);
@@ -251,7 +253,38 @@ public class CitasController {
 
     //MÉTODOS ESPECIALES PARA EL PERFIL CLIENTE
     public void listarCitasUs() {
-
+        
     }
 
+    public void validarHoras(){
+
+//        horas[0] = "9:00";
+//        horas[1] = "9:30";
+//        horas[2] = "10:00";
+//        horas[3] = "10:30";
+//        horas[4] = "11:00";
+//        horas[5] = "11:30";
+//        horas[6] = "12:00";
+//        horas[7] = "12:30";
+//        horas[8] = "1:00";
+//        horas[9] = "1:30";
+//        horas[10] = "2:00";
+//        horas[11] = "2:30";
+//        horas[12] = "3:00";
+//        horas[13] = "3:30";
+//        horas[14] = "4:00";
+//        horas[15] = "4:30";
+//        horas[16] = "5:00";
+//        horas[17] = "5:30";
+//        horas[18] = "6:00";
+//        horas[19] = "6:30";
+//        horas[20] = "7:00";
+//        horas[21] = "7:30";
+//        horas[22] = "8:00";
+//        horas[23] = "8:30";
+//        horas[24] = "9:00";
+//        for (int i = 0; i < 26; i++) {
+//            
+//        }
+    }
 }

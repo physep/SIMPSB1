@@ -48,8 +48,8 @@
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <h:outputLabel for="fecha" value="#{citasEti.fecha}"/>
-                                <h:inputText id="fecha" styleClass="form form-control" a:type="date" 
-                                             value="#{citasController.citas.fecha}" a:min="#{citasController.año}-#{citasController.mes}-#{citasController.dia}"> 
+                                <h:inputText id="fecha" styleClass="form form-control" a:type="date"
+                                     value="#{citasController.citas.fecha}" a:min="#{citasController.año}-#{citasController.mes}-#{citasController.dia}"> 
                                     <f:convertDateTime for="fecha" type="date" pattern="yyyy-MM-dd"></f:convertDateTime>
                                 </h:inputText>
                                 <h:message for="fecha"/>
@@ -63,6 +63,20 @@
                                 <h:message for="hora"/>
                             </div>
                         </div>
+                        
+                        <div class="form-group col-md-6">
+                            <h:outputLabel for="hora" value="#{citasEti.hora}"/>
+                            <h:selectOneMenu value="#{citasController.citas.hora}">
+                                <f:selectItem itemValue="9:00" itemLabel="9:00"/>
+                                <f:selectItem itemValue="9:30" itemLabel="9:30"/>
+                                <f:selectItem itemValue="10:00" itemLabel="10:00"/>
+                                <f:selectItem itemValue="10:30" itemLabel="10:30"/>
+                                <f:selectItem itemValue="11:00" itemLabel="11:00"/>
+                                <f:selectItem itemValue="11:30" itemLabel="11:30"/>
+                                <f:selectItem itemValue="12:00" itemLabel="12:00"/>
+                            </h:selectOneMenu>
+                            <h:message for="hora"/>
+                        </div>  
 
                         <div class="form-group col-md-12">
                             <h:outputLabel for="servicio" value="#{citasEti.servicio}"/>
@@ -87,7 +101,7 @@
                         </div>
 
                         <h:commandButton styleClass="btn boton d-block mx-auto" 
-                                         action="#{citasController.generarCita()}" 
+                                         action="#{citasController.generarCita(user.getIdUsuario())}" 
                                          value="#{citasEti.btn_agendar}"/> 
                     </h:form>
                 </div>

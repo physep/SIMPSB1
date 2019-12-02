@@ -46,7 +46,7 @@ public class pagoscontroller {
     public void genenarPDF(ActionEvent actionEvent) {
         //Genero un Hash Map para los parametros del reporte
         Map<String, Object> parametros = new HashMap<String, Object>();
-        parametros.put("idComision",33);
+        parametros.put("idComision",41);
 
         //Genero la lista para los Fields del reporte
         listarComisiones();

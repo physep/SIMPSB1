@@ -24,7 +24,7 @@ import javax.validation.constraints.Size;
 
 /**
  *
- * @author SebastianParra
+ * @author Leonardo Lara
  */
 @Entity
 @Table(name = "usuario")
@@ -36,11 +36,9 @@ import javax.validation.constraints.Size;
     , @NamedQuery(name = "Usuario.findByGenero", query = "SELECT u FROM Usuario u WHERE u.genero = :genero")
     , @NamedQuery(name = "Usuario.findByNumDocumento", query = "SELECT u FROM Usuario u WHERE u.numDocumento = :numDocumento")
     , @NamedQuery(name = "Usuario.findByCorreo", query = "SELECT u FROM Usuario u WHERE u.correo = :correo")
-    , @NamedQuery(name = "Usuario.findByPass", query = "SELECT u FROM Usuario u WHERE u.pass = :pass")})
+    , @NamedQuery(name = "Usuario.findByPass", query = "SELECT u FROM Usuario u WHERE u.pass = :pass")
+    , @NamedQuery(name = "Usuario.findByFoto", query = "SELECT u FROM Usuario u WHERE u.foto = :foto")})
 public class Usuario implements Serializable {
-
-    @OneToMany(mappedBy = "idUsuario")
-    private List<FotosPerfil> fotosperfilList;
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -61,12 +59,12 @@ public class Usuario implements Serializable {
     @Basic(optional = false)
     @Column(name = "pass")
     private String pass;
+    @Column(name = "foto")
+    private String foto;
     @OneToMany(mappedBy = "idUsuario")
     private List<Cliente> clienteList;
     @OneToMany(mappedBy = "idUsuario")
     private List<Empleado> empleadoList;
-    @OneToMany(mappedBy = "idUsuario")
-    private List<FotosPerfil> fotosPerfilList;
     @JoinColumn(name = "idRol", referencedColumnName = "idRol")
     @ManyToOne
     private Roles idRol;
@@ -139,6 +137,14 @@ public class Usuario implements Serializable {
         this.pass = pass;
     }
 
+    public String getFoto() {
+        return foto;
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
+    }
+
     public List<Cliente> getClienteList() {
         return clienteList;
     }
@@ -153,14 +159,6 @@ public class Usuario implements Serializable {
 
     public void setEmpleadoList(List<Empleado> empleadoList) {
         this.empleadoList = empleadoList;
-    }
-
-    public List<FotosPerfil> getFotosperfilList() {
-        return fotosperfilList;
-    }
-
-    public void setFotosperfilList(List<FotosPerfil> fotosperfilList) {
-        this.fotosperfilList = fotosperfilList;
     }
 
     public Roles getIdRol() {
@@ -194,14 +192,6 @@ public class Usuario implements Serializable {
     @Override
     public String toString() {
         return "simpsb.entidades.Usuario[ idUsuario=" + idUsuario + " ]";
-    }
-
-    public List<FotosPerfil> getFotosPerfilList() {
-        return fotosperfilList;
-    }
-
-    public void setFotosPerfilList(List<FotosPerfil> fotosperfilList) {
-        this.fotosperfilList = fotosperfilList;
     }
     
 }

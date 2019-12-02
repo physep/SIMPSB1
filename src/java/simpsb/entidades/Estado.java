@@ -21,7 +21,7 @@ import javax.validation.constraints.Size;
 
 /**
  *
- * @author SebastianParra
+ * @author Leonardo Lara
  */
 @Entity
 @Table(name = "estado")
@@ -31,18 +31,16 @@ import javax.validation.constraints.Size;
     , @NamedQuery(name = "Estado.findByEstado", query = "SELECT e FROM Estado e WHERE e.estado = :estado")})
 public class Estado implements Serializable {
 
-    @Size(max = 45)
-    @Column(name = "estado")
-    private String estado;
-    @OneToMany(mappedBy = "estadoFK")
-    private List<Citas> citasList;
-
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "idEstado")
     private Integer idEstado;
+    @Column(name = "estado")
+    private String estado;
+    @OneToMany(mappedBy = "estadoFK")
+    private List<Citas> citasList;
 
     public Estado() {
     }
@@ -59,6 +57,21 @@ public class Estado implements Serializable {
         this.idEstado = idEstado;
     }
 
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public List<Citas> getCitasList() {
+        return citasList;
+    }
+
+    public void setCitasList(List<Citas> citasList) {
+        this.citasList = citasList;
+    }
 
     @Override
     public int hashCode() {
@@ -83,22 +96,6 @@ public class Estado implements Serializable {
     @Override
     public String toString() {
         return "simpsb.entidades.Estado[ idEstado=" + idEstado + " ]";
-    }
-
-    public String getEstado() {
-        return estado;
-    }
-
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }
-
-    public List<Citas> getCitasList() {
-        return citasList;
-    }
-
-    public void setCitasList(List<Citas> citasList) {
-        this.citasList = citasList;
     }
     
 }

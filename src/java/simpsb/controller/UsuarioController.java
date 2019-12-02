@@ -29,14 +29,11 @@ public class UsuarioController {
     private EmpleadoFacadeLocal empleadoFacadeLocal;
     @EJB
     private RolesFacadeLocal rolesFacadeLocal;
-    @EJB
-    private FotosPerfilFacadeLocal fotosperfilFacadeLocal;
     
     private Usuario usuario;
     private Roles roles;
     private Cliente cliente;
     private Empleado empleado;
-    private FotosPerfil fotosperfil;
     private Part file;
     private String nombre;
     private String pathReal;
@@ -48,16 +45,8 @@ public class UsuarioController {
         roles = new Roles();
         cliente = new Cliente();
         empleado = new Empleado();
-        fotosperfil = new FotosPerfil();
     }
 
-    public FotosPerfil getFotosperfil() {
-        return fotosperfil;
-    }
-
-    public void setFotosperfil(FotosPerfil fotosperfil) {
-        this.fotosperfil = fotosperfil;
-    }
 
     public Part getFile() {
         return file;
@@ -126,6 +115,22 @@ public class UsuarioController {
             cliente.setIdUsuario(usuario);
             clienteFacadeLocal.create(cliente);
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Se ha registrado exitosamente"));
+        } catch (Exception e) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Error", "Ha ocurrido un error al registrarse"));
+        }
+    }
+    
+    public void crearUsuario(){
+        Usuario user = null;
+        try {
+            user = (Usuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("user");
+            roles.setIdRol(3);
+            usuario.setIdRol(roles);
+            usuarioFacadeLocal.create(usuario);
+            cliente.setIdUsuario(usuario);
+            clienteFacadeLocal.create(cliente);
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Se ha registrado exitosamente"));
+            FacesContext.getCurrentInstance().getExternalContext().redirect("consultarUsuario.xhtml");
         } catch (Exception e) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Error", "Ha ocurrido un error al registrarse"));
         }

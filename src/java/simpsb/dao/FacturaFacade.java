@@ -12,7 +12,7 @@ import simpsb.entidades.Factura;
 
 /**
  *
- * @author LeonardoLara
+ * @author Leonardo Lara
  */
 @Stateless
 public class FacturaFacade extends AbstractFacade<Factura> implements FacturaFacadeLocal {

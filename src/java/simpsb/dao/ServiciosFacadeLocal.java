@@ -11,7 +11,7 @@ import simpsb.entidades.Servicios;
 
 /**
  *
- * @author LeonardoLara
+ * @author Leonardo Lara
  */
 @Local
 public interface ServiciosFacadeLocal {

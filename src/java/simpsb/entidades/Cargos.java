@@ -21,7 +21,7 @@ import javax.validation.constraints.Size;
 
 /**
  *
- * @author LeonardoLara
+ * @author Leonardo Lara
  */
 @Entity
 @Table(name = "cargos")
@@ -31,16 +31,14 @@ import javax.validation.constraints.Size;
     , @NamedQuery(name = "Cargos.findByCargo", query = "SELECT c FROM Cargos c WHERE c.cargo = :cargo")})
 public class Cargos implements Serializable {
 
-    @Size(max = 45)
-    @Column(name = "cargo")
-    private String cargo;
-
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "idCargo")
     private Integer idCargo;
+    @Column(name = "cargo")
+    private String cargo;
     @OneToMany(mappedBy = "idCargo")
     private List<Empleado> empleadoList;
 
@@ -59,6 +57,13 @@ public class Cargos implements Serializable {
         this.idCargo = idCargo;
     }
 
+    public String getCargo() {
+        return cargo;
+    }
+
+    public void setCargo(String cargo) {
+        this.cargo = cargo;
+    }
 
     public List<Empleado> getEmpleadoList() {
         return empleadoList;
@@ -91,14 +96,6 @@ public class Cargos implements Serializable {
     @Override
     public String toString() {
         return "simpsb.entidades.Cargos[ idCargo=" + idCargo + " ]";
-    }
-
-    public String getCargo() {
-        return cargo;
-    }
-
-    public void setCargo(String cargo) {
-        this.cargo = cargo;
     }
     
 }

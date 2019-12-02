@@ -11,7 +11,7 @@ import simpsb.entidades.Roles;
 
 /**
  *
- * @author LeonardoLara
+ * @author Leonardo Lara
  */
 @Local
 public interface RolesFacadeLocal {

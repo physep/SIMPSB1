@@ -12,7 +12,7 @@ import simpsb.entidades.Cliente;
 
 /**
  *
- * @author LeonardoLara
+ * @author Leonardo Lara
  */
 @Stateless
 public class ClienteFacade extends AbstractFacade<Cliente> implements ClienteFacadeLocal {

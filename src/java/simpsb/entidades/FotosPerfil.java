@@ -25,11 +25,11 @@ import javax.validation.constraints.Size;
 @Entity
 @Table(name = "fotosperfil")
 @NamedQueries({
-    @NamedQuery(name = "Fotosperfil.findAll", query = "SELECT f FROM Fotosperfil f")
-    , @NamedQuery(name = "Fotosperfil.findByIdFoto", query = "SELECT f FROM Fotosperfil f WHERE f.idFoto = :idFoto")
-    , @NamedQuery(name = "Fotosperfil.findByFoto", query = "SELECT f FROM Fotosperfil f WHERE f.foto = :foto")
-    , @NamedQuery(name = "Fotosperfil.findByRuta", query = "SELECT f FROM Fotosperfil f WHERE f.ruta = :ruta")
-    , @NamedQuery(name = "Fotosperfil.findByTipo", query = "SELECT f FROM Fotosperfil f WHERE f.tipo = :tipo")})
+    @NamedQuery(name = "FotosPerfil.findAll", query = "SELECT f FROM FotosPerfil f")
+    , @NamedQuery(name = "FotosPerfil.findByIdFoto", query = "SELECT f FROM FotosPerfil f WHERE f.idFoto = :idFoto")
+    , @NamedQuery(name = "FotosPerfil.findByFoto", query = "SELECT f FROM FotosPerfil f WHERE f.foto = :foto")
+    , @NamedQuery(name = "FotosPerfil.findByRuta", query = "SELECT f FROM FotosPerfil f WHERE f.ruta = :ruta")
+    , @NamedQuery(name = "FotosPerfil.findByTipo", query = "SELECT f FROM FotosPerfil f WHERE f.tipo = :tipo")})
 public class FotosPerfil implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -120,7 +120,7 @@ public class FotosPerfil implements Serializable {
 
     @Override
     public String toString() {
-        return "simpsb.entidades.Fotosperfil[ idFoto=" + idFoto + " ]";
+        return "simpsb.entidades.FotosPerfil[ idFoto=" + idFoto + " ]";
     }
     
 }

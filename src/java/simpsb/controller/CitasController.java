@@ -9,9 +9,6 @@ import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import simpsb.dao.*;
 import simpsb.entidades.*;
 
@@ -148,10 +145,10 @@ public class CitasController {
 
     public void generarCita() {
 
-        Usuario user = null;
+        Usuario user;
         Cliente cl = null;
         try {
-//            user = (Usuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("userSession");
+            user = (Usuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("user");
 //            cl = clienteFacadeLocal.find(user.getIdUsuario());
             cliente.setIdCliente(1);
             citas.setIdCliente(cliente);
@@ -253,7 +250,7 @@ public class CitasController {
     }
 
     //MÉTODOS ESPECIALES PARA EL PERFIL CLIENTE
-    public void listarCitasCl() {
+    public void listarCitasUs() {
 
     }
 

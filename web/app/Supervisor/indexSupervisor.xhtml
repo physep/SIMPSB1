@@ -9,12 +9,11 @@
         <link href="../../resources/css/Bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="../resources/css/estilos-perfiles.css" rel="stylesheet" type="text/css"/>
     </h:head>
-
+    <f:event type="preRenderView" listener="#{sesionController.verificarSesion()}"/>
     <h:body class="fondo">
         <f:view locale="#{languages.idiomaSeleccionado}">
             <!-- SIDEBAR -->
             <h:form enctype="multipart/form-data">
-                <h:inputHidden value="#{usuarioController.usuario.idUsuario}"/>
                 <div class="col-2 sidebar float-left">
                     <div class="perfil">
                         <p class="text-center text-uppercase">Supervisor</p>

@@ -30,9 +30,9 @@ public class UsuarioFacade extends AbstractFacade<Usuario> implements UsuarioFac
     public Usuario login(Usuario user) {
         Usuario usuario = null;
         try {
-            Query query = em.createQuery("SELECT u FROM TblUsuarios u WHERE u.correo = :correo AND u.pass = :pass");
+            Query query = em.createQuery("SELECT u FROM Usuario u WHERE u.correo = :correo AND u.pass = :pass");
             query.setParameter("correo", user.getCorreo());
-            query.setParameter("clave", user.getPass());
+            query.setParameter("pass", user.getPass());
             List<Usuario> listUser = query.getResultList();
             if (!listUser.isEmpty()) {
                 usuario = listUser.get(0);
@@ -44,8 +44,19 @@ public class UsuarioFacade extends AbstractFacade<Usuario> implements UsuarioFac
     }
 
     @Override
-    public Usuario getId(int numDocumento) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Usuario getId(int doc) {
+        Usuario user = null;
+        try {
+            Query query = em.createQuery("SELECT u.idUsuario FROM Usuario u WHERE u.numDocumento = :doc");
+            query.setParameter("doc", doc);
+            List<Usuario> lista = query.getResultList();
+            if (!lista.isEmpty()) {
+                user = lista.get(0);
+            }
+        } catch (Exception e) {
+            throw e;
+        }
+        return user;
     }
-    
+
 }

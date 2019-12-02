@@ -38,13 +38,10 @@ public class Fotosperfil implements Serializable {
     @NotNull
     @Column(name = "idFoto")
     private Integer idFoto;
-    @Size(max = 100)
     @Column(name = "foto")
     private String foto;
-    @Size(max = 100)
     @Column(name = "ruta")
     private String ruta;
-    @Size(max = 100)
     @Column(name = "tipo")
     private String tipo;
     @JoinColumn(name = "idUsuario", referencedColumnName = "idUsuario")

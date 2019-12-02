@@ -37,7 +37,6 @@ public class Estado implements Serializable {
     @Basic(optional = false)
     @Column(name = "idEstado")
     private Integer idEstado;
-    @Size(max = 45)
     @Column(name = "estado")
     private String estado;
     @OneToMany(mappedBy = "estadoFK")

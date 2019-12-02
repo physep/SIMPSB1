@@ -37,7 +37,6 @@ public class Roles implements Serializable {
     @Basic(optional = false)
     @Column(name = "idRol")
     private Integer idRol;
-    @Size(max = 45)
     @Column(name = "rol")
     private String rol;
     @OneToMany(mappedBy = "idRol")

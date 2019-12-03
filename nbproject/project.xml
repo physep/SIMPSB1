@@ -13,14 +13,6 @@
                 <library dirs="200">
                     <file>${file.reference.mail.jar}</file>
                 </library>
-                <library dirs="200">
-<<<<<<< HEAD
-                    <file>${libs.JavaiReport-simpsb.classpath}</file>
-=======
-                    <file>${libs.JavaIReport-simpsb.classpath}</file>
->>>>>>> origin/master
-                    <path-in-war>WEB-INF/lib</path-in-war>
-                </library>
             </web-module-libraries>
             <web-module-additional-libraries/>
             <source-roots>

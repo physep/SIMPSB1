@@ -38,11 +38,6 @@ public class UsuarioController {
     
     private UploadController imagen;
     
-    private String pass = usuario.getPass();
-    private String contra;
-    private String contra1;
-    private String contra2;
-
     @PostConstruct
     public void init() {
         //ENTIDADES
@@ -132,41 +127,7 @@ public class UsuarioController {
     public void setImagen(UploadController imagen) {
         this.imagen = imagen;
     }
-
-    public String getPass() {
-        return pass;
-    }
-
-    public void setPass(String pass) {
-        this.pass = pass;
-    }
-
-    public String getContra1() {
-        return contra1;
-    }
-
-    public void setContra1(String contra1) {
-        this.contra1 = contra1;
-    }
-
-    public String getContra2() {
-        return contra2;
-    }
-
-    public void setContra2(String contra2) {
-        this.contra2 = contra2;
-    }
-
-    public String getContra() {
-        return contra;
-    }
-
-    public void setContra(String contra) {
-        this.contra = contra;
-    }
     
-    
-
     //MÉTODOS CRUD DE USUARIOS
     public void registrarUsuario() {
         Usuario user = null;
@@ -276,24 +237,6 @@ public class UsuarioController {
             usuario.setFoto(imagen.getPathReal());
             usuarioFacadeLocal.edit(usuario);
             FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("user", usuario);
-        } catch (Exception e) {
-        }
-    }
-
-    public void cambiarContra() {
-        private c1;
-        private c2;
-        private c3;
-        private c4;
-        try {
-            c1 = contra;
-            c2 = pass;
-            if (c1 == c2) {
-                if (c3 == c4) {
-                    pass = c3;
-                    usuarioFacadeLocal.create(pass);
-                }
-            }
         } catch (Exception e) {
         }
     }

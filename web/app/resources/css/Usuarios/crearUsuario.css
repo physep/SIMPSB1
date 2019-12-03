@@ -99,3 +99,8 @@ input:invalid, select:invalid{
 .swal-overlay{
     background-color: rgba(0,0,0,.8);
 }
+
+.estilosFtPerfil{
+    width: 250px;
+    height: 200px; 
+}

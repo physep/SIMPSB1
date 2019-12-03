@@ -81,4 +81,23 @@ public class SesionController implements Serializable {
         FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
         return "../../";
     }
+    
+     public String iniciarSesionFoto() {
+        String url = null;
+        Usuario u;
+        try {
+            u = usuarioFacadeLocal.login(usuario);
+            if (u != null) {
+                FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("user", u);
+                String rol = u.getIdRol().getRol();
+                url = "editarPerfil?faces-redirect=true";
+            } else {
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Aviso:", "Credenciales incorrectas"));
+            }
+        } catch (Exception e) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Error:", "Error al iniciar sesion"));
+            e.printStackTrace();
+        }
+        return url;
+    }
 }

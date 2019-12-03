@@ -89,7 +89,6 @@ public class SesionController implements Serializable {
             u = usuarioFacadeLocal.login(usuario);
             if (u != null) {
                 FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("user", u);
-                String rol = u.getIdRol().getRol();
                 url = "editarPerfil?faces-redirect=true";
             } else {
                 FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Aviso:", "Credenciales incorrectas"));

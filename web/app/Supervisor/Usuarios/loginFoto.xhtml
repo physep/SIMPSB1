@@ -6,33 +6,44 @@
       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <h:head>
         <title>Iniciar Sesión</title>
-        <link href="../../../resources/css/Index/estilosLogin.css" rel="stylesheet" type="text/css"/>
-        <link href="../resources/css/Bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../../../resources/css/Bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../../resources/css/Citas/agendarCita.css" rel="stylesheet" type="text/css"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </h:head>
     <h:body class="fondo">
         <f:view locale="#{languages.idiomaSeleccionado}">
-            <!-- AREA DE TRABAJO -->
-            <div class="area-trabajo">
-                <div class="container">
-                    <h:messages globalOnly="true" showDetail="true" class="mensajes"/>
-                    <h:form>
-                        <div class="dropdown d-flex justify-content-end">
-                            <button type="button" class="lanbtn btn dropdown-toggle"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                #{pagesEti[languages.idiomaSeleccionado.language]}
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <c:forEach items="#{languages.idiomasSoportados}" var="idioma">
-                                    <h:commandLink class="dropdown-item" actionListener="#{languages.cambiarIdioma(idioma)}"
-                                                   value="#{pagesEti[idioma.language]}"/>
-                                </c:forEach>    
-                            </div>
-                        </div>
-                    </h:form>
 
-                    <h:form styleClass="d-block mx-auto formu">
-                        <h1 class="text-center text-uppercase">#{indexEti.login}</h1>
+            <!--Migas de Pan-->
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">#{citasEti.current_agendarCita}</li>
+                </ol>
+            </nav> 
+            <h:messages globalOnly="true" showDetail="true" class="mensajes"/>
+            <h:form>
+                <div class="dropdown d-flex justify-content-end">
+                    <button type="button" class="lanbtn btn dropdown-toggle"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        #{pagesEti[languages.idiomaSeleccionado.language]}
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <c:forEach items="#{languages.idiomasSoportados}" var="idioma">
+                            <h:commandLink class="dropdown-item" actionListener="#{languages.cambiarIdioma(idioma)}"
+                                           value="#{pagesEti[idioma.language]}"/>
+                        </c:forEach>    
+                    </div>
+                </div>
+            </h:form>
+            <!-- Area de Trabajo -->
+            <div class="container">
+                <div class="formulario d-block mx-auto">
+                    <div class="titulo">
+                        <h1 class="text-center text-uppercase">Verifica tu Sesion</h1>
+                    </div>
+
+                    <h:form>
+                        <h1 class="text-center text-uppercase"></h1>
                         <div class="form-group">
                             <h:outputLabel for="correo" styleClass="text-uppercase" value="#{indexEti.form_email}"/>
                             <h:inputText id="correo" styleClass="form-control form" value="#{sesionController.usuario.correo}"/>
@@ -48,9 +59,10 @@
                         <div class="text-center">
                             <h:commandButton action="#{sesionController.iniciarSesionFoto()}" class="btn boton" value="#{indexEti.ingresar}"/>
                         </div>
-                        <a href="Index/olvidoContra.xhtml?faces-redirect=true" class="text-decoration-none text-warning">Olvidó su contraseña?</a>
-                        <div class="text-right">
-                            <a href="../index.xhtml" class="text-decoration-none text-warning">Volver</a>
+                        <br>
+                        </br>
+                        <div>
+                            <p class="text-center">Lamentamos los inconvenientes, solo queremos verificar tu sesion.</p>
                         </div>
                     </h:form>
                 </div>

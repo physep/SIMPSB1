@@ -5,19 +5,13 @@
       xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:f="http://java.sun.com/jsf/core">
     <h:head>
         <title>Factura</title>
         <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
         <!-- Estilos css -->
-        <link href="../../../resources/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-        <link href="../../resources/css/Factura/crearFactura.css" rel="stylesheet" type="text/css"/>
-        <link href="../../../resources/css/sweetalert2.min.css" rel="stylesheet" type="text/css"/>
-        <!-- DATATABLES -->
-        <link href="../../../resources/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css"/>
-        <link href="../../../resources/css/datatables.min.css" rel="stylesheet" type="text/css"/>
-        <link href="../../../resources/css/buttons.dataTables.min.css" rel="stylesheet" type="text/css"/>
+       <link href="../../../resources/css/Bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../../resources/css/Pagos/estilos-generar-pagos.css" rel="stylesheet" type="text/css"/>
     </h:head>
     <h:body class="fondo"> <!-- Fondo-->
         <!-- Mensaje de Controladores -->
@@ -35,11 +29,13 @@
             <!-- fONDO DE FORMULARIO -->
             <div class="formulario d-block mx-auto">
                 <div class="titulo">
-                        <h1 class="text-center">Datos Factura</h1>
+                        <h1 class="text-center">Datos Facturacion</h1>
                     </div>
                 <h:form>
                         <div class="form-row">
                             <div class="form-group col-md-12">
+                            <h:inputHidden value="#{citasController.servicios.idServicio}"/>
+                            <h:inputHidden value="#{citasController.empleado.idEmpleado}"/>
                                 <h:outputLabel for="emafierrt" value="Id Cita:  "/>
                                 <h:outputLabel id="emafierrt" value="#{facturaController.citas.idCita}"/>
                                 <h:message for="emafierrt"/>
@@ -78,7 +74,7 @@
                         </div>
                                 <div class="form-group col-md-6">
                             <h:outputLabel for="idCita" value="Id Cita"/>
-                            <h:selectOneMenu id="idCita" value="#{facturaController.citas.idCita}" styleClass="form form-control">
+                            <h:selectOneMenu id="idCita" value="#{facturaController.factura.idCita}" styleClass="form form-control">
                                 <f:selectItem itemLabel="Seleccionar" itemValue="0"/>
                                 <f:selectItems value="#{facturaController.listCitas}" var="cita" 
                                                itemValue="#{cita.idCita}" 

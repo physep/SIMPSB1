@@ -49,52 +49,16 @@
             </h:form>
             <div class="container">
                 <div class="tabla d-block mx-auto">
-                    <div class="titulo">
-                        <h1 class="text-center text-uppercase">#{pagosEti.consultar}</h1>
-                    </div>
-                    <div class="row">
-                        <!-- TABLA  -->
-                        <div class="col-12">
-                            <p class="text-uppercase"> <img src="../../resources/img/icono_pagos.png" alt=""/>#{pagosEti.pagos} </p>
-                            <h:form>
-                            <h:commandButton actionListener="#{pagoscontroller.genenarPDF(actionEvent)}" value="PDF" styleClass="btn btn-warning">
+                    
+                                    <h:form>
+                                        <h:commandButton actionListener="#{pruebaController.genenarPDF(actionEvent)}" value="PDF" styleClass="btn btn-warning">
                   
                             </h:commandButton>
                                 </h:form>
-                            <h:dataTable value="#{pagosController.listarPagos()}" var="comisiones" styleClass="display tablas table table-striped table-bordered dt-responsive nowrap text-center">
-                                <h:column>
-                                    <f:facet name="header">ID</f:facet>
-                                    <h:outputText value="#{comisiones.idComisiones}" id="idComision"/>
-                                </h:column>  
-                                <h:column>
-                                    <f:facet name="header">#{pagosEti.valor}</f:facet>
-                                    <h:outputText value="#{comisiones.valor}" id="valor"/>
-                                </h:column>    
-                                <h:column>
-                                    <f:facet name="header">#{pagosEti.empleado}</f:facet>
-                                    <h:outputText value="#{comisiones.idEmpleado.idUsuario.nombre}" id="idEmpleado"/>
-                                </h:column>    
-                                <h:column>
-                                    <f:facet name="header">#{pagosEti.factura}</f:facet>
-                                    <h:outputText value="#{comisiones.idFactura.idFactura}" id="idFactura"/>
-                                </h:column>    
-                                <h:column>
-                                    <h:form>
-                                        <f:facet name="header">#{universEti.acciones}</f:facet>
-                                        <h:commandButton styleClass="btn btn-danger" 
-                                                         value="#{universEti.eliminar}" 
-                                                         onclick="javascript:if (!confirm('¿Está seguro que desea eliminar este pago?'))
-                                                                     return false;" 
-                                                         action="#{pagosController.eliminarPagos(comisiones)}"/>
-                                        <h:commandButton styleClass="btn btn-warning" value="#{universEti.modificar}" action="#{pagosController.consultarPago(comisiones)}"/>
-                                    </h:form>
-                                </h:column>    
-                            </h:dataTable>
                             
                         </div>
                     </div>
-                </div>
-            </div>
+               
             <!-- BOOTSTRAP -->
             <script src="../../../resources/js/Bootstrap/jquery-3.3.1.slim.min.js" type="text/javascript"></script>
             <script src="../../../resources/js/Bootstrap/popper.min.js" type="text/javascript"></script>

@@ -48,6 +48,7 @@ public class UsuarioFacade extends AbstractFacade<Usuario> implements UsuarioFac
         return usuario;
     }
 
+    
     @Override
     public Usuario getId(int doc) {
         Usuario user = new Usuario();
@@ -63,6 +64,5 @@ public class UsuarioFacade extends AbstractFacade<Usuario> implements UsuarioFac
         }
         return user;
     }
-
     
 }

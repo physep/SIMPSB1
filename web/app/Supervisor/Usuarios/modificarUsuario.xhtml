@@ -42,9 +42,9 @@
                     </div>
 
                     <h:form>
-                        <h:inputHidden value="#{usuarioController.usuario.idUsuario}"/>
-                        <h:inputHidden value="#{usuarioController.usuario.pass}"/>
-                        <h:inputHidden value="#{usuarioController.usuario.idRol}">
+                        <h:inputHidden id="idUsuario" value="#{usuarioController.usuario.idUsuario}"/>
+                        <h:inputHidden id="pass" value="#{usuarioController.usuario.pass}"/>
+                        <h:inputHidden id="roles" value="#{usuarioController.roles.idRol}">
                         </h:inputHidden>
                         <div class="form-row">
                             <div class="form-group col-md-6">

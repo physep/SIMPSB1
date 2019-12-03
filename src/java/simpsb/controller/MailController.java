@@ -74,13 +74,13 @@ public class MailController {
         if (user != null) {
             //Creo la nueva contraseña    
             pass = (int) (Math.random() * 34520 + 23);
-            newPass = "Vx" + pass + "*";
-//            }
-//            //Edito la nueva contraseña
-//            usuario.setPass(newPass);
-//            //Guardo la nueva contraseña
-//            usuarioFacadeLocal.edit(usuario);
-
+            newPass = "Vx" + pass + "jw*";
+            //Asigno los valores que traje a través de la consulta
+            usuario = user;
+            //Edito la nueva contraseña
+            usuario.setPass(newPass);
+            //Guardo la nueva contraseña
+            usuarioFacadeLocal.edit(usuario);
             //Creo el cuerpo del mensaje
             String text;
             text = "<body style=\"@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');\n"

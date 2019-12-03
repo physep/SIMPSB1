@@ -145,12 +145,9 @@ public class CitasController {
         this.año = año;
     }
 
-    public void generarCita(int idUser) {
-
-        Usuario user;
+    public void generarCita() {
         Cliente cl = null;
         try {
-            user = usuarioFacadeLocal.find(idUser+1);
 //            cl = clienteFacadeLocal.find(user.getIdUsuario());
             cliente.setIdCliente(1);
             citas.setIdCliente(cliente);
